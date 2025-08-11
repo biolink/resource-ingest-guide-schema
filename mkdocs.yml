@@ -14,8 +14,8 @@ plugins:
 nav:
   # - Home: home.md
   - Overview: index.md
-  - Example RIGs: example-rigs.md
-  - RIG Index: rig_index.md
+  - Writing a RIG: example-rigs.md
+  - Index of Existing RIGs: rig_index.md
 site_url: https://biolink.github.io/information-resource-ingest-guide
 repo_url: https://github.com/biolink/information-resource-ingest-guide
 extra:

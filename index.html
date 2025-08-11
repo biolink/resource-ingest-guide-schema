@@ -8,11 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/resource-ingest-guide-schema/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/">
       
       
       
-        <link rel="next" href="about/">
+        <link rel="next" href="example-rigs/">
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -20,11 +20,14 @@
     
     
       
-        <title>resource-ingest-guide-schema</title>
+        <title>Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
       <link rel="stylesheet" href="assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -43,15 +46,19 @@
       
     
     
-      <link rel="stylesheet" href="css/ansi-colours.css">
-    
-      <link rel="stylesheet" href="css/jupyter-cells.css">
-    
-      <link rel="stylesheet" href="css/pandas-dataframe.css">
-    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-J23SCD6JB8"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-J23SCD6JB8",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-J23SCD6JB8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -59,7 +66,12 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="black" data-md-color-primary="black" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -68,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reference-ingest-guide-schema" class="md-skip">
+        <a href="#reference-ingest-guide-schema-a-schema-for-describing-the-scope-rationale-and-modeling-approach-for-ingesting-content-from-an-external-source-to-a-data-repository-compliant-with-the-biolink-model" class="md-skip">
           Skip to content
         </a>
       
@@ -84,10 +96,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="resource-ingest-guide-schema" class="md-header__button md-logo" aria-label="resource-ingest-guide-schema" data-md-component="logo">
+    <a href="." title="Biolink Reference Ingest Guide Schema Documentation" class="md-header__button md-logo" aria-label="Biolink Reference Ingest Guide Schema Documentation" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="images/biolink-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -98,21 +109,21 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            resource-ingest-guide-schema
+            Biolink Reference Ingest Guide Schema Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              Overview
             
           </span>
         </div>
       </div>
     </div>
     
+      
     
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -158,7 +169,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/biolink/resource-ingest-guide-schema" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/biolink/information-resource-ingest-guide" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -194,17 +205,16 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="resource-ingest-guide-schema" class="md-nav__button md-logo" aria-label="resource-ingest-guide-schema" data-md-component="logo">
+    <a href="." title="Biolink Reference Ingest Guide Schema Documentation" class="md-nav__button md-logo" aria-label="Biolink Reference Ingest Guide Schema Documentation" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="images/biolink-logo.png" alt="logo">
 
     </a>
-    resource-ingest-guide-schema
+    Biolink Reference Ingest Guide Schema Documentation
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/biolink/resource-ingest-guide-schema" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/biolink/information-resource-ingest-guide" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -238,7 +248,7 @@
   
   
   <span class="md-ellipsis">
-    Index
+    Overview
     
   </span>
   
@@ -251,7 +261,7 @@
   
   
   <span class="md-ellipsis">
-    Index
+    Overview
     
   </span>
   
@@ -301,20 +311,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Types
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#subsets" class="md-nav__link">
     <span class="md-ellipsis">
       Subsets
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Subsets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#citing-biolink-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Citing Biolink Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -333,12 +349,34 @@
   
   
     <li class="md-nav__item">
-      <a href="about/" class="md-nav__link">
+      <a href="example-rigs/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    About
+    Example RIGs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rig_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RIG Index
     
   </span>
   
@@ -402,20 +440,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Types
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#subsets" class="md-nav__link">
     <span class="md-ellipsis">
       Subsets
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Subsets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#citing-biolink-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Citing Biolink Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -438,10 +482,7 @@
   
 
 
-<h1 id="reference-ingest-guide-schema">Reference Ingest Guide Schema</h1>
-<p>A schema for describing the scope, rationale, and modeling approach for ingesting content from a single source.</p>
-<p>URI: https://w3id.org/biolink/resource-ingest-guide-schema</p>
-<p>Name: reference_ingest_guide</p>
+<h1 id="reference-ingest-guide-schema-a-schema-for-describing-the-scope-rationale-and-modeling-approach-for-ingesting-content-from-an-external-source-to-a-data-repository-compliant-with-the-biolink-model">Reference Ingest Guide Schema: A schema for describing the scope, rationale, and modeling approach for ingesting content from an external source to a data repository compliant with the Biolink Model.</h1>
 <h2 id="classes">Classes</h2>
 <table>
 <thead>
@@ -453,51 +494,51 @@
 <tbody>
 <tr>
 <td><a href="EdgeType/">EdgeType</a></td>
-<td>A structure for describing each type of edge (metaedge) created in the target...</td>
+<td>A structure for describing each type of edge (metaedge) created in the target knowledge graph by this ingest, including what types of edge properties it holds, and a brief explanation of why this modeling pattern was deemed appropriate to represent the source data (for display to end users in a UI system).</td>
 </tr>
 <tr>
 <td><a href="FilteredContent/">FilteredContent</a></td>
-<td>A structure for describing the types of records from each relevant file/endpo...</td>
+<td>A structure for describing the types of records from each relevant file/endpoint/table not included in the ingest, and the rationale for any filtering rules or exclusion criteria. Only list a file if some but not all records it contains are included in the ingest - to document what subset was excluded, and why.</td>
 </tr>
 <tr>
 <td><a href="FutureContentConsiderations/">FutureContentConsiderations</a></td>
-<td>A structure for collecting notes about content additions or changes to consid...</td>
+<td>A structure for collecting notes about content additions or changes to consider in future iterations of this ingest. Create separate objects for each distinct consideration, and indicate if it relates to  content that will be captured as Edges, Node Properties, or Edge Properties in the target knowledge graph.</td>
 </tr>
 <tr>
 <td><a href="FutureModelingConsiderations/">FutureModelingConsiderations</a></td>
-<td>A structure for collecting discrete considerations about modeling changes to ...</td>
+<td>A structure for collecting discrete considerations about modeling changes to consider in future iterations of this ingest. Create and categorize separate objects for each distinct consideration.</td>
 </tr>
 <tr>
 <td><a href="IncludedContent/">IncludedContent</a></td>
-<td>A structure for describing the types of records from relevant files/endpoints...</td>
+<td>A structure for describing the types of records from relevant files/endpoints/tables are included in this ingest, and optionally a list of fields from these records that are part of the ingest or used to inform it.</td>
 </tr>
 <tr>
 <td><a href="IngestInformation/">IngestInformation</a></td>
-<td>A container for capturing information about the rationale and scope of an ing...</td>
+<td>A container for capturing information about the rationale and scope of an ingest, including what source content was included and excluded from the ingest, and what additional content might be considered in future iterations.</td>
 </tr>
 <tr>
 <td><a href="NodeType/">NodeType</a></td>
-<td>A structured object describing each type of node created in the target knowle...</td>
+<td>A structured object describing each type of node created in the target knowledge graph by this ingest.</td>
 </tr>
 <tr>
 <td><a href="ProvenanceInformation/">ProvenanceInformation</a></td>
-<td>A container holding information about the provenance of the ingest, including...</td>
+<td>A container holding information about the provenance of the ingest, including who contributed and how, and links to external provenance artifacts.</td>
 </tr>
 <tr>
 <td><a href="ReferenceIngestGuide/">ReferenceIngestGuide</a></td>
-<td>A container that holds attributes for the discrete sections of information co...</td>
+<td>A container that holds attributes for the discrete sections of information comprising a Reference Ingest Guide.</td>
 </tr>
 <tr>
 <td><a href="RelevantFiles/">RelevantFiles</a></td>
-<td>A structure for describing each source file (or API endpoint, database, or ta...</td>
+<td>A structure for describing each source file (or API endpoint, database, or table) that contains content in scope for the ingest. Source files containing which content is not retrieved  in this ingest need not be listed or described.</td>
 </tr>
 <tr>
 <td><a href="SourceInformation/">SourceInformation</a></td>
-<td>A container for capturing information about the source of the ingest</td>
+<td>A container for capturing information about the source of the ingest.</td>
 </tr>
 <tr>
 <td><a href="TargetInformation/">TargetInformation</a></td>
-<td>A sturcture for capturing information about the target dataset / knowledge gr...</td>
+<td>A sturcture for capturing information about the target dataset / knowledge graph output by the ingest, including what types of edges and nodes were produced, modeling rationale, and what modeling changes might be considered in future iterations.</td>
 </tr>
 </tbody>
 </table>
@@ -505,210 +546,406 @@
 <table>
 <thead>
 <tr>
-<th>Slot</th>
+<th>Property</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="additional_notes/">additional_notes</a></td>
-<td></td>
+<td>None</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="agent_type/">agent_type</a></td>
-<td>The agent type (or types) relevant to this type of edge</td>
+<td>The agent type (or types) relevant to this type of edge. Multivalued only if instances of this type of edge can have different agent types in the data.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="artifacts/">artifacts</a></td>
-<td>Links to and descriptions of external artifacts related to the provenance of ...</td>
+<td>Links to and descriptions of external artifacts related to the provenance of the ingest, such as Github issues, surveys of prior ingests of the source, etc.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="biolink_qualifier_1/">biolink_qualifier_1</a></td>
-<td>If relevant, a Biolink qualifier property that defines this edge type</td>
+<td>If relevant, a Biolink qualifier property that defines this edge type. e.g. "biolink:subject_form_or_variant_qualifier".</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="biolink_qualifier_1_value_type/">biolink_qualifier_1_value_type</a></td>
-<td>The type of the value taken by the first qualifier type</td>
+<td>The type of the value taken by the first qualifier type. Can be reported as the name of a Biolink class, enumeration, or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string".</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="biolink_qualifier_2/">biolink_qualifier_2</a></td>
-<td>If relevant, a second Biolink qualifier property that defines this edge type</td>
+<td>If relevant, a second Biolink qualifier property that defines this edge type. e.g. "biolink:subject_aspect_qualifier".</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="biolink_qualifier_2_value_type/">biolink_qualifier_2_value_type</a></td>
-<td>The type of the value taken by the second qualifier type</td>
+<td>The type of the value taken by the second qualifier type. Can be reported as the name of a Biolink class, enumeration, or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string".</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="biolink_qualifier_3/">biolink_qualifier_3</a></td>
-<td>IF relevant, a third Biolink qualifier property that defines this edge type</td>
+<td>IF relevant, a third Biolink qualifier property that defines this edge type. e.g. "biolink:object_direction_qualifier".</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="biolink_qualifier_3_value_type/">biolink_qualifier_3_value_type</a></td>
-<td>The type of the value taken by the third qualifier type</td>
+<td>The type of the value taken by the third qualifier type. Can be reported as the name of a Biolink class, enumeration, or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string".</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="category/">category</a></td>
-<td>The category of content described by a given consideration, based on how the ...</td>
+<td>The category of content described by a given consideration, based on how the content will be represented in the target graph (e.g. "Edges", 'Node Properties",  "Edge Properties").</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="citations/">citations</a></td>
-<td>One ore more citations to publications describing the source</td>
+<td>One ore more citations to publications describing the source. May be a identifier (e.g a pmid or doi), a url to the published document, or a free-text citation.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="consideration/">consideration</a></td>
-<td>A description of what additional content should be considered and why</td>
+<td>A description of what additional content should be considered and why.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="contributions/">contributions</a></td>
-<td>The name of a person making a contribution, and the type of contribution made</td>
+<td>The name of a person making a contribution, and the type of contribution made. e.g. "code author", "code support", "data modeling", "domain expertise".</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="data_access_locations/">data_access_locations</a></td>
-<td>Where the source data that is being ingested can be accessed</td>
+<td>Where the source data that is being ingested can be accessed. Provide one or more URLs,  along with optional descriptions of what each URL provides.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="data_formats/">data_formats</a></td>
-<td>The format(s) in which the data is serialized for retrieval and use</td>
+<td>The format(s) in which the data is serialized for retrieval and use.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="data_provision_mechanisms/">data_provision_mechanisms</a></td>
-<td>How the source distributes their data (file download, API endpoints, database...</td>
+<td>How the source distributes their data (file download, API endpoints, database dump).</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="data_versioning_and_releases/">data_versioning_and_releases</a></td>
-<td>A description of how releases are versioned and managed by the source (e</td>
+<td>A description of how releases are versioned and managed by the source (e.g. general approach, frequency, other important considerations). May also include links to web pages describing such information.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="description/">description</a></td>
-<td>A brief description of the source, including its purpose, scope, and any rele...</td>
+<td>A brief description of the source, including its purpose, scope, and any relevant background information.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="edge_properties/">edge_properties</a></td>
-<td>A list of one or more Biolink edge properties used in instances of this edge ...</td>
+<td>A list of one or more Biolink edge properties used in instances of this edge type in the data.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="edge_type_info/">edge_type_info</a></td>
-<td>A description of each type of edge (metaedge) created in the target knowledge...</td>
+<td>A description of each type of edge (metaedge) created in the target knowledge graph by this ingest, including what types of edge properties it holds, and a brief explanation of why this modeling pattern was deemed appropriate to represent the source data (to be displayed for end users in a UI system).</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="fields_used/">fields_used</a></td>
-<td>Optional list of the specific source fields that are part of or inform the in...</td>
+<td>Optional list of the specific source fields that are part of or inform the ingest.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="file_name/">file_name</a></td>
-<td>The name of the relevant file (or endpoint, or table)</td>
+<td>The name of the relevant file (or endpoint, or table).</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="filtered_content/">filtered_content</a></td>
-<td>A description of what types of records from each relevant file are not includ...</td>
+<td>A description of what types of records from each relevant file are not included in the ingest, and the rationale for any filtering rules or exclusion criteria. Only list a file if some but not all records it contains are included in the ingest - to document what subset was excluded, and why.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="filtered_records/">filtered_records</a></td>
-<td>A description of what types of records were excluded from the ingest, in term...</td>
+<td>A description of what types of records were excluded from the ingest, in terms of filtering rules or exclusion criteria.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="future_considerations/">future_considerations</a></td>
-<td>Notes about content additions or changes to consider in future iterations of ...</td>
+<td>Notes about content additions or changes to consider in future iterations of this ingest. Separately consider content that will be represented as Edges vs Node Properties vs Edge Properties in the target knowledge graph.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="included_content/">included_content</a></td>
-<td>A description of what types of records from relevant files/endpoints/tables a...</td>
+<td>A description of what types of records from relevant files/endpoints/tables above are included in this ingest, and optionally a list of fields from these records that are part of the ingest or used to inform it.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="included_records/">included_records</a></td>
-<td>A description of the types of records that are included in the ingest</td>
+<td>A description of the types of records that are included in the ingest.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="infores_id/">infores_id</a></td>
-<td>The infores identifier of the source from which content is being ingested, e</td>
+<td>The infores identifier of the source from which content is being ingested, e.g. "infores:ctd".</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="ingest_categories/">ingest_categories</a></td>
-<td>A term or terms indicating the type of source being ingested, from the perspe...</td>
+<td>A term or terms indicating the type of source being ingested, from the perspective of the ingesting system (e.g. primary knowledge provider, supporting data provider, ontology/terminology provider).</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="ingest_info/">ingest_info</a></td>
-<td>Information about the rationale and scope of an ingest, including what source...</td>
+<td>Information about the rationale and scope of an ingest, including what source content was included and excluded from the ingest, and what additional content might be considered in future iterations.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="knowledge_level/">knowledge_level</a></td>
-<td>The knowledge level (or levels) relevant to this type of edge</td>
+<td>The knowledge level (or levels) relevant to this type of edge. Multivalued only if instances of this type of edge can have different knowledge levels in the data.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="location/">location</a></td>
-<td>The URL of a web page or ftp site where the indicated file (or endpoint or ta...</td>
+<td>The URL of a web page or ftp site where the indicated file (or endpoint or table) was accessed.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="name/">name</a></td>
 <td>A human readable name for the RIG</td>
 </tr>
 <tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
 <td><a href="node_category/">node_category</a></td>
-<td>The high-level Biolink category of nodes as assumed or assigned by ingestors</td>
+<td>The high-level Biolink category of nodes as assumed or assigned by ingestors. e.g. "biolink:Gene".</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="node_properties/">node_properties</a></td>
-<td>A list of one or more Biolink node properties used in instances of this node ...</td>
+<td>A list of one or more Biolink node properties used in instances of this node type in the data.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="node_type_info/">node_type_info</a></td>
-<td>A description of each type of node created in the target knowledge graph by t...</td>
+<td>A description of each type of node created in the target knowledge graph by this ingest, in terms of the high-level Biolink categor(ies) of nodes as assumed or assigned by ingestors.  Note however that downstream normalization of node identifiers may result in new/different categories ultimately being assigned in the final graph.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="object_categories/">object_categories</a></td>
-<td>The Biolink category of the object node of this edge type</td>
+<td>The Biolink category of the object node of this edge type. e.g. "biolink:Disease".</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="predicate/">predicate</a></td>
-<td>The Biolink predicate that defines this type of edge (e</td>
+<td>The Biolink predicate that defines this type of edge (e.g. "biolink:treats)</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="provenance_info/">provenance_info</a></td>
-<td>Information about the provenance of the ingest, including who contributed and...</td>
+<td>Information about the provenance of the ingest, including who contributed and how, and links to external provenance-related artifacts (e.g. Github tickets,  ingest surveys, etc.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="qualified_predicate/">qualified_predicate</a></td>
-<td>The Biolink predicate used in a "qualified" reading of a statement expressed ...</td>
+<td>The Biolink predicate used in a "qualified" reading of a statement expressed by an Edge (i.e. one that considers the semantics added by subject and/or object qualifiers)</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="rationale/">rationale</a></td>
-<td>The rationale for excluding the indicated content (why this subset of records...</td>
+<td>The rationale for excluding the indicated content (why this subset of records was filtered out).</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="relevant_files/">relevant_files</a></td>
-<td>A description of each source file (or API endpoint, database, or table) that ...</td>
+<td>A description of each source file (or API endpoint, database, or table) that contains content in scope for the ingest. Source files containing which content is not retrieved  in this ingest need not be listed or described.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="scope/">scope</a></td>
-<td>A short, high-level narrative describing of the types of knowledge form the s...</td>
+<td>A short, high-level narrative describing of the types of knowledge form the source that are included and excluded in this ingest.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="source_identifier_types/">source_identifier_types</a></td>
-<td>The type of identifier(s) used for this category of entity by the source syst...</td>
+<td>The type of identifier(s) used for this category of entity by the source system. Report as a prefix for an identifier system where appropriate/possible (preferably a prefix as cataloged in the Biolink prefix registry). e.g. "MESH", "CTD", "ECTO". But can be a free text description if needed. e.g. "The source uses entity names but does not assign identifiers".</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="source_info/">source_info</a></td>
-<td>Information about the source from which content is ingested</td>
+<td>Information about the source from which content is ingested.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="subject_categories/">subject_categories</a></td>
-<td>The Biolink category of the subject node of this edge type</td>
+<td>The Biolink category of the subject node of this edge type. e.g. "biolink:SmallMolecule".</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="target_info/">target_info</a></td>
-<td>Information about the dataset / knowledge graph output by the ingest,  includ...</td>
+<td>Information about the dataset / knowledge graph output by the ingest,  including what types of edges and nodes were produced, modeling rationale,  and what modeling changes might be considered in future iterations.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="terms_of_use/">terms_of_use</a></td>
-<td>Information about conditions for use of the ingested source</td>
+<td>Information about conditions for use of the ingested source. May be the name of a community license (e.g. <code>CC-BY 4.0</code>), a link to a "terms of use" or license information web page (e.g. <code>https://ctdbase.org/about/legal.jsp</code>), or a free-text summary of key terms of use.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="ui_explanation/">ui_explanation</a></td>
-<td>A brief explanation of why this modeling pattern was deemed appropriate to re...</td>
+<td>A brief explanation of why this modeling pattern was deemed appropriate to represent the source data (for display to end users in a UI system).</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
 </tr>
 <tr>
 <td><a href="utility/">utility</a></td>
-<td>Brief description of why the source was ingested, and the utility of the data...</td>
+<td>Brief description of why the source was ingested, and the utility of the data it provides for target system use cases.</td>
 </tr>
 </tbody>
 </table>
@@ -723,7 +960,7 @@
 <tbody>
 <tr>
 <td><a href="AgentTypeEnum/">AgentTypeEnum</a></td>
-<td>Agent types relevant to edges of a particular type</td>
+<td>Agent types relevant to edges of a particular type.</td>
 </tr>
 <tr>
 <td><a href="ContentCategoryEnum/">ContentCategoryEnum</a></td>
@@ -731,110 +968,23 @@
 </tr>
 <tr>
 <td><a href="DataFormatEnum/">DataFormatEnum</a></td>
-<td>Formats in which data is serialized</td>
+<td>Formats in which data is serialized.</td>
 </tr>
 <tr>
 <td><a href="IngestCategoryEnum/">IngestCategoryEnum</a></td>
-<td>The type of source being ingested, from the perspective of the ingesting syst...</td>
+<td>The type of source being ingested, from the perspective of the ingesting system.</td>
 </tr>
 <tr>
 <td><a href="KnowledgeLevelEnum/">KnowledgeLevelEnum</a></td>
-<td>Knowledge levels relevant to edges of a particular type</td>
+<td>Knowledge levels relevant to edges of a particular type.</td>
 </tr>
 <tr>
 <td><a href="ModelingCategoryEnum/">ModelingCategoryEnum</a></td>
-<td>Categories of future modeling considerations (what type of modeling the  cons...</td>
+<td>Categories of future modeling considerations (what type of modeling the  consideration is about).</td>
 </tr>
 <tr>
 <td><a href="ProvisionMechanismEnum/">ProvisionMechanismEnum</a></td>
-<td>Ways in which data can be made accessible for retrieval</td>
-</tr>
-</tbody>
-</table>
-<h2 id="types">Types</h2>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Boolean/">Boolean</a></td>
-<td>A binary (true or false) value</td>
-</tr>
-<tr>
-<td><a href="Curie/">Curie</a></td>
-<td>a compact URI</td>
-</tr>
-<tr>
-<td><a href="Date/">Date</a></td>
-<td>a date (year, month and day) in an idealized calendar</td>
-</tr>
-<tr>
-<td><a href="DateOrDatetime/">DateOrDatetime</a></td>
-<td>Either a date or a datetime</td>
-</tr>
-<tr>
-<td><a href="Datetime/">Datetime</a></td>
-<td>The combination of a date and time</td>
-</tr>
-<tr>
-<td><a href="Decimal/">Decimal</a></td>
-<td>A real number with arbitrary precision that conforms to the xsd:decimal speci...</td>
-</tr>
-<tr>
-<td><a href="Double/">Double</a></td>
-<td>A real number that conforms to the xsd:double specification</td>
-</tr>
-<tr>
-<td><a href="Float/">Float</a></td>
-<td>A real number that conforms to the xsd:float specification</td>
-</tr>
-<tr>
-<td><a href="Integer/">Integer</a></td>
-<td>An integer</td>
-</tr>
-<tr>
-<td><a href="Jsonpath/">Jsonpath</a></td>
-<td>A string encoding a JSON Path</td>
-</tr>
-<tr>
-<td><a href="Jsonpointer/">Jsonpointer</a></td>
-<td>A string encoding a JSON Pointer</td>
-</tr>
-<tr>
-<td><a href="Ncname/">Ncname</a></td>
-<td>Prefix part of CURIE</td>
-</tr>
-<tr>
-<td><a href="Nodeidentifier/">Nodeidentifier</a></td>
-<td>A URI, CURIE or BNODE that represents a node in a model</td>
-</tr>
-<tr>
-<td><a href="Objectidentifier/">Objectidentifier</a></td>
-<td>A URI or CURIE that represents an object in the model</td>
-</tr>
-<tr>
-<td><a href="Sparqlpath/">Sparqlpath</a></td>
-<td>A string encoding a SPARQL Property Path</td>
-</tr>
-<tr>
-<td><a href="String/">String</a></td>
-<td>A character string</td>
-</tr>
-<tr>
-<td><a href="Time/">Time</a></td>
-<td>A time object represents a (local) time of day, independent of any particular...</td>
-</tr>
-<tr>
-<td><a href="Uri/">Uri</a></td>
-<td>a complete URI</td>
-</tr>
-<tr>
-<td><a href="Uriorcurie/">Uriorcurie</a></td>
-<td>a URI or a CURIE</td>
+<td>Ways in which data can be made accessible for retrieval.</td>
 </tr>
 </tbody>
 </table>
@@ -853,6 +1003,12 @@
 </tr>
 </tbody>
 </table>
+<h4 id="citing-biolink-model">Citing Biolink Model</h4>
+<p><small> Unni DR, Moxon SAT, Bada M, Brush M, Bruskiewich R, Caufield JH, Clemons PA, Dancik V, Dumontier M, Fecho K, Glusman G,
+Hadlock JJ, Harris NL, Joshi A, Putman T, Qin G, Ramsey SA, Shefchek KA, Solbrig H, Soman K, Thessen AE, Haendel MA,
+Bizon C, Mungall CJ, The Biomedical Data Translator Consortium (2022).
+Biolink Model: A universal schema for knowledge graphs in clinical, biomedical, and translational science. Clin Transl Sci. Wiley; 2022 Jun 6; <a href="https://onlinelibrary.wiley.com/doi/10.1111/cts.13302">https://onlinelibrary.wiley.com/doi/10.1111/cts.13302</a>
+</small></p>
 
 
 
@@ -861,6 +1017,8 @@
 
 
 
+
+  
 
 
 
@@ -907,10 +1065,6 @@
     
     
       <script src="assets/javascripts/bundle.50899def.min.js"></script>
-      
-        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
-      
-        <script src="javascripts/tablesort.js"></script>
       
     
   </body>

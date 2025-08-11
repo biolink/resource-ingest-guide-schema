@@ -82,7 +82,7 @@ ReferenceIngestGuide:
 
     future_considerations:  # (optional, multivalued, range = FutureModelingConsiderations) Notes on possible changes/additions to modeling in future iteratiosn of the ingest
       - category:  # (optional, range = ModelingCategoryEnum: spoq_pattern | predicates | qualifiers | edge_properties | node_properties | other)
-       consideration:  # (required, range = string)
+        consideration:  # (required, range = string)
 
     additional_notes:  # (optional, range = string)
 

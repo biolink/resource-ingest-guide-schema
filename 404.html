@@ -11,16 +11,19 @@
       
       
       
-      <link rel="icon" href="/resource-ingest-guide-schema/assets/images/favicon.png">
+      <link rel="icon" href="/information-resource-ingest-guide/assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
-        <title>resource-ingest-guide-schema</title>
+        <title>Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
-      <link rel="stylesheet" href="/resource-ingest-guide-schema/assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="/information-resource-ingest-guide/assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="/information-resource-ingest-guide/assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -39,15 +42,19 @@
       
     
     
-      <link rel="stylesheet" href="/resource-ingest-guide-schema/css/ansi-colours.css">
-    
-      <link rel="stylesheet" href="/resource-ingest-guide-schema/css/jupyter-cells.css">
-    
-      <link rel="stylesheet" href="/resource-ingest-guide-schema/css/pandas-dataframe.css">
-    
-    <script>__md_scope=new URL("/resource-ingest-guide-schema/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("/information-resource-ingest-guide/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-J23SCD6JB8"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-J23SCD6JB8",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-J23SCD6JB8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -55,7 +62,12 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="black" data-md-color-primary="black" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -75,10 +87,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/resource-ingest-guide-schema/." title="resource-ingest-guide-schema" class="md-header__button md-logo" aria-label="resource-ingest-guide-schema" data-md-component="logo">
+    <a href="/information-resource-ingest-guide/." title="Biolink Reference Ingest Guide Schema Documentation" class="md-header__button md-logo" aria-label="Biolink Reference Ingest Guide Schema Documentation" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="/information-resource-ingest-guide/images/biolink-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -89,7 +100,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            resource-ingest-guide-schema
+            Biolink Reference Ingest Guide Schema Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -102,8 +113,8 @@
       </div>
     </div>
     
+      
     
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -149,7 +160,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/biolink/resource-ingest-guide-schema" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/biolink/information-resource-ingest-guide" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -185,17 +196,16 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/resource-ingest-guide-schema/." title="resource-ingest-guide-schema" class="md-nav__button md-logo" aria-label="resource-ingest-guide-schema" data-md-component="logo">
+    <a href="/information-resource-ingest-guide/." title="Biolink Reference Ingest Guide Schema Documentation" class="md-nav__button md-logo" aria-label="Biolink Reference Ingest Guide Schema Documentation" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="/information-resource-ingest-guide/images/biolink-logo.png" alt="logo">
 
     </a>
-    resource-ingest-guide-schema
+    Biolink Reference Ingest Guide Schema Documentation
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/biolink/resource-ingest-guide-schema" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/biolink/information-resource-ingest-guide" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -215,12 +225,12 @@
   
   
     <li class="md-nav__item">
-      <a href="/resource-ingest-guide-schema/." class="md-nav__link">
+      <a href="/information-resource-ingest-guide/." class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Index
+    Overview
     
   </span>
   
@@ -237,12 +247,34 @@
   
   
     <li class="md-nav__item">
-      <a href="/resource-ingest-guide-schema/about/" class="md-nav__link">
+      <a href="/information-resource-ingest-guide/example-rigs/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    About
+    Example RIGs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/information-resource-ingest-guide/rig_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RIG Index
     
   </span>
   
@@ -319,14 +351,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/resource-ingest-guide-schema/", "features": ["content.tabs.link"], "search": "/resource-ingest-guide-schema/assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "/information-resource-ingest-guide/", "features": ["content.tabs.link"], "search": "/information-resource-ingest-guide/assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/resource-ingest-guide-schema/assets/javascripts/bundle.50899def.min.js"></script>
-      
-        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
-      
-        <script src="/resource-ingest-guide-schema/javascripts/tablesort.js"></script>
+      <script src="/information-resource-ingest-guide/assets/javascripts/bundle.50899def.min.js"></script>
       
     
   </body>

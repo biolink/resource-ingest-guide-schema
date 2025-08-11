@@ -1,7 +1,7 @@
 ---
 id: https://w3id.org/biolink/resource-ingest-guide-schema
 name: reference_ingest_guide
-title: Biolink Reference Ingest Guide Schema
+title: Reference Ingest Guide Schema
 description: A schema for describing the scope, rationale, and modeling approach for ingesting content from a single source.
 license: MIT
 prefixes:

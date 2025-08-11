@@ -38,7 +38,7 @@ endif
 
 
 # basename of a YAML file in model/
-.PHONY: all clean setup gen-project gendoc
+.PHONY: all clean setup gen-project gendoc new-rig validate-rigs
 
 # note: "help" MUST be the first target in the file,
 # when the user types "make" they should get help info
@@ -48,6 +48,8 @@ help: status
 	@echo "make test -- runs tests"
 	@echo "make lint -- perform linting"
 	@echo "make testdoc -- builds docs and runs local test server"
+	@echo "make new-rig -- create a new RIG from template (requires INFORES and NAME)"
+	@echo "make validate-rigs -- validate all RIG files against the schema"
 	@echo "make help -- show this help"
 	@echo ""
 
@@ -88,8 +90,13 @@ $(DOCDIR):
 	mkdir -p $@
 
 gendoc: $(DOCDIR)
-	cp $(SRC)/schema/resource_ingest_guide_schema/resource_ingest_guide_schema.yaml $(DOCDIR) ; \
+	cp $(SOURCE_SCHEMA_PATH) $(DOCDIR) ; \
+	cp $(SRC)/docs/files/*.md $(DOCDIR) ; \
+	cp $(SRC)/docs/files/*.yaml $(DOCDIR) ; \
 	cp -r $(SRC)/docs/images $(DOCDIR)/images ; \
+	$(RUN) python $(SRC)/scripts/rig_to_markdown.py --input-dir $(SRC)/docs/rigs --output-dir $(DOCDIR) ; \
+	$(RUN) python $(SRC)/scripts/generate_rig_index.py --rig-dir $(SRC)/docs/rigs --template-dir $(SRC)/docs/doc-templates --input-file $(SRC)/docs/files/rig_index.md --output-file $(DOCDIR)/rig_index.md ; \
+	if ls $(SRC)/docs/rigs/*.yaml 1> /dev/null 2>&1; then cp $(SRC)/docs/rigs/*.yaml $(DOCDIR)/; fi ; \
 	$(RUN) gen-doc -d $(DOCDIR) --template-directory $(SRC)/docs/doc-templates/ $(SOURCE_SCHEMA_PATH)
 
 testdoc: gendoc serve
@@ -102,6 +109,28 @@ mkd-%:
 .cruft.json:
 	echo "creating a stub for .cruft.json. IMPORTANT: setup via cruft not cookiecutter recommended!" ; \
 	touch $@
+
+# Create a new RIG from template
+# Usage: make new-rig INFORES=infores:ctd NAME="CTD Chemical-Disease Associations"
+new-rig:
+ifndef INFORES
+	$(error INFORES is required. Usage: make new-rig INFORES=infores:example NAME="Example RIG")
+endif
+ifndef NAME
+	$(error NAME is required. Usage: make new-rig INFORES=infores:example NAME="Example RIG")
+endif
+	$(RUN) python $(SRC)/scripts/create_rig.py --infores "$(INFORES)" --name "$(NAME)"
+
+# Validate all RIG files against the schema
+validate-rigs:
+	@echo "Validating RIG files against schema..."
+	@for rig_file in $(SRC)/docs/rigs/*.yaml; do \
+		if [ -f "$$rig_file" ]; then \
+			echo "Validating $$rig_file"; \
+			$(RUN) linkml-validate --schema $(SOURCE_SCHEMA_PATH) "$$rig_file"; \
+		fi; \
+	done
+	@echo "✓ All RIG files validated successfully"
 
 clean:
 	rm -rf $(DEST)

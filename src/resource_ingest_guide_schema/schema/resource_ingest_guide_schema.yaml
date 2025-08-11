@@ -4,7 +4,7 @@ name: reference_ingest_guide
 title: Reference Ingest Guide Schema
 description: >-
   A schema for describing the scope, rationale, and modeling approach for ingesting content from an external source to
-  a data repository compliant with the Biolink Model (see: https://biolink.github.com/biolink-model).
+  a data repository compliant with the Biolink Model.
 license: MIT
 prefixes:
   linkml: https://w3id.org/linkml/
@@ -276,6 +276,7 @@ classes:
           description: >-
             Notes about mapping/modeling changes to consider in future iterations of this ingest.
           range: FutureModelingConsiderations
+          multivalued: true
         additional_notes:
           description:
             Additional notes, considerations or resources relevant to mapping or modeling source data

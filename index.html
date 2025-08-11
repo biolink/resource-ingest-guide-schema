@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#resource-ingest-guide-schema" class="md-skip">
+        <a href="#biolink-reference-ingest-guide-schema" class="md-skip">
           Skip to content
         </a>
       
@@ -438,10 +438,10 @@
   
 
 
-<h1 id="resource-ingest-guide-schema">resource-ingest-guide-schema</h1>
-<p>This is the project description.</p>
+<h1 id="biolink-reference-ingest-guide-schema">Biolink Reference Ingest Guide Schema</h1>
+<p>A schema for describing the scope, rationale, and modeling approach for ingesting content from a single source.</p>
 <p>URI: https://w3id.org/biolink/resource-ingest-guide-schema</p>
-<p>Name: resource-ingest-guide-schema</p>
+<p>Name: reference_ingest_guide</p>
 <h2 id="classes">Classes</h2>
 <table>
 <thead>
@@ -452,16 +452,52 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="NamedThing/">NamedThing</a></td>
-<td>A generic grouping for any identifiable entity</td>
+<td><a href="EdgeType/">EdgeType</a></td>
+<td>A structure for describing each type of edge (metaedge) created in the target...</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ReferenceIngestGuide/">ReferenceIngestGuide</a></td>
-<td>Represents a ReferenceIngestGuide</td>
+<td><a href="FilteredContent/">FilteredContent</a></td>
+<td>A structure for describing the types of records from each relevant file/endpo...</td>
 </tr>
 <tr>
-<td><a href="ReferenceIngestGuideCollection/">ReferenceIngestGuideCollection</a></td>
-<td>A holder for ReferenceIngestGuide objects</td>
+<td><a href="FutureContentConsiderations/">FutureContentConsiderations</a></td>
+<td>A structure for collecting notes about content additions or changes to consid...</td>
+</tr>
+<tr>
+<td><a href="FutureModelingConsiderations/">FutureModelingConsiderations</a></td>
+<td>A structure for collecting discrete considerations about modeling changes to ...</td>
+</tr>
+<tr>
+<td><a href="IncludedContent/">IncludedContent</a></td>
+<td>A structure for describing the types of records from relevant files/endpoints...</td>
+</tr>
+<tr>
+<td><a href="IngestInformation/">IngestInformation</a></td>
+<td>A container for capturing information about the rationale and scope of an ing...</td>
+</tr>
+<tr>
+<td><a href="NodeType/">NodeType</a></td>
+<td>A structured object describing each type of node created in the target knowle...</td>
+</tr>
+<tr>
+<td><a href="ProvenanceInformation/">ProvenanceInformation</a></td>
+<td>A container holding information about the provenance of the ingest, including...</td>
+</tr>
+<tr>
+<td><a href="ReferenceIngestGuide/">ReferenceIngestGuide</a></td>
+<td>A container that holds attributes for the discrete sections of information co...</td>
+</tr>
+<tr>
+<td><a href="RelevantFiles/">RelevantFiles</a></td>
+<td>A structure for describing each source file (or API endpoint, database, or ta...</td>
+</tr>
+<tr>
+<td><a href="SourceInformation/">SourceInformation</a></td>
+<td>A container for capturing information about the source of the ingest</td>
+</tr>
+<tr>
+<td><a href="TargetInformation/">TargetInformation</a></td>
+<td>A sturcture for capturing information about the target dataset / knowledge gr...</td>
 </tr>
 </tbody>
 </table>
@@ -475,36 +511,204 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="age_in_years/">age_in_years</a></td>
-<td>Number of years since birth</td>
-</tr>
-<tr>
-<td><a href="birth_date/">birth_date</a></td>
-<td>Date on which a person is born</td>
-</tr>
-<tr>
-<td><a href="description/">description</a></td>
-<td>A human-readable description for a thing</td>
-</tr>
-<tr>
-<td><a href="entries/">entries</a></td>
+<td><a href="additional_notes/">additional_notes</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="id/">id</a></td>
-<td>A unique identifier for a thing</td>
+<td><a href="agent_type/">agent_type</a></td>
+<td>The agent type (or types) relevant to this type of edge</td>
+</tr>
+<tr>
+<td><a href="artifacts/">artifacts</a></td>
+<td>Links to and descriptions of external artifacts related to the provenance of ...</td>
+</tr>
+<tr>
+<td><a href="biolink_qualifier_1/">biolink_qualifier_1</a></td>
+<td>If relevant, a Biolink qualifier property that defines this edge type</td>
+</tr>
+<tr>
+<td><a href="biolink_qualifier_1_value_type/">biolink_qualifier_1_value_type</a></td>
+<td>The type of the value taken by the first qualifier type</td>
+</tr>
+<tr>
+<td><a href="biolink_qualifier_2/">biolink_qualifier_2</a></td>
+<td>If relevant, a second Biolink qualifier property that defines this edge type</td>
+</tr>
+<tr>
+<td><a href="biolink_qualifier_2_value_type/">biolink_qualifier_2_value_type</a></td>
+<td>The type of the value taken by the second qualifier type</td>
+</tr>
+<tr>
+<td><a href="biolink_qualifier_3/">biolink_qualifier_3</a></td>
+<td>IF relevant, a third Biolink qualifier property that defines this edge type</td>
+</tr>
+<tr>
+<td><a href="biolink_qualifier_3_value_type/">biolink_qualifier_3_value_type</a></td>
+<td>The type of the value taken by the third qualifier type</td>
+</tr>
+<tr>
+<td><a href="category/">category</a></td>
+<td>The category of content described by a given consideration, based on how the ...</td>
+</tr>
+<tr>
+<td><a href="citations/">citations</a></td>
+<td>One ore more citations to publications describing the source</td>
+</tr>
+<tr>
+<td><a href="consideration/">consideration</a></td>
+<td>A description of what additional content should be considered and why</td>
+</tr>
+<tr>
+<td><a href="contributions/">contributions</a></td>
+<td>The name of a person making a contribution, and the type of contribution made</td>
+</tr>
+<tr>
+<td><a href="data_access_locations/">data_access_locations</a></td>
+<td>Where the source data that is being ingested can be accessed</td>
+</tr>
+<tr>
+<td><a href="data_formats/">data_formats</a></td>
+<td>The format(s) in which the data is serialized for retrieval and use</td>
+</tr>
+<tr>
+<td><a href="data_provision_mechanisms/">data_provision_mechanisms</a></td>
+<td>How the source distributes their data (file download, API endpoints, database...</td>
+</tr>
+<tr>
+<td><a href="data_versioning_and_releases/">data_versioning_and_releases</a></td>
+<td>A description of how releases are versioned and managed by the source (e</td>
+</tr>
+<tr>
+<td><a href="description/">description</a></td>
+<td>A brief description of the source, including its purpose, scope, and any rele...</td>
+</tr>
+<tr>
+<td><a href="edge_properties/">edge_properties</a></td>
+<td>A list of one or more Biolink edge properties used in instances of this edge ...</td>
+</tr>
+<tr>
+<td><a href="edge_type_info/">edge_type_info</a></td>
+<td>A description of each type of edge (metaedge) created in the target knowledge...</td>
+</tr>
+<tr>
+<td><a href="fields_used/">fields_used</a></td>
+<td>Optional list of the specific source fields that are part of or inform the in...</td>
+</tr>
+<tr>
+<td><a href="file_name/">file_name</a></td>
+<td>The name of the relevant file (or endpoint, or table)</td>
+</tr>
+<tr>
+<td><a href="filtered_content/">filtered_content</a></td>
+<td>A description of what types of records from each relevant file are not includ...</td>
+</tr>
+<tr>
+<td><a href="filtered_records/">filtered_records</a></td>
+<td>A description of what types of records were excluded from the ingest, in term...</td>
+</tr>
+<tr>
+<td><a href="future_considerations/">future_considerations</a></td>
+<td>Notes about content additions or changes to consider in future iterations of ...</td>
+</tr>
+<tr>
+<td><a href="included_content/">included_content</a></td>
+<td>A description of what types of records from relevant files/endpoints/tables a...</td>
+</tr>
+<tr>
+<td><a href="included_records/">included_records</a></td>
+<td>A description of the types of records that are included in the ingest</td>
+</tr>
+<tr>
+<td><a href="infores_id/">infores_id</a></td>
+<td>The infores identifier of the source from which content is being ingested, e</td>
+</tr>
+<tr>
+<td><a href="ingest_categories/">ingest_categories</a></td>
+<td>A term or terms indicating the type of source being ingested, from the perspe...</td>
+</tr>
+<tr>
+<td><a href="ingest_info/">ingest_info</a></td>
+<td>Information about the rationale and scope of an ingest, including what source...</td>
+</tr>
+<tr>
+<td><a href="knowledge_level/">knowledge_level</a></td>
+<td>The knowledge level (or levels) relevant to this type of edge</td>
+</tr>
+<tr>
+<td><a href="location/">location</a></td>
+<td>The URL of a web page or ftp site where the indicated file (or endpoint or ta...</td>
 </tr>
 <tr>
 <td><a href="name/">name</a></td>
-<td>A human-readable name for a thing</td>
+<td>A human readable name for the RIG</td>
 </tr>
 <tr>
-<td><a href="primary_email/">primary_email</a></td>
-<td>The main email address of a person</td>
+<td><a href="node_category/">node_category</a></td>
+<td>The high-level Biolink category of nodes as assumed or assigned by ingestors</td>
 </tr>
 <tr>
-<td><a href="vital_status/">vital_status</a></td>
-<td>living or dead status</td>
+<td><a href="node_properties/">node_properties</a></td>
+<td>A list of one or more Biolink node properties used in instances of this node ...</td>
+</tr>
+<tr>
+<td><a href="node_type_info/">node_type_info</a></td>
+<td>A description of each type of node created in the target knowledge graph by t...</td>
+</tr>
+<tr>
+<td><a href="object_categories/">object_categories</a></td>
+<td>The Biolink category of the object node of this edge type</td>
+</tr>
+<tr>
+<td><a href="predicate/">predicate</a></td>
+<td>The Biolink predicate that defines this type of edge (e</td>
+</tr>
+<tr>
+<td><a href="provenance_info/">provenance_info</a></td>
+<td>Information about the provenance of the ingest, including who contributed and...</td>
+</tr>
+<tr>
+<td><a href="qualified_predicate/">qualified_predicate</a></td>
+<td>The Biolink predicate used in a "qualified" reading of a statement expressed ...</td>
+</tr>
+<tr>
+<td><a href="rationale/">rationale</a></td>
+<td>The rationale for excluding the indicated content (why this subset of records...</td>
+</tr>
+<tr>
+<td><a href="relevant_files/">relevant_files</a></td>
+<td>A description of each source file (or API endpoint, database, or table) that ...</td>
+</tr>
+<tr>
+<td><a href="scope/">scope</a></td>
+<td>A short, high-level narrative describing of the types of knowledge form the s...</td>
+</tr>
+<tr>
+<td><a href="source_identifier_types/">source_identifier_types</a></td>
+<td>The type of identifier(s) used for this category of entity by the source syst...</td>
+</tr>
+<tr>
+<td><a href="source_info/">source_info</a></td>
+<td>Information about the source from which content is ingested</td>
+</tr>
+<tr>
+<td><a href="subject_categories/">subject_categories</a></td>
+<td>The Biolink category of the subject node of this edge type</td>
+</tr>
+<tr>
+<td><a href="target_info/">target_info</a></td>
+<td>Information about the dataset / knowledge graph output by the ingest,  includ...</td>
+</tr>
+<tr>
+<td><a href="terms_of_use/">terms_of_use</a></td>
+<td>Information about conditions for use of the ingested source</td>
+</tr>
+<tr>
+<td><a href="ui_explanation/">ui_explanation</a></td>
+<td>A brief explanation of why this modeling pattern was deemed appropriate to re...</td>
+</tr>
+<tr>
+<td><a href="utility/">utility</a></td>
+<td>Brief description of why the source was ingested, and the utility of the data...</td>
 </tr>
 </tbody>
 </table>
@@ -518,8 +722,32 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="PersonStatus/">PersonStatus</a></td>
-<td></td>
+<td><a href="AgentTypeEnum/">AgentTypeEnum</a></td>
+<td>Agent types relevant to edges of a particular type</td>
+</tr>
+<tr>
+<td><a href="ContentCategoryEnum/">ContentCategoryEnum</a></td>
+<td>Categories of content for future considerations</td>
+</tr>
+<tr>
+<td><a href="DataFormatEnum/">DataFormatEnum</a></td>
+<td>Formats in which data is serialized</td>
+</tr>
+<tr>
+<td><a href="IngestCategoryEnum/">IngestCategoryEnum</a></td>
+<td>The type of source being ingested, from the perspective of the ingesting syst...</td>
+</tr>
+<tr>
+<td><a href="KnowledgeLevelEnum/">KnowledgeLevelEnum</a></td>
+<td>Knowledge levels relevant to edges of a particular type</td>
+</tr>
+<tr>
+<td><a href="ModelingCategoryEnum/">ModelingCategoryEnum</a></td>
+<td>Categories of future modeling considerations (what type of modeling the  cons...</td>
+</tr>
+<tr>
+<td><a href="ProvisionMechanismEnum/">ProvisionMechanismEnum</a></td>
+<td>Ways in which data can be made accessible for retrieval</td>
 </tr>
 </tbody>
 </table>

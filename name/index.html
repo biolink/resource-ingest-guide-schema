@@ -365,8 +365,8 @@
 
 
 <h1 id="slot-name">Slot: name</h1>
-<p><em>A human-readable name for a thing</em></p>
-<p>URI: <a href="http://schema.org/name">schema:name</a>
+<p><em>A human readable name for the RIG</em></p>
+<p>URI: <a href="https://w3id.org/biolink/vocab/name">biolink:name</a>
 Alias: name</p>
 <!-- no inheritance hierarchy -->
 
@@ -382,12 +382,7 @@ Alias: name</p>
 <tbody>
 <tr>
 <td><a href="../ReferenceIngestGuide/">ReferenceIngestGuide</a></td>
-<td>Represents a ReferenceIngestGuide</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../NamedThing/">NamedThing</a></td>
-<td>A generic grouping for any identifiable entity</td>
+<td>A container that holds attributes for the discrete sections of information co...</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -412,11 +407,11 @@ Alias: name</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>schema:name</td>
+<td>biolink:name</td>
 </tr>
 <tr>
 <td>native</td>
-<td>resource_ingest_guide_schema:name</td>
+<td>biolink:name</td>
 </tr>
 </tbody>
 </table>
@@ -424,13 +419,13 @@ Alias: name</p>
 <details>
 
 <pre><code class="language-yaml">name: name
-description: A human-readable name for a thing
+description: A human readable name for the RIG
 from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
 rank: 1000
-slot_uri: schema:name
 alias: name
+owner: ReferenceIngestGuide
 domain_of:
-- NamedThing
+- ReferenceIngestGuide
 range: string
 
 </code></pre>

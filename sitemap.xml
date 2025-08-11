@@ -5,11 +5,23 @@
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/AgentTypeEnum/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
          <loc>https://biolink.github.io/resource-ingest-guide-schema/Boolean/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/ContentCategoryEnum/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
          <loc>https://biolink.github.io/resource-ingest-guide-schema/Curie/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/DataFormatEnum/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
@@ -33,7 +45,35 @@
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/EdgeType/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/FilteredContent/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
          <loc>https://biolink.github.io/resource-ingest-guide-schema/Float/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/FutureContentConsiderations/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/FutureModelingConsiderations/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/IncludedContent/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/IngestCategoryEnum/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/IngestInformation/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
@@ -49,11 +89,19 @@
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/resource-ingest-guide-schema/NamedThing/</loc>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/KnowledgeLevelEnum/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/ModelingCategoryEnum/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/resource-ingest-guide-schema/Ncname/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/NodeType/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
@@ -65,7 +113,11 @@
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/resource-ingest-guide-schema/PersonStatus/</loc>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/ProvenanceInformation/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/ProvisionMechanismEnum/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
@@ -73,7 +125,11 @@
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/resource-ingest-guide-schema/ReferenceIngestGuideCollection/</loc>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/RelevantFiles/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/SourceInformation/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
@@ -82,6 +138,10 @@
     </url>
     <url>
          <loc>https://biolink.github.io/resource-ingest-guide-schema/String/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/TargetInformation/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
@@ -101,11 +161,71 @@
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/resource-ingest-guide-schema/age_in_years/</loc>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/additional_notes/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/resource-ingest-guide-schema/birth_date/</loc>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/agent_type/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/artifacts/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/biolink_qualifier_1/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/biolink_qualifier_1_value_type/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/biolink_qualifier_2/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/biolink_qualifier_2_value_type/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/biolink_qualifier_3/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/biolink_qualifier_3_value_type/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/category/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/citations/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/consideration/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/contributions/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/data_access_locations/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/data_formats/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/data_provision_mechanisms/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/data_versioning_and_releases/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
@@ -113,11 +233,59 @@
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/resource-ingest-guide-schema/entries/</loc>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/edge_properties/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/resource-ingest-guide-schema/id/</loc>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/edge_type_info/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/fields_used/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/file_name/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/filtered_content/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/filtered_records/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/future_considerations/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/included_content/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/included_records/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/infores_id/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/ingest_categories/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/ingest_info/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/knowledge_level/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/location/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
@@ -125,15 +293,75 @@
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/resource-ingest-guide-schema/primary_email/</loc>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/node_category/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/resource-ingest-guide-schema/resource-ingest-guide-schema/</loc>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/node_properties/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/resource-ingest-guide-schema/vital_status/</loc>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/node_type_info/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/object_categories/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/predicate/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/provenance_info/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/qualified_predicate/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/rationale/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/reference_ingest_guide/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/relevant_files/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/scope/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/source_identifier_types/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/source_info/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/subject_categories/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/target_info/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/terms_of_use/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/ui_explanation/</loc>
+         <lastmod>2025-08-11</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/resource-ingest-guide-schema/utility/</loc>
          <lastmod>2025-08-11</lastmod>
     </url>
 </urlset>

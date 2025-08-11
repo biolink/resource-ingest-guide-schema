@@ -7,7 +7,6 @@ license: MIT
 prefixes:
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/vocab/
-  translator: https://w3id.org/translator/
 default_prefix: biolink
 default_range: string
 see_also:

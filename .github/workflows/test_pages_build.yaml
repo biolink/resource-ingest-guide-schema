@@ -18,16 +18,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Python 3
-        uses: actions/setup-python@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
         with:
-          python-version: "3.10"
+          enable-cache: true
 
-      - name: Install Poetry
-        run: pipx install poetry
+      - name: Set up Python
+        run: uv python install 3.10
 
       - name: Install dependencies
-        run: poetry install
+        run: uv sync --extra dev
 
       - name: Build documentation
         run: |
@@ -35,7 +35,7 @@ jobs:
           touch site/.nojekyll
           make gendoc
           ([ ! -f docs/about.md ] && cp src/docs/about.md docs/) || true
-          poetry run mkdocs build -d site
+          uv run mkdocs build -d site
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1

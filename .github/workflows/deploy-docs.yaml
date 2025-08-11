@@ -20,16 +20,16 @@ jobs:
         with:
           fetch-depth: 0  # otherwise, you will failed to push refs to dest repo
 
-      - name: Set up Python.
-        uses: actions/setup-python@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
         with:
-          python-version: "3.10"
+          enable-cache: true
 
-      - name: Install Poetry.
-        run: pipx install poetry
+      - name: Set up Python
+        run: uv python install 3.10
 
-      - name: Install dependencies.
-        run: poetry install
+      - name: Install dependencies
+        run: uv sync --extra dev
 
       - name: Build documentation.
         run: |

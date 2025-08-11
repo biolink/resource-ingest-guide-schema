@@ -88,38 +88,9 @@ $(DOCDIR):
 	mkdir -p $@
 
 gendoc: $(DOCDIR)
-	cp -rf $(SRC)/docs/files/* $(DOCDIR) ; \
-	$(RUN) gen-doc ${GEN_DOC_ARGS} -d $(DOCDIR) $(SOURCE_SCHEMA_PATH)
-
-
-gendoc: $(DOCDIR)
-	cp $(DEST)/owl/*.ttl $(DOCDIR)/ ; \
-	cp $(DEST)/jsonld/*.jsonld $(DOCDIR)/ ; \
-	cp $(DEST)/jsonld/*.jsonld $(DOCDIR)/context.jsonld ; \
-	cp $(DEST)/jsonld/biolink_model.jsonld $(DOCDIR)/ ; \
-	cp $(DEST)/jsonschema/biolink_model.schema.json $(DOCDIR)/ ; \
-	cp $(DEST)/graphql/biolink_model.graphql $(DOCDIR)/ ; \
-	cp $(DEST)/shex/biolink_model.shex $(DOCDIR)/ ; \
-	cp $(DEST)/shacl/biolink_model.shacl.ttl $(DOCDIR)/ ; \
-	cp $(DEST)/prefixmap/* $(DOCDIR) ; \
-	cp semmed-exclude-list.yaml $(DOCDIR) ; \
-	cp semmed-exclude-list-model.yaml $(DOCDIR) ; \
-	cp predicate_mapping.yaml $(DOCDIR) ; \
-	cp $(SRC)/schema/resource_ingest_guide_schema.yaml $(DOCDIR) ; \
-	cp $(SRC)/docs/*md $(DOCDIR) ; \
+	cp $(SRC)/schema/resource_ingest_guide_schema/resource_ingest_guide_schema.yaml $(DOCDIR) ; \
 	cp -r $(SRC)/docs/images $(DOCDIR)/images ; \
-	# the .json cp here is the data required for the d3 visualizations
-	cp $(SRC)/docs/*.json $(DOCDIR) ; \
-	cp $(SRC)/docs/*.html $(DOCDIR) ; \
-	cp $(SRC)/docs/*.js $(DOCDIR) ; \
-	# this supports the display of our d3 visualizations
-	cp $(SRC)/docs/*.css $(DOCDIR) ; \
-	$(RUN) gen-doc -d $(DOCDIR) --template-directory $(SRC)/$(TEMPLATEDIR) $(SOURCE_SCHEMA_PATH)
-
-
-testdoc: gendoc serve
-
-
+	$(RUN) gen-doc -d $(DOCDIR) --template-directory $(SRC)/docs/doc-templates/ $(SOURCE_SCHEMA_PATH)
 
 testdoc: gendoc serve
 

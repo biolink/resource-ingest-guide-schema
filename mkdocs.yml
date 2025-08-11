@@ -1,34 +1,39 @@
 ---
-site_name: "resource-ingest-guide-schema"
+site_name: "Biolink Model Documentation"
 theme:
   name: material
-  # palette:
-  #  scheme: slate
-  #  primary: cyan
+  palette:
+    scheme: black
+    primary: black
+  logo: images/biolink-logo.png
   features:
     - content.tabs.link
 plugins:
   - search
   - mermaid2
-  - mknotebooks:
-      execute: false
-  - mermaid2:
-      version: 10.9.0
 nav:
   # - Home: home.md
-  - Index: index.md
-  - About: about.md
-site_url: https://biolink.github.io/resource-ingest-guide-schema
-repo_url: https://github.com/biolink/resource-ingest-guide-schema
-markdown_extensions:
-  - tables
-extra_javascript:
-  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
-  - javascripts/tablesort.js
+  - Overview: index.md
+  - Using the LinkML Modeling Language: using-the-modeling-language.md
+  - Associations with Qualifiers: association-examples-with-qualifiers.md
+  - Interpreting a Fully Qualified Edge: reading-a-qualifier-based-statement.md
+  - Curating Biolink: curating-the-model.md
+  - Maintaining Biolink: maintaining-the-model.md
+  - Working with Biolink: working-with-the-model.md
+  - Infores Identifier Registry: https://biolink.github.io/information-resource-registry
+  - Visualizations:
+    - Classes (categories): categories.html
+    - Predicates: predicates.html
+    - Qualifiers: qualifiers.html
+    - Associations: associations.html
+    - Aspects: aspects.html
+  - FAQ: faq.md
+site_url: https://biolink.github.io/biolink-model
+repo_url: https://github.com/biolink/biolink-model
+extra_css:
+  - style.css
+extra:
+  analytics:
+    provider: google
+    property: G-J23SCD6JB8
 
-# Uncomment this block to enable use of Google Analytics.
-# Replace the property value with your own ID.
-# extra:
-#   analytics:
-#     provider: google
-#     property: G-XXXXXXXXXX

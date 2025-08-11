@@ -1,6 +1,5 @@
 # resource-ingest-guide-schema
 
-This is the project description.
 
 ## Website
 
@@ -8,15 +7,7 @@ This is the project description.
 
 ## Repository Structure
 
-* [examples/](examples/) - example data
-* [project/](project/) - project files (do not edit these)
-* [src/](src/) - source files (edit these)
-  * [resource_ingest_guide_schema](src/resource_ingest_guide_schema)
-    * [schema](src/resource_ingest_guide_schema/schema) -- LinkML schema
-      (edit this)
-    * [datamodel](src/resource_ingest_guide_schema/datamodel) -- generated
-      Python datamodel
-* [tests/](tests/) - Python tests
+
 
 ## Developer Documentation
 
@@ -28,7 +19,4 @@ Use the `make` command or `duty` commands to generate project artefacts:
 * `make deploy` or `just deploy`: deploys site
 </details>
 
-## Credits
 
-This project was made with
-[linkml-project-cookiecutter](https://github.com/linkml/linkml-project-cookiecutter).

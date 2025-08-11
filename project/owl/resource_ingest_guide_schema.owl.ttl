@@ -1,0 +1,183 @@
+@prefix PATO: <http://purl.obolibrary.org/obo/PATO_> .
+@prefix biolink: <https://w3id.org/biolink/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix resource_ingest_guide_schema: <https://w3id.org/biolink/resource-ingest-guide-schema/> .
+@prefix schema1: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+resource_ingest_guide_schema:ReferenceIngestGuideCollection a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ReferenceIngestGuideCollection" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom resource_ingest_guide_schema:ReferenceIngestGuide ;
+            owl:onProperty resource_ingest_guide_schema:entries ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty resource_ingest_guide_schema:entries ] ;
+    skos:definition "A holder for ReferenceIngestGuide objects" ;
+    skos:inScheme biolink:resource-ingest-guide-schema .
+
+resource_ingest_guide_schema:NamedThing a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "NamedThing" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty resource_ingest_guide_schema:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty resource_ingest_guide_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty resource_ingest_guide_schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty resource_ingest_guide_schema:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty resource_ingest_guide_schema:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty resource_ingest_guide_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty resource_ingest_guide_schema:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty resource_ingest_guide_schema:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty resource_ingest_guide_schema:name ] ;
+    skos:definition "A generic grouping for any identifiable entity" ;
+    skos:exactMatch schema1:Thing ;
+    skos:inScheme biolink:resource-ingest-guide-schema .
+
+resource_ingest_guide_schema:ReferenceIngestGuide a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ReferenceIngestGuide" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom resource_ingest_guide_schema:PersonStatus ;
+            owl:onProperty resource_ingest_guide_schema:vital_status ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty resource_ingest_guide_schema:birth_date ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty resource_ingest_guide_schema:primary_email ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty resource_ingest_guide_schema:birth_date ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:onDatatype xsd:string ;
+                    owl:withRestrictions ( [ xsd:pattern "^\\S+@[\\S+\\.]+\\S+" ] ) ] ;
+            owl:onProperty resource_ingest_guide_schema:primary_email ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty resource_ingest_guide_schema:age_in_years ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Date ;
+            owl:onProperty resource_ingest_guide_schema:birth_date ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty resource_ingest_guide_schema:vital_status ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty resource_ingest_guide_schema:age_in_years ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty resource_ingest_guide_schema:vital_status ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty resource_ingest_guide_schema:primary_email ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty resource_ingest_guide_schema:age_in_years ],
+        resource_ingest_guide_schema:NamedThing ;
+    skos:definition "Represents a ReferenceIngestGuide" ;
+    skos:inScheme biolink:resource-ingest-guide-schema .
+
+PATO:0001421 a owl:Class,
+        resource_ingest_guide_schema:PersonStatus ;
+    rdfs:label "ALIVE" ;
+    rdfs:subClassOf resource_ingest_guide_schema:PersonStatus .
+
+PATO:0001422 a owl:Class,
+        resource_ingest_guide_schema:PersonStatus ;
+    rdfs:label "DEAD" ;
+    rdfs:subClassOf resource_ingest_guide_schema:PersonStatus .
+
+<https://w3id.org/biolink/resource-ingest-guide-schema/PersonStatus#UNKNOWN> a owl:Class,
+        resource_ingest_guide_schema:PersonStatus ;
+    rdfs:label "UNKNOWN" ;
+    rdfs:subClassOf resource_ingest_guide_schema:PersonStatus .
+
+resource_ingest_guide_schema:entries a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "entries" ;
+    skos:inScheme biolink:resource-ingest-guide-schema .
+
+resource_ingest_guide_schema:age_in_years a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "age_in_years" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "Number of years since birth" ;
+    skos:inScheme biolink:resource-ingest-guide-schema .
+
+resource_ingest_guide_schema:birth_date a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "birth_date" ;
+    rdfs:range linkml:Date ;
+    skos:definition "Date on which a person is born" ;
+    skos:inScheme biolink:resource-ingest-guide-schema .
+
+resource_ingest_guide_schema:description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "description" ;
+    skos:definition "A human-readable description for a thing" ;
+    skos:inScheme biolink:resource-ingest-guide-schema .
+
+resource_ingest_guide_schema:id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "id" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "A unique identifier for a thing" ;
+    skos:inScheme biolink:resource-ingest-guide-schema .
+
+resource_ingest_guide_schema:name a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "name" ;
+    skos:definition "A human-readable name for a thing" ;
+    skos:inScheme biolink:resource-ingest-guide-schema .
+
+resource_ingest_guide_schema:primary_email a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "primary_email" ;
+    skos:definition "The main email address of a person" ;
+    skos:inScheme biolink:resource-ingest-guide-schema .
+
+resource_ingest_guide_schema:vital_status a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "vital_status" ;
+    rdfs:range resource_ingest_guide_schema:PersonStatus ;
+    skos:definition "living or dead status" ;
+    skos:inScheme biolink:resource-ingest-guide-schema .
+
+resource_ingest_guide_schema:PersonStatus a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( PATO:0001421 PATO:0001422 <https://w3id.org/biolink/resource-ingest-guide-schema/PersonStatus#UNKNOWN> ) ;
+    linkml:permissible_values PATO:0001421,
+        PATO:0001422,
+        <https://w3id.org/biolink/resource-ingest-guide-schema/PersonStatus#UNKNOWN> .
+
+biolink:resource-ingest-guide-schema a owl:Ontology ;
+    rdfs:label "resource-ingest-guide-schema" ;
+    dcterms:license "MIT" ;
+    dcterms:title "resource-ingest-guide-schema" ;
+    rdfs:seeAlso <https://biolink.github.io/resource-ingest-guide-schema> ;
+    skos:definition "This is the project description." .
+

@@ -1,21 +1,23 @@
 ReferenceIngestGuide:
-  name:  # (optional, range = string)
+  name: ChEMBL Reference Ingest Guide
 
-# Information about the Source of the ingest
-  source_info:  # (required, range = SourceInfo)
-    infores_id:  # (required, range = UriOrCurie)
-    description:  # (optional, range = string)
-    citations:  # (optional, multivalued, range = string)
-      -
-    terms_of_use:  # (required, range = string)
-    data_access_locations:  # (optional, multivalued, range = string)
-      -
-    data_provision_mechanisms:  # (optional, multivalued, range = ProvisionMechanismEnum: file_download | api_endpoint | database_dump | other)
-      -
-    data_formats:  # (optional, multivalued, range = DataFormatEnum: tsv | xml | csv | json | yaml | obo | protobuff | other)
-      -
-    data_versioning_and_releases:  # (optional, range = string)
-    additional_notes:  # (optional, range = string)
+  source_info:
+    infores_id: infores:chembl
+    description: "ChEMBL is a manually curated database of bioactive molecules with drug-like properties. It brings together chemical, bioactivity and genomic data to aid the translation of genomic information into effective new drugs."
+    citations:
+      - "Barbara Zdrazil, Eloy Felix, Fiona Hunter, Emma J Manners, James Blackshaw, Sybilla Corbett, Marleen de Veij, Harris Ioannidis, David Mendez Lopez, Juan F Mosquera, Maria Paula Magarinos, Nicolas Bosc, Ricardo Arcila, Tevik Kizilören, Anna Gaulton, A Patrícia Bento, Melissa. F Adasme, Pater Monecke, Gregory A Landrum, Andrew R Leach. Nucleic Acids Res. 2023: gkad1004. doi: 10.1093/nar/gkad1004"
+      - "Davies M, Nowotka M, Papadatos G, Dedman N, Gaulton A, Atkinson F, Bellis L, Overington JP. Nucleic Acids Res. 2015; 43(W1):W612-20, doi: 10.1093/nar/gkv352"
+    terms_of_use: "Creative Commons Attribution-ShareAlike 3.0 Unported license (https://creativecommons.org/licenses/by-sa/3.0/)"
+    data_access_locations:
+      - https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/latest/
+    data_provision_mechanisms:
+      - file_download
+      - database_dump
+    data_formats:
+      - mysql
+      - postgresql
+      - sqlite
+    data_versioning_and_releases: semiannual
 
 
 # Information about Ingested Content (the scope, content, and rationale for what is included and excluded in this ingest)

@@ -29,11 +29,11 @@ source_info:
   - api_endpoint
   data_formats:
   - tsv
-  - hpoa  # a tsv with a multi-line comment header
+  - other  # phenotype.hpoa is actually a tsv with a multi-line comment header
   data_versioning_and_releases:
-    - GitHub managed releases at https://github.com/obophenotype/human-phenotype-ontology/releases
-    - No consistent cadence for releases.
-    - Versioning is based on the month and year of the release
+    "GitHub managed releases at https://github.com/obophenotype/human-phenotype-ontology/releases
+     No consistent cadence for releases.
+     Versioning is based on the month and year of the release"
   additional_notes: null
 ingest_info:
   ingest_categories:
@@ -104,20 +104,20 @@ ingest_info:
     relevant_files: genes_to_phenotype.txt
   additional_notes: null
 target_info:
-  infores_id: infores:translator-hpo-annotations-kgx
+  infores_id: "infores:translator-hpo-annotations-kgx"
   edge_type_info:
     - subject_categories:
       - "biolink:Disease"
-      predicate: has_phenotype
+      predicate: "biolink:has_phenotype"
       object_categories:
       - "biolink:PhenotypicFeature"
       qualified_predicate: null
       biolink_qualifier_1: "biolink:onset_qualifier"
-      biolink_qualifier_1_value_type: HP
+      biolink_qualifier_1_value_type: "HP"
       biolink_qualifier_2: "biolink:frequency_qualifier"
-      biolink_qualifier_2_value_type: HP
+      biolink_qualifier_2_value_type: "HP"
       biolink_qualifier_3: "biolink:sex_qualifier"
-      biolink_qualifier_3_value_type: PATO
+      biolink_qualifier_3_value_type: "PATO"
       knowledge_level:
       - knowledge_assertion
       agent_type:
@@ -131,49 +131,49 @@ target_info:
         - "biolink:publications"
         - "biolink:has_evidence"
       ui_explanation:
-        HPO curators manually review clinical data and published evidence
+        "HPO curators manually review clinical data and published evidence
         to determine phenotypes that manifest in a Disease, which are
-        reported using the has_phenotype predicate.
+        reported using the has_phenotype predicate."
       additional_notes: null
     - subject_categories:
       - "biolink:Gene"
-      predicate: associated_with
+      predicate: "biolink:associated_with"
       object_categories:
       - "biolink:Disease"
-      qualified_predicate: causes
+      qualified_predicate: "biolink:causes"
       biolink_qualifier_1: "biolink:subject_form_or_variant_qualifier"
-      biolink_qualifier_1_value_type: genetic_variant_form
+      biolink_qualifier_1_value_type: "biolink:genetic_variant_form"
       knowledge_level:
       - knowledge_assertion
       agent_type:
       - manual_agent
       edge_properties: null
       ui_explanation:
-        HPOA aggregates manually curated Gene-Disease associations from sources like
+        "HPOA aggregates manually curated Gene-Disease associations from sources like
         Orphanet and MIM2Gene and DECIPHER. For Mendelian diseases with a single causal gene,
-        we report that a genetic variant form of the gene 'causes' the disease.
+        we report that a genetic variant form of the gene 'causes' the disease."
       additional_notes: null
     - subject_categories:
       - "biolink:Gene"
-      predicate: associated_with
+      predicate: "biolink:associated_with"
       object_categories:
       - "biolink:Disease"
-      qualified_predicate: contributes_to
+      qualified_predicate: "biolink:contributes_to"
       biolink_qualifier_1: "biolink:subject_form_or_variant_qualifier"
-      biolink_qualifier_1_value_type: genetic_variant_form
+      biolink_qualifier_1_value_type: "biolink:genetic_variant_form"
       knowledge_level:
       - knowledge_assertion
       agent_type:
       - manual_agent
       edge_properties: null
       ui_explanation:
-        HPOA aggregates manually curated Gene-Disease associations from sources like
+        "HPOA aggregates manually curated Gene-Disease associations from sources like
         Orphanet and MIM2Gene. For polygenic diseases with multiple contributing genes,
-        we report that a genetic variant form of the gene 'contributes to' the disease.
+        we report that a genetic variant form of the gene 'contributes to' the disease."
       additional_notes: null
     - subject_categories:
       - "biolink:Gene"
-      predicate: associated_with
+      predicate: "biolink:associated_with"
       object_categories:
       - "biolink:Disease"
       qualified_predicate: null
@@ -183,68 +183,66 @@ target_info:
       - manual_agent
       edge_properties: null
       ui_explanation:
-        HPOA aggregates manually curated Gene-Disease associations from sources like
+        "HPOA aggregates manually curated Gene-Disease associations from sources like
         Orphanet and MIM2Gene. When the genetic etiology of the diseases is not
-        sufficiently specified, the relationship is reported using the 'associated_with' predicate.
+        sufficiently specified, the relationship is reported using the 'associated_with' predicate."
       additional_notes: null
     - subject_categories:
       - "biolink:Gene"
-      predicate: has_phenotype
+      predicate: "biolink:has_phenotype"
       object_categories:
       - "biolink:PhenotypicFeature"
-      qualified_predicate: causes
+      qualified_predicate: "biolink:causes"
       biolink_qualifier_1: "biolink:subject_form_or_variant_qualifier"
-      biolink_qualifier_1_value_type: genetic_variant_form
-      biolink_qualifier_3: "biolink:frequency_qualifier"
-      biolink_qualifier_3_value_type: HP
-      biolink_qualifier_4: "biolink:disease_context_qualifier"
-      biolink_qualifier_4_value_type:
-        - OMIM
-        - Orphanet
+      biolink_qualifier_1_value_type: "biolink:genetic_variant_form"
+      biolink_qualifier_2: "biolink:frequency_qualifier"
+      biolink_qualifier_2_value_type: "HP"
+      biolink_qualifier_3: "biolink:disease_context_qualifier"
+      biolink_qualifier_3_value_type: "MONDO"
       knowledge_level:
       - logical_entailment
       agent_type:
       - automated_agent
       edge_properties: null
       ui_explanation:
-        HPOA provides direct Gene-Phenotype associations between genes with variants
+        "HPOA provides direct Gene-Phenotype associations between genes with variants
         causing or contributing to a disease, and each phenotype associated with the disease.
         For Mendelian diseases with a single causal gene, we report that a 
-        genetic variant form of the gene 'causes' each of the phenotypes associated with the disease.
+        genetic variant form of the gene 'causes' each of the phenotypes associated with the disease."
       additional_notes: null
   node_type_info:
   - node_category: "biolink:Disease"
     source_identifier_types:
-      - OMIM
-      - ORPHANET
-      - DECIPHER
+      - "OMIM"
+      - "ORPHANET"
+      - "DECIPHER"
     node_properties:
     - "biolink:inheritance"
     additional_notes: null
   - node_category: "biolink:PhenotypicFeature"
     source_identifier_types:
-      - HP
+      - "HP"
     node_properties: null
     additional_notes: null
   - node_category: "biolink:Gene"
     source_identifier_types:
-      - NCBIGene
+      - "NCBIGene"
     node_properties: null
     additional_notes: null
   - node_category: "biolink:GeneticInheritance"
     source_identifier_types:
-      - HP
+      - "HP"
     node_properties: null
     additional_notes: null
   future_considerations:
     - category: spoq_pattern
       consideration:
-        - Consider alternate patterns for representing G-causes-D and G-contributes_to-D associations
-          where we place more semantics into predicates, per 
-          https://github.com/NCATSTranslator/Data-Ingest-Coordination-Working-Group/issues/22
-        - Should we consider creating support paths in our data/graphs, 
-          for the G-D-P hops over which HPO infers G-P associations?
-          (e.g. `GENE1 -causes-> DISEASE1 -has_phenotype-> PHENO1 ---->  GENE1 -causes-> PHENO1`)
+        "Consider alternate patterns for representing G-causes-D and G-contributes_to-D associations
+        where we place more semantics into predicates, per 
+        https://github.com/NCATSTranslator/Data-Ingest-Coordination-Working-Group/issues/22
+        Should we consider creating support paths in our data/graphs, 
+        for the G-D-P hops over which HPO infers G-P associations?
+        (e.g. `GENE1 -causes-> DISEASE1 -has_phenotype-> PHENO1 ---->  GENE1 -causes-> PHENO1`)"
 provenance_info:
   contributions:
   - "Richard Bruskiewich - data modeling, domain expertise, code author"

@@ -398,6 +398,7 @@ classes:
             prefix registry). e.g. "MESH", "CTD", "ECTO". But can be a free text description if needed. e.g. "The
             source uses entity names but does not assign identifiers".
           range: string
+          multivalued: true
           required: true
         node_properties:
           description: A list of one or more Biolink node properties used in instances of this node type in the data.

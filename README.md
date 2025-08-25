@@ -64,6 +64,8 @@ pip install uv
 
 ### Getting Started
 
+Note that the following commands assume you are in the project root directory, and the equivalent **`just`** commands may be substituted for  **`make`** (namely `just test` instead of `make test`)
+
 1. **Install dependencies:**
    ```bash
    uv sync --extra dev

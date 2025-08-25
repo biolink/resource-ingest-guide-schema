@@ -246,7 +246,7 @@ classes:
 
   TargetInformation:
       description: >-
-        A sturcture for capturing information about the target dataset / knowledge graph
+        A structure for capturing information about the target dataset / knowledge graph
         output by the ingest, including what types of edges and nodes were produced,
         modeling rationale, and what modeling changes might be considered in future iterations.
       attributes:

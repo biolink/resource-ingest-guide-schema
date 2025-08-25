@@ -19,6 +19,9 @@ shebang := if os() == 'windows' {
   '/usr/bin/env python3'
 }
 
+# This project uses the uv dependency manager
+run := 'uv run'
+
 # Environment variables with defaults
 schema_name := env_var_or_default("LINKML_SCHEMA_NAME", "")
 source_schema_path := env_var_or_default("LINKML_SCHEMA_SOURCE_PATH", "")
@@ -95,7 +98,7 @@ deploy: site
 
 _compile_sheets:
     @if [ "{{use_schemasheets}}" != "No" ]; then \
-        poetry run sheets2linkml --gsheet-id {{sheet_ID}} {{sheet_tabs}} > {{sheet_module_path}}.tmp && \
+        {{run}} sheets2linkml --gsheet-id {{sheet_ID}} {{sheet_tabs}} > {{sheet_module_path}}.tmp && \
         mv {{sheet_module_path}}.tmp {{sheet_module_path}}; \
     fi
 
@@ -106,17 +109,17 @@ _gen-examples:
 
 # Generate project files
 _gen-project: _ensure_pymodel_dir _compile_sheets
-    poetry run gen-project {{config_yaml}} -d {{dest}} {{source_schema_path}} && \
+    {{run}} gen-project {{config_yaml}} -d {{dest}} {{source_schema_path}} && \
     mv {{dest}}/*.py {{pymodel}}
     @if [ ! -z "${{gen_owl_args}}" ]; then \
       mkdir -p {{dest}}/owl || true && \
-      poetry run gen-owl {{gen_owl_args}} {{source_schema_path}} > {{dest}}/owl/{{schema_name}}.owl.ttl || true ; \
+      {{run}} gen-owl {{gen_owl_args}} {{source_schema_path}} > {{dest}}/owl/{{schema_name}}.owl.ttl || true ; \
     fi
     @if [ ! ${{gen_java_args}} ]; then \
-      poetry run gen-java {{gen_java_args}} --output-directory {{dest}}/java/ {{source_schema_path}} || true ; \
+      {{run}} gen-java {{gen_java_args}} --output-directory {{dest}}/java/ {{source_schema_path}} || true ; \
     fi
     @if [ ! ${{gen_ts_args}} ]; then \
-      poetry run gen-typescript {{gen_ts_args}} {{source_schema_path}} > {{dest}}/typescript/{{schema_name}}.ts || true ; \
+      {{run}} gen-typescript {{gen_ts_args}} {{source_schema_path}} > {{dest}}/typescript/{{schema_name}}.ts || true ; \
     fi
 
 # Run all tests
@@ -124,15 +127,15 @@ test: _test-schema _test-python _test-examples
 
 # Test schema generation
 _test-schema:
-    poetry run gen-project {{config_yaml}} -d tmp {{source_schema_path}}
+    {{run}} gen-project {{config_yaml}} -d tmp {{source_schema_path}}
 
 # Run Python unit tests with pytest
 _test-python:
-    poetry run python -m pytest
+    {{run}} python -m pytest
 
 # Run example tests
 _test-examples: _ensure_examples_output
-    poetry run linkml-run-examples \
+    {{run}} linkml-run-examples \
         --output-formats json \
         --output-formats yaml \
         --counter-example-input-directory src/data/examples/invalid \
@@ -142,19 +145,19 @@ _test-examples: _ensure_examples_output
 
 # Run linting
 lint:
-    poetry run linkml-lint {{source_schema_path}}
+    {{run}} linkml-lint {{source_schema_path}}
 
 # Generate documentation
 _gendoc: _ensure_docdir
     cp -r {{src}}/docs/files/* {{docdir}}
-    poetry run gen-doc {{gen_doc_args}} -d {{docdir}} {{source_schema_path}}
+    {{run}} gen-doc {{gen_doc_args}} -d {{docdir}} {{source_schema_path}}
 
 # Build docs and run test server
 testdoc: _gendoc _serve
 
 # Run documentation server
 _serve:
-    poetry run mkdocs serve
+    {{run}} mkdocs serve
 
 # Initialize and add everything to git
 _git-init-add: _git-init _git-add _git-commit _git-status

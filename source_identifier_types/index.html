@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: source_identifier_types - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>Slot: source_identifier_types (multivalued) - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-source_identifier_types" class="md-skip">
+        <a href="#slot-source_identifier_types-multivalued" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: source_identifier_types
+              Slot: source_identifier_types (multivalued)
             
           </span>
         </div>
@@ -345,7 +345,7 @@
   
 
 
-<h1 id="slot-source_identifier_types"><strong> Slot: source_identifier_types </strong></h1>
+<h1 id="slot-source_identifier_types-multivalued"><strong> Slot: source_identifier_types </strong>  (multivalued)</h1>
 <div class="highlight-box"><strong>Description:</strong><i> The type of identifier(s) used for this category of entity by the source system. Report as a prefix for an identifier system where appropriate/possible (preferably a prefix as cataloged in the Biolink prefix registry). e.g. "MESH", "CTD", "ECTO". But can be a free text description if needed. e.g. "The source uses entity names but does not assign identifiers".</i><br>
    <strong>Required:</strong> True<br>
 
@@ -372,6 +372,7 @@ domain_of:
 - NodeType
 range: string
 required: true
+multivalued: true
 
 </code></pre>
 

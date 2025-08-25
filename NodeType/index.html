@@ -221,7 +221,7 @@
 </tr>
 <tr>
 <td><a href="../source_identifier_types/">source_identifier_types</a>: <br/> <i> The type of identifier(s) used for this category of entity by the source system. Report as a prefix for an identifier system where appropriate/possible (preferably a prefix as cataloged in the Biolink prefix registry). e.g. "MESH", "CTD", "ECTO". But can be a free text description if needed. e.g. "The source uses entity names but does not assign identifiers". </i></td>
-<td>1 <br/> <a href="../String/">String</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
 <td>direct</td>
 <td></td>
 </tr>
@@ -289,6 +289,7 @@ attributes:
     - NodeType
     range: string
     required: true
+    multivalued: true
   node_properties:
     name: node_properties
     description: A list of one or more Biolink node properties used in instances of

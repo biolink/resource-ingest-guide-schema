@@ -149,8 +149,16 @@ lint:
 
 # Generate documentation
 _gendoc: _ensure_docdir
-    cp -r {{src}}/docs/files/* {{docdir}}
-    {{run}} gen-doc {{gen_doc_args}} -d {{docdir}} {{source_schema_path}}
+    cp {{source_schema_path}} {{docdir}}
+    cp {{src}}/docs/files/*.md {{docdir}}
+    cp {{src}}/docs/files/*.yaml {{docdir}}
+    cp -r {{src}}/docs/images {{docdir}}/images
+    {{run}} python {{src}}/scripts/rig_to_markdown.py --input-dir {{src}}/docs/rigs --output-dir {{docdir}} ; \
+    {{run}} python {{src}}/scripts/generate_rig_index.py --rig-dir {{src}}/docs/rigs \
+         --template-dir {{src}}/docs/doc-templates --input-file {{src}}/docs/files/rig_index.md --output-file {{docdir}}/rig_index.md ; \
+    if ls {{src}}/docs/rigs/*.yaml 1> /dev/null 2>&1; then cp {{src}}/docs/rigs/*.yaml {{docdir}}/; fi ; \
+    {{run}} gen-doc {{gen_doc_args}} -d {{docdir}} --template-directory {{src}}/docs/doc-templates/ {{source_schema_path}}
+
 
 # Build docs and run test server
 testdoc: _gendoc _serve

@@ -42,7 +42,7 @@ ReferenceIngestGuide:
         included_records: "Metabolism information from the following tables: metabolism, molecule_dictionary, compound_records, compound_structures, target_dictionary, metabolism_refs"
         fields_used: "metabolism: drug_record_id, substrate_record_id, metabolite_record_id, met_id, enzyme_name, met_conversion, met_comment, organism, tax_id, enzyme_tid; molecule_dictionary: molregno, chembl_id, pref_name; compound_records: molregno, record_id, compound_name; target_dictionary: tid, target_type, chembl_id; compound_structures: molregno, standard_inchi, standard_inchi_key, canonical_smiles; metabolism_refs: met_id, ref_type, ref_id, ref_url"
       - file_name: chembl_35_sqlite.tar.gz
-        included_records: "Bioactivty and assay information from the following tables: activities, molecule_dictionary, assays, bioassay_ontology, target_dictionary, target_components, component_sequences, cell_dictionary, assay_type, tissue_dictionary, docs, source, ligand_eff, relationship_type, confidence_score_lookup, confidence_score_lookup"
+        included_records: "Bioactivity and assay information from the following tables: activities, molecule_dictionary, assays, bioassay_ontology, target_dictionary, target_components, component_sequences, cell_dictionary, assay_type, tissue_dictionary, docs, source, ligand_eff, relationship_type, confidence_score_lookup, confidence_score_lookup"
         fields_used: "activities: activity_id, standard_type, standard_relation, standard_value, standard_units, pchembl_value, activity_comment, data_validity_comment, standard_text_value, standard_upper_value, uo_units, potential_duplicate, action_type, src_id, doc_id; molecule_dictionary: molregno, chembl_id; assays: assay_id, chembl_id, description, assay_organism, assay_cell_type, assay_subcellular_fraction, bao_format, assay_category, assay_tax_id, assay_tissue, relationship_type, confidence_score, curated_by, src_id, assay_type, cell_id, tissue_id, tid; bioassay_ontology: bao_id, label; target_dictionary: tid, chembl_id, pref_name, organism, target_type; target_components: tid, component_id; component_sequences: component_id, component_type, accession; cell_dictionary: cell_id, chembl_id, cell_name, cell_description, cell_source_tissue, cell_source_organism, cell_source_tax_id, clo_id, efo_id, cellosaurus_id, cl_lincs_id, cell_ontology_id; assay_type: assay_type, assay_desc; tissue_dictionary: tissue_id, chembl_id, pref_name; docs: doc_id, chembl_id, journal, title, year, authors, pubmed_id, doi; source: src_id, src_description; ligand_eff: activity_id, bei, le, lle, sei; relationship_type: relationship_type, relationship_desc; confidence_score_lookup: confidence_score, description, target_mapping; curation_lookup: curated_by, description"
 
     filtered_content:
@@ -50,31 +50,128 @@ ReferenceIngestGuide:
         filtered_records: "Gene targets - removed tragets that cannot be mapped to genes (like cell-lines)"
         rationale: "tragets that cannot be mapped to genes"
 
-# Information about the Graph Output by the ingest
-  target_info:  # (required, range = TargetInfo)
-    infores_id:  # (optional, range = UriOrCurie)
+  target_info: 
+    infores_id: "infores:translator-chembl-kgx"
 
-    edge_type_info:  # (required, multivalued, range = EdgeType)
-      - subject_categories:  # (required, multivalued, range = UriOrCurie)
-          -
-        predicate:  # (required, range = UriOrCurie)
-        object_categories:  # (required, multivalued, range = UriOrCurie)
-          -
-        qualified_predicate:  # (optional, range = UriOrCurie)
-        biolink_qualifier_1:  # (optional, range = UriOrCurie)
-        biolink_qualifier_1_value_type:  # (optional, range = UriOrCurie)
-        biolink_qualifier_2:  # (optional, range = UriOrCurie)
-        biolink_qualifier_2_value_type:  # (optional, range = UriOrCurie)
-        biolink_qualifier_3:  # (optional, range = UriOrCurie)
-        biolink_qualifier_3_value_type:  # (optional, range = UriIrCurie)
-        knowledge_level:  # (required, multivalued, range = KnowledgeLevelEnum: knowledge_assertion | logical_entailment | prediction | statistical_association | observation | not_provided | varies)
-          -
-        agent_type:  # (required, multivalued, range = AgentTypeEnum: manual_agent | automated_agent | computational_model | data_analysis_pipeline | text_mining_agent | image_processing_agent | manual_validation_of_ automated_agent | not_provided | varies)
-          -
-        edge_properties:  # (optional, multivalued, range = UriOrCurie)
-          -
-        ui_explanation:  # (required, range = string)
-        additional_notes:  # (optional, range = string)
+    edge_type_info:
+      - subject_categories:
+          - SmallMolecule
+          - MolecularMixture
+          - ChemicalEntity
+          - Protein
+        predicate: 
+          - biolink:affects
+          - biolink:directly_physically_interacts_with
+          - biolink:disrupts
+          - biolink:is_substrate_of
+          - biolink:regulates
+        object_categories:
+          - Gene
+          - MacromolecularComplexMixin
+          - NucleicAcidEntity
+          - Organism
+          - PairwiseGeneToGeneInteraction
+          - Protein
+          - ProteinComplex
+        qualifier_types: "https://raw.githubusercontent.com/broadinstitute/molecular-data-provider/refs/heads/master/transformers/chembl/python-flask-server/conf/chembl_qualifiers.json"
+        knowledge_level:
+          - knowledge_assertion
+        agent_type:
+          - manual_agent
+        edge_properties:
+          - action_type
+          - biolink:mechanism_of_action
+          - biolink:publications
+          - direct_interaction
+          - document_chembl_id
+          - selectivity_comment
+          - site_name
+        ui_explanation: "Drug mechanisms from ChEMBL"
+      - subject_categories:
+          - SmallMolecule
+          - MolecularMixture
+          - ChemicalEntity
+          - Protein
+        predicate: 
+          - biolink:affects
+          - biolink:directly_physically_interacts_with
+          - biolink:disrupts
+          - biolink:is_substrate_of
+        object_categories:
+          - Gene
+        qualifier_types: "https://raw.githubusercontent.com/broadinstitute/molecular-data-provider/refs/heads/master/transformers/chembl/python-flask-server/conf/chembl_qualifiers.json"
+        knowledge_level:
+          - knowledge_assertion
+        agent_type:
+          - manual_agent
+        edge_properties:
+          - action_type
+          - biolink:mechanism_of_action
+          - biolink:publications
+          - direct_interaction
+          - document_chembl_id
+          - selectivity_comment
+          - site_name
+        ui_explanation: "Drug mechanisms mapped to genes from ChEMBL"
+      - subject_categories:
+          - SmallMolecule
+          - MolecularMixture
+          - ChemicalEntity
+          - Protein
+        predicate: 
+          - biolink:assesses
+        object_categories:
+          - AnatomicalEntity
+          - Cell
+          - CellLine
+          - OrganismTaxon
+          - PhenotypicFeature
+        qualifier_types: 
+          - causal_mechanism_qualifier
+          - object_aspect_qualifier
+          - object_direction_qualifier
+          - qualified_predicate
+          - species_context_qualifier
+        knowledge_level:
+          - observation
+        agent_type:
+          - experimental_agent
+        edge_properties:
+          - Binding_Efficiency_Index
+          - action_type
+          - assay_chembl_id
+          - assay_tax_id
+          - assay_tissue_chembl_id
+          - biolink:publications
+          - data_validity_comment
+          - potential_duplicate
+          - standard_value
+        ui_explanation: "Drug activities from ChEMBL"
+      - subject_categories:
+          - SmallMolecule
+          - MolecularMixture
+          - ChemicalEntity
+        predicate: 
+          - biolink:has_metabolite
+        object_categories:
+          - SmallMolecule
+          - MolecularMixture
+          - ChemicalEntity
+        qualifier_types: "N/A"
+        knowledge_level:
+          - knowledge_assertion
+        agent_type:
+          - manual_agent
+        edge_properties:
+          - OBI:0000427
+          - biolink:publications
+          - enzyme_chembl_id
+          - enzyme_name
+          - metabolic conversion
+          - metabolic conversion comment
+          - organism
+          - tax_id
+        ui_explanation: "Metabolism information from ChEMBL"
 
     node_type_info:  # (required, multivalued, range = NodeType)
       - node_category:  # (required, range = UriOrCurie)

@@ -1,5 +1,5 @@
 ReferenceIngestGuide:
-  name: ChEMBL Reference Ingest Guide
+  name: "ChEMBL Reference Ingest Guide"
 
   source_info:
     infores_id: infores:chembl
@@ -20,7 +20,6 @@ ReferenceIngestGuide:
     data_versioning_and_releases: semiannual
 
 
-# Information about Ingested Content (the scope, content, and rationale for what is included and excluded in this ingest)
   ingest_info:
     ingest_categories:
       - primary_knowledge_provider
@@ -30,7 +29,7 @@ ReferenceIngestGuide:
     relevant_files:
       - file_name: chembl_35_sqlite.tar.gz
         location: https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/latest/
-        description: ChEMBL SQLite database
+        description: "ChEMBL SQLite database"
 
     included_content: 
       - file_name: chembl_35_sqlite.tar.gz
@@ -48,8 +47,8 @@ ReferenceIngestGuide:
 
     filtered_content:
       - file_name: chembl_35_sqlite.tar.gz
-        filtered_records: Gene targets - removed tragets that cannot be mapped to genes (like cell-lines)
-        rationale: tragets that cannot be mapped to genes
+        filtered_records: "Gene targets - removed tragets that cannot be mapped to genes (like cell-lines)"
+        rationale: "tragets that cannot be mapped to genes"
 
 # Information about the Graph Output by the ingest
   target_info:  # (required, range = TargetInfo)

@@ -2,13 +2,13 @@ ReferenceIngestGuide:
   name:  # (optional, range = string)
 
 # Information about the Source of the ingest
-  source_info:  # (required, range = SourceInfo)
+  source_info:  # (required, range = SourceInformation)
     infores_id:  # (required, range = UriOrCurie)
     description:  # (optional, range = string)
     citations:  # (optional, multivalued, range = string)
       -
-    terms_of_use:  # (required, range = string)
-    data_access_locations:  # (optional, multivalued, range = string)
+    terms_of_use:  # (required, range = string)  Can be a url, and/or your own notes / description
+    data_access_locations:  # (optional, multivalued, range = string)  Each value should include a url, and optionally description of what is provided at that location. 
       -
     data_provision_mechanisms:  # (optional, multivalued, range = ProvisionMechanismEnum: file_download | api_endpoint | database_dump | other)
       -
@@ -19,7 +19,7 @@ ReferenceIngestGuide:
 
 
 # Information about Ingested Content (the scope, content, and rationale for what is included and excluded in this ingest)
-  ingest_info:  # (required, range = IngestInfo)
+  ingest_info:  # (required, range = IngestInformation)
     ingest_categories:  # (optional, multivalued, range = IngestCategoryEnum: primary_knowledge_provider | aggregation_provider | aggregation_interpreter | supporting_data_provider | translator_knowledge_creator | ontology/terminology_provider | node_property_only_provider | other/unknown)
       -
     utility:  # (required, range = string)
@@ -48,7 +48,7 @@ ReferenceIngestGuide:
     additional_notes:  # (optional, range = string)
 
 # Information about the Graph Output by the ingest
-  target_info:  # (required, range = TargetInfo)
+  target_info:  # (required, range = TargetInformation)
     infores_id:  # (optional, range = UriOrCurie)
 
     edge_type_info:  # (required, multivalued, range = EdgeType)
@@ -88,7 +88,7 @@ ReferenceIngestGuide:
 
 
 # Information about the how the ingest was specified and performed
-  provenance_info:  # (optional, range = ProvenanceInfo)
+  provenance_info:  # (optional, range = ProvenanceInformation)
     contributions:  # (optional, multivalued, range = string)
       -
     artifacts:  # (optional, multivalued, range = string)

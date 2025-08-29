@@ -322,33 +322,13 @@ classes:
             The Biolink predicate used in a "qualified" reading of a statement expressed by an Edge (i.e. one that
             considers the semantics added by subject and/or object qualifiers)
           range: uriorcurie
-        biolink_qualifier_1:
+        qualifiers:
           description: >-
-            If relevant, a Biolink qualifier property that defines this edge type. e.g. "biolink:subject_form_or_variant_qualifier".
-          range: uriorcurie
-        biolink_qualifier_1_value_type:
-          description: >-
-            The type of the value taken by the first qualifier type. Can be reported as the name of a Biolink class, enumeration,
-            or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string".
-          range: uriorcurie
-        biolink_qualifier_2:
-          description: >-
-            If relevant, a second Biolink qualifier property that defines this edge type. e.g. "biolink:subject_aspect_qualifier".
-          range: uriorcurie
-        biolink_qualifier_2_value_type:
-          description: >-
-            The type of the value taken by the second qualifier type. Can be reported as the name of a Biolink class, enumeration,
-            or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string".
-          range: uriorcurie
-        biolink_qualifier_3:
-          description: >-
-            IF relevant, a third Biolink qualifier property that defines this edge type. e.g. "biolink:object_direction_qualifier".
-          range: uriorcurie
-        biolink_qualifier_3_value_type:
-          description: >-
-            The type of the value taken by the third qualifier type. Can be reported as the name of a Biolink class, enumeration,
-            or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string".
-          range: uriorcurie
+            If relevant, report any qualifiers applied to the edge type, as a Qualifier object that contains a 
+            qualifier_property and qualifier_range pair. e.g. the property "biolink:subject_aspect_qualifier",
+            and range  "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum
+          range: Qualifier
+          mutivalued: true
         knowledge_level:
           description: >-
             The knowledge level (or levels) relevant to this type of edge. Multivalued only if instances of this type of edge
@@ -378,6 +358,26 @@ classes:
             Additional notes, considerations, or explanations of modeling patterns used for this edge type, that were
             not otherwise captured in dedicated attributes.
           range: string
+
+  Qualifier:
+      description: >-
+        A qualifier property + range tuple that specifies a type of qualifier that may be applied to a Statement. 
+        e.g. the property "biolink:subject_aspect_qualifier", and value "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum
+      attributes:
+        qualifier_property:
+          description: >-
+            The biolink qualifier property that defines the kind of Qualifier specified,
+            e.g. "biolink:subject_aspect_qualifier"
+          range: uriorcurie
+          required: true
+        qualifier_ranges:
+          description: >-
+            The biolink class(es) or type(s) that specifies the kind of calue the qualifier property takes,
+            Reported as the name of a Biolink class, enumeration, or data type, as appropriate. 
+            e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string"
+          range: uriorcurie
+          required: true
+          multivalued: true
 
   NodeType:
       description: >-

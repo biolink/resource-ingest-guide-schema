@@ -24,8 +24,15 @@ classes:
         a Reference Ingest Guide.
       attributes:
         name:
-          description: A human readable name for the RIG
+          description: A human readable name for the RIG.
           range: string
+        supporting_data_source_info:
+          description: >-
+             Information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest.
+          comment: >-
+             This slot is optional, and can be omitted for typical ingest of an external knowledge source - as it is mainly relevant for describing "ingest" of
+             data-derived KPs like ICEES, COHD, various Multiomics KPs, etc.
+          range: SupportingDataSourceInformation
         source_info:
           description: >-
             Information about the source from which content is ingested.
@@ -52,6 +59,42 @@ classes:
             surveys, etc.
           range: ProvenanceInformation
 
+  SupportingDataSourceInformation:
+      description: >-
+        A container for information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest.
+        This info is not relevant for typical ingest of an external knowledge source, and applies mainly for describing "ingest" of data-derived
+        KPs like ICEES, COHD, various Multiomics KPs, etc.
+      attributes:
+        infores_id:
+          description: >-
+            The infores identifier of the source from which content is being ingested,
+            e.g. "infores:ctd".
+          range: uriorcurie
+          required: true
+        name:
+          description: >-
+            A human-readable name for the source of supporting data, e.g. ""Aggregate Analysis of ClinicalTrial.gov (AACT)"
+          range: string
+        description:
+          description: >-
+            A brief description of the source, including its purpose, scope, and any relevant background information.
+          range: string
+        terms_of_use:
+          description: >-
+            Information about conditions for use of the supporting data source. May be the
+            name of a community license (e.g. `CC-BY 4.0`), a link to a "terms of use"
+            or license information web page, or a free-text summary of key terms of use.
+          range: string
+          required: true
+        relevant_files:
+          description: >-
+            A description of each source file (or API endpoint, database, or table) that contains
+            data used to create the ingested knowledge. Source files that dontain data not used to created
+            knowledge need not be listed or described.
+          range: RelevantFiles
+          multivalued: true
+          required: true
+        
   SourceInformation:
       description: A container for capturing information about the source of the ingest.
       attributes:
@@ -61,6 +104,9 @@ classes:
             e.g. "infores:ctd".
           range: uriorcurie
           required: true
+        name:
+          description: A human readable name for the RIG
+          range: string
         description:
           description: >-
             A brief description of the source, including its purpose, scope, and any
@@ -133,7 +179,7 @@ classes:
         relevant_files:
           description: >-
             A description of each source file (or API endpoint, database, or table) that contains
-            content in scope for the ingest. Source files containing which content is not retrieved 
+            content in scope for the ingest. Source files containing content which is not retrieved 
             in this ingest need not be listed or described.
           range: RelevantFiles
           multivalued: true
@@ -461,6 +507,7 @@ enums:
       yaml:
       obo:
       protobuff:
+      kgx:
       other:
 
   ContentCategoryEnum:

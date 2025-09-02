@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
@@ -525,6 +525,10 @@
 <td>A container holding information about the provenance of the ingest, including who contributed and how, and links to external provenance artifacts.</td>
 </tr>
 <tr>
+<td><a href="Qualifier/">Qualifier</a></td>
+<td>A qualifier property + value tuple that specifies a type of qualifier and value that may be applied to a Statement. Values can be specified to come from a proper range (e.g. Biolink class, data type, or enum), and/or to use a specific id prefix, and/or using a free-text description.</td>
+</tr>
+<tr>
 <td><a href="ReferenceIngestGuide/">ReferenceIngestGuide</a></td>
 <td>A container that holds attributes for the discrete sections of information comprising a Reference Ingest Guide.</td>
 </tr>
@@ -535,6 +539,10 @@
 <tr>
 <td><a href="SourceInformation/">SourceInformation</a></td>
 <td>A container for capturing information about the source of the ingest.</td>
+</tr>
+<tr>
+<td><a href="SupportingDataSourceInformation/">SupportingDataSourceInformation</a></td>
+<td>A container for information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest. This info is not relevant for typical ingest of an external knowledge source, and applies mainly for describing "ingest" of data-derived KPs like ICEES, COHD, various Multiomics KPs, etc.</td>
 </tr>
 <tr>
 <td><a href="TargetInformation/">TargetInformation</a></td>
@@ -570,54 +578,6 @@
 <tr>
 <td><a href="artifacts/">artifacts</a></td>
 <td>Links to and descriptions of external artifacts related to the provenance of the ingest, such as Github issues, surveys of prior ingests of the source, etc.</td>
-</tr>
-<tr>
-<td>---</td>
-<td>---</td>
-</tr>
-<tr>
-<td><a href="biolink_qualifier_1/">biolink_qualifier_1</a></td>
-<td>If relevant, a Biolink qualifier property that defines this edge type. e.g. "biolink:subject_form_or_variant_qualifier".</td>
-</tr>
-<tr>
-<td>---</td>
-<td>---</td>
-</tr>
-<tr>
-<td><a href="biolink_qualifier_1_value_type/">biolink_qualifier_1_value_type</a></td>
-<td>The type of the value taken by the first qualifier type. Can be reported as the name of a Biolink class, enumeration, or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string".</td>
-</tr>
-<tr>
-<td>---</td>
-<td>---</td>
-</tr>
-<tr>
-<td><a href="biolink_qualifier_2/">biolink_qualifier_2</a></td>
-<td>If relevant, a second Biolink qualifier property that defines this edge type. e.g. "biolink:subject_aspect_qualifier".</td>
-</tr>
-<tr>
-<td>---</td>
-<td>---</td>
-</tr>
-<tr>
-<td><a href="biolink_qualifier_2_value_type/">biolink_qualifier_2_value_type</a></td>
-<td>The type of the value taken by the second qualifier type. Can be reported as the name of a Biolink class, enumeration, or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string".</td>
-</tr>
-<tr>
-<td>---</td>
-<td>---</td>
-</tr>
-<tr>
-<td><a href="biolink_qualifier_3/">biolink_qualifier_3</a></td>
-<td>IF relevant, a third Biolink qualifier property that defines this edge type. e.g. "biolink:object_direction_qualifier".</td>
-</tr>
-<tr>
-<td>---</td>
-<td>---</td>
-</tr>
-<tr>
-<td><a href="biolink_qualifier_3_value_type/">biolink_qualifier_3_value_type</a></td>
-<td>The type of the value taken by the third qualifier type. Can be reported as the name of a Biolink class, enumeration, or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string".</td>
 </tr>
 <tr>
 <td>---</td>
@@ -809,7 +769,7 @@
 </tr>
 <tr>
 <td><a href="name/">name</a></td>
-<td>A human readable name for the RIG</td>
+<td>A human readable name for the RIG.</td>
 </tr>
 <tr>
 <td>---</td>
@@ -817,7 +777,7 @@
 </tr>
 <tr>
 <td><a href="node_category/">node_category</a></td>
-<td>The high-level Biolink category of nodes as assumed or assigned by ingestors. e.g. "biolink:Gene".</td>
+<td>The high-level Biolink category of nodes as assumed or assigned by ingestors. e.g. "biolink:Gene". Note that downstream normalization of node identifiers may result in new/different categories ultimately being assigned in the final graph.</td>
 </tr>
 <tr>
 <td>---</td>
@@ -841,7 +801,7 @@
 </tr>
 <tr>
 <td><a href="object_categories/">object_categories</a></td>
-<td>The Biolink category of the object node of this edge type. e.g. "biolink:Disease".</td>
+<td>The Biolink category of the object node of this edge type. e.g. "biolink:Disease". If two edge types differ only in their object category, but use the same predicate, subject_category,  edge properties, and general provenance, they can be described together in a single NodeType object that captures the alternative object categories. e.g. if a source provides Gene-associated_with-Disease and  Gene-associated_with-PhenotypicFeature edge types, these can be described in a single EdgeType object with two subject categories (Disease and PhenotypicFeature)</td>
 </tr>
 <tr>
 <td>---</td>
@@ -850,6 +810,14 @@
 <tr>
 <td><a href="predicate/">predicate</a></td>
 <td>The Biolink predicate that defines this type of edge (e.g. "biolink:treats)</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><a href="property/">property</a></td>
+<td>The Biolink qualifier property that defines the kind of Qualifier specified, e.g. "biolink:subject_aspect_qualifier"</td>
 </tr>
 <tr>
 <td>---</td>
@@ -872,6 +840,14 @@
 <td>---</td>
 </tr>
 <tr>
+<td><a href="qualifiers/">qualifiers</a></td>
+<td>If relevant, report any qualifiers applied to the edge type, as a Qualifier object that contains a  qualifier_property and qualifier_range pair. e.g. the property "biolink:subject_aspect_qualifier", and range  "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
 <td><a href="rationale/">rationale</a></td>
 <td>The rationale for excluding the indicated content (why this subset of records was filtered out).</td>
 </tr>
@@ -881,7 +857,7 @@
 </tr>
 <tr>
 <td><a href="relevant_files/">relevant_files</a></td>
-<td>A description of each source file (or API endpoint, database, or table) that contains content in scope for the ingest. Source files containing which content is not retrieved  in this ingest need not be listed or described.</td>
+<td>A description of each source file (or API endpoint, database, or table) that contains data used to create the ingested knowledge. Source files that dontain data not used to created knowledge need not be listed or described.</td>
 </tr>
 <tr>
 <td>---</td>
@@ -913,7 +889,15 @@
 </tr>
 <tr>
 <td><a href="subject_categories/">subject_categories</a></td>
-<td>The Biolink category of the subject node of this edge type. e.g. "biolink:SmallMolecule".</td>
+<td>The Biolink category of the subject node of this edge type. e.g. "biolink:SmallMolecule". If two edge types differ only in their subject category, but use the same predicate, object_category,  edge properties, and general provenance, they can be described together in a single NodeType object that captures the alternative subject categories. e.g. if a source provides SmallMolecule-treats-Disease and  MolecularMixture-treats-Disease edge types, these can be described in a single EdgeType object with two subject categories (SmallMolecule and MolecularMixture)</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><a href="supporting_data_source_info/">supporting_data_source_info</a></td>
+<td>Information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest.</td>
 </tr>
 <tr>
 <td>---</td>
@@ -929,7 +913,7 @@
 </tr>
 <tr>
 <td><a href="terms_of_use/">terms_of_use</a></td>
-<td>Information about conditions for use of the ingested source. May be the name of a community license (e.g. <code>CC-BY 4.0</code>), a link to a "terms of use" or license information web page (e.g. <code>https://ctdbase.org/about/legal.jsp</code>), or a free-text summary of key terms of use.</td>
+<td>Information about conditions for use of the supporting data source. May be the name of a community license (e.g. <code>CC-BY 4.0</code>), a link to a "terms of use" or license information web page, or a free-text summary of key terms of use.</td>
 </tr>
 <tr>
 <td>---</td>
@@ -946,6 +930,30 @@
 <tr>
 <td><a href="utility/">utility</a></td>
 <td>Brief description of why the source was ingested, and the utility of the data it provides for target system use cases.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><a href="value_description/">value_description</a></td>
+<td>A free text description of the tyeps of value allowed for the qualifier.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><a href="value_id_prefixes/">value_id_prefixes</a></td>
+<td>One or more id prefixes from which the qualifier value mush come. e.g. "HP" if the qualifier must be a Human Phenotype Ontology term.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><a href="value_range/">value_range</a></td>
+<td>The Biolink class(es) or type(s) that specifies the kind of calue the qualifier property takes, Reported as the name of a Biolink class, enumeration, or data type, as appropriate.  e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string"</td>
 </tr>
 </tbody>
 </table>
@@ -1061,10 +1069,10 @@ Biolink Model: A universal schema for knowledge graphs in clinical, biomedical, 
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["content.tabs.link"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": ".", "features": ["content.tabs.link"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>

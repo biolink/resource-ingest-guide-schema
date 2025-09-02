@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://biolink.github.io/information-resource-ingest-guide/SourceInformation/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.16" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.18" name="generator"/>
 <title>Class: SourceInformation - Biolink Reference Ingest Guide Schema Documentation</title>
 <link href="../assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -211,6 +211,8 @@
 
       SourceInformation : infores_id
 
+      SourceInformation : name
+
       SourceInformation : terms_of_use
 
 
@@ -230,6 +232,12 @@
 <tr>
 <td><a href="../infores_id/">infores_id</a>: <br> <i> The infores identifier of the source from which content is being ingested, e.g. "infores:ctd". </i></br></td>
 <td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>direct</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../name/">name</a>: <br/> <i> A human readable name for the RIG </i></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>direct</td>
 <td></td>
 </tr>
@@ -314,16 +322,27 @@ attributes:
       ingested, e.g. "infores:ctd".
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
+    - SupportingDataSourceInformation
     - SourceInformation
     - TargetInformation
     range: uriorcurie
     required: true
+  name:
+    name: name
+    description: A human readable name for the RIG
+    from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
+    domain_of:
+    - ReferenceIngestGuide
+    - SupportingDataSourceInformation
+    - SourceInformation
+    range: string
   description:
     name: description
     description: A brief description of the source, including its purpose, scope,
       and any relevant background information.
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
+    - SupportingDataSourceInformation
     - SourceInformation
     - RelevantFiles
     range: string
@@ -345,6 +364,7 @@ attributes:
       or a free-text summary of key terms of use.
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
+    - SupportingDataSourceInformation
     - SourceInformation
     range: string
     required: true
@@ -421,8 +441,8 @@ attributes:
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.50899def.min.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
 <script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
 mermaid.initialize({});</script></body>
 </html>

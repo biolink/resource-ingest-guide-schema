@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://biolink.github.io/information-resource-ingest-guide/EdgeType/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.16" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.18" name="generator"/>
 <title>Class: EdgeType - Biolink Reference Ingest Guide Schema Documentation</title>
 <link href="../assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -197,18 +197,6 @@
 
           EdgeType --|&gt; AgentTypeEnum : agent_type
 
-      EdgeType : biolink_qualifier_1
-
-      EdgeType : biolink_qualifier_1_value_type
-
-      EdgeType : biolink_qualifier_2
-
-      EdgeType : biolink_qualifier_2_value_type
-
-      EdgeType : biolink_qualifier_3
-
-      EdgeType : biolink_qualifier_3_value_type
-
       EdgeType : edge_properties
 
       EdgeType : knowledge_level
@@ -220,6 +208,10 @@
       EdgeType : predicate
 
       EdgeType : qualified_predicate
+
+      EdgeType : qualifiers
+
+          EdgeType --|&gt; Qualifier : qualifiers
 
       EdgeType : subject_categories
 
@@ -240,7 +232,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../subject_categories/">subject_categories</a>: <br> <i> The Biolink category of the subject node of this edge type. e.g. "biolink:SmallMolecule". </i></br></td>
+<td><a href="../subject_categories/">subject_categories</a>: <br> <i> The Biolink category of the subject node of this edge type. e.g. "biolink:SmallMolecule". If two edge types differ only in their subject category, but use the same predicate, object_category,  edge properties, and general provenance, they can be described together in a single NodeType object that captures the alternative subject categories. e.g. if a source provides SmallMolecule-treats-Disease and  MolecularMixture-treats-Disease edge types, these can be described in a single EdgeType object with two subject categories (SmallMolecule and MolecularMixture) </i></br></td>
 <td>1..* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>direct</td>
 <td></td>
@@ -252,7 +244,7 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="../object_categories/">object_categories</a>: <br/> <i> The Biolink category of the object node of this edge type. e.g. "biolink:Disease". </i></td>
+<td><a href="../object_categories/">object_categories</a>: <br/> <i> The Biolink category of the object node of this edge type. e.g. "biolink:Disease". If two edge types differ only in their object category, but use the same predicate, subject_category,  edge properties, and general provenance, they can be described together in a single NodeType object that captures the alternative object categories. e.g. if a source provides Gene-associated_with-Disease and  Gene-associated_with-PhenotypicFeature edge types, these can be described in a single EdgeType object with two subject categories (Disease and PhenotypicFeature) </i></td>
 <td>1..* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>direct</td>
 <td></td>
@@ -264,38 +256,8 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="../biolink_qualifier_1/">biolink_qualifier_1</a>: <br/> <i> If relevant, a Biolink qualifier property that defines this edge type. e.g. "biolink:subject_form_or_variant_qualifier". </i></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>direct</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="../biolink_qualifier_1_value_type/">biolink_qualifier_1_value_type</a>: <br/> <i> The type of the value taken by the first qualifier type. Can be reported as the name of a Biolink class, enumeration, or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string". </i></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>direct</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="../biolink_qualifier_2/">biolink_qualifier_2</a>: <br/> <i> If relevant, a second Biolink qualifier property that defines this edge type. e.g. "biolink:subject_aspect_qualifier". </i></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>direct</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="../biolink_qualifier_2_value_type/">biolink_qualifier_2_value_type</a>: <br/> <i> The type of the value taken by the second qualifier type. Can be reported as the name of a Biolink class, enumeration, or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string". </i></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>direct</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="../biolink_qualifier_3/">biolink_qualifier_3</a>: <br/> <i> IF relevant, a third Biolink qualifier property that defines this edge type. e.g. "biolink:object_direction_qualifier". </i></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>direct</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="../biolink_qualifier_3_value_type/">biolink_qualifier_3_value_type</a>: <br/> <i> The type of the value taken by the third qualifier type. Can be reported as the name of a Biolink class, enumeration, or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string". </i></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td><a href="../qualifiers/">qualifiers</a>: <br/> <i> If relevant, report any qualifiers applied to the edge type, as a Qualifier object that contains a  qualifier_property and qualifier_range pair. e.g. the property "biolink:subject_aspect_qualifier", and range  "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum </i></td>
+<td>* <br/> <a href="../Qualifier/">Qualifier</a></td>
 <td>direct</td>
 <td></td>
 </tr>
@@ -362,14 +324,12 @@ attributes:
   subject_categories:
     name: subject_categories
     description: The Biolink category of the subject node of this edge type. e.g.
-      "biolink:SmallMolecule".
-    comments:
-    - If two edge types differ only in their subject category, but use the same predicate,
-      object_category, edge properties, and general provenance, they can be described
-      together in a single NodeType object that captures the alternative subject categories.
-      e.g. if a source provides SmallMolecule-treats-Disease and MolecularMixture-treats-Disease
-      edge types, these can be described in a single EdgeType object with two subject
-      categories (SmallMolecule and MolecularMixture)
+      "biolink:SmallMolecule". If two edge types differ only in their subject category,
+      but use the same predicate, object_category,  edge properties, and general provenance,
+      they can be described together in a single NodeType object that captures the
+      alternative subject categories. e.g. if a source provides SmallMolecule-treats-Disease
+      and  MolecularMixture-treats-Disease edge types, these can be described in a
+      single EdgeType object with two subject categories (SmallMolecule and MolecularMixture)
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
     - EdgeType
@@ -387,8 +347,7 @@ attributes:
   object_categories:
     name: object_categories
     description: The Biolink category of the object node of this edge type. e.g. "biolink:Disease".
-    comments:
-    - If two edge types differ only in their object category, but use the same predicate,
+      If two edge types differ only in their object category, but use the same predicate,
       subject_category,  edge properties, and general provenance, they can be described
       together in a single NodeType object that captures the alternative object categories.
       e.g. if a source provides Gene-associated_with-Disease and  Gene-associated_with-PhenotypicFeature
@@ -409,58 +368,16 @@ attributes:
     domain_of:
     - EdgeType
     range: uriorcurie
-  biolink_qualifier_1:
-    name: biolink_qualifier_1
-    description: If relevant, a Biolink qualifier property that defines this edge
-      type. e.g. "biolink:subject_form_or_variant_qualifier".
+  qualifiers:
+    name: qualifiers
+    description: If relevant, report any qualifiers applied to the edge type, as a
+      Qualifier object that contains a  qualifier_property and qualifier_range pair.
+      e.g. the property "biolink:subject_aspect_qualifier", and range  "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
     - EdgeType
-    range: uriorcurie
-  biolink_qualifier_1_value_type:
-    name: biolink_qualifier_1_value_type
-    description: The type of the value taken by the first qualifier type. Can be reported
-      as the name of a Biolink class, enumeration, or data type, as appropriate. e.g.
-      "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string".
-    from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-    domain_of:
-    - EdgeType
-    range: uriorcurie
-  biolink_qualifier_2:
-    name: biolink_qualifier_2
-    description: If relevant, a second Biolink qualifier property that defines this
-      edge type. e.g. "biolink:subject_aspect_qualifier".
-    from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-    domain_of:
-    - EdgeType
-    range: uriorcurie
-  biolink_qualifier_2_value_type:
-    name: biolink_qualifier_2_value_type
-    description: The type of the value taken by the second qualifier type. Can be
-      reported as the name of a Biolink class, enumeration, or data type, as appropriate.
-      e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum",
-      "biolink:string".
-    from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-    domain_of:
-    - EdgeType
-    range: uriorcurie
-  biolink_qualifier_3:
-    name: biolink_qualifier_3
-    description: IF relevant, a third Biolink qualifier property that defines this
-      edge type. e.g. "biolink:object_direction_qualifier".
-    from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-    domain_of:
-    - EdgeType
-    range: uriorcurie
-  biolink_qualifier_3_value_type:
-    name: biolink_qualifier_3_value_type
-    description: The type of the value taken by the third qualifier type. Can be reported
-      as the name of a Biolink class, enumeration, or data type, as appropriate. e.g.
-      "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string".
-    from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-    domain_of:
-    - EdgeType
-    range: uriorcurie
+    range: Qualifier
+    multivalued: true
   knowledge_level:
     name: knowledge_level
     description: The knowledge level (or levels) relevant to this type of edge. Multivalued
@@ -540,8 +457,8 @@ attributes:
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.50899def.min.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
 <script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
 mermaid.initialize({});</script></body>
 </html>

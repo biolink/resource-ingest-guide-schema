@@ -292,7 +292,6 @@ classes:
         subject_categories:
           description: >-
             The Biolink category of the subject node of this edge type. e.g. "biolink:SmallMolecule".
-          comments:
             If two edge types differ only in their subject category, but use the same predicate, object_category, 
             edge properties, and general provenance, they can be described together in a single NodeType object
             that captures the alternative subject categories. e.g. if a source provides SmallMolecule-treats-Disease and 
@@ -308,7 +307,6 @@ classes:
         object_categories:
           description: >-
             The Biolink category of the object node of this edge type. e.g. "biolink:Disease".
-          comments: >-
             If two edge types differ only in their object category, but use the same predicate, subject_category, 
             edge properties, and general provenance, they can be described together in a single NodeType object
             that captures the alternative object categories. e.g. if a source provides Gene-associated_with-Disease and 
@@ -395,7 +393,6 @@ classes:
         node_category:
           description: >- 
             The high-level Biolink category of nodes as assumed or assigned by ingestors. e.g. "biolink:Gene".
-          comments: >-
             Note that downstream normalization of node identifiers may result in new/different categories
             ultimately being assigned in the final graph.
           range: uriorcurie

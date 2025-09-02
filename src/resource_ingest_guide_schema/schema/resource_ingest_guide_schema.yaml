@@ -328,7 +328,7 @@ classes:
             qualifier_property and qualifier_range pair. e.g. the property "biolink:subject_aspect_qualifier",
             and range  "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum
           range: Qualifier
-          mutivalued: true
+          multivalued: true
         knowledge_level:
           description: >-
             The knowledge level (or levels) relevant to this type of edge. Multivalued only if instances of this type of edge

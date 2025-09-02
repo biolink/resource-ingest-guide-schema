@@ -4,7 +4,7 @@ supporting_data_sources:
   - infores_id: "infores:aact"
     name: "Aggregate Analysis of ClinicalTrial.gov (AACT)"
     description: "AACT is derived from researcher submissions to clinicaltrials.gov"
-    terms_of_use: "Not specified"
+    terms_of_use: "Freely available, with suggested acknowledge ment of the source. See https://aact.ctti-clinicaltrials.org/documentation/346"
     relevant_files:
       - file_name: "yyyymmdd_export_ctgov.zip"
         location: "https://aact.ctti-clinicaltrials.org/downloads"

@@ -29,7 +29,7 @@ classes:
         supporting_data_source_info:
           description: >-
              Information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest.
-          comment: >-
+          comments: >-
              This slot is optional, and can be omitted for typical ingest of an external knowledge source - as it is mainly relevant for describing "ingest" of
              data-derived KPs like ICEES, COHD, various Multiomics KPs, etc.
           range: SupportingDataSourceInformation
@@ -338,7 +338,6 @@ classes:
         subject_categories:
           description: >-
             The Biolink category of the subject node of this edge type. e.g. "biolink:SmallMolecule".
-          comments:
             If two edge types differ only in their subject category, but use the same predicate, object_category, 
             edge properties, and general provenance, they can be described together in a single NodeType object
             that captures the alternative subject categories. e.g. if a source provides SmallMolecule-treats-Disease and 
@@ -354,7 +353,6 @@ classes:
         object_categories:
           description: >-
             The Biolink category of the object node of this edge type. e.g. "biolink:Disease".
-          comments: >-
             If two edge types differ only in their object category, but use the same predicate, subject_category, 
             edge properties, and general provenance, they can be described together in a single NodeType object
             that captures the alternative object categories. e.g. if a source provides Gene-associated_with-Disease and 
@@ -368,33 +366,13 @@ classes:
             The Biolink predicate used in a "qualified" reading of a statement expressed by an Edge (i.e. one that
             considers the semantics added by subject and/or object qualifiers)
           range: uriorcurie
-        biolink_qualifier_1:
+        qualifiers:
           description: >-
-            If relevant, a Biolink qualifier property that defines this edge type. e.g. "biolink:subject_form_or_variant_qualifier".
-          range: uriorcurie
-        biolink_qualifier_1_value_type:
-          description: >-
-            The type of the value taken by the first qualifier type. Can be reported as the name of a Biolink class, enumeration,
-            or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string".
-          range: uriorcurie
-        biolink_qualifier_2:
-          description: >-
-            If relevant, a second Biolink qualifier property that defines this edge type. e.g. "biolink:subject_aspect_qualifier".
-          range: uriorcurie
-        biolink_qualifier_2_value_type:
-          description: >-
-            The type of the value taken by the second qualifier type. Can be reported as the name of a Biolink class, enumeration,
-            or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string".
-          range: uriorcurie
-        biolink_qualifier_3:
-          description: >-
-            IF relevant, a third Biolink qualifier property that defines this edge type. e.g. "biolink:object_direction_qualifier".
-          range: uriorcurie
-        biolink_qualifier_3_value_type:
-          description: >-
-            The type of the value taken by the third qualifier type. Can be reported as the name of a Biolink class, enumeration,
-            or data type, as appropriate. e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string".
-          range: uriorcurie
+            If relevant, report any qualifiers applied to the edge type, as a Qualifier object that contains a 
+            qualifier_property and qualifier_range pair. e.g. the property "biolink:subject_aspect_qualifier",
+            and range  "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum
+          range: Qualifier
+          multivalued: true
         knowledge_level:
           description: >-
             The knowledge level (or levels) relevant to this type of edge. Multivalued only if instances of this type of edge
@@ -425,6 +403,35 @@ classes:
             not otherwise captured in dedicated attributes.
           range: string
 
+  Qualifier:
+      description: >-
+        A qualifier property + value tuple that specifies a type of qualifier and value that may be applied to a Statement.
+        Values can be specified to come from a proper range (e.g. Biolink class, data type, or enum), and/or to use a specific
+        id prefix, and/or using a free-text description.
+      attributes:
+        property:
+          description: >-
+            The Biolink qualifier property that defines the kind of Qualifier specified,
+            e.g. "biolink:subject_aspect_qualifier"
+          range: uriorcurie
+          required: true
+        value_range:
+          description: >-
+            The Biolink class(es) or type(s) that specifies the kind of calue the qualifier property takes,
+            Reported as the name of a Biolink class, enumeration, or data type, as appropriate. 
+            e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string"
+          range: uriorcurie
+          multivalued: true
+        value_id_prefixes:
+          description: >-
+            One or more id prefixes from which the qualifier value mush come. e.g. "HP" if the qualifier must be a
+            Human Phenotype Ontology term. 
+          range: string
+          multivalued: true
+        value_description: 
+          description: >-
+            A free text description of the tyeps of value allowed for the qualifier.
+          range: string
   NodeType:
       description: >-
         A structured object describing each type of node created in the target knowledge graph by this ingest.
@@ -432,7 +439,6 @@ classes:
         node_category:
           description: >- 
             The high-level Biolink category of nodes as assumed or assigned by ingestors. e.g. "biolink:Gene".
-          comments: >-
             Note that downstream normalization of node identifiers may result in new/different categories
             ultimately being assigned in the final graph.
           range: uriorcurie

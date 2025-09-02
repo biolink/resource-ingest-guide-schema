@@ -112,12 +112,19 @@ target_info:
       object_categories:
       - "biolink:PhenotypicFeature"
       qualified_predicate: null
-      biolink_qualifier_1: "biolink:onset_qualifier"
-      biolink_qualifier_1_value_type: "HP"
-      biolink_qualifier_2: "biolink:frequency_qualifier"
-      biolink_qualifier_2_value_type: "HP"
-      biolink_qualifier_3: "biolink:sex_qualifier"
-      biolink_qualifier_3_value_type: "PATO"
+      qualifiers:
+        - qualifier_property: "biolink:onset_qualifier"
+          value_range: "uriorcurie"
+          value_id_prefix: "HP"
+          value_description: "A term from the "Onset" (HP:0003674) branch of the Human Phenotype Ontology"
+        - qualifier_property: "biolink:frequency_qualifier"
+          value_range: "uriorcurie"      
+          value_id_prefix: "HP"
+          value_description: "A term from the "Frequency" (HP:0040279) branch of the Human Phenotype Ontology"      
+        - qualifier_property: "biolink:sex_qualifier"
+          value_range: "uriorcurie"     
+          value_id_prefix: "PATO"
+          value_description: "A term from the "biological sex" (PATO:0000047) branch of the PATO Ontology"                 
       knowledge_level:
       - knowledge_assertion
       agent_type:
@@ -141,8 +148,10 @@ target_info:
       object_categories:
       - "biolink:Disease"
       qualified_predicate: "biolink:causes"
-      biolink_qualifier_1: "biolink:subject_form_or_variant_qualifier"
-      biolink_qualifier_1_value_type: "biolink:genetic_variant_form"
+      qualifiers:      
+        - qualifier_property: "biolink:subject_form_or_variant_qualifier"
+          value_range: "ChemicalOrGeneOrGeneProductFormOrVariantEnum"
+          value_description: "Specifically, the "genetic_variant_form" enum value is used in all cases"            
       knowledge_level:
       - knowledge_assertion
       agent_type:
@@ -159,8 +168,10 @@ target_info:
       object_categories:
       - "biolink:Disease"
       qualified_predicate: "biolink:contributes_to"
-      biolink_qualifier_1: "biolink:subject_form_or_variant_qualifier"
-      biolink_qualifier_1_value_type: "biolink:genetic_variant_form"
+      qualifiers:      
+        - qualifier_property: "biolink:subject_form_or_variant_qualifier"
+          value_range: "ChemicalOrGeneOrGeneProductFormOrVariantEnum"
+          value_description: "Specifically, the "genetic_variant_form" enum value is used in all cases"                  
       knowledge_level:
       - knowledge_assertion
       agent_type:
@@ -193,12 +204,18 @@ target_info:
       object_categories:
       - "biolink:PhenotypicFeature"
       qualified_predicate: "biolink:causes"
-      biolink_qualifier_1: "biolink:subject_form_or_variant_qualifier"
-      biolink_qualifier_1_value_type: "biolink:genetic_variant_form"
-      biolink_qualifier_2: "biolink:frequency_qualifier"
-      biolink_qualifier_2_value_type: "HP"
-      biolink_qualifier_3: "biolink:disease_context_qualifier"
-      biolink_qualifier_3_value_type: "MONDO"
+      qualifiers:      
+        - qualifier_property: "biolink:subject_form_or_variant_qualifier"
+          value_range: "ChemicalOrGeneOrGeneProductFormOrVariantEnum"
+          value_description: "Specifically, the "genetic_variant_form" enum value is used in all cases"                  
+        - qualifier_property: "biolink:frequency_qualifier"
+          value_range: "uriorcurie"        
+          value_id_prefix: "HP"
+          value_description: "A term from the "Frequency" (HP:0040279) branch of the Human Phenotype Ontology"     
+        - qualifier_property: "biolink:disease_context_qualifier"
+          value_range: "uriorcurie"        
+          value_id_prefix: "MONDO"
+          value_description: "A term from the "Disease" (MONDO:0000001) branch of the MONDO Ontology"     
       knowledge_level:
       - logical_entailment
       agent_type:

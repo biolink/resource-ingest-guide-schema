@@ -18,6 +18,7 @@ dependencies = [
   "click",
   "jinja2",
   "pyyaml",
+  "linkml>=1.9.3",
 ]
 
 [project.optional-dependencies]

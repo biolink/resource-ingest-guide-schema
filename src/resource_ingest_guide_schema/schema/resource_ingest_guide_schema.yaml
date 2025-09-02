@@ -361,24 +361,33 @@ classes:
 
   Qualifier:
       description: >-
-        A qualifier property + range tuple that specifies a type of qualifier that may be applied to a Statement. 
-        e.g. the property "biolink:subject_aspect_qualifier", and value "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum
+        A qualifier property + value tuple that specifies a type of qualifier and value that may be applied to a Statement.
+        Values can be specified to come from a proper range (e.g. Biolink class, data type, or enum), and/or to use a specific
+        id prefix, and/or using a free-text description.
       attributes:
-        qualifier_property:
+        property:
           description: >-
-            The biolink qualifier property that defines the kind of Qualifier specified,
+            The Biolink qualifier property that defines the kind of Qualifier specified,
             e.g. "biolink:subject_aspect_qualifier"
           range: uriorcurie
           required: true
-        qualifier_ranges:
+        value_range:
           description: >-
-            The biolink class(es) or type(s) that specifies the kind of calue the qualifier property takes,
+            The Biolink class(es) or type(s) that specifies the kind of calue the qualifier property takes,
             Reported as the name of a Biolink class, enumeration, or data type, as appropriate. 
             e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string"
           range: uriorcurie
-          required: true
           multivalued: true
-
+        value_id_prefixes:
+          description: >-
+            One or more id prefixes from which the qualifier value mush come. e.g. "HP" if the qualifier must be a
+            Human Phenotype Ontology term. 
+          range: string
+          multivalued: true
+        value_description: 
+          description: >-
+            A free text description of the tyeps of value allowed for the qualifier.
+          range: string
   NodeType:
       description: >-
         A structured object describing each type of node created in the target knowledge graph by this ingest.

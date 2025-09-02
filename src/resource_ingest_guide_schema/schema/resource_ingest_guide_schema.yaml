@@ -29,7 +29,7 @@ classes:
         supporting_data_source_info:
           description: >-
              Information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest.
-          comment: >-
+          comments: >-
              This slot is optional, and can be omitted for typical ingest of an external knowledge source - as it is mainly relevant for describing "ingest" of
              data-derived KPs like ICEES, COHD, various Multiomics KPs, etc.
           range: SupportingDataSourceInformation

@@ -18,7 +18,7 @@
     
     
       
-        <title>Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>Multiomics Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#clinical-trials-knowledge-provider-ctkp-reference-ingest-guide" class="md-skip">
+        <a href="#multiomics-clinical-trials-knowledge-provider-ctkp-reference-ingest-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide
+              Multiomics Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide
             
           </span>
         </div>
@@ -420,14 +420,19 @@
   
 
 
-<h1 id="clinical-trials-knowledge-provider-ctkp-reference-ingest-guide">Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide</h1>
+<h1 id="multiomics-clinical-trials-knowledge-provider-ctkp-reference-ingest-guide">Multiomics Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide</h1>
 <h2 id="source-information">Source Information</h2>
-<p><strong>InfoRes ID:</strong> infores:aact</p>
-<p><strong>Description:</strong> Aggregate Analysis of ClinicalTrial.gov (AACT) - supporting data source for CTKP</p>
-<p><strong>Terms of Use:</strong> Not specified</p>
-<p><strong>Additional Notes:</strong> CTKP processes data from AACT which is derived from researcher submissions to clinicaltrials.gov</p>
+<p><strong>InfoRes ID:</strong> infores:multiomics-clinicaltrials</p>
+<p><strong>Description:</strong> The Clinical Trials KP provides information on Clinical Trials, ultimately derived from researcher submissions to clinicaltrials.gov, via the Aggregate Analysis of Clinical Trials (AACT) database. Information on select trials includes the NCT Identifier of the trial, interventions used, diseases/conditions relevant to the trial, adverse events, etc.  </p>
+<p><strong>Citations:</strong>
+- Generating Biomedical Knowledge Graphs from Knowledge Bases, Registries, and Multiomic Data (preprint): (https://pmc.ncbi.nlm.nih.gov/articles/PMC11601480/</p>
+<p><strong>Terms of Use:</strong> Freely available</p>
+<p><strong>Data Access Locations:</strong>
+- Direct download links for the latest version are given in the manifest file: https://github.com/multiomicsKP/clinical_trials_kp/blob/main/manifest.json</p>
+<p><strong>Data Provision Mechanisms:</strong> file_download</p>
+<p><strong>Data Formats:</strong> kgx</p>
+<p><strong>Data Versioning and Releases:</strong> New versions are released weekly</p>
 <h2 id="ingest-information">Ingest Information</h2>
-<p><strong>Ingest Categories:</strong> primary_knowledge_provider</p>
 <p><strong>Utility:</strong> CTKP provides an improved version of clinical trials information that addresses quality and computability issues with sources it uses (AACT, ct.gov), as well as treatment assertions derived from this data. This type of knowledge is critical for many Translator query types.</p>
 <p><strong>Scope:</strong> Clinical trials information including interventions, diseases/conditions, and treatment assertions derived from clinical trial outcomes.</p>
 <h3 id="relevant-files">Relevant Files</h3>
@@ -465,7 +470,7 @@
 </tbody>
 </table>
 <h2 id="target-information">Target Information</h2>
-<p><strong>Target InfoRes ID:</strong> infores:ctkp</p>
+<p><strong>Target InfoRes ID:</strong> infores:translator-ctkp-kgx</p>
 <h3 id="edge-types">Edge Types</h3>
 <table>
 <thead>
@@ -485,7 +490,7 @@
 <td>biolink:DiseaseOrPhenotypicFeature</td>
 <td>knowledge_assertion</td>
 <td>manual_agent</td>
-<td>The in_clinical_trials_for predicate reports that an intervention was tested in a clinical trial for a particular disease - based on a registered trial in ct.gov.</td>
+<td>The 'in_clinical_trials_for' predicate reports that an intervention was tested in a clinical trial for a particular disease - based on a registered trial in ct.gov.</td>
 </tr>
 <tr>
 <td>biolink:ChemicalEntity, biolink:MolecularMixture</td>
@@ -493,7 +498,7 @@
 <td>biolink:DiseaseOrPhenotypicFeature</td>
 <td>knowledge_assertion</td>
 <td>manual_agent</td>
-<td>The treats predicate reports that an intervention was shown to successfully treat a particular disease in virtue of its passing Phase 3 or being interrogated in a Phase 4 trial.</td>
+<td>The <code>treats</code> predicate is used for interventions in Phase 4 trials that are performed for after successful demonstration of efficacy in treating a particular disease.</td>
 </tr>
 </tbody>
 </table>
@@ -509,22 +514,22 @@
 <tbody>
 <tr>
 <td>biolink:ChemicalEntity</td>
-<td>Not specified</td>
+<td>Free text in AACT - no identifiers</td>
 <td></td>
 </tr>
 <tr>
 <td>biolink:MolecularMixture</td>
-<td>Not specified</td>
+<td>Free text in AACT - no identifiers</td>
 <td></td>
 </tr>
 <tr>
 <td>biolink:SmallMolecule</td>
-<td>Not specified</td>
+<td>Free text in AACT - no identifiers</td>
 <td></td>
 </tr>
 <tr>
 <td>biolink:DiseaseOrPhenotypicFeature</td>
-<td>Not specified</td>
+<td>Free text in AACT - no identifiers</td>
 <td></td>
 </tr>
 </tbody>
@@ -532,7 +537,8 @@
 <h2 id="provenance-information">Provenance Information</h2>
 <p><strong>Contributors:</strong>
 - Gwenlyn Glusman - code author, domain expertise
-- Matthew Brush - data modeling</p>
+- Matthew Brush - data modeling
+- Sierra Moxon - data modeling</p>
 
 
 

@@ -10,13 +10,13 @@ on:
 concurrency: preview-${{ github.ref }}
 
 jobs:
-
   run:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write          # needed for same-repo PRs
       id-token: write
       pull-requests: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,10 +42,18 @@ jobs:
           ([ ! -f docs/about.md ] && cp src/docs/about.md docs/) || true
           uv run mkdocs build -d site
 
+      - name: Determine deploy token
+        id: token
+        run: |
+          if [ "${{ github.event.pull_request.head.repo.full_name }}" = "${{ github.repository }}" ]; then
+            echo "token=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_OUTPUT
+          else
+            echo "token=${{ secrets.GH_PAT }}" >> $GITHUB_OUTPUT
+          fi
+
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: site/
           preview-branch: gh-pages
-          # 🔑 For forks: add this if you set a GH_PAT secret with repo write access
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ steps.token.outputs.token }}

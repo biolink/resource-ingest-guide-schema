@@ -2,10 +2,7 @@ name: Preview resource_ingest_guide_schema documentation build
 
 on:
   pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
+    types: [opened, reopened, synchronize, closed]
 
 concurrency: preview-${{ github.ref }}
 
@@ -13,7 +10,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     permissions:
-      contents: write          # needed for same-repo PRs
+      contents: write      # needed for same-repo PR previews
       id-token: write
       pull-requests: write
 
@@ -22,38 +19,3 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v3
-        with:
-          enable-cache: true
-
-      - name: Set up Python
-        run: uv python install 3.10
-
-      - name: Install dependencies
-        run: uv sync --extra dev
-
-      - name: Build documentation
-        run: |
-          mkdir -p site
-          touch site/.nojekyll
-          make gendoc
-          ([ ! -f docs/about.md ] && cp src/docs/about.md docs/) || true
-          uv run mkdocs build -d site
-
-      - name: Determine deploy token
-        id: token
-        run: |
-          if [ "${{ github.event.pull_request.head.repo.full_name }}" = "${{ github.repository }}" ]; then
-            echo "token=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_OUTPUT
-          else
-            echo "token=${{ secrets.GH_PAT }}" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
-        with:
-          source-dir: site/
-          preview-branch: gh-pages
-          token: ${{ steps.token.outputs.token }}

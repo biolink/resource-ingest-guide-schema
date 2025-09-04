@@ -47,3 +47,5 @@ jobs:
         with:
           source-dir: site/
           preview-branch: gh-pages
+          # 🔑 For forks: add this if you set a GH_PAT secret with repo write access
+          token: ${{ secrets.GH_PAT }}

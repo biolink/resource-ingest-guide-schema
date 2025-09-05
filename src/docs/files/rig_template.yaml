@@ -67,17 +67,15 @@ ReferenceIngestGuide:
 
     edge_type_info:  # (required, multivalued, range = EdgeType)
       - subject_categories:  # (required, multivalued, range = UriOrCurie)
-          -
         predicate:  # (required, range = UriOrCurie)
         object_categories:  # (required, multivalued, range = UriOrCurie)
           -
-        qualified_predicate:  # (optional, range = UriOrCurie)
-        biolink_qualifier_1:  # (optional, range = UriOrCurie)
-        biolink_qualifier_1_value_type:  # (optional, range = UriOrCurie)
-        biolink_qualifier_2:  # (optional, range = UriOrCurie)
-        biolink_qualifier_2_value_type:  # (optional, range = UriOrCurie)
-        biolink_qualifier_3:  # (optional, range = UriOrCurie)
-        biolink_qualifier_3_value_type:  # (optional, range = UriIrCurie)
+        qualifiers: # (optional, multivaluied, range = Qualifier)
+          - property:  # (required, range = UriOrCurie)
+            value_range: # (optional, range = UriOrCurie)   # Choose one (or more) of the 'value' slots to describe the type of value hold by the qualifier
+            value_constant: # (optional, range = string)
+            value_id_prefixes: # (optional, range = string)
+            value_description:  # (optional, range = string)
         knowledge_level:  # (required, multivalued, range = KnowledgeLevelEnum: knowledge_assertion | logical_entailment | prediction | statistical_association | observation | not_provided | varies)
           -
         agent_type:  # (required, multivalued, range = AgentTypeEnum: manual_agent | automated_agent | computational_model | data_analysis_pipeline | text_mining_agent | image_processing_agent | manual_validation_of_ automated_agent | not_provided | varies)

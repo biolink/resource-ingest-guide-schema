@@ -361,11 +361,6 @@ classes:
           range: uriorcurie
           required: true
           multivalued: true
-        qualified_predicate:
-          description:  >-
-            The Biolink predicate used in a "qualified" reading of a statement expressed by an Edge (i.e. one that
-            considers the semantics added by subject and/or object qualifiers)
-          range: uriorcurie
         qualifiers:
           description: >-
             If relevant, report any qualifiers applied to the edge type, as a Qualifier object that contains a 
@@ -406,13 +401,14 @@ classes:
   Qualifier:
       description: >-
         A qualifier property + value tuple that specifies a type of qualifier and value that may be applied to a Statement.
-        Values can be specified to come from a proper range (e.g. Biolink class, data type, or enum), and/or to use a specific
-        id prefix, and/or using a free-text description.
+        Qualfied predicates are considered qualifiers and captured here as well. Values can be specified to come from a
+        proper range (e.g. Biolink class, data type, or enum), be a constant (e.g. "biolink"causes"), use a specific id prefix,
+        and/or using a free-text description. 
       attributes:
         property:
           description: >-
             The Biolink qualifier property that defines the kind of Qualifier specified,
-            e.g. "biolink:subject_aspect_qualifier"
+            e.g. "biolink:subject_aspect_qualifier", "qualified_predicate".
           range: uriorcurie
           required: true
         value_range:
@@ -422,6 +418,11 @@ classes:
             e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string"
           range: uriorcurie
           multivalued: true
+        value_constant:
+          description: >-
+            A single value that is the one and only value for the qualifier in an Edge type (.g. "biolink:causes" as the only
+            value for the "biolink:qualified_predicate" qualifier property) 
+          range: string 
         value_id_prefixes:
           description: >-
             One or more id prefixes from which the qualifier value mush come. e.g. "HP" if the qualifier must be a

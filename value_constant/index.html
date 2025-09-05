@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/qualified_predicate/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/value_constant/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: qualified_predicate - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>Slot: value_constant - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-qualified_predicate" class="md-skip">
+        <a href="#slot-value_constant" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: qualified_predicate
+              Slot: value_constant
             
           </span>
         </div>
@@ -345,30 +345,30 @@
   
 
 
-<h1 id="slot-qualified_predicate"><strong> Slot: qualified_predicate </strong></h1>
-<div class="highlight-box"><strong>Description:</strong><i> The Biolink predicate used in a "qualified" reading of a statement expressed by an Edge (i.e. one that considers the semantics added by subject and/or object qualifiers)</i><br>
+<h1 id="slot-value_constant"><strong> Slot: value_constant </strong></h1>
+<div class="highlight-box"><strong>Description:</strong><i> A single value that is the one and only value for the qualifier in an Edge type (.g. "biolink:causes" as the only value for the "biolink:qualified_predicate" qualifier property) </i><br>
 
 
 <br>
 
 </div>
 
-<p><strong>Range:</strong>   <a href="../Uriorcurie/">Uriorcurie</a> <br></p>
+<p><strong>Range:</strong>   <a href="../String/">String</a> <br></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="linkml-source">LinkML Source</h2>
 <details open>
 
-<pre><code class="language-yaml">name: qualified_predicate
-description: The Biolink predicate used in a &quot;qualified&quot; reading of a statement expressed
-  by an Edge (i.e. one that considers the semantics added by subject and/or object
-  qualifiers)
+<pre><code class="language-yaml">name: value_constant
+description: 'A single value that is the one and only value for the qualifier in an
+  Edge type (.g. &quot;biolink:causes&quot; as the only value for the &quot;biolink:qualified_predicate&quot;
+  qualifier property) '
 from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-alias: qualified_predicate
-owner: EdgeType
+alias: value_constant
+owner: Qualifier
 domain_of:
-- EdgeType
-range: uriorcurie
+- Qualifier
+range: string
 
 </code></pre>
 

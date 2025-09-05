@@ -187,11 +187,13 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-qualifier"><strong>  Class: Qualifier </strong></h1>
 <div class="highlight-box">
-<strong>Description:</strong><i> A qualifier property + value tuple that specifies a type of qualifier and value that may be applied to a Statement. Values can be specified to come from a proper range (e.g. Biolink class, data type, or enum), and/or to use a specific id prefix, and/or using a free-text description.</i><br/>
+<strong>Description:</strong><i> A qualifier property + value tuple that specifies a type of qualifier and value that may be applied to a Statement. Qualfied predicates are considered qualifiers and captured here as well. Values can be specified to come from a proper range (e.g. Biolink class, data type, or enum), be a constant (e.g. "biolink"causes"), use a specific id prefix, and/or using a free-text description. </i><br/>
 </div>
 <div class="mermaid"> classDiagram
     class Qualifier
       Qualifier : property
+
+      Qualifier : value_constant
 
       Qualifier : value_description
 
@@ -214,7 +216,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../property/">property</a>: <br> <i> The Biolink qualifier property that defines the kind of Qualifier specified, e.g. "biolink:subject_aspect_qualifier" </i></br></td>
+<td><a href="../property/">property</a>: <br> <i> The Biolink qualifier property that defines the kind of Qualifier specified, e.g. "biolink:subject_aspect_qualifier", "qualified_predicate". </i></br></td>
 <td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>direct</td>
 <td></td>
@@ -222,6 +224,12 @@
 <tr>
 <td><a href="../value_range/">value_range</a>: <br/> <i> The Biolink class(es) or type(s) that specifies the kind of calue the qualifier property takes, Reported as the name of a Biolink class, enumeration, or data type, as appropriate.  e.g. "biolink:Disease", "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum", "biolink:string" </i></td>
 <td>* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>direct</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../value_constant/">value_constant</a>: <br/> <i> A single value that is the one and only value for the qualifier in an Edge type (.g. "biolink:causes" as the only value for the "biolink:qualified_predicate" qualifier property)  </i></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>direct</td>
 <td></td>
 </tr>
@@ -261,16 +269,17 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details open="">
 <pre><code class="language-yaml">name: Qualifier
-description: A qualifier property + value tuple that specifies a type of qualifier
-  and value that may be applied to a Statement. Values can be specified to come from
-  a proper range (e.g. Biolink class, data type, or enum), and/or to use a specific
-  id prefix, and/or using a free-text description.
+description: 'A qualifier property + value tuple that specifies a type of qualifier
+  and value that may be applied to a Statement. Qualfied predicates are considered
+  qualifiers and captured here as well. Values can be specified to come from a proper
+  range (e.g. Biolink class, data type, or enum), be a constant (e.g. "biolink"causes"),
+  use a specific id prefix, and/or using a free-text description. '
 from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
 attributes:
   property:
     name: property
     description: The Biolink qualifier property that defines the kind of Qualifier
-      specified, e.g. "biolink:subject_aspect_qualifier"
+      specified, e.g. "biolink:subject_aspect_qualifier", "qualified_predicate".
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
     - Qualifier
@@ -287,6 +296,15 @@ attributes:
     - Qualifier
     range: uriorcurie
     multivalued: true
+  value_constant:
+    name: value_constant
+    description: 'A single value that is the one and only value for the qualifier
+      in an Edge type (.g. "biolink:causes" as the only value for the "biolink:qualified_predicate"
+      qualifier property) '
+    from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
+    domain_of:
+    - Qualifier
+    range: string
   value_id_prefixes:
     name: value_id_prefixes
     description: 'One or more id prefixes from which the qualifier value mush come.

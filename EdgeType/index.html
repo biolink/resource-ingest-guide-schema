@@ -207,8 +207,6 @@
 
       EdgeType : predicate
 
-      EdgeType : qualified_predicate
-
       EdgeType : qualifiers
 
           EdgeType --|&gt; Qualifier : qualifiers
@@ -246,12 +244,6 @@
 <tr>
 <td><a href="../object_categories/">object_categories</a>: <br/> <i> The Biolink category of the object node of this edge type. e.g. "biolink:Disease". If two edge types differ only in their object category, but use the same predicate, subject_category,  edge properties, and general provenance, they can be described together in a single NodeType object that captures the alternative object categories. e.g. if a source provides Gene-associated_with-Disease and  Gene-associated_with-PhenotypicFeature edge types, these can be described in a single EdgeType object with two subject categories (Disease and PhenotypicFeature) </i></td>
 <td>1..* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>direct</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="../qualified_predicate/">qualified_predicate</a>: <br/> <i> The Biolink predicate used in a "qualified" reading of a statement expressed by an Edge (i.e. one that considers the semantics added by subject and/or object qualifiers) </i></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>direct</td>
 <td></td>
 </tr>
@@ -359,15 +351,6 @@ attributes:
     range: uriorcurie
     required: true
     multivalued: true
-  qualified_predicate:
-    name: qualified_predicate
-    description: The Biolink predicate used in a "qualified" reading of a statement
-      expressed by an Edge (i.e. one that considers the semantics added by subject
-      and/or object qualifiers)
-    from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-    domain_of:
-    - EdgeType
-    range: uriorcurie
   qualifiers:
     name: qualifiers
     description: If relevant, report any qualifiers applied to the edge type, as a

@@ -111,7 +111,6 @@ target_info:
       predicate: "biolink:has_phenotype"
       object_categories:
       - "biolink:PhenotypicFeature"
-      qualified_predicate: null
       qualifiers:
         - qualifier_property: "biolink:onset_qualifier"
           value_range: "uriorcurie"
@@ -147,8 +146,9 @@ target_info:
       predicate: "biolink:associated_with"
       object_categories:
       - "biolink:Disease"
-      qualified_predicate: "biolink:causes"
-      qualifiers:      
+      qualifiers:
+        - qualifier_property: "biolink:qualified_predicate"
+          value_constant: "biolink:causes"        
         - qualifier_property: "biolink:subject_form_or_variant_qualifier"
           value_range: "ChemicalOrGeneOrGeneProductFormOrVariantEnum"
           value_description: "Specifically, the "genetic_variant_form" enum value is used in all cases"            
@@ -167,8 +167,9 @@ target_info:
       predicate: "biolink:associated_with"
       object_categories:
       - "biolink:Disease"
-      qualified_predicate: "biolink:contributes_to"
-      qualifiers:      
+      qualifiers:
+        - qualifier_property: "biolink:qualified_predicate"
+          value_constant: "biolink:contributes_to"      
         - qualifier_property: "biolink:subject_form_or_variant_qualifier"
           value_range: "ChemicalOrGeneOrGeneProductFormOrVariantEnum"
           value_description: "Specifically, the "genetic_variant_form" enum value is used in all cases"                  
@@ -187,7 +188,6 @@ target_info:
       predicate: "biolink:associated_with"
       object_categories:
       - "biolink:Disease"
-      qualified_predicate: null
       knowledge_level:
       - knowledge_assertion
       agent_type:
@@ -203,8 +203,9 @@ target_info:
       predicate: "biolink:has_phenotype"
       object_categories:
       - "biolink:PhenotypicFeature"
-      qualified_predicate: "biolink:causes"
-      qualifiers:      
+      qualifiers:
+        - qualifier_property: "biolink:qualified_predicate"
+          value_constant: "biolink:causes"
         - qualifier_property: "biolink:subject_form_or_variant_qualifier"
           value_range: "ChemicalOrGeneOrGeneProductFormOrVariantEnum"
           value_description: "Specifically, the "genetic_variant_form" enum value is used in all cases"                  

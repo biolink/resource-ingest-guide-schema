@@ -2,12 +2,11 @@
 """
 Convert RIG YAML files to markdown format.
 """
-
 import os
-import sys
 import yaml
 import click
 from pathlib import Path
+from rig_github import publish_rig
 
 
 def format_list_items(items, indent=""):
@@ -44,7 +43,7 @@ def format_table_items(items, headers):
 
 
 def yaml_to_markdown(rig_data, rig_name):
-    """Convert RIG YAML data to markdown format."""
+    """Convert RIG YAML data to Markdown format."""
     
     markdown = f"# {rig_data.get('name', rig_name)}\n\n"
     
@@ -191,8 +190,10 @@ def yaml_to_markdown(rig_data, rig_name):
 @click.option('--input-dir', default='src/docs/rigs', help='Directory containing RIG YAML files')
 @click.option('--output-dir', default='docs', help='Directory to write markdown files')
 @click.option('--file', help='Convert a specific RIG file (optional)')
-def main(input_dir, output_dir, file):
-    """Convert RIG YAML files to markdown format."""
+@click.option('--publish', default=None, help='The value of --publish, if given, is the name of an ingest subfolder name in Translator Ingest repository to which the RIG markdown is published as a README (optional, ignored unless --file is set)')
+@click.option('--branch', default=None, help='Publish a specific GitHub branch (optional, ignored unless --publish is set)')
+def main(input_dir, output_dir, file, publish, branch):
+    """Convert RIG YAML files to Markdown format."""
     
     input_path = Path(input_dir)
     output_path = Path(output_dir)
@@ -209,23 +210,27 @@ def main(input_dir, output_dir, file):
     
     for yaml_file in yaml_files:
         if yaml_file.name == 'test_rig.yaml':
-            continue  # Skip test file
+            continue  # Skip the test file
             
         try:
             with open(yaml_file, 'r') as f:
                 rig_data = yaml.safe_load(f)
             
-            # Generate markdown
+            # Generate Markdown
             rig_name = yaml_file.stem
             markdown_content = yaml_to_markdown(rig_data, rig_name)
             
-            # Write markdown file
+            # Write the Markdown file
             markdown_file = output_path / f"{rig_name}.md"
             with open(markdown_file, 'w') as f:
                 f.write(markdown_content)
             
             click.echo(f"Converted {yaml_file} -> {markdown_file}")
-            
+
+            if file and publish:
+                publish_rig(ingest_name=publish, content=markdown_content, branch=branch)
+                click.echo(f"Published {rig_name} RIG to branch '{publish}' in the Translator Ingest repository")
+
         except Exception as e:
             click.echo(f"Error converting {yaml_file}: {e}", err=True)
 

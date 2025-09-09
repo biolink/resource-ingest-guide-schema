@@ -14,11 +14,12 @@ requires-python = ">=3.9"
 dynamic = ["version"]
 
 dependencies = [
-  "linkml-runtime>=1.1.24",
-  "click",
-  "jinja2",
-  "pyyaml",
-  "linkml>=1.9.3",
+    "linkml-runtime>=1.1.24",
+    "click",
+    "jinja2",
+    "pyyaml",
+    "linkml>=1.9.3",
+    "PyGithub>=2.8.1"
 ]
 
 [project.optional-dependencies]

@@ -116,15 +116,15 @@ target_info:
         - qualifier_property: "biolink:onset_qualifier"
           value_range: "uriorcurie"
           value_id_prefix: "HP"
-          value_description: "A term from the "Onset" (HP:0003674) branch of the Human Phenotype Ontology"
+          value_description: "A term from the 'Onset' (HP:0003674) branch of the Human Phenotype Ontology"
         - qualifier_property: "biolink:frequency_qualifier"
           value_range: "uriorcurie"      
           value_id_prefix: "HP"
-          value_description: "A term from the "Frequency" (HP:0040279) branch of the Human Phenotype Ontology"      
+          value_description: "A term from the 'Frequency' (HP:0040279) branch of the Human Phenotype Ontology"
         - qualifier_property: "biolink:sex_qualifier"
           value_range: "uriorcurie"     
           value_id_prefix: "PATO"
-          value_description: "A term from the "biological sex" (PATO:0000047) branch of the PATO Ontology"                 
+          value_description: "A term from the 'biological sex' (PATO:0000047) branch of the PATO Ontology"
       knowledge_level:
       - knowledge_assertion
       agent_type:
@@ -151,7 +151,7 @@ target_info:
       qualifiers:      
         - qualifier_property: "biolink:subject_form_or_variant_qualifier"
           value_range: "ChemicalOrGeneOrGeneProductFormOrVariantEnum"
-          value_description: "Specifically, the "genetic_variant_form" enum value is used in all cases"            
+          value_description: "Specifically, the 'genetic_variant_form' enum value is used in all cases"
       knowledge_level:
       - knowledge_assertion
       agent_type:
@@ -171,7 +171,7 @@ target_info:
       qualifiers:      
         - qualifier_property: "biolink:subject_form_or_variant_qualifier"
           value_range: "ChemicalOrGeneOrGeneProductFormOrVariantEnum"
-          value_description: "Specifically, the "genetic_variant_form" enum value is used in all cases"                  
+          value_description: "Specifically, the 'genetic_variant_form' enum value is used in all cases"
       knowledge_level:
       - knowledge_assertion
       agent_type:
@@ -207,15 +207,15 @@ target_info:
       qualifiers:      
         - qualifier_property: "biolink:subject_form_or_variant_qualifier"
           value_range: "ChemicalOrGeneOrGeneProductFormOrVariantEnum"
-          value_description: "Specifically, the "genetic_variant_form" enum value is used in all cases"                  
+          value_description: "Specifically, the 'genetic_variant_form' enum value is used in all cases"
         - qualifier_property: "biolink:frequency_qualifier"
           value_range: "uriorcurie"        
           value_id_prefix: "HP"
-          value_description: "A term from the "Frequency" (HP:0040279) branch of the Human Phenotype Ontology"     
+          value_description: "A term from the 'Frequency' (HP:0040279) branch of the Human Phenotype Ontology"
         - qualifier_property: "biolink:disease_context_qualifier"
           value_range: "uriorcurie"        
           value_id_prefix: "MONDO"
-          value_description: "A term from the "Disease" (MONDO:0000001) branch of the MONDO Ontology"     
+          value_description: "A term from the 'Disease' (MONDO:0000001) branch of the MONDO Ontology"
       knowledge_level:
       - logical_entailment
       agent_type:
@@ -259,7 +259,10 @@ target_info:
         https://github.com/NCATSTranslator/Data-Ingest-Coordination-Working-Group/issues/22
         Should we consider creating support paths in our data/graphs, 
         for the G-D-P hops over which HPO infers G-P associations?
-        (e.g. `GENE1 -causes-> DISEASE1 -has_phenotype-> PHENO1 ---->  GENE1 -causes-> PHENO1`)"
+        (e.g. `GENE1 -causes-> DISEASE1 -has_phenotype-> PHENO1 ---->  GENE1 -causes-> PHENO1`);
+
+        Note that the values of the disease_context_qualifier in the Gene-to-Phenotype Associations 
+        are not currently being remapped to MONDO, as was attempted in the Monarch Initiative ingest."
 provenance_info:
   contributions:
   - "Richard Bruskiewich - data modeling, domain expertise, code author"

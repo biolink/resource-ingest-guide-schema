@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """
-Convert RIG YAML files to markdown format.
+Convert RIG YAML files to Markdown format.
 """
-import os
 import yaml
 import click
 from pathlib import Path
-from rig_github import publish_rig
+from util.rig_github import publish_rig
 
 
 def format_list_items(items, indent=""):

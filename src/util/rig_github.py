@@ -48,14 +48,6 @@ class RigGitHub:
         :param message: String commit message (default: "Publishing document")
         :return:
         """
-        # TODO: need to check if file exists and if so, obtain its blob SHA before re-creating it
-        #     def get_contents(self, path: str, ref: Opt[str] = NotSet) -> list[ContentFile] | ContentFile:
-        #         """
-        #         :calls: `GET /repos/{owner}/{repo}/contents/{path} <https://docs.github.com/en/rest/reference/repos#contents>`_
-        #         :param path: string
-        #         :param ref: string
-        #         :rtype: :class:`github.ContentFile.ContentFile` or a list of them
-        #         """
         sha: Optional[str] = None
         outcome: dict = {}
         try:

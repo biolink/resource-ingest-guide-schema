@@ -73,18 +73,19 @@ classes:
           required: true
         name:
           description: >-
-            A human-readable name for the source of supporting data, e.g. ""Aggregate Analysis of ClinicalTrial.gov (AACT)"
+            A human-readable name for the source of supporting data, e.g. "Aggregate Analysis of ClinicalTrial.gov (AACT)"
           range: string
         description:
           description: >-
             A brief description of the source, including its purpose, scope, and any relevant background information.
           range: string
-        terms_of_use:
+        terms_of_use_info:
           description: >-
-            Information about conditions for use of the supporting data source. May be the
+            Information about conditions for use of the ingested source. May include the
             name of a community license (e.g. `CC-BY 4.0`), a link to a "terms of use"
-            or license information web page, or a free-text summary of key terms of use.
-          range: string
+            or license information web page (e.g. `https://ctdbase.org/about/legal.jsp`), and/or
+            a free-text summary of key terms of use.
+          range: TermsOfUseInformation
           required: true
         relevant_files:
           description: >-
@@ -118,8 +119,7 @@ classes:
             (e.g a pmid or doi), a url to the published document, or a free-text citation.
           range: string
           multivalued: true
-
-        terms_of_use_infp:
+        terms_of_use_info:
           description: >-
             Information about conditions for use of the ingested source. May include the
             name of a community license (e.g. `CC-BY 4.0`), a link to a "terms of use"

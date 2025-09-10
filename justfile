@@ -59,7 +59,7 @@ setup: _check-config _git-init install _gen-project _gen-examples _gendoc _git-a
 
 # Install project dependencies
 install:
-    poetry install
+    uv sync
 
 # Check project configuration
 _check-config:
@@ -80,7 +80,7 @@ _update-template:
 
 # Update LinkML to latest version
 _update-linkml:
-    poetry add -D linkml@latest
+    uv add --dev linkml@latest
 
 # Create data harmonizer
 _create-data-harmonizer:

@@ -18,11 +18,11 @@ def format_list_items(items, indent=""):
 
 
 def format_table_items(items, headers):
-    """Format items as a markdown table."""
+    """Format items as a Markdown table."""
     if not items:
         return ""
     
-    # Create table header
+    # Create a table header
     table = f"| {' | '.join(headers)} |\n"
     table += f"| {' | '.join(['---'] * len(headers))} |\n"
     

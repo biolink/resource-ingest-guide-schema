@@ -1,7 +1,7 @@
 from typing import Optional
 
 import os
-from github import Github, Auth, InputGitAuthor
+from github import Auth, Github, GithubIntegration
 
 class RigGitHub:
 
@@ -10,20 +10,27 @@ class RigGitHub:
             organization: str = "NCATSTranslator",
             repository: str = "translator-ingests",
             branch: str = "main",
-            access_token: str = os.environ.get("GITHUB_TOKEN"),
+            user_login: str = os.environ.get("GITHUB_USER_LOGIN"),
+            user_password: str = os.environ.get("GITHUB_USER_PASSWORD"),
+            access_token: str = os.environ.get("GITHUB_TOKEN")
     ):
         """
         Construct a GitHub wrapper for the Translator Ingest repository.
         :param organization: GitHub organization name (default: "NCATSTranslator")
         :param repository: GitHub repository name (default: "translator-ingests")
         :param branch: The Translator Ingest repository branch to which to publish. Defaults to 'main'.
-        :param access_token: GitHub access token (default: os.environ.get("GITHUB_TOKEN"))
+        :param user_login: GitHub user login (default: value of "GITHUB_USER_LOGIN" environment variable)
+        :param user_password: GitHub user password (default: value of "GITHUB_USER_PASSWORD" environment variable)
+        :param access_token: GitHub access token (default: value of "GITHUB_TOKEN" environment variable)
         """
-        if access_token is None:
-            raise ValueError("GitHub access token must be provided")
-        self.auth: Auth = Auth.Token(access_token)
-        self.github_client: Github = Github(auth=self.auth)
+        if user_login and user_password:
+            auth = Auth.Login(login=user_login, password=user_password)
+        elif access_token:
+            auth = Auth.Token(access_token)
+        else:
+            raise ValueError("Some form of GitHub authentication must be provided")
 
+        self.github_client: Github = Github(auth=auth)
         self.organization: str = organization or "NCATSTranslator"
         self.repository: str = repository or "translator-ingests"
         self.branch: str = branch or "main"

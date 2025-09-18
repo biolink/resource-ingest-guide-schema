@@ -123,7 +123,7 @@ _gen-project: _ensure_pymodel_dir _compile_sheets
     fi
 
 # Run all tests
-test: _test-schema _test-python _test-examples
+test: _test-schema _test-python  # _test-examples  # the test examples are not properly set up yet
 
 # Test schema generation
 _test-schema:
@@ -133,15 +133,18 @@ _test-schema:
 _test-python:
     {{run}} python -m pytest
 
+#
+# the test examples are not yet properly set up
+#
 # Run example tests
-_test-examples: _ensure_examples_output
-    {{run}} linkml-run-examples \
-        --output-formats json \
-        --output-formats yaml \
-        --counter-example-input-directory src/data/examples/invalid \
-        --input-directory src/data/examples/valid \
-        --output-directory examples/output \
-        --schema {{source_schema_path}} > examples/output/README.md
+#_test-examples: _ensure_examples_output
+#    {{run}} linkml-run-examples \
+#        --output-formats json \
+#        --output-formats yaml \
+#        --counter-example-input-directory src/data/examples/invalid \
+#        --input-directory src/data/examples/valid \
+#        --output-directory examples/output \
+#        --schema {{source_schema_path}} > examples/output/README.md
 
 # Run linting
 lint:

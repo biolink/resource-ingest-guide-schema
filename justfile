@@ -7,7 +7,6 @@ set dotenv-load := true
 # set dotenv-filename := env_var_or_default("LINKML_ENVIRONMENT_FILENAME", "config.public.mk")
 set dotenv-filename := x'${LINKML_ENVIRONMENT_FILENAME:-config.public.mk}'
 
-
 # List all commands as default command. The prefix "_" hides the command.
 _default: _status
     @just --list
@@ -41,6 +40,9 @@ gen_doc_args := env_var_or_default("LINKML_GENERATORS_DOC_ARGS", "")
 gen_owl_args := env_var_or_default("LINKML_GENERATORS_OWL_ARGS", "")
 gen_java_args := env_var_or_default("LINKML_GENERATORS_JAVA_ARGS", "")
 gen_ts_args := env_var_or_default("LINKML_GENERATORS_TYPESCRIPT_ARGS", "")
+
+infores := env_var_or_default("INFORES", "")
+name := env_var_or_default("NAME", "")
 
 # Directory variables
 src := "src"
@@ -186,6 +188,29 @@ _git-commit:
 # Show git status
 _git-status:
     git status
+
+# Create a new RIG from template
+# Usage: just new-rig INFORES=infores:ctd NAME="CTD Chemical-Disease Associations"
+#new-rig:
+#    #!/usr/bin/env bash
+#    ifndef {{infores}}; then \
+#	    error("INFORES is required. Usage: make new-rig INFORES=infores:example NAME=\"Example RIG\""); \
+#    endif
+#    ifndef {{name}}; then \
+#	    error("NAME is required. Usage: make new-rig INFORES=infores:example NAME=\"Example RIG\""); \
+#    endif
+#    {{run}} python {{src}}/scripts/create_rig.py --infores "{{infores}}" --name "{{name}}"
+
+# Validate all RIG files against the schema
+validate-rigs:
+    @echo "Validating RIG files against schema..."
+    @for rig_file in {{src}}/docs/rigs/*.yaml; do \
+        if [ -f "$rig_file" ]; then \
+            echo "Validating $rig_file"; \
+            {{run}} linkml-validate --schema {{source_schema_path}} "$rig_file"; \
+        fi; \
+    done
+    @echo "✓ All RIG files validated successfully"
 
 # Clean all generated files
 clean:

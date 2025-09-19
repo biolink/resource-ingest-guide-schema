@@ -26,7 +26,7 @@ source_info:
   data_versioning_and_releases:  "New versions are released weekly"
 
 ingest_info:
-  categories:
+  ingest_categories:
     - translator_knowledge_creator
   utility: "CTKP provides an improved version of clinical trials information that addresses quality and computability issues with sources it uses (AACT, ct.gov), as well as treatment assertions derived from this data. This type of knowledge is critical for many Translator query types."
   scope: "Clinical trials information including interventions, diseases/conditions, and treatment assertions derived from clinical trial outcomes."

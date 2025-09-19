@@ -100,7 +100,7 @@ ReferenceIngestGuide:
     additional_notes:  # (optional, range = string)
 
 
-# Information about the how the ingest was specified and performed
+# Information about how the ingest task was specified and performed
   provenance_info:  # (optional, range = ProvenanceInformation)
     contributions:  # (optional, multivalued, range = string)
       -

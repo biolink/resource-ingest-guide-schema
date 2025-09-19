@@ -76,7 +76,7 @@
       - category:  edge_content
         consideration: "While the current ingest includes only Chemical-Disease Associations, future iterations will include additional types of associations between Chemicals and GO Terms, Molecular Phenotypes, Genes, etc. See the Ingest Survey table linked below for more details."
       - category:  node_property_content
-        consideration:	"Molepro ingested chemical properties in its previous ingests - which we will likely bring in at some point.	"
+        consideration: "Molepro ingested chemical properties in its previous ingests - which we will likely bring in at some point.	"
       - category:  edge_property_content
         consideration: "Consider an edge property that reports the list of shared genes supporting C-D inferred associations."
         relevant_files: "CTD_chemicals_diseases.tsv.gz"
@@ -98,8 +98,8 @@
           - manual_agent
         edge_properties: 
           - publications
-        ui_explanation: "CTD Chemical-Disease records with a "T" (therapeutic) DirectEvidence code indicate the chemical to be a "potential" treatment in virtue of its clinical use or study - which maps best to the Biolink predicate 'treats_or_applied_or_studied_to_treat'."
-        additional_notes: "The 'treats_or_applied_or_studied_to_treat' predicate is used to avoid making too strong a claim, as CTDs definition of its "T" flag is broad ("a chemical that has a known or potential therapeutic role in a disease"), which covered cases where a chemical may formally treat a disease or only have been studied or applied to treat a disease. All edges are manual agent knowledge assertions, as the ingested data is based on manual literature curation."
+        ui_explanation: "CTD Chemical-Disease records with a 'T' (therapeutic) DirectEvidence code indicate the chemical to be a 'potential' treatment in virtue of its clinical use or study - which maps best to the Biolink predicate 'treats_or_applied_or_studied_to_treat'."
+        additional_notes: "The 'treats_or_applied_or_studied_to_treat' predicate is used to avoid making too strong a claim, as CTDs definition of its 'T' flag is broad ('a chemical that has a known or potential therapeutic role in a disease'), which covered cases where a chemical may formally treat a disease or only have been studied or applied to treat a disease. All edges are manual agent knowledge assertions, as the ingested data is based on manual literature curation."
       - subject_categories:
           - "biolink:ChemicalEntity"
         predicate:  "biolink:correlates_with_or_contributes_to"
@@ -119,7 +119,7 @@
         object_categories:
           - "biolink:DiseaseOrPhenotypicFeature"
         knowledge_level:  
-          - statisitcal_association
+          - statistical_association
         agent_type:  
           - data_analysis_pipeline
         edge_properties: 
@@ -142,13 +142,13 @@
         consideration: "Revisit 'correlates_with_or_contributes_to' and 'treats_or_studied_or_applied_to_treat' predicates if/when we refactor modeling or conventions here."
 
     additional_notes: >-
-      "CTD_chemicals_diseases.tsv. data includes one row per curated 'T', or 'M' association with pub reference(s), plus one row per shared gene association with pub reference(s), and inference scores.
+      CTD_chemicals_diseases.tsv. data includes one row per curated 'T', or 'M' association with pub reference(s), plus one row per shared gene association with pub reference(s), and inference scores.
       Separate edges will be created for each type of association reported between a chemical and a given disease, according to the mappings described above.
-      All "shared gene" rows in the source data file for a given C-D pair will be aggregated into a single 'associated_with' edge that reports an associated_with relationship with the inference score as an edge property (and possibly the list of shared genes).
-      This means that for a given C-D pair in the CTD file, there may be 1, 2, or 3 separate edges created in the Translator graph."
+      All 'shared gene' rows in the source data file for a given C-D pair will be aggregated into a single 'associated_with' edge that reports an associated_with relationship with the inference score as an edge property (and possibly the list of shared genes).
+      This means that for a given C-D pair in the CTD file, there may be 1, 2, or 3 separate edges created in the Translator graph.
 
 
-# Information about the how the ingest was specified and performed
+# Information about how the ingest task was specified and performed
   provenance_info: 
     contributions:  
       - "Kevin Schaper: code author"

@@ -58,7 +58,7 @@
         
     included_content:  
       - file_name:  "CTD_chemicals_diseases.tsv.gz"
-        included_records:  "Curated therapeutic and marker/mechanism associations (records where a "DirectEvidence" value is populated with type "T" or "M"), as well as inferred associtionas (records lacking a value in the DirectEvidence column)"
+        included_records:  "Curated therapeutic and marker/mechanism associations (records where a 'DirectEvidence' value is populated with type 'T' or 'M'), as well as inferred associations (records lacking a value in the DirectEvidence column)"
         fields_used:  "ChemicalName, ChemicalID, CasRN, DiseaseName, DiseaseID, DirectEvidence, InferenceGeneSymbol, InferenceScore, OmimIDs, PubMedIDs"
 
     filtered_content: 
@@ -111,22 +111,22 @@
           - manual_agent
         edge_properties: 
           - "biolink:publications"
-        ui_explanation: "CTD Chemical-Disease records with an "M" (marker/mechanism) DirectEvidence code indicate the chemical to correlate with or play an etiological role in a condition - which maps best to the Biolink predicate 'correlates_with_or_contributes_to'."
+        ui_explanation: "CTD Chemical-Disease records with an 'M' (marker/mechanism) DirectEvidence code indicate the chemical to correlate with or play an etiological role in a condition - which maps best to the Biolink predicate 'correlates_with_or_contributes_to'."
         additional_notes: "The 'correlates_with_or_contributes_to' predicate is used because the CTD 'M' flag does not distinguish between when a chemical is a correlated marker for a condition, or a contributing cause for the condition. All edges are manual agent knowledge assertions, as the ingested data is based on manual literature curation."
-    - subject_categories:
-        - "biolink:ChemicalEntity"
-      predicate:  "biolink:associated_with"
-      object_categories:
-        - "biolink:DiseaseOrPhenotypicFeature"
-      knowledge_level:  
-        - statisitcal_association
-      agent_type:  
-        - data_analysis_pipeline
-      edge_properties: 
-        - "biolink:publications"
-        - "biolink:has_confidence_score"
-      ui_explanation: "CTD Chemical-Disease records with an inference score indicate a statistically significant number of shared gene associations that suggest a biological relationship may exist. The statistical basis of this relationship maps to the Biolink 'assocaited_with' predicate."
-      additional_notes: "none"
+      - subject_categories:
+          - "biolink:ChemicalEntity"
+        predicate:  "biolink:associated_with"
+        object_categories:
+          - "biolink:DiseaseOrPhenotypicFeature"
+        knowledge_level:  
+          - statisitcal_association
+        agent_type:  
+          - data_analysis_pipeline
+        edge_properties: 
+          - "biolink:publications"
+          - "biolink:has_confidence_score"
+        ui_explanation: "CTD Chemical-Disease records with an inference score indicate a statistically significant number of shared gene associations that suggest a biological relationship may exist. The statistical basis of this relationship maps to the Biolink 'assocaited_with' predicate."
+        additional_notes: "none"
 
     node_type_info:  
       - node_category: "biolink:ChemicalEntity"
@@ -137,7 +137,7 @@
 
     future_considerations:  
       - category: edge_properties 
-        consideration:" Revisit use of 'has_confidence_score' edge property if/when we refactor this part of the Biolink Model."
+        consideration: "Revisit use of 'has_confidence_score' edge property if/when we refactor this part of the Biolink Model."
       - category: predicates
         consideration: "Revisit 'correlates_with_or_contributes_to' and 'treats_or_studied_or_applied_to_treat' predicates if/when we refactor modeling or conventions here."
 

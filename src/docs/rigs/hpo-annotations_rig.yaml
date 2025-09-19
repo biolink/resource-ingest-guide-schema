@@ -112,15 +112,15 @@ target_info:
       object_categories:
       - "biolink:PhenotypicFeature"
       qualifiers:
-        - qualifier_property: "biolink:onset_qualifier"
+        - property: "biolink:onset_qualifier"
           value_range: "uriorcurie"
           value_id_prefix: "HP"
           value_description: "A term from the "Onset" (HP:0003674) branch of the Human Phenotype Ontology"
-        - qualifier_property: "biolink:frequency_qualifier"
+        - property: "biolink:frequency_qualifier"
           value_range: "uriorcurie"      
           value_id_prefix: "HP"
           value_description: "A term from the "Frequency" (HP:0040279) branch of the Human Phenotype Ontology"      
-        - qualifier_property: "biolink:sex_qualifier"
+        - property: "biolink:sex_qualifier"
           value_range: "uriorcurie"     
           value_id_prefix: "PATO"
           value_description: "A term from the "biological sex" (PATO:0000047) branch of the PATO Ontology"                 

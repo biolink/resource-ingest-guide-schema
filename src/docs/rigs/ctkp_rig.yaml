@@ -1,7 +1,7 @@
 name: "Multiomics Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide"
 
-supporting_data_sources:
-  - infores_id: infores:aact
+supporting_data_sources_info:
+  - infores_id: "infores:aact"
     name: "Aggregate Analysis of ClinicalTrial.gov (AACT)"
     description: "AACT is derived from researcher submissions to clinicaltrials.gov"
     terms_of_use: "Freely available, with suggested acknowledge ment of the source. See https://aact.ctti-clinicaltrials.org/documentation/346"

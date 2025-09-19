@@ -75,7 +75,7 @@ ReferenceIngestGuide:
           - property:  # (required, range = UriOrCurie)
             value_range: # (optional, range = UriOrCurie) # Choose one (or more) of the 'value' slots to describe the type of value held by the qualifier
             value_constant: # (optional, range = string)
-            value_id_prefixes: # (optional, range = string)
+            value_id_prefixes: # (optional, multivalued, range = string)
             value_description:  # (optional, range = string)
         knowledge_level:  # (required, multivalued, range = KnowledgeLevelEnum: knowledge_assertion | logical_entailment | prediction | statistical_association | observation | not_provided | varies)
           -

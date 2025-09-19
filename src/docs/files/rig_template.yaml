@@ -4,7 +4,7 @@ ReferenceIngestGuide:
 # Information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest.
 # This slot is OPTIONAL, and can be OMITTED for typical ingest of an external knowledge source. 
 # It is only relevant ing RIGs for "data-derived" KPs like ICEES, COHD, various Multiomics KPs, etc.
-  supporting_data_sources: (optional, multivalued, range = SupportingDataSourceInformation)
+  supporting_data_sources: # (optional, multivalued, range = SupportingDataSourceInformation)
     - infores_id: # (required, range = UriOrCurie)
       name: # (optional, range = string)
       description: # (optional, range = string)
@@ -67,12 +67,13 @@ ReferenceIngestGuide:
 
     edge_type_info:  # (required, multivalued, range = EdgeType)
       - subject_categories:  # (required, multivalued, range = UriOrCurie)
+          -
         predicate:  # (required, range = UriOrCurie)
         object_categories:  # (required, multivalued, range = UriOrCurie)
           -
-        qualifiers: # (optional, multivaluied, range = Qualifier)
+        qualifiers: # (optional, multivalued, range = Qualifier)
           - property:  # (required, range = UriOrCurie)
-            value_range: # (optional, range = UriOrCurie)   # Choose one (or more) of the 'value' slots to describe the type of value hold by the qualifier
+            value_range: # (optional, range = UriOrCurie) # Choose one (or more) of the 'value' slots to describe the type of value hold by the qualifier
             value_constant: # (optional, range = string)
             value_id_prefixes: # (optional, range = string)
             value_description:  # (optional, range = string)

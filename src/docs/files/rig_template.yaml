@@ -67,6 +67,7 @@ ReferenceIngestGuide:
 
     edge_type_info:  # (required, multivalued, range = EdgeType)
       - subject_categories:  # (required, multivalued, range = UriOrCurie)
+          -
         predicate:  # (required, range = UriOrCurie)
         object_categories:  # (required, multivalued, range = UriOrCurie)
           -

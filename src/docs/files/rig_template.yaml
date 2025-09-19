@@ -1,28 +1,28 @@
 ReferenceIngestGuide:
   name:  # (optional, range = string)
 
-# Information about upstream sources of data that are used by an ingested source to derive the knowledge that we ingest.
-# This slot is OPTIONAL and can be OMITTED for a typical ingest task for an external knowledge source.
-# It is only relevant for RIGs of "data-derived" KPs like ICEES, COHD, various Multiomics KPs, etc.
-  supporting_data_sources: # (optional, multivalued, range = SupportingDataSourceInformation)
+# Information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest.
+# This slot is OPTIONAL, and can be OMITTED for typical ingest of an external knowledge source. 
+# It is only relevant ing RIGs for "data-derived" KPs like ICEES, COHD, various Multiomics KPs, etc.
+  supporting_data_source_info: # (optional, multivalued, range = SupportingDataSourceInformation)
     - infores_id: # (required, range = UriOrCurie)
       name: # (optional, range = string)
       description: # (optional, range = string)
-      terms_of_use: # (required, range = string) # Can be a url, and/or your own notes / description
+      terms_of_use: # (required, range = string)  Can be a url, and/or your own notes / description
       relevant_files:  # (required, multivalued, range = RelevantFiles) List source files with content we aim to ingest.
         - file_name:  # (required, range = string)
           location:  # (required, range = UriOrCurie)
           description:  # (optional, range = string)
         
-# Information about the Source of the ingested data
+# Information about the Source of the ingest
   source_info:  # (required, range = SourceInformation)
     infores_id:  # (required, range = UriOrCurie)
     name: # (optional, range = string)    
     description:  # (optional, range = string)
     citations:  # (optional, multivalued, range = string)
       -
-    terms_of_use:  # (required, range = string) # Can be a url, and/or your own notes / description
-    data_access_locations:  # (optional, multivalued, range = string) # Each value should include the url, and an optional description of what is provided at that location.
+    terms_of_use:  # (required, range = string)  Can be a url, and/or your own notes / description
+    data_access_locations:  # (optional, multivalued, range = string)  Each value should include a url, and optionally description of what is provided at that location. 
       -
     data_provision_mechanisms:  # (optional, multivalued, range = ProvisionMechanismEnum: file_download | api_endpoint | database_dump | other)
       -
@@ -73,7 +73,8 @@ ReferenceIngestGuide:
           -
         qualifiers: # (optional, multivalued, range = Qualifier)
           - property:  # (required, range = UriOrCurie)
-            value_range: # (optional, range = UriOrCurie) # Choose one (or more) of the 'value' slots to describe the type of value held by the qualifier
+          # Choose one (or more) of the 'value' slots to describe the type of value hold by the qualifier
+            value_range: # (optional, multivalued, range = UriOrCurie) 
             value_constant: # (optional, range = string)
             value_id_prefixes: # (optional, multivalued, range = string)
             value_description:  # (optional, range = string)
@@ -101,9 +102,9 @@ ReferenceIngestGuide:
     additional_notes:  # (optional, range = string)
 
 
-# Information about how the ingest task was specified and performed
+# Information about the how the ingest was specified and performed
   provenance_info:  # (optional, range = ProvenanceInformation)
     contributions:  # (optional, multivalued, range = string)
       -
-    artifacts:  # (optional, multivalued, range = UriOrCurie)
+    artifacts:  # (optional, multivalued, range = string)
       -

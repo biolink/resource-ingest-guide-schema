@@ -1,8 +1,8 @@
 ReferenceIngestGuide:
   name:  # (optional, range = string)
 
-# Information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest.
-# This slot is OPTIONAL and can be OMITTED for typical ingest of an external knowledge source.
+# Information about upstream sources of data that are used by an ingested source to derive the knowledge that we ingest.
+# This slot is OPTIONAL and can be OMITTED for typical data ingest of an external knowledge source.
 # It is only relevant RIGs for "data-derived" KPs like ICEES, COHD, various Multiomics KPs, etc.
   supporting_data_source_info: # (optional, multivalued, range = SupportingDataSourceInformation)
     - infores_id: # (required, range = UriOrCurie)
@@ -21,7 +21,7 @@ ReferenceIngestGuide:
     description:  # (optional, range = string)
     citations:  # (optional, multivalued, range = string)
       -
-    terms_of_use:  # (required, range = string)  Can be a url, and/or your own notes / description
+    terms_of_use:  # (required, range = string) # Can be a url, and/or your own notes / description
     data_access_locations:  # (optional, multivalued, range = string) # Each value should include a url, and optional description of what is provided at that location.
       -
     data_provision_mechanisms:  # (optional, multivalued, range = ProvisionMechanismEnum: file_download | api_endpoint | database_dump | other)

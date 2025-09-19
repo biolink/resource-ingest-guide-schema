@@ -1,6 +1,6 @@
 name: "Multiomics Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide"
 
-supporting_data_sources_info:
+supporting_data_source_info:
   - infores_id: "infores:aact"
     name: "Aggregate Analysis of ClinicalTrial.gov (AACT)"
     description: "AACT is derived from researcher submissions to clinicaltrials.gov"
@@ -11,7 +11,7 @@ supporting_data_sources_info:
         description: "Use these pipe-delimited text files to import AACT data into any database or analysis tool. Each file corresponds to a table in the AACT database schema."
 
 source_info: 
-  infores_id: infores:multiomics-clinicaltrials
+  infores_id: "infores:multiomics-clinicaltrials"
   name: "Multiomics Clinical Trials Knolwedge Provider (Multiomics-CTKP)"
   description:  "The Clinical Trials KP provides information on Clinical Trials, ultimately derived from researcher submissions to clinicaltrials.gov, via the Aggregate Analysis of Clinical Trials (AACT) database. Information on select trials includes the NCT Identifier of the trial, interventions used, diseases/conditions relevant to the trial, adverse events, etc.  "
   citations:  

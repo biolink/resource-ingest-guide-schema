@@ -1,7 +1,7 @@
 name: "Multiomics Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide"
 
 supporting_data_sources:
-  - infores_id: "infores:aact"
+  - infores_id: infores:aact
     name: "Aggregate Analysis of ClinicalTrial.gov (AACT)"
     description: "AACT is derived from researcher submissions to clinicaltrials.gov"
     terms_of_use: "Freely available, with suggested acknowledge ment of the source. See https://aact.ctti-clinicaltrials.org/documentation/346"
@@ -11,7 +11,7 @@ supporting_data_sources:
         description: "Use these pipe-delimited text files to import AACT data into any database or analysis tool. Each file corresponds to a table in the AACT database schema."
 
 source_info: 
-  infores_id: "infores:multiomics-clinicaltrials"
+  infores_id: infores:multiomics-clinicaltrials
   name: "Multiomics Clinical Trials Knolwedge Provider (Multiomics-CTKP)"
   description:  "The Clinical Trials KP provides information on Clinical Trials, ultimately derived from researcher submissions to clinicaltrials.gov, via the Aggregate Analysis of Clinical Trials (AACT) database. Information on select trials includes the NCT Identifier of the trial, interventions used, diseases/conditions relevant to the trial, adverse events, etc.  "
   citations:  
@@ -67,13 +67,17 @@ target_info:
   
   node_type_info:
     - node_category: "biolink:ChemicalEntity"
-      source_identifier_types: "Free text in AACT - no identifiers"
+      source_identifier_types:
+        - "Free text in AACT - no identifiers"
     - node_category: "biolink:MolecularMixture"
-      source_identifier_types: "Free text in AACT - no identifiers"
+      source_identifier_types:
+        - "Free text in AACT - no identifiers"
     - node_category: "biolink:SmallMolecule"
-      source_identifier_types: "Free text in AACT - no identifiers"
+      source_identifier_types:
+        - "Free text in AACT - no identifiers"
     - node_category: "biolink:DiseaseOrPhenotypicFeature"
-      source_identifier_types: "Free text in AACT - no identifiers"
+      source_identifier_types:
+        - "Free text in AACT - no identifiers"
 
 provenance_info:
   contributions:

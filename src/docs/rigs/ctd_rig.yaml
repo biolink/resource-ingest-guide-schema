@@ -1,7 +1,7 @@
 
   name:  CTD Resource Ingest Guide
 
-# Information about the Source of the ingest
+# Information about the Source of the ingest data
   source_info:  
     infores_id:  infores:ctd
     description: >-

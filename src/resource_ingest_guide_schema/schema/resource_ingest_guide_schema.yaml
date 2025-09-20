@@ -3,7 +3,7 @@ id: https://w3id.org/biolink/resource-ingest-guide-schema
 name: reference_ingest_guide
 title: Reference Ingest Guide Schema
 description: >-
-  A schema for describing the scope, rationale, and modeling approach for ingesting content from an external source to
+  A schema for describing the scope, rationale, and modeling approach for ingesting content from an external resource to
   a data repository compliant with the Biolink Model.
 license: MIT
 prefixes:
@@ -21,7 +21,7 @@ classes:
   ReferenceIngestGuide:
       description: >-
         A container that holds attributes for the discrete sections of information comprising
-        a Reference Ingest Guide.
+        a Resource Ingest Guide.
       attributes:
         name:
           description: A human readable name for the RIG.
@@ -407,7 +407,7 @@ classes:
       attributes:
         property:
           description: >-
-            The Biolink qualifier property that defines the kind of Qualifier specified,
+            The Biolink qualifier slot that defines the kind of Qualifier specified,
             e.g. "biolink:subject_aspect_qualifier", "qualified_predicate".
           range: uriorcurie
           required: true

@@ -187,6 +187,17 @@ _git-commit:
 _git-status:
     git status
 
+# Validate all RIG files against the schema
+validate-rigs:
+    @echo "Validating RIG files against schema..."
+    @for rig_file in {{src}}/docs/rigs/*.yaml; do \
+        if [ -f "$rig_file" ]; then \
+            echo "Validating $rig_file"; \
+            {{run}} linkml-validate --schema {{source_schema_path}} "$rig_file"; \
+        fi; \
+    done
+    @echo "✓ All RIG files validated successfully"
+
 # Clean all generated files
 clean:
     rm -rf {{dest}}

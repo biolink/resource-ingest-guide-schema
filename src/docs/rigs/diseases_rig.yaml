@@ -101,13 +101,16 @@ target_info:
   
   node_type_info:
     - node_category: "biolink:Gene"
-      source_identifier_types: "ENSEMBL"
+      source_identifier_types:
+        - "ENSEMBL"
       additional_notes: "Source uses the ENSP (protein) identifiers from Ensembl"
     - node_category: "biolink:Protein"
-      source_identifier_types: "ENSEMBL"
+      source_identifier_types:
+        - "ENSEMBL"
       additional_notes: "Source uses the ENSP (protein) identifiers from Ensembl"
     - node_category: "biolink:Disease"
-      source_identifier_types: "DOID"
+      source_identifier_types:
+        - "DOID"
   
   future_considerations:
     - consideration: "Revisit use of associated_with predicate for curated edges after we refactor the associated_with and/or gene-disease-relationship branches of the Biolink predicate hierarchy (if we reserve this predicate for statistically-based relationships, we may need to use related_to)"

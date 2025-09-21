@@ -1,4 +1,4 @@
-ReferenceIngestGuide:
+# ReferenceIngestGuide schema based content.
   name:  # (optional, range = string)
 
 # Information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest.

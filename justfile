@@ -192,17 +192,17 @@ _git-commit:
 _git-status:
     git status
 
+# TODO: convert this Makefile target into a working justfile recipe
 # Create a new RIG from template
 # Usage: just new-rig INFORES=infores:ctd NAME="CTD Chemical-Disease Associations"
 #new-rig:
-#    #!/usr/bin/env bash
-#    ifndef {{infores}}; then \
-#	    error("INFORES is required. Usage: make new-rig INFORES=infores:example NAME=\"Example RIG\""); \
-#    endif
-#    ifndef {{name}}; then \
-#	    error("NAME is required. Usage: make new-rig INFORES=infores:example NAME=\"Example RIG\""); \
-#    endif
-#    {{run}} python {{src}}/scripts/create_rig.py --infores "{{infores}}" --name "{{name}}"
+#ifndef INFORES
+#	$(error INFORES is required. Usage: make new-rig INFORES=infores:example NAME="Example RIG")
+#endif
+#ifndef NAME
+#	$(error NAME is required. Usage: make new-rig INFORES=infores:example NAME="Example RIG")
+#endif
+#	$(RUN) python $(SRC)/scripts/create_rig.py --infores "$(INFORES)" --name "$(NAME)"
 
 # Validate all RIG files against the schema
 validate-rigs:

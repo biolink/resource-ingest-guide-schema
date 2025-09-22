@@ -1,33 +1,37 @@
-ReferenceIngestGuide:
+# ReferenceIngestGuide schema based content.
   name:  # (optional, range = string)
 
-# Information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest.
-# This slot is OPTIONAL, and can be OMITTED for typical ingest of an external knowledge source. 
-# It is only relevant ing RIGs for "data-derived" KPs like ICEES, COHD, various Multiomics KPs, etc.
+# Information about upstream sources of data that are used by an ingested source to derive the knowledge that we ingest.
+# This slot is OPTIONAL and can be OMITTED for typical data ingest of an external knowledge source.
+# It is only relevant RIGs for "data-derived" KPs like ICEES, COHD, various Multiomics KPs, etc.
   supporting_data_source_info: # (optional, multivalued, range = SupportingDataSourceInformation)
     - infores_id: # (required, range = UriOrCurie)
       name: # (optional, range = string)
       description: # (optional, range = string)
-      terms_of_use: # (required, range = string)  Can be a url, and/or your own notes / description
+      terms_of_use_info:  # (optional, range = TermsOfUseInfo) 
+        terms_of_use_url: # (optional, range = uriorcurie) 
+        terms_of_use_description:  # (optional, range = string)      
+	    license name:  # (optional, range = string)  
+      license url:   # (optional, range = uriorcurie) 
       relevant_files:  # (required, multivalued, range = RelevantFiles) List source files with content we aim to ingest.
         - file_name:  # (required, range = string)
           location:  # (required, range = UriOrCurie)
           description:  # (optional, range = string)
         
-# Information about the Source of the ingest
+# Information about the Source of the data ingest
   source_info:  # (required, range = SourceInformation)
     infores_id:  # (required, range = UriOrCurie)
     name: # (optional, range = string)    
     description:  # (optional, range = string)
     citations:  # (optional, multivalued, range = string)
-      -
-    terms_of_use:  # (required, range = string)  Can be a url, and/or your own notes / description
+    terms_of_use_info:  # (optional, range = TermsOfUseInfo) 
+      terms_of_use_url: # (optional, range = uriorcurie) 
+      terms_of_use_description:  # (optional, range = string)      
+	  license name:  # (optional, range = string)  
+    license url:   # (optional, range = uriorcurie) 
     data_access_locations:  # (optional, multivalued, range = string)  Each value should include a url, and optionally description of what is provided at that location. 
-      -
     data_provision_mechanisms:  # (optional, multivalued, range = ProvisionMechanismEnum: file_download | api_endpoint | database_dump | other)
-      -
     data_formats:  # (optional, multivalued, range = DataFormatEnum: tsv | xml | csv | json | yaml | obo | protobuff | other)
-      -
     data_versioning_and_releases:  # (optional, range = string)
     additional_notes:  # (optional, range = string)
 

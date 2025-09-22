@@ -41,8 +41,8 @@ gen_owl_args := env_var_or_default("LINKML_GENERATORS_OWL_ARGS", "")
 gen_java_args := env_var_or_default("LINKML_GENERATORS_JAVA_ARGS", "")
 gen_ts_args := env_var_or_default("LINKML_GENERATORS_TYPESCRIPT_ARGS", "")
 
-infores := env_var_or_default("INFORES", "")
-name := env_var_or_default("NAME", "")
+INFORES:= ""
+NAME := ""
 
 # Directory variables
 src := "src"
@@ -192,17 +192,16 @@ _git-commit:
 _git-status:
     git status
 
-# TODO: convert this Makefile target into a working justfile recipe
 # Create a new RIG from template
 # Usage: just new-rig INFORES=infores:ctd NAME="CTD Chemical-Disease Associations"
-#new-rig:
-#ifndef INFORES
-#	$(error INFORES is required. Usage: make new-rig INFORES=infores:example NAME="Example RIG")
-#endif
-#ifndef NAME
-#	$(error NAME is required. Usage: make new-rig INFORES=infores:example NAME="Example RIG")
-#endif
-#	$(RUN) python $(SRC)/scripts/create_rig.py --infores "$(INFORES)" --name "$(NAME)"
+new-rig:
+    @if [[ -z "{{INFORES}}" ]]; then \
+        echo "INFORES is required. Usage: just new-rig INFORES=infores:example NAME='Example RIG'"; \
+    elif [[ -z "{{NAME}}" ]]; then \
+        echo "NAME is required. Usage: just new-rig INFORES=infores:example NAME='Example RIG'"; \
+    else \
+       {{run}} python {{src}}/scripts/create_rig.py --infores "{{INFORES}}" --name "{{NAME}}"; \
+    fi
 
 # Validate all RIG files against the schema
 validate-rigs:

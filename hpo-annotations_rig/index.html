@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/ctkp_rig/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/hpo-annotations_rig/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Multiomics Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>Human Phenotype Ontology Annotations - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#multiomics-clinical-trials-knowledge-provider-ctkp-reference-ingest-guide" class="md-skip">
+        <a href="#human-phenotype-ontology-annotations" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Multiomics Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide
+              Human Phenotype Ontology Annotations
             
           </span>
         </div>
@@ -354,6 +354,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#filtered-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filtered Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-content-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Content Considerations
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -382,6 +400,15 @@
   <a href="#node-types" class="md-nav__link">
     <span class="md-ellipsis">
       Node Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-modeling-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Modeling Considerations
     </span>
   </a>
   
@@ -420,22 +447,25 @@
   
 
 
-<h1 id="multiomics-clinical-trials-knowledge-provider-ctkp-reference-ingest-guide">Multiomics Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide</h1>
+<h1 id="human-phenotype-ontology-annotations">Human Phenotype Ontology Annotations</h1>
 <h2 id="source-information">Source Information</h2>
-<p><strong>InfoRes ID:</strong> infores:multiomics-clinicaltrials</p>
-<p><strong>Description:</strong> The Clinical Trials KP provides information on Clinical Trials, ultimately derived from researcher submissions to clinicaltrials.gov, via the Aggregate Analysis of Clinical Trials (AACT) database. Information on select trials includes the NCT Identifier of the trial, interventions used, diseases/conditions relevant to the trial, adverse events, etc.  </p>
+<p><strong>InfoRes ID:</strong> infores:hpo-annotations</p>
+<p><strong>Description:</strong> The <a href="https://hpo.jax.org/">Human Phenotype Ontology (HPO)</a> provides a standard vocabulary of phenotypic abnormalities encountered in human disease. Each term in the HPO describes a phenotypic abnormality, such as Atrial septal defect. The HPO is currently being developed using the medical literature, Orphanet, DECIPHER, and OMIM. HPO currently contains over 18,000 terms and over 156,000 annotations to hereditary diseases. The HPO project and others have developed software for phenotype-driven differential diagnostics, genomic diagnostics, and translational research.
+The Human Phenotype Ontology group curates and assembles over 115,000 HPO-related annotations ("HPOA") to hereditary diseases using the HPO ontology. Here we create Biolink associations between diseases and phenotypic features, together with their evidence, and age of onset and frequency (if known). Disease annotations here are also cross-referenced to the MONarch Disease Ontology (MONDO) (https://mondo.monarchinitiative.org/).
+There are four HPOA ingests ('disease-to-phenotype' (includes capture of disease modes of inheritance, 'gene-to-phenotype' and 'gene-to-disease') that parse out records from the HPO Phenotype Annotation File (http://purl.obolibrary.org/obo/hp/hpoa/phenotype.hpoa).</p>
 <p><strong>Citations:</strong>
-- Generating Biomedical Knowledge Graphs from Knowledge Bases, Registries, and Multiomic Data (preprint): (https://pmc.ncbi.nlm.nih.gov/articles/PMC11601480/</p>
-<p><strong>Terms of Use:</strong> Freely available</p>
+- https://doi.org/10.1093/nar/gkaa1043</p>
+<p><strong>Terms of Use:</strong> Bespoke 'terms of use' are described here: https://hpo.jax.org/license</p>
 <p><strong>Data Access Locations:</strong>
-- Direct download links for the latest version are given in the manifest file: https://github.com/multiomicsKP/clinical_trials_kp/blob/main/manifest.json</p>
-<p><strong>Data Provision Mechanisms:</strong> file_download</p>
-<p><strong>Data Formats:</strong> kgx</p>
-<p><strong>Data Versioning and Releases:</strong> New versions are released weekly</p>
+- https://hpo.jax.org/data/annotations</p>
+<p><strong>Data Provision Mechanisms:</strong> file_download, api_endpoint</p>
+<p><strong>Data Formats:</strong> tsv, other</p>
+<p><strong>Data Versioning and Releases:</strong> GitHub managed releases at https://github.com/obophenotype/human-phenotype-ontology/releases No consistent cadence for releases. Versioning is based on the month and year of the release</p>
+<p><strong>Additional Notes:</strong> None</p>
 <h2 id="ingest-information">Ingest Information</h2>
-<p><strong>Ingest Categories:</strong> translator_knowledge_creator</p>
-<p><strong>Utility:</strong> CTKP provides an improved version of clinical trials information that addresses quality and computability issues with sources it uses (AACT, ct.gov), as well as treatment assertions derived from this data. This type of knowledge is critical for many Translator query types.</p>
-<p><strong>Scope:</strong> Clinical trials information including interventions, diseases/conditions, and treatment assertions derived from clinical trial outcomes.</p>
+<p><strong>Ingest Categories:</strong> primary_knowledge_provider</p>
+<p><strong>Utility:</strong> The HPO and associated annotations are a flagship product of the Monarch Initiative (https://monarchinitiative.org/), an NIH-supported international consortium dedicated to semantic integration of biomedical and model organism data with the ultimate goal of improving biomedical research. The human phenotype/disease/gene knowledge integration aligns well with the general mission of the Biomedical Data Translator.  As a consequence, several members of the Monarch Initiative are direct participants in the Biomedical Data Translator, with Monarch data forming one primary knowledge source contributing to Translator knowledge graphs.</p>
+<p><strong>Scope:</strong> Covers curated Disease, Phenotype and Genes relationships annotated with Human Phenotype Ontology terms.</p>
 <h3 id="relevant-files">Relevant Files</h3>
 <table>
 <thead>
@@ -447,9 +477,19 @@
 </thead>
 <tbody>
 <tr>
-<td>CTKP processed data</td>
-<td>https://ctkp.ncats.io/</td>
-<td>Clinical trials data processed from AACT/clinicaltrials.gov</td>
+<td>phenotype.hpoa</td>
+<td>https://hpo.jax.org/data/annotations</td>
+<td>disease to HPO phenotype annotations, including inheritance information</td>
+</tr>
+<tr>
+<td>genes_to_disease.txt</td>
+<td>https://hpo.jax.org/data/annotations</td>
+<td>gene to HPO disease annotations</td>
+</tr>
+<tr>
+<td>genes_to_phenotype.txt</td>
+<td>https://hpo.jax.org/data/annotations</td>
+<td>gene to HPO phenotype annotations</td>
 </tr>
 </tbody>
 </table>
@@ -464,14 +504,60 @@
 </thead>
 <tbody>
 <tr>
-<td>CTKP processed data</td>
-<td>Clinical trial interventions and their associated diseases/conditions, plus treatment assertions for successful trials</td>
-<td>NCT Identifier, interventions, diseases/conditions, adverse events, trial phases</td>
+<td>phenotype.hpoa</td>
+<td>Disease to Phenotype relationships (i.e., rows with 'aspect' == 'P')</td>
+<td>database_id, qualifier, hpo_id, reference, evidence, onset, frequency, sex, aspect</td>
+</tr>
+<tr>
+<td>phenotype.hpoa</td>
+<td>Disease "Mode of Inheritance" relationships (i.e., rows with 'aspect' == 'I') represented as node properties rather than edges</td>
+<td>database_id, qualifier, hpo_id, reference, evidence, onset, frequency, sex, aspect</td>
+</tr>
+<tr>
+<td>genes_to_disease.txt</td>
+<td>Mendelian Gene to Disease relationships (i.e., rows with 'association_type' == 'MENDELIAN')</td>
+<td>ncbi_gene_id, gene_symbol, association_type, disease_id, source</td>
+</tr>
+<tr>
+<td>genes_to_disease.txt</td>
+<td>Polygenic Gene to Disease relationships (i.e., rows with 'association_type' == 'POLYGENIC')</td>
+<td>ncbi_gene_id, gene_symbol, association_type, disease_id, source</td>
+</tr>
+<tr>
+<td>genes_to_disease.txt</td>
+<td>General Gene Contributions to Disease relationships (i.e., rows with 'association_type' == 'UNKNOWN')</td>
+<td>ncbi_gene_id, gene_symbol, association_type, disease_id, source</td>
+</tr>
+<tr>
+<td>genes_to_phenotype.txt</td>
+<td>Records where we determine that the reported G-P association was inferred over a G-D associated type with the value "MENDELIAN"</td>
+<td>ncbi_gene_id, gene_symbol, hpo_id, hpo_name, frequency, disease_id</td>
 </tr>
 </tbody>
 </table>
+<h3 id="filtered-content">Filtered Content</h3>
+<table>
+<thead>
+<tr>
+<th>File Name</th>
+<th>Filtered Records</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>genes_to_phenotype.txt</td>
+<td>Records where we determine that the reported G-P association was inferred over a G-D associated type with the value "POLYGENIC" or "UNKNOWN"</td>
+<td>HPO will infer a Gene-Phenotype association G1-P1 in cases where G1 causes, contributes_to, or is associated with D1, and D1 is associated with a Phenotype P1. This logic holds for Mendelian disease where a single gene is causal and thus responsible for all associated phenotypes. It does not necessarily hold for Polygenic or Unknown diseases where the gene may be one of many contributing factors, and thus does not necessarily contribute to or have an association with each phenotype of the disease.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="future-content-considerations">Future Content Considerations</h3>
+<p><strong>edge_content:</strong> Consider bringing back G-P associations based on inferences over Polygenic or Unknown Diseases if we establish a confidence annotation paradigm that lets us indicate these inferences to be weaker than those inferred over Mendelian diseases where the Gene is individually causal for the disease and all of its phenotypes.
+  - Relevant files: genes_to_phenotype.txt</p>
+<p><strong>Additional Notes:</strong> None</p>
 <h2 id="target-information">Target Information</h2>
-<p><strong>Target InfoRes ID:</strong> infores:translator-ctkp-kgx</p>
+<p><strong>Target InfoRes ID:</strong> infores:translator-hpo-annotations-kgx</p>
 <h3 id="edge-types">Edge Types</h3>
 <table>
 <thead>
@@ -486,20 +572,44 @@
 </thead>
 <tbody>
 <tr>
-<td>biolink:ChemicalEntity, biolink:MolecularMixture</td>
-<td>biolink:in_clinical_trials_for</td>
-<td>biolink:DiseaseOrPhenotypicFeature</td>
+<td>biolink:Disease</td>
+<td>biolink:has_phenotype</td>
+<td>biolink:PhenotypicFeature</td>
 <td>knowledge_assertion</td>
 <td>manual_agent</td>
-<td>The 'in_clinical_trials_for' predicate reports that an intervention was tested in a clinical trial for a particular disease - based on a registered trial in ct.gov.</td>
+<td>HPO curators manually review clinical data and published evidence to determine phenotypes that manifest in a Disease, which are reported using the has_phenotype predicate.</td>
 </tr>
 <tr>
-<td>biolink:ChemicalEntity, biolink:MolecularMixture</td>
-<td>biolink:treats</td>
-<td>biolink:DiseaseOrPhenotypicFeature</td>
+<td>biolink:Gene</td>
+<td>biolink:associated_with</td>
+<td>biolink:Disease</td>
 <td>knowledge_assertion</td>
 <td>manual_agent</td>
-<td>The <code>treats</code> predicate is used for interventions in Phase 4 trials that are performed for after successful demonstration of efficacy in treating a particular disease.</td>
+<td>HPOA aggregates manually curated Gene-Disease associations from sources like Orphanet and MIM2Gene and DECIPHER. For Mendelian diseases with a single causal gene, we report that a genetic variant form of the gene 'causes' the disease.</td>
+</tr>
+<tr>
+<td>biolink:Gene</td>
+<td>biolink:associated_with</td>
+<td>biolink:Disease</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>HPOA aggregates manually curated Gene-Disease associations from sources like Orphanet and MIM2Gene. For polygenic diseases with multiple contributing genes, we report that a genetic variant form of the gene 'contributes to' the disease.</td>
+</tr>
+<tr>
+<td>biolink:Gene</td>
+<td>biolink:associated_with</td>
+<td>biolink:Disease</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>HPOA aggregates manually curated Gene-Disease associations from sources like Orphanet and MIM2Gene. When the genetic etiology of the diseases is not sufficiently specified, the relationship is reported using the 'associated_with' predicate.</td>
+</tr>
+<tr>
+<td>biolink:Gene</td>
+<td>biolink:has_phenotype</td>
+<td>biolink:PhenotypicFeature</td>
+<td>logical_entailment</td>
+<td>automated_agent</td>
+<td>HPOA provides direct Gene-Phenotype associations between genes with variants causing or contributing to a disease, and each phenotype associated with the disease. For Mendelian diseases with a single causal gene, we report that a genetic variant form of the gene 'causes' each of the phenotypes associated with the disease.</td>
 </tr>
 </tbody>
 </table>
@@ -514,32 +624,39 @@
 </thead>
 <tbody>
 <tr>
-<td>biolink:ChemicalEntity</td>
-<td>Free text in AACT - no identifiers</td>
-<td></td>
+<td>biolink:Disease</td>
+<td>OMIM, ORPHANET, DECIPHER</td>
+<td>None</td>
 </tr>
 <tr>
-<td>biolink:MolecularMixture</td>
-<td>Free text in AACT - no identifiers</td>
-<td></td>
+<td>biolink:PhenotypicFeature</td>
+<td>HP</td>
+<td>None</td>
 </tr>
 <tr>
-<td>biolink:SmallMolecule</td>
-<td>Free text in AACT - no identifiers</td>
-<td></td>
+<td>biolink:Gene</td>
+<td>NCBIGene</td>
+<td>None</td>
 </tr>
 <tr>
-<td>biolink:DiseaseOrPhenotypicFeature</td>
-<td>Free text in AACT - no identifiers</td>
-<td></td>
+<td>biolink:GeneticInheritance</td>
+<td>HP</td>
+<td>None</td>
 </tr>
 </tbody>
 </table>
+<h3 id="future-modeling-considerations">Future Modeling Considerations</h3>
+<p><strong>spoq_pattern:</strong> Consider alternate patterns for representing G-causes-D and G-contributes_to-D associations where we place more semantics into predicates, per https://github.com/NCATSTranslator/Data-Ingest-Coordination-Working-Group/issues/22 Should we consider creating support paths in our data/graphs, for the G-D-P hops over which HPO infers G-P associations? (e.g. <code>GENE1 -causes-&gt; DISEASE1 -has_phenotype-&gt; PHENO1 ----&gt;  GENE1 -causes-&gt; PHENO1</code>)</p>
 <h2 id="provenance-information">Provenance Information</h2>
 <p><strong>Contributors:</strong>
-- Gwenlyn Glusman - code author, domain expertise
-- Matthew Brush - data modeling
-- Sierra Moxon - data modeling</p>
+- Richard Bruskiewich - data modeling, domain expertise, code author
+- Kevin Schaper - code author
+- Sierra Moxon - data modeling, domain expertise, code support
+- Matthew Brush - data modeling, domain expertise</p>
+<p><strong>Artifacts:</strong>
+- Ingest Survey (https://docs.google.com/spreadsheets/d/1R9z-vywupNrD_3ywuOt_sntcTrNlGmhiUWDXUdkPVpM/edit?gid=0#gid=0)
+- Ingest Ticket (https://github.com/NCATSTranslator/Data-Ingest-Coordination-Working-Group/issues/24)
+- Modeling Ticket (https://github.com/NCATSTranslator/Data-Ingest-Coordination-Working-Group/issues/22)</p>
 
 
 

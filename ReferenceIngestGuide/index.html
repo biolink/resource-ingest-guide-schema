@@ -228,7 +228,7 @@
 </tr>
 <tr>
 <td><a href="../supporting_data_source_info/">supporting_data_source_info</a>: <br/> <i> Information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest. </i></td>
-<td>0..1 <br/> <a href="../SupportingDataSourceInformation/">SupportingDataSourceInformation</a></td>
+<td>* <br/> <a href="../SupportingDataSourceInformation/">SupportingDataSourceInformation</a></td>
 <td>direct</td>
 <td></td>
 </tr>
@@ -286,6 +286,7 @@ attributes:
     domain_of:
     - ReferenceIngestGuide
     range: SupportingDataSourceInformation
+    multivalued: true
   source_info:
     name: source_info
     description: Information about the source from which content is ingested.

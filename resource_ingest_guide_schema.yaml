@@ -33,6 +33,7 @@ classes:
              This slot is optional, and can be omitted for typical ingest of an external knowledge source - as it is mainly relevant for describing "ingest" of
              data-derived KPs like ICEES, COHD, various Multiomics KPs, etc.
           range: SupportingDataSourceInformation
+          multivalued: true
         source_info:
           description: >-
             Information about the source from which content is ingested.

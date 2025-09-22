@@ -191,7 +191,6 @@ _git-commit:
 # Show git status
 _git-status:
     git status
-
 # TODO: convert this Makefile target into a working justfile recipe
 # Create a new RIG from template
 # Usage: just new-rig INFORES=infores:ctd NAME="CTD Chemical-Disease Associations"

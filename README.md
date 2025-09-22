@@ -64,7 +64,7 @@ pip install uv
 
 ### Getting Started
 
-Note that the following commands assume you are in the project root directory, and the equivalent **`just`** commands may be substituted for  **`make`** (namely `just test` instead of `make test`)
+Note that the following commands assume you are in the project root directory, and the equivalent **`just`** commands may be substituted for several **`make`** targets (namely `just test` instead of `make test`)
 
 1. **Install dependencies:**
    ```bash
@@ -73,17 +73,12 @@ Note that the following commands assume you are in the project root directory, a
 
 2. **Run tests:**
    ```bash
-   make test
+   make test  # or just test
    ```
 
 3. **Generate documentation:**
    ```bash
    make gendoc
-   ```
-
-4. **Create a new RIG:**
-   ```bash
-   make new-rig INFORES=infores:example NAME="Example Data Source"
    ```
 
 ### Working with RIGs
@@ -92,19 +87,35 @@ Note that the following commands assume you are in the project root directory, a
 
 ```bash
 # Create a new RIG from the template
-make new-rig INFORES=infores:mydatasource NAME="My Data Source RIG"
+make new-rig INFORES=infores:example NAME="Example Data Source"
 
 # This creates src/docs/rigs/mydatasource_rig.yaml
 # Edit the file to fill in your specific information
 ```
 
+or using the equivalent **`just`** command:
+
+```bash
+just INFORES=infores:example NAME="Example Data Source" new-rig 
+```
+
+Note that for the **`just`** command, the script variables must precede the just recipe ("target") name on the command line (reverse of the make command).
+
 #### Validating RIGs
 
 ```bash
 # Validate all RIG files against the schema
-make validate-rigs
+make validate-rigs  
+```
 
-# Validate a specific RIG
+or
+
+```bash
+just validate-rigs
+```
+To validate a specific RIG:
+
+```bash
 uv run linkml-validate --schema src/resource_ingest_guide_schema/schema/resource_ingest_guide_schema.yaml src/docs/rigs/my_rig.yaml
 ```
 
@@ -139,10 +150,11 @@ make lint
 
 Python utilities are in `src/scripts/`:
 - `create_rig.py`: Generate new RIG from template
-- `rig_to_markdown.py`: Convert RIG YAML to markdown
+- `rig_to_markdown.py`: Convert RIG YAML to Markdown
 - `generate_rig_index.py`: Create RIG index table
 
 To test script changes:
+
 ```bash
 # Run scripts directly
 uv run python src/scripts/create_rig.py --help
@@ -162,6 +174,8 @@ make serve  # or make testdoc
 ```
 
 ### Available Commands
+
+Note: some **`make`** targets (like **`new-rig`** and **`validate-rigs`**) have **`just`** command equivalents (remember instead to put the just recipe target name _after_ any command line arguments)
 
 | Command | Description |
 |---------|-------------|

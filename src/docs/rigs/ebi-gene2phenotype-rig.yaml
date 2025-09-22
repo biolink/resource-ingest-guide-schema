@@ -54,7 +54,7 @@ ingest_info:
     - category: edge_property_content
       consideration: "Lots of additional edge-level information that we could include in future iterations: 'confidence' level values when we improve/refactor modeling of confidence in Biolink, variant information ('variant consequence', 'variant types' columns). The values map to SO terms. Rich evidence and provenance metadata provided by the source (e.g. type of experiments/methods used to determine the molecular mechanism, and supporting publications)."
 
-  additional_notes: "Source Confidence values: 'limited': the last sentence of the definition is 'The majority are probably false associations. (previously labelled as possible).' We've decided that these may not be 'real' associations, so we do not want to ingest them. 'disputed' and 'refuted': these values mean there's strong evidence that there ISN'T an association (negation). This decision to exclude could be revisited once Translator can model/handle negation better."
+  # Note: additional_notes field has been removed from this section according to new schema
 
 # Information about the Graph Output by the ingest
 target_info:

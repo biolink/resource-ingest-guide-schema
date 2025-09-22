@@ -10,6 +10,7 @@ source_info:
     - "Prisca Lo Surdo, Marta Iannuccelli, Silvia Contino, Luisa Castagnoli, Luana Licata, Gianni Cesareni, Livia Perfetto, SIGNOR 3.0, the SIGnaling network open resource 3.0: 2022 update, Nucleic Acids Research, Volume 51, Issue D1, 6 January 2023, Pages D631–D637, https://doi.org/10.1093/nar/gkac883"
   terms_of_use_info:
     license_name: "Creative Commons Attribution 4.0 International"
+    license_url: "https://creativecommons.org/licenses/by/4.0/legalcode"
   data_access_locations:
     - "Signor 3.0 Downloads: https://signor.uniroma2.it/downloads.php (this page includes file sizes and simple data dictionaries for each download)"
   data_provision_mechanisms:

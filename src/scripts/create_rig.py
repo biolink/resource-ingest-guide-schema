@@ -24,17 +24,17 @@ def create_rig(infores_id, rig_name, output_file, template_path):
     template = load_template(template_path)
     
     # Update template with user values
-    template['ReferenceIngestGuide']['name'] = rig_name
-    template['ReferenceIngestGuide']['source_info']['infores_id'] = infores_id
+    template['name'] = rig_name
+    template['source_info']['infores_id'] = infores_id
     
     # Set target infores_id based on source (optional but commonly done)
-    if 'target_info' not in template['ReferenceIngestGuide']:
-        template['ReferenceIngestGuide']['target_info'] = {}
-    template['ReferenceIngestGuide']['target_info']['infores_id'] = infores_id
+    if 'target_info' not in template:
+        template['target_info'] = {}
+    template['target_info']['infores_id'] = infores_id
     
     # Add creation timestamp in additional_notes if not present
-    if 'additional_notes' not in template['ReferenceIngestGuide']['source_info']:
-        template['ReferenceIngestGuide']['source_info']['additional_notes'] = f"RIG created on {datetime.now().strftime('%Y-%m-%d')}"
+    if 'additional_notes' not in template['source_info']:
+        template['source_info']['additional_notes'] = f"RIG created on {datetime.now().strftime('%Y-%m-%d')}"
     
     # Write the new RIG file
     with open(output_file, 'w') as f:

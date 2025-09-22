@@ -21,7 +21,9 @@ source_info:
     HPO Phenotype Annotation File (http://purl.obolibrary.org/obo/hp/hpoa/phenotype.hpoa).
   citations:
   - https://doi.org/10.1093/nar/gkaa1043
-  terms_of_use: "Bespoke 'terms of use' are described here: https://hpo.jax.org/license"
+  terms_of_use_info:
+    terms_of_use_url: "https://hpo.jax.org/license"
+    terms_of_use_description: "Bespoke terms describing specific conditions for use of HPOA data. No formal license."
   data_access_locations:
   - https://hpo.jax.org/data/annotations
   data_provision_mechanisms:

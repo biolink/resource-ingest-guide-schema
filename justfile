@@ -212,7 +212,7 @@ validate-rigs:
             {{run}} linkml-validate --schema {{source_schema_path}} "$rig_file"; \
         fi; \
     done
-    @echo "✓ All RIG files validated successfully"
+    @echo "✓ All RIG files validated (with any errors as indicated)"
 
 # Clean all generated files
 clean:

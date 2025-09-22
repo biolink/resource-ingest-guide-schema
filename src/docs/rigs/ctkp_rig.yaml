@@ -4,7 +4,10 @@ supporting_data_source_info:
   - infores_id: "infores:aact"
     name: "Aggregate Analysis of ClinicalTrial.gov (AACT)"
     description: "AACT is derived from researcher submissions to clinicaltrials.gov"
-    terms_of_use: "Freely available, with suggested acknowledge ment of the source. See https://aact.ctti-clinicaltrials.org/documentation/346"
+    terms_of_use_info:
+      terms_of_use_description: >-
+         Freely available, with suggested acknowledgement of the source.
+         See https://aact.ctti-clinicaltrials.org/documentation/346.
     relevant_files:
       - file_name: "yyyymmdd_export_ctgov.zip"
         location: "https://aact.ctti-clinicaltrials.org/downloads"
@@ -16,7 +19,8 @@ source_info:
   description:  "The Clinical Trials KP provides information on Clinical Trials, ultimately derived from researcher submissions to clinicaltrials.gov, via the Aggregate Analysis of Clinical Trials (AACT) database. Information on select trials includes the NCT Identifier of the trial, interventions used, diseases/conditions relevant to the trial, adverse events, etc.  "
   citations:  
     - "Generating Biomedical Knowledge Graphs from Knowledge Bases, Registries, and Multiomic Data (preprint): (https://pmc.ncbi.nlm.nih.gov/articles/PMC11601480/"
-  terms_of_use: "Freely available"
+  terms_of_use_info:
+    terms_of_use_description: "Freely available"
   data_access_locations:
     - "Direct download links for the latest version are given in the manifest file: https://github.com/multiomicsKP/clinical_trials_kp/blob/main/manifest.json"
   data_provision_mechanisms:  

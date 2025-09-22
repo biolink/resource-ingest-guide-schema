@@ -1,4 +1,4 @@
-ReferenceIngestGuide:
+# ReferenceIngestGuide schema based content.
   name:  # (optional, range = string)
 
 # Information about upstream sources of data that are used by an ingested source to derive the knowledge that we ingest.
@@ -8,7 +8,11 @@ ReferenceIngestGuide:
     - infores_id: # (required, range = UriOrCurie)
       name: # (optional, range = string)
       description: # (optional, range = string)
-      terms_of_use: # (required, range = string) # Can be a url, and/or your own notes / description
+      terms_of_use_info:  # (optional, range = TermsOfUseInfo) 
+        terms_of_use_url: # (optional, range = uriorcurie) 
+        terms_of_use_description:  # (optional, range = string)      
+	    license name:  # (optional, range = string)  
+      license url:   # (optional, range = uriorcurie) 
       relevant_files:  # (required, multivalued, range = RelevantFiles) List source files with content we aim to ingest.
         - file_name:  # (required, range = string)
           location:  # (required, range = UriOrCurie)
@@ -20,14 +24,14 @@ ReferenceIngestGuide:
     name: # (optional, range = string)    
     description:  # (optional, range = string)
     citations:  # (optional, multivalued, range = string)
-      -
-    terms_of_use:  # (required, range = string) # Can be a url, and/or your own notes / description
-    data_access_locations:  # (optional, multivalued, range = string) # Each value should include a url, and optional description of what is provided at that location.
-      -
+    terms_of_use_info:  # (optional, range = TermsOfUseInfo) 
+      terms_of_use_url: # (optional, range = uriorcurie) 
+      terms_of_use_description:  # (optional, range = string)      
+	  license name:  # (optional, range = string)  
+    license url:   # (optional, range = uriorcurie) 
+    data_access_locations:  # (optional, multivalued, range = string)  Each value should include a url, and optionally description of what is provided at that location. 
     data_provision_mechanisms:  # (optional, multivalued, range = ProvisionMechanismEnum: file_download | api_endpoint | database_dump | other)
-      -
     data_formats:  # (optional, multivalued, range = DataFormatEnum: tsv | xml | csv | json | yaml | obo | protobuff | other)
-      -
     data_versioning_and_releases:  # (optional, range = string)
     additional_notes:  # (optional, range = string)
 

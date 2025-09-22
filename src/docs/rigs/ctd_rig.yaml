@@ -15,9 +15,12 @@
       analyzing the knowledge they curate/create - based on statistically significant connections
       with intermediate concept (e.g. Chemical X associated with Disease Y based on shared associations
       with a common set of genes).
-    citations:  
-      - Davis AP, Wiegers TC, Johnson RJ, Sciaky D, Wiegers J, Mattingly CJ Comparative Toxicogenomics Database (CTD). update 2023. Nucleic Acids Res. 2022 Sep 28.
-    terms_of_use:  "No formal license. Bespoke 'terms of use' are described here: https://ctdbase.org/about/legal.jsp"
+    citations:   
+      - "Davis AP, Wiegers TC, Johnson RJ, Sciaky D, Wiegers J, Mattingly CJ Comparative Toxicogenomics Database (CTD). update 2023. Nucleic Acids Res. 2022 Sep 28"
+    terms_of_use_info:  
+      terms_of_use_url: "https://ctdbase.org/about/legal.jsp"
+      terms_of_use_description:  "Bespoke terms describing specific conditions for use of CTD data"      
+    "No formal license. Bespoke 'terms of use' are described here: https://ctdbase.org/about/legal.jsp"
     data_access_locations: 
       - CTD Bulk Downloads - http://ctdbase.org/downloads/ (this page includes file sizes and simple data dictionaries for each download)
       - CTD Catalog - https://ctdbase.org/reports/ (a simple list of files, reports the number of rows in each file)

@@ -213,7 +213,9 @@
 
       SourceInformation : name
 
-      SourceInformation : terms_of_use
+      SourceInformation : terms_of_use_info
+
+          SourceInformation --|&gt; TermsOfUseInformation : terms_of_use_info
 
 
 </div>
@@ -254,8 +256,8 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="../terms_of_use/">terms_of_use</a>: <br/> <i> Information about conditions for use of the ingested source. May be the name of a community license (e.g. <code>CC-BY 4.0</code>), a link to a "terms of use" or license information web page (e.g. <code>https://ctdbase.org/about/legal.jsp</code>), or a free-text summary of key terms of use. </i></td>
-<td>1 <br/> <a href="../String/">String</a></td>
+<td><a href="../terms_of_use_info/">terms_of_use_info</a>: <br/> <i> Information about conditions for use of the ingested source. May include the name of a community license (e.g. <code>CC-BY 4.0</code>), a link to a "terms of use" or license information web page (e.g. <code>https://ctdbase.org/about/legal.jsp</code>), and/or a free-text summary of key terms of use. </i></td>
+<td>1 <br/> <a href="../TermsOfUseInformation/">TermsOfUseInformation</a></td>
 <td>direct</td>
 <td></td>
 </tr>
@@ -356,17 +358,17 @@ attributes:
     - SourceInformation
     range: string
     multivalued: true
-  terms_of_use:
-    name: terms_of_use
+  terms_of_use_info:
+    name: terms_of_use_info
     description: Information about conditions for use of the ingested source. May
-      be the name of a community license (e.g. `CC-BY 4.0`), a link to a "terms of
-      use" or license information web page (e.g. `https://ctdbase.org/about/legal.jsp`),
-      or a free-text summary of key terms of use.
+      include the name of a community license (e.g. `CC-BY 4.0`), a link to a "terms
+      of use" or license information web page (e.g. `https://ctdbase.org/about/legal.jsp`),
+      and/or a free-text summary of key terms of use.
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
     - SupportingDataSourceInformation
     - SourceInformation
-    range: string
+    range: TermsOfUseInformation
     required: true
   data_access_locations:
     name: data_access_locations

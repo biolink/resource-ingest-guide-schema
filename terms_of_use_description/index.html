@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/terms_of_use/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/terms_of_use_description/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: terms_of_use - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>Slot: terms_of_use_description - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-terms_of_use" class="md-skip">
+        <a href="#slot-terms_of_use_description" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: terms_of_use
+              Slot: terms_of_use_description
             
           </span>
         </div>
@@ -345,18 +345,28 @@
   
 
 
-<h1 id="slot-terms_of_use"><strong> Slot: terms_of_use </strong></h1>
+<h1 id="slot-terms_of_use_description"><strong> Slot: terms_of_use_description </strong></h1>
+<div class="highlight-box"><strong>Description:</strong><i> A free text description of the terms of use for a source.  (e.g. "Source only indicates 'all rights reserved' in their documentation")</i><br>
+
+
+<br>
+
+</div>
+
 <p><strong>Range:</strong>   <a href="../String/">String</a> <br></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="linkml-source">LinkML Source</h2>
 <details open>
 
-<pre><code class="language-yaml">name: terms_of_use
-alias: terms_of_use
+<pre><code class="language-yaml">name: terms_of_use_description
+description: A free text description of the terms of use for a source.  (e.g. &quot;Source
+  only indicates 'all rights reserved' in their documentation&quot;)
+from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
+alias: terms_of_use_description
+owner: TermsOfUseInformation
 domain_of:
-- SupportingDataSourceInformation
-- SourceInformation
+- TermsOfUseInformation
 range: string
 
 </code></pre>

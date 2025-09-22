@@ -548,6 +548,10 @@
 <td><a href="TargetInformation/">TargetInformation</a></td>
 <td>A structure for capturing information about the target dataset / knowledge graph output by the ingest, including what types of edges and nodes were produced, modeling rationale, and what modeling changes might be considered in future iterations.</td>
 </tr>
+<tr>
+<td><a href="TermsOfUseInformation/">TermsOfUseInformation</a></td>
+<td>A structured representation describing terms for re-use of data from an information resource.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="slots">Slots</h2>
@@ -760,6 +764,22 @@
 <td>---</td>
 </tr>
 <tr>
+<td><a href="license_name/">license_name</a></td>
+<td>The name of an established license used by the source (e.g. "CC BY 4.0")</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><a href="license_url/">license_url</a></td>
+<td>The url of an established license (e.g. "https://creativecommons.org/licenses/by/4.0/")</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
 <td><a href="location/">location</a></td>
 <td>The URL of a web page or ftp site where the indicated file (or endpoint or table) was accessed.</td>
 </tr>
@@ -904,8 +924,24 @@
 <td>---</td>
 </tr>
 <tr>
-<td><a href="terms_of_use/">terms_of_use</a></td>
-<td>Information about conditions for use of the supporting data source. May be the name of a community license (e.g. <code>CC-BY 4.0</code>), a link to a "terms of use" or license information web page, or a free-text summary of key terms of use.</td>
+<td><a href="terms_of_use_description/">terms_of_use_description</a></td>
+<td>A free text description of the terms of use for a source.  (e.g. "Source only indicates 'all rights reserved' in their documentation")</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><a href="terms_of_use_info/">terms_of_use_info</a></td>
+<td>Information about conditions for use of the ingested source. May include the name of a community license (e.g. <code>CC-BY 4.0</code>), a link to a "terms of use" or license information web page (e.g. <code>https://ctdbase.org/about/legal.jsp</code>), and/or a free-text summary of key terms of use.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><a href="terms_of_use_url/">terms_of_use_url</a></td>
+<td>The url of a document or web page where a source describes its terms of use, and/or references a community license that it adopts. (e.g. "https://ctdbase.org/about/legal.jsp")</td>
 </tr>
 <tr>
 <td>---</td>

@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://biolink.github.io/information-resource-ingest-guide/SupportingDataSourceInformation/" rel="canonical"/>
+<link href="https://biolink.github.io/information-resource-ingest-guide/TermsOfUseInformation/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.18" name="generator"/>
-<title>Class: SupportingDataSourceInformation - Biolink Reference Ingest Guide Schema Documentation</title>
+<title>Class: TermsOfUseInformation - Biolink Reference Ingest Guide Schema Documentation</title>
 <link href="../assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-supportingdatasourceinformation">
+<a class="md-skip" href="#class-termsofuseinformation">
           Skip to content
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: SupportingDataSourceInformation
+              Class: TermsOfUseInformation
             
           </span>
 </div>
@@ -185,25 +185,19 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="class-supportingdatasourceinformation"><strong>  Class: SupportingDataSourceInformation </strong></h1>
+<h1 id="class-termsofuseinformation"><strong>  Class: TermsOfUseInformation </strong></h1>
 <div class="highlight-box">
-<strong>Description:</strong><i> A container for information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest. This info is not relevant for typical ingest of an external knowledge source, and applies mainly for describing "ingest" of data-derived KPs like ICEES, COHD, various Multiomics KPs, etc.</i><br/>
+<strong>Description:</strong><i> A structured representation describing terms for re-use of data from an information resource.</i><br/>
 </div>
 <div class="mermaid"> classDiagram
-    class SupportingDataSourceInformation
-      SupportingDataSourceInformation : description
+    class TermsOfUseInformation
+      TermsOfUseInformation : license_name
 
-      SupportingDataSourceInformation : infores_id
+      TermsOfUseInformation : license_url
 
-      SupportingDataSourceInformation : name
+      TermsOfUseInformation : terms_of_use_description
 
-      SupportingDataSourceInformation : relevant_files
-
-          SupportingDataSourceInformation --|&gt; RelevantFiles : relevant_files
-
-      SupportingDataSourceInformation : terms_of_use_info
-
-          SupportingDataSourceInformation --|&gt; TermsOfUseInformation : terms_of_use_info
+      TermsOfUseInformation : terms_of_use_url
 
 
 </div>
@@ -220,32 +214,26 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../infores_id/">infores_id</a>: <br> <i> The infores identifier of the source from which content is being ingested, e.g. "infores:ctd". </i></br></td>
-<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td><a href="../terms_of_use_url/">terms_of_use_url</a>: <br> <i> The url of a document or web page where a source describes its terms of use, and/or references a community license that it adopts. (e.g. "https://ctdbase.org/about/legal.jsp") </i></br></td>
+<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>direct</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../name/">name</a>: <br/> <i> A human-readable name for the source of supporting data, e.g. "Aggregate Analysis of ClinicalTrial.gov (AACT)" </i></td>
+<td><a href="../terms_of_use_description/">terms_of_use_description</a>: <br/> <i> A free text description of the terms of use for a source.  (e.g. "Source only indicates 'all rights reserved' in their documentation") </i></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>direct</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../description/">description</a>: <br/> <i> A brief description of the source, including its purpose, scope, and any relevant background information. </i></td>
+<td><a href="../license_name/">license_name</a>: <br/> <i> The name of an established license used by the source (e.g. "CC BY 4.0") </i></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>direct</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../terms_of_use_info/">terms_of_use_info</a>: <br/> <i> Information about conditions for use of the ingested source. May include the name of a community license (e.g. <code>CC-BY 4.0</code>), a link to a "terms of use" or license information web page (e.g. <code>https://ctdbase.org/about/legal.jsp</code>), and/or a free-text summary of key terms of use. </i></td>
-<td>1 <br/> <a href="../TermsOfUseInformation/">TermsOfUseInformation</a></td>
-<td>direct</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="../relevant_files/">relevant_files</a>: <br/> <i> A description of each source file (or API endpoint, database, or table) that contains data used to create the ingested knowledge. Source files that dontain data not used to created knowledge need not be listed or described. </i></td>
-<td>1..* <br/> <a href="../RelevantFiles/">RelevantFiles</a></td>
+<td><a href="../license_url/">license_url</a>: <br/> <i> The url of an established license (e.g. "https://creativecommons.org/licenses/by/4.0/") </i></td>
+<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>direct</td>
 <td></td>
 </tr>
@@ -263,79 +251,57 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ReferenceIngestGuide/">ReferenceIngestGuide</a></td>
-<td><a href="../supporting_data_source_info/">supporting_data_source_info</a></td>
+<td><a href="../SupportingDataSourceInformation/">SupportingDataSourceInformation</a></td>
+<td><a href="../terms_of_use_info/">terms_of_use_info</a></td>
 <td>range</td>
-<td><a href="./">SupportingDataSourceInformation</a></td>
+<td><a href="./">TermsOfUseInformation</a></td>
+</tr>
+<tr>
+<td><a href="../SourceInformation/">SourceInformation</a></td>
+<td><a href="../terms_of_use_info/">terms_of_use_info</a></td>
+<td>range</td>
+<td><a href="./">TermsOfUseInformation</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details open="">
-<pre><code class="language-yaml">name: SupportingDataSourceInformation
-description: A container for information about upstream sources of data that are used
-  by an ingested source, to derive the knowledge that we ingest. This info is not
-  relevant for typical ingest of an external knowledge source, and applies mainly
-  for describing "ingest" of data-derived KPs like ICEES, COHD, various Multiomics
-  KPs, etc.
+<pre><code class="language-yaml">name: TermsOfUseInformation
+description: A structured representation describing terms for re-use of data from
+  an information resource.
 from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
 attributes:
-  infores_id:
-    name: infores_id
-    description: The infores identifier of the source from which content is being
-      ingested, e.g. "infores:ctd".
+  terms_of_use_url:
+    name: terms_of_use_url
+    description: The url of a document or web page where a source describes its terms
+      of use, and/or references a community license that it adopts. (e.g. "https://ctdbase.org/about/legal.jsp")
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
-    - SupportingDataSourceInformation
-    - SourceInformation
-    - TargetInformation
+    - TermsOfUseInformation
     range: uriorcurie
-    required: true
-  name:
-    name: name
-    description: A human-readable name for the source of supporting data, e.g. "Aggregate
-      Analysis of ClinicalTrial.gov (AACT)"
+  terms_of_use_description:
+    name: terms_of_use_description
+    description: A free text description of the terms of use for a source.  (e.g.
+      "Source only indicates 'all rights reserved' in their documentation")
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
-    - ReferenceIngestGuide
-    - SupportingDataSourceInformation
-    - SourceInformation
+    - TermsOfUseInformation
     range: string
-  description:
-    name: description
-    description: A brief description of the source, including its purpose, scope,
-      and any relevant background information.
+  license_name:
+    name: license_name
+    description: The name of an established license used by the source (e.g. "CC BY
+      4.0")
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
-    - SupportingDataSourceInformation
-    - SourceInformation
-    - RelevantFiles
+    - TermsOfUseInformation
     range: string
-  terms_of_use_info:
-    name: terms_of_use_info
-    description: Information about conditions for use of the ingested source. May
-      include the name of a community license (e.g. `CC-BY 4.0`), a link to a "terms
-      of use" or license information web page (e.g. `https://ctdbase.org/about/legal.jsp`),
-      and/or a free-text summary of key terms of use.
+  license_url:
+    name: license_url
+    description: The url of an established license (e.g. "https://creativecommons.org/licenses/by/4.0/")
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
-    - SupportingDataSourceInformation
-    - SourceInformation
-    range: TermsOfUseInformation
-    required: true
-  relevant_files:
-    name: relevant_files
-    description: A description of each source file (or API endpoint, database, or
-      table) that contains data used to create the ingested knowledge. Source files
-      that dontain data not used to created knowledge need not be listed or described.
-    from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-    domain_of:
-    - SupportingDataSourceInformation
-    - IngestInformation
-    - FutureContentConsiderations
-    range: RelevantFiles
-    required: true
-    multivalued: true
+    - TermsOfUseInformation
+    range: uriorcurie
 
 </code></pre>
 </details>

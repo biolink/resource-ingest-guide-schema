@@ -1,0 +1,96 @@
+name: Panther Orthology RIG
+#supporting_data_source_info:
+#- infores_id: null
+#  name: null
+#  description: null
+#  terms_of_use_info:
+#    terms_of_use_url: null
+#    terms_of_use_description: null
+#    license_name: null
+#    license_url: null
+#  relevant_files:
+#  - file_name: null
+#    location: null
+#    description: null
+source_info:
+  infores_id: infores:panther
+  name: "Panther Gene to Gene Orthology Relationships"
+  description: >-
+    The PANTHER (Protein ANalysis THrough Evolutionary Relationships) Classification System
+    was designed to classify proteins (and their genes) in order to facilitate high-throughput analysis.
+    The core of PANTHER is a comprehensive, annotated “library” of gene family phylogenetic trees.
+    All nodes in the tree have persistent identifiers that are maintained between versions of PANTHER,
+    providing a stable substrate for annotations of protein properties like subfamily and function.
+  citations:
+    - https://onlinelibrary.wiley.com/doi/10.1002/pro.4218
+  terms_of_use_info:
+    terms_of_use_url: "http://www.pantherdb.org/tou.jsp"
+  data_access_locations:
+    - "http://data.pantherdb.org/ftp/ortholog/current_release/AllOrthologs.tar.gz"
+  data_provision_mechanisms:
+    - file_download
+  data_formats: csv
+  data_versioning_and_releases: "Versioning by number and associated date. See https://www.pantherdb.org/data/"
+  additional_notes: null
+ingest_info:
+  ingest_categories:
+  - null
+  utility: null
+  scope: null
+  relevant_files:
+  - file_name: null
+    location: null
+    description: null
+  included_content:
+  - file_name: null
+    included_records: null
+    fields_used: null
+  filtered_content:
+  - file_name: null
+    filtered_records: null
+    rationale: null
+  future_considerations:
+  - category: null
+    consideration: null
+    relevant_files: null
+  additional_notes: null
+target_info:
+#  infores_id: infores:panther
+#  edge_type_info:
+#  - subject_categories:
+#    - null
+#    predicate: null
+#    object_categories:
+#    - null
+#    qualifiers:
+#    - property: null
+#      value_range: null
+#      value_constant: null
+#      value_id_prefixes: null
+#      value_description: null
+#    knowledge_level:
+#    - null
+#    agent_type:
+#    - null
+#    edge_properties:
+#    - null
+#    ui_explanation: null
+#    additional_notes: null
+#  node_type_info:
+#  - node_category: null
+#    source_identifier_types:
+#    - null
+#    node_properties:
+#    - null
+#    additional_notes: null
+##  future_considerations:
+##  - category: null
+##    consideration: null
+##  additional_notes: null
+provenance_info:
+  contributions:
+  - "Richard Bruskiewich - data modeling, domain expertise, code author"
+  - "Kevin Schaper - code author"
+  artifacts:
+  - "Ingest Survey (https://docs.google.com/spreadsheets/d/1YlpI5bjGNGR5JC9VWxZJ7dd87hS_b4BMZv5geYe2NCk/edit?gid=0#gid=0)"
+  - "Ingest Ticket (https://github.com/NCATSTranslator/Data-Ingest-Coordination-Working-Group/issues/44)"

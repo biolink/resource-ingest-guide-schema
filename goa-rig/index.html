@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/DataFormatEnum/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/goa-rig/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Enum: DataFormatEnum - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>GO Annotations (GOA) Reference Ingest Guide - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enum-dataformatenum" class="md-skip">
+        <a href="#go-annotations-goa-reference-ingest-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Enum: DataFormatEnum
+              GO Annotations (GOA) Reference Ingest Guide
             
           </span>
         </div>
@@ -318,27 +318,102 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#permissible-values" class="md-nav__link">
+  <a href="#source-information" class="md-nav__link">
     <span class="md-ellipsis">
-      Permissible Values
+      Source Information
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#slots-constrained-by-this-enum" class="md-nav__link">
+  <a href="#ingest-information" class="md-nav__link">
     <span class="md-ellipsis">
-      Slots constrained by this enum
+      Ingest Information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingest Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relevant-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relevant Files
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#included-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Included Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-content-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Content Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#linkml-source" class="md-nav__link">
+  <a href="#target-information" class="md-nav__link">
     <span class="md-ellipsis">
-      LinkML Source
+      Target Information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Target Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edge-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-modeling-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Modeling Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provenance-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provenance Information
     </span>
   </a>
   
@@ -363,128 +438,263 @@
   
 
 
-<h1 id="enum-dataformatenum"><strong> Enum: </strong> DataFormatEnum</h1>
-<p><em>Formats in which data is serialized.</em></p>
-<h2 id="permissible-values">Permissible Values</h2>
+<h1 id="go-annotations-goa-reference-ingest-guide">GO Annotations (GOA) Reference Ingest Guide</h1>
+<h2 id="source-information">Source Information</h2>
+<p><strong>InfoRes ID:</strong> infores:goa</p>
+<p><strong>Description:</strong> GO Annotations connect genes to a Gene Ontology term that describes a molecular function it enables, a biological process in which it participates, or a cellular component in which it is located. Most are produced through rigorous manual curation of the literature, although some are based on automated pipelines that assign GO terms based on things like orthology or sequence similarity.</p>
+<p><strong>Citations:</strong>
+- Data Archive: https://zenodo.org/records/10536401
+- Publication: https://doi.org/10.1093/nar/gky1055</p>
+<p><strong>Data Access Locations:</strong>
+- All downloads: https://geneontology.org/docs/download-go-annotations/
+- Commonly studied organisms: https://current.geneontology.org/products/pages/downloads.html</p>
+<p><strong>Data Provision Mechanisms:</strong> file_download</p>
+<p><strong>Data Formats:</strong> tsv</p>
+<p><strong>Data Versioning and Releases:</strong> Release cadence: Approximately every four weeks, synchronized with UniProtKB. Versioning: By date - each GAF header includes a <code>!Generated: YYYY-MM-DD</code> line. Release notes: https://geneontology.org/docs/download-go-annotations/ and https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/. Release archive: https://release.geneontology.org/. Formats: tsv in GAF format (17 columns)</p>
+<h2 id="ingest-information">Ingest Information</h2>
+<p><strong>Ingest Categories:</strong> primary_knowledge_provider</p>
+<p><strong>Utility:</strong> GOA is a rich source of manually curated knowledge about gene function with broad relevance to all Translator queries and use cases.</p>
+<p><strong>Scope:</strong> This initial ingest of GOA covers molecular function, biological process, and cellular component annotations about human, mouse, and rat genes, including manually curated and electronically inferred content, from GAF files (GPAD and GPI formats not ingested). Other species may be added in future updates to the ingest.</p>
+<h3 id="relevant-files">Relevant Files</h3>
 <table>
 <thead>
 <tr>
-<th>Value</th>
-<th>Meaning</th>
+<th>File Name</th>
+<th>Location</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>tsv</td>
-<td>None</td>
-<td>None</td>
+<td>goa_human.gaf</td>
+<td>https://current.geneontology.org/products/pages/downloads.html</td>
+<td>Human gene-product to GO term associations (GAF 2.2)</td>
 </tr>
 <tr>
-<td>xml</td>
-<td>None</td>
-<td>None</td>
+<td>mgi.gaf</td>
+<td>https://current.geneontology.org/products/pages/downloads.html</td>
+<td>Mouse gene-product to GO term associations (GAF 2.2)</td>
 </tr>
 <tr>
-<td>csv</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>json</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>yaml</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>obo</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>protobuff</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>kgx</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>mysql</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>postgresql</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>sqlite</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>other</td>
-<td>None</td>
-<td>None</td>
+<td>rgd.gaf</td>
+<td>https://current.geneontology.org/products/pages/downloads.html</td>
+<td>Rat gene-product to GO term associations (GAF 2.2)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="slots-constrained-by-this-enum">Slots constrained by this enum</h2>
+<h3 id="included-content">Included Content</h3>
 <table>
 <thead>
 <tr>
-<th>Name</th>
+<th>File Name</th>
+<th>Included Records</th>
+<th>Fields Used</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../data_formats/">data_formats</a></td>
+<td>goa_human.gaf</td>
+<td>All records included</td>
+<td>DB, DB Object ID, DB Object Symbol, Relation, GO ID, DB:Reference(s), Evidence Code, With (or) From, Aspect, DB Object Name, DB Object Type, Taxon</td>
+</tr>
+<tr>
+<td>mgi.gaf</td>
+<td>All records included</td>
+<td>DB, DB Object ID, DB Object Symbol, Relation, GO ID, DB:Reference(s), Evidence Code, With (or) From, Aspect, DB Object Name, DB Object Type, Taxon</td>
+</tr>
+<tr>
+<td>rgd.gaf</td>
+<td>All records included</td>
+<td>DB, DB Object ID, DB Object Symbol, Relation, GO ID, DB:Reference(s), Evidence Code, With (or) From, Aspect, DB Object Name, DB Object Type, Taxon</td>
 </tr>
 </tbody>
 </table>
-<h2 id="linkml-source">LinkML Source</h2>
-<details open>
-
-<pre><code class="language-yaml">name: DataFormatEnum
-description: Formats in which data is serialized.
-from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-permissible_values:
-  tsv:
-    text: tsv
-  xml:
-    text: xml
-  csv:
-    text: csv
-  json:
-    text: json
-  yaml:
-    text: yaml
-  obo:
-    text: obo
-  protobuff:
-    text: protobuff
-  kgx:
-    text: kgx
-  mysql:
-    text: mysql
-  postgresql:
-    text: postgresql
-  sqlite:
-    text: sqlite
-  other:
-    text: other
-
-</code></pre>
-
-</details>
+<h3 id="future-content-considerations">Future Content Considerations</h3>
+<p><strong>edge_content:</strong> Consider ingesting Gene/Product to GO Term annotations from other taxon (beyond human, mouse, and rat)</p>
+<p><strong>edge_content:</strong> Consider inclusion of qualifying information (as may be found in the Annotation Extensions, or With or From columns) to existing and new Gene/Product to GO Term annotations</p>
+<p><strong>edge_content:</strong> Consider ingesting associations between two GO Terms, per the specification at https://wiki.geneontology.org/index.php/Annotation_Relations#Standard_Annotation:_Annotation_Extension_Relations</p>
+<p><strong>node_property_content:</strong> t.b.d. if we will bring in taxon info about gene/gene product nodes from GOA, or rely on other gene property authorities for this information (e.g. ncbigene)</p>
+<h2 id="target-information">Target Information</h2>
+<p><strong>Target InfoRes ID:</strong> infores:translator-goa-kgx</p>
+<h3 id="edge-types">Edge Types</h3>
+<table>
+<thead>
+<tr>
+<th>Subject Categories</th>
+<th>Predicate</th>
+<th>Object Categories</th>
+<th>Knowledge Level</th>
+<th>Agent Type</th>
+<th>UI Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>biolink:Gene, biolink:Protein, biolink:MacromolecularComplex, biolink:RNAProduct</td>
+<td>biolink:enables</td>
+<td>biolink:MolecularActivity</td>
+<td>varies</td>
+<td>varies</td>
+<td>A GO Annotation uses 'enables' predicate when a gene product is solely capable of executing the reported function.</td>
+</tr>
+<tr>
+<td>biolink:MacromolecularComplex</td>
+<td>biolink:contributes_to</td>
+<td>biolink:MolecularActivity</td>
+<td>varies</td>
+<td>varies</td>
+<td>A GO Annotation uses 'contributes_to' predicate when a gene product is required as part of a macromolecular complex for executing the reported function.</td>
+</tr>
+<tr>
+<td>biolink:Gene, biolink:Protein, biolink:MacromolecularComplex, biolink:RNAProduct</td>
+<td>biolink:involved_in</td>
+<td>biolink:BiologicalProcess</td>
+<td>varies</td>
+<td>varies</td>
+<td>A GO Annotation uses 'involved_in' predicate when a gene product's molecular function plays an integral role in the reported biological process.</td>
+</tr>
+<tr>
+<td>biolink:Gene, biolink:Protein, biolink:MacromolecularComplex, biolink:RNAProduct</td>
+<td>biolink:acts_upstream_of_or_within</td>
+<td>biolink:BiologicalProcess</td>
+<td>varies</td>
+<td>varies</td>
+<td>A GO Annotation uses 'acts_upstream_of_or_within' predicate when the mechanism / timing of the gene product's activity relative to the reported biological process is not known, as is the directionality of its effect on the process.</td>
+</tr>
+<tr>
+<td>biolink:Gene, biolink:Protein, biolink:MacromolecularComplex, biolink:RNAProduct</td>
+<td>biolink:acts_upstream_of_or_within_positive_effect</td>
+<td>biolink:BiologicalProcess</td>
+<td>varies</td>
+<td>varies</td>
+<td>A GO Annotation uses 'acts_upstream_of_or_within_positive_effect' predicate when the mechanism / timing of the gene product's activity relative to the reported biological process is not known, but the activity of the gene product has a positive effect on the process.</td>
+</tr>
+<tr>
+<td>biolink:Gene, biolink:Protein, biolink:MacromolecularComplex, biolink:RNAProduct</td>
+<td>biolink:acts_upstream_of_or_within_negative_effect</td>
+<td>biolink:BiologicalProcess</td>
+<td>varies</td>
+<td>varies</td>
+<td>A GO Annotation uses 'acts_upstream_of_or_within_negative_effect' predicate when the mechanism / timing of the gene product's activity relative to the reported biological process is not known, but the activity of the gene product has a negative effect on the process.</td>
+</tr>
+<tr>
+<td>biolink:Gene, biolink:Protein, biolink:MacromolecularComplex, biolink:RNAProduct</td>
+<td>biolink:acts_upstream_of</td>
+<td>biolink:BiologicalProcess</td>
+<td>varies</td>
+<td>varies</td>
+<td>A GO Annotation uses 'acts_upstream_of' predicate when the a gene product acts through a known mechanism upstream of the reported biological process, does not regulate the process, and the directionality of its effect on the process is not known.</td>
+</tr>
+<tr>
+<td>biolink:Gene, biolink:Protein, biolink:MacromolecularComplex, biolink:RNAProduct</td>
+<td>biolink:acts_upstream_of_positive_effect</td>
+<td>biolink:BiologicalProcess</td>
+<td>varies</td>
+<td>varies</td>
+<td>A GO Annotation uses 'acts_upstream_of_positive_effect' predicate when a gene product acts through a known mechanism upstream of the reported biological process, does not regulate the process, and the activity of the gene product is required for the process but does not regulate it.</td>
+</tr>
+<tr>
+<td>biolink:Gene, biolink:Protein, biolink:MacromolecularComplex, biolink:RNAProduct</td>
+<td>biolink:acts_upstream_of_negative_effect</td>
+<td>biolink:BiologicalProcess</td>
+<td>varies</td>
+<td>varies</td>
+<td>A GO Annotation uses 'acts_upstream_of_negative_effect' predicate when a gene product acts through a known mechanism upstream of the reported biological process, does not regulate the process, and the activity of the gene product prevents or reduces the process but does not regulate it.</td>
+</tr>
+<tr>
+<td>biolink:Gene, biolink:Protein, biolink:MacromolecularComplex, biolink:RNAProduct</td>
+<td>biolink:is_active_in</td>
+<td>biolink:CellularComponent</td>
+<td>varies</td>
+<td>varies</td>
+<td>A GO Annotation uses 'is_active_in' predicate when a gene product is present in and performs its molecular function in the reported cellular component.</td>
+</tr>
+<tr>
+<td>biolink:Gene, biolink:Protein, biolink:MacromolecularComplex, biolink:RNAProduct</td>
+<td>biolink:located_in</td>
+<td>biolink:CellularComponent</td>
+<td>varies</td>
+<td>varies</td>
+<td>A GO Annotation uses 'located_in' predicate when a gene product enables is detected in the reported cellular component.</td>
+</tr>
+<tr>
+<td>biolink:Gene, biolink:Protein, biolink:RNAProduct</td>
+<td>biolink:part_of</td>
+<td>biolink:MacromolecularComplex</td>
+<td>varies</td>
+<td>varies</td>
+<td>A GO Annotation uses 'part_of' predicate when a gene product is a component of the reported macromolecular complex.</td>
+</tr>
+<tr>
+<td>biolink:Gene, biolink:Protein, biolink:MacromolecularComplex, biolink:RNAProduct</td>
+<td>biolink:colocalizes_with</td>
+<td>biolink:CellularComponent</td>
+<td>varies</td>
+<td>varies</td>
+<td>A GO Annotation uses 'colocalizes_with' predicate when a gene product has a transient or dynamic association with the reported cellular component.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="node-types">Node Types</h3>
+<table>
+<thead>
+<tr>
+<th>Node Category</th>
+<th>Source Identifier Types</th>
+<th>Additional Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>biolink:Gene</td>
+<td>MGI, RGD</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:Protein</td>
+<td>UniProtKB accession</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:MacromolecularComplex</td>
+<td>ComplexPortal IDs</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:RNAProduct</td>
+<td>RNAcentral IDs</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:BiologicalProcess</td>
+<td>Gene Ontology IDs (Aspect P)</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:MolecularActivity</td>
+<td>Gene Ontology IDs (Aspect F)</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:CellularComponent</td>
+<td>Gene Ontology IDs (Aspect C)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="future-modeling-considerations">Future Modeling Considerations</h3>
+<p><strong>qualifiers:</strong> Introduce qualifier-based representation if/when we decide to ingest any qualifying context on GO annotations</p>
+<p><strong>node_properties:</strong> If we end up ingesting taxon info for gene nodes, we may have to update the Biolink Model to support this (currently in_taxon is represented as a predicate, and species_context_qualifier as an edge property - but there is no taxon node property)</p>
+<h2 id="provenance-information">Provenance Information</h2>
+<p><strong>Contributors:</strong>
+- Adilbek Bazarkulov: code author
+- Evan Morris: code support
+- Adilbek Bazarkulov: code support, domain expertise
+- Sierra Moxon: data modeling, domain expertise
+- Matthew Brush: data modeling, domain expertise</p>
+<p><strong>Artifacts:</strong>
+- Ingest Survey: https://docs.google.com/spreadsheets/d/18wGm2a0W1oIXm7cn8TZ99xn_aAMJ91SgAsuPDcV-lII/edit?gid=325339947#gid=325339947
+- Ingest Ticket: https://github.com/NCATSTranslator/Data-Ingest-Coordination-Working-Group/issues/8</p>
 
 
 

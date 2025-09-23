@@ -8,10 +8,8 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/rig_index/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/ebi-gene2phenotype-rig/">
       
-      
-        <link rel="prev" href="../example-rigs/">
       
       
       
@@ -20,7 +18,7 @@
     
     
       
-        <title>Index of Existing RIGs - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>EBI Gene2Phenotype Reference Ingest Guide - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -80,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reference-ingest-guides-rigs" class="md-skip">
+        <a href="#ebi-gene2phenotype-reference-ingest-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index of Existing RIGs
+              EBI Gene2Phenotype Reference Ingest Guide
             
           </span>
         </div>
@@ -275,32 +273,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Index of Existing RIGs
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../rig_index/" class="md-nav__link">
         
   
   
@@ -311,44 +287,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#about-rigs" class="md-nav__link">
-    <span class="md-ellipsis">
-      About RIGs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#available-rigs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Available RIGs
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -380,18 +318,111 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#about-rigs" class="md-nav__link">
+  <a href="#source-information" class="md-nav__link">
     <span class="md-ellipsis">
-      About RIGs
+      Source Information
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#available-rigs" class="md-nav__link">
+  <a href="#ingest-information" class="md-nav__link">
     <span class="md-ellipsis">
-      Available RIGs
+      Ingest Information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingest Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relevant-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relevant Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#included-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Included Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtered-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filtered Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-content-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Content Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#target-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Target Information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Target Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edge-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-modeling-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Modeling Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provenance-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provenance Information
     </span>
   </a>
   
@@ -416,94 +447,145 @@
   
 
 
-<h1 id="reference-ingest-guides-rigs">Reference Ingest Guides (RIGs)</h1>
-<p>This page contains an index of all Reference Ingest Guides available in this repository.</p>
-<h2 id="about-rigs">About RIGs</h2>
-<p>Reference Ingest Guides (RIGs) are structured documents that describe the scope, rationale, and modeling approach for ingesting content from an external source to a data repository compliant with the Biolink Model.</p>
-<p>Each RIG contains:</p>
-<ul>
-<li><strong>Source Information</strong>: Details about the data source, including access locations, formats, and terms of use</li>
-<li><strong>Ingest Information</strong>: What content is included/excluded and why, including relevant files and filtering criteria</li>
-<li><strong>Target Information</strong>: How the data is modeled in the output graph, including edge and node types</li>
-<li><strong>Provenance Information</strong>: Contributors and related artifacts</li>
-</ul>
-<p>For guidance on creating new RIGs, see the <a href="../example-rigs/">RIG Creation Guide</a>.</p>
-<h2 id="available-rigs">Available RIGs</h2>
-<!-- RIG_TABLE_START -->
-<!-- This table is automatically generated during documentation build -->
+<h1 id="ebi-gene2phenotype-reference-ingest-guide">EBI Gene2Phenotype Reference Ingest Guide</h1>
+<h2 id="source-information">Source Information</h2>
+<p><strong>InfoRes ID:</strong> infores:ebi-gene2phenotype</p>
+<p><strong>Description:</strong> EBI's Gene2Phenotype dataset contains high-quality gene-disease associations curated by UK disease domain experts and consultant clinical geneticists. It integrates data on genes, their variants, and related disorders. It is constructed by experts reviewing published literature, and it is primarily an inclusion list to allow targeted filtering of genome-wide data for diagnostic purposes. Each entry associates a gene with a disease, including a confidence level, allelic requirement and molecular mechanism.</p>
+<p><strong>Citations:</strong>
+- https://doi.org/10.1186/s13073-024-01398-1
+- https://www.nature.com/articles/s41467-019-10016-3</p>
+<p><strong>Data Access Locations:</strong>
+- Latest data is provided at https://www.ebi.ac.uk/gene2phenotype/download (downloads created on-the-fly)
+- Archived static releases provided on the FTP site at https://ftp.ebi.ac.uk/pub/databases/gene2phenotype/G2P_data_downloads/</p>
+<p><strong>Data Provision Mechanisms:</strong> file_download</p>
+<p><strong>Data Formats:</strong> csv</p>
+<p><strong>Data Versioning and Releases:</strong> Releases cut and archived roughly every 1-2 months. On-the-fly downloads: creation/download date are the same and can be used for versioning. Note that the date in the filename may differ from the date in your timezone. Static releases: creation date (shown on FTP site and in folder/file names) can be used for versioning</p>
+<h2 id="ingest-information">Ingest Information</h2>
+<p><strong>Ingest Categories:</strong> primary_knowledge_provider</p>
+<p><strong>Utility:</strong> EBI G2P associations are useful as edges in support paths for MVP1 ('what may treat disease X'), and in Pathfinder queries.</p>
+<h3 id="relevant-files">Relevant Files</h3>
 <table>
 <thead>
 <tr>
-<th>InfoRes ID</th>
-<th>Source Name</th>
-<th>YAML</th>
-<th>Markdown</th>
+<th>File Name</th>
+<th>Location</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>infores:chembl</td>
-<td>ChEMBL Reference Ingest Guide</td>
-<td><a href="../chembl-rig.yaml">chembl-rig.yaml</a></td>
-<td><a href="../chembl-rig/">chembl-rig.md</a></td>
-</tr>
-<tr>
-<td>infores:ctd</td>
-<td>CTD Resource Ingest Guide</td>
-<td><a href="../ctd_rig.yaml">ctd_rig.yaml</a></td>
-<td><a href="../ctd_rig/">ctd_rig.md</a></td>
-</tr>
-<tr>
-<td>infores:diseases</td>
-<td>Jensen Lab DISEASES Database Reference Ingest Guide</td>
-<td><a href="../diseases_rig.yaml">diseases_rig.yaml</a></td>
-<td><a href="../diseases_rig/">diseases_rig.md</a></td>
-</tr>
-<tr>
-<td>infores:ebi-gene2phenotype</td>
-<td>EBI Gene2Phenotype Reference Ingest Guide</td>
-<td><a href="../ebi-gene2phenotype-rig.yaml">ebi-gene2phenotype-rig.yaml</a></td>
-<td><a href="../ebi-gene2phenotype-rig/">ebi-gene2phenotype-rig.md</a></td>
-</tr>
-<tr>
-<td>infores:goa</td>
-<td>GO Annotations (GOA) Reference Ingest Guide</td>
-<td><a href="../goa-rig.yaml">goa-rig.yaml</a></td>
-<td><a href="../goa-rig/">goa-rig.md</a></td>
-</tr>
-<tr>
-<td>infores:gocam</td>
-<td>Gene Ontology Causal Activity Models (GO-CAM) Reference Ingest Guide</td>
-<td><a href="../gocam-rig.yaml">gocam-rig.yaml</a></td>
-<td><a href="../gocam-rig/">gocam-rig.md</a></td>
-</tr>
-<tr>
-<td>infores:hpo-annotations</td>
-<td>Human Phenotype Ontology Annotations</td>
-<td><a href="../hpo-annotations_rig.yaml">hpo-annotations_rig.yaml</a></td>
-<td><a href="../hpo-annotations_rig/">hpo-annotations_rig.md</a></td>
-</tr>
-<tr>
-<td>infores:multiomics-clinicaltrials</td>
-<td>Multiomics Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide</td>
-<td><a href="../ctkp_rig.yaml">ctkp_rig.yaml</a></td>
-<td><a href="../ctkp_rig/">ctkp_rig.md</a></td>
-</tr>
-<tr>
-<td>infores:signor</td>
-<td>SIGnaling Network Open Resource (Signor) Reference Ingest Guide</td>
-<td><a href="../signor-rig.yaml">signor-rig.yaml</a></td>
-<td><a href="../signor-rig/">signor-rig.md</a></td>
-</tr>
-<tr>
-<td>infores:ttd</td>
-<td>Therapeutic Target Database (TTD) Reference Ingest Guide</td>
-<td><a href="../ttd-rig.yaml">ttd-rig.yaml</a></td>
-<td><a href="../ttd-rig/">ttd-rig.md</a></td>
+<td>G2P_all_[date].csv</td>
+<td>https://www.ebi.ac.uk/gene2phenotype/api/panel/all/download/</td>
+<td>Associations from all panels (disease categories)</td>
 </tr>
 </tbody>
 </table>
-<!-- RIG_TABLE_END -->
+<h3 id="included-content">Included Content</h3>
+<table>
+<thead>
+<tr>
+<th>File Name</th>
+<th>Included Records</th>
+<th>Fields Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G2P_all_[date].csv</td>
+<td>Records where 'confidence' value is 'definitive', 'strong', or 'moderate'</td>
+<td>g2p id, hgnc id, disease mim, disease MONDO, allelic requirement, confidence, molecular mechanism, publications, date of last review</td>
+</tr>
+</tbody>
+</table>
+<h3 id="filtered-content">Filtered Content</h3>
+<table>
+<thead>
+<tr>
+<th>File Name</th>
+<th>Filtered Records</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G2P_all_[date].csv</td>
+<td>Records where 'confidence' value is 'limited', 'disputed', or 'refuted'</td>
+<td>Evidence level not sufficient for inclusion</td>
+</tr>
+<tr>
+<td>G2P_all_[date].csv</td>
+<td>Records with no values in both 'disease mim' and 'disease MONDO' columns</td>
+<td>No IDs to use for disease nodes</td>
+</tr>
+<tr>
+<td>G2P_all_[date].csv</td>
+<td>Records with NodeNorm mapping failures for the node IDs</td>
+<td>Failed normalization means that the node would not be connected to other data/nodes in Translator graphs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="future-content-considerations">Future Content Considerations</h3>
+<p><strong>edge_content:</strong> Revisit exclusion of 'disputed' and/or 'refuted' records once Translator can model/handle negation better</p>
+<p><strong>edge_property_content:</strong> Lots of additional edge-level information that we could include in future iterations: 'confidence' level values when we improve/refactor modeling of confidence in Biolink, variant information ('variant consequence', 'variant types' columns). The values map to SO terms. Rich evidence and provenance metadata provided by the source (e.g. type of experiments/methods used to determine the molecular mechanism, and supporting publications).</p>
+<h2 id="target-information">Target Information</h2>
+<p><strong>Target InfoRes ID:</strong> infores:translator-ebi-gene2phenotype-kgx</p>
+<h3 id="edge-types">Edge Types</h3>
+<table>
+<thead>
+<tr>
+<th>Subject Categories</th>
+<th>Predicate</th>
+<th>Object Categories</th>
+<th>Knowledge Level</th>
+<th>Agent Type</th>
+<th>UI Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>biolink:Gene</td>
+<td>biolink:associated_with</td>
+<td>biolink:Disease</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>EBI G2P curators manually determined through the evaluation of different types of evidence that variants of this gene of the indicated form (e.g. loss of function, gain of function, dominant negative) play a causal role in this disease.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="node-types">Node Types</h3>
+<table>
+<thead>
+<tr>
+<th>Node Category</th>
+<th>Source Identifier Types</th>
+<th>Additional Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>biolink:Gene</td>
+<td>HGNC</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:Disease</td>
+<td>OMIM, orphanet, MONDO</td>
+<td>'disease mim' column is source of OMIM and orphanet IDs. MONDO IDs from 'disease MONDO' column are only used if row doesn't have a value in 'disease mim' column</td>
+</tr>
+</tbody>
+</table>
+<h3 id="future-modeling-considerations">Future Modeling Considerations</h3>
+<p><strong>qualifiers:</strong> May want to revisit how we handle the 'molecular mechanism' and 'variant types' columns VS the biolink-model qualifier options</p>
+<p><strong>qualifiers:</strong> Revisit modeling of allelic_requirement (uses a regex pattern to match HP id syntax now, rather than an enumerated list of permissible values)</p>
+<h2 id="provenance-information">Provenance Information</h2>
+<p><strong>Contributors:</strong>
+- Colleen Xu: code author, data modeling
+- Andrew Su: domain expertise
+- Sierra Moxon: domain expertise
+- Matthew Brush: data modeling, domain expertise</p>
+<p><strong>Artifacts:</strong>
+- Github Ticket on confidence 'limited' value: https://github.com/biolink/biolink-model/issues/1581
+- PR on biolink allelic_requirement: https://github.com/biolink/biolink-model/pull/1576</p>
 
 
 

@@ -540,6 +540,9 @@ enums:
       obo:
       protobuff:
       kgx:
+      mysql:
+      postgresql:
+      sqlite:
       other:
 
   ContentCategoryEnum:
@@ -575,6 +578,7 @@ enums:
       text_mining_agent:
       image_processing_agent:
       manual_validation_of_automated_agent:
+      experimental_agent:
       not_provided:
       varies:
 

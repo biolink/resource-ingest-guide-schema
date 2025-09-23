@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/DataFormatEnum/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/chembl-rig/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Enum: DataFormatEnum - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>ChEMBL Reference Ingest Guide - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enum-dataformatenum" class="md-skip">
+        <a href="#chembl-reference-ingest-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Enum: DataFormatEnum
+              ChEMBL Reference Ingest Guide
             
           </span>
         </div>
@@ -318,27 +318,93 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#permissible-values" class="md-nav__link">
+  <a href="#source-information" class="md-nav__link">
     <span class="md-ellipsis">
-      Permissible Values
+      Source Information
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#slots-constrained-by-this-enum" class="md-nav__link">
+  <a href="#ingest-information" class="md-nav__link">
     <span class="md-ellipsis">
-      Slots constrained by this enum
+      Ingest Information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingest Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relevant-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relevant Files
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#included-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Included Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtered-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filtered Content
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#linkml-source" class="md-nav__link">
+  <a href="#target-information" class="md-nav__link">
     <span class="md-ellipsis">
-      LinkML Source
+      Target Information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Target Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edge-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provenance-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provenance Information
     </span>
   </a>
   
@@ -363,128 +429,270 @@
   
 
 
-<h1 id="enum-dataformatenum"><strong> Enum: </strong> DataFormatEnum</h1>
-<p><em>Formats in which data is serialized.</em></p>
-<h2 id="permissible-values">Permissible Values</h2>
+<h1 id="chembl-reference-ingest-guide">ChEMBL Reference Ingest Guide</h1>
+<h2 id="source-information">Source Information</h2>
+<p><strong>InfoRes ID:</strong> infores:chembl</p>
+<p><strong>Description:</strong> ChEMBL is a manually curated database of bioactive molecules with drug-like properties. It brings together chemical, bioactivity and genomic data to aid the translation of genomic information into effective new drugs.</p>
+<p><strong>Citations:</strong>
+- Barbara Zdrazil, Eloy Felix, Fiona Hunter, Emma J Manners, James Blackshaw, Sybilla Corbett, Marleen de Veij, Harris Ioannidis, David Mendez Lopez, Juan F Mosquera, Maria Paula Magarinos, Nicolas Bosc, Ricardo Arcila, Tevik Kizilören, Anna Gaulton, A Patrícia Bento, Melissa. F Adasme, Pater Monecke, Gregory A Landrum, Andrew R Leach. Nucleic Acids Res. 2023: gkad1004. doi: 10.1093/nar/gkad1004
+- Davies M, Nowotka M, Papadatos G, Dedman N, Gaulton A, Atkinson F, Bellis L, Overington JP. Nucleic Acids Res. 2015; 43(W1):W612-20, doi: 10.1093/nar/gkv352</p>
+<p><strong>Data Access Locations:</strong>
+- https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/latest/</p>
+<p><strong>Data Provision Mechanisms:</strong> file_download, database_dump</p>
+<p><strong>Data Formats:</strong> mysql, postgresql, sqlite</p>
+<p><strong>Data Versioning and Releases:</strong> semiannual</p>
+<h2 id="ingest-information">Ingest Information</h2>
+<p><strong>Ingest Categories:</strong> primary_knowledge_provider</p>
+<p><strong>Utility:</strong> ChEMBL is a manually curated database of bioactive molecules with drug-like properties. It brings together chemical, bioactivity and genomic data to aid the translation of genomic information into effective new drugs.</p>
+<p><strong>Scope:</strong> Drugs and probes mechanisms, metabolism, bioactivity, gene targets</p>
+<h3 id="relevant-files">Relevant Files</h3>
 <table>
 <thead>
 <tr>
-<th>Value</th>
-<th>Meaning</th>
+<th>File Name</th>
+<th>Location</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>tsv</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>xml</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>csv</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>json</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>yaml</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>obo</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>protobuff</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>kgx</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>mysql</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>postgresql</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>sqlite</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>other</td>
-<td>None</td>
-<td>None</td>
+<td>chembl_35_sqlite.tar.gz</td>
+<td>https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/latest/</td>
+<td>ChEMBL SQLite database</td>
 </tr>
 </tbody>
 </table>
-<h2 id="slots-constrained-by-this-enum">Slots constrained by this enum</h2>
+<h3 id="included-content">Included Content</h3>
 <table>
 <thead>
 <tr>
-<th>Name</th>
+<th>File Name</th>
+<th>Included Records</th>
+<th>Fields Used</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../data_formats/">data_formats</a></td>
+<td>chembl_35_sqlite.tar.gz</td>
+<td>Drug mechanisms from the following tables: drug_mechanism, molecule_dictionary, target_dictionary, binding_sites, compound_records, docs, source, target_components, component_sequences, variant_sequences.</td>
+<td>drug_mechanism: mec_id, molregno, mechanism_of_action, action_type, direct_interaction, mechanism_comment, selectivity_comment, binding_site_comment, variant_id; molecule_dictionary: molregno, chembl_id; target_dictionary: tid, chembl_id (AS target_chembl_id), pref_name (AS target_name), target_type, organism (AS target_organism); binding_sites: site_id, site_name; compound_records: record_id, doc_id, src_id; docs: doc_id, chembl_id (AS document_chembl_id); source: src_id, src_description (AS source_description); target_components: tid, component_id; component_sequences: component_id, component_type, accession, description, tax_id, organism; variant_sequences: variant_id, mutation, accession (AS mutation_accession)</td>
+</tr>
+<tr>
+<td>chembl_35_sqlite.tar.gz</td>
+<td>Gene targets - same as drug mechanisms with targets mapped to genets</td>
+<td>drug_mechanism: mec_id, molregno, mechanism_of_action, action_type, direct_interaction, mechanism_comment, selectivity_comment, binding_site_comment, variant_id; molecule_dictionary: molregno, chembl_id; target_dictionary: tid, chembl_id (AS target_chembl_id), pref_name (AS target_name), target_type, organism (AS target_organism); binding_sites: site_id, site_name; compound_records: record_id, doc_id, src_id; docs: doc_id, chembl_id (AS document_chembl_id); source: src_id, src_description (AS source_description); target_components: tid, component_id; component_sequences: component_id, component_type, accession, description, tax_id, organism; variant_sequences: variant_id, mutation, accession (AS mutation_accession)</td>
+</tr>
+<tr>
+<td>chembl_35_sqlite.tar.gz</td>
+<td>Metabolism information from the following tables: metabolism, molecule_dictionary, compound_records, compound_structures, target_dictionary, metabolism_refs</td>
+<td>metabolism: drug_record_id, substrate_record_id, metabolite_record_id, met_id, enzyme_name, met_conversion, met_comment, organism, tax_id, enzyme_tid; molecule_dictionary: molregno, chembl_id, pref_name; compound_records: molregno, record_id, compound_name; target_dictionary: tid, target_type, chembl_id; compound_structures: molregno, standard_inchi, standard_inchi_key, canonical_smiles; metabolism_refs: met_id, ref_type, ref_id, ref_url</td>
+</tr>
+<tr>
+<td>chembl_35_sqlite.tar.gz</td>
+<td>Bioactivity and assay information from the following tables: activities, molecule_dictionary, assays, bioassay_ontology, target_dictionary, target_components, component_sequences, cell_dictionary, assay_type, tissue_dictionary, docs, source, ligand_eff, relationship_type, confidence_score_lookup, confidence_score_lookup</td>
+<td>activities: activity_id, standard_type, standard_relation, standard_value, standard_units, pchembl_value, activity_comment, data_validity_comment, standard_text_value, standard_upper_value, uo_units, potential_duplicate, action_type, src_id, doc_id; molecule_dictionary: molregno, chembl_id; assays: assay_id, chembl_id, description, assay_organism, assay_cell_type, assay_subcellular_fraction, bao_format, assay_category, assay_tax_id, assay_tissue, relationship_type, confidence_score, curated_by, src_id, assay_type, cell_id, tissue_id, tid; bioassay_ontology: bao_id, label; target_dictionary: tid, chembl_id, pref_name, organism, target_type; target_components: tid, component_id; component_sequences: component_id, component_type, accession; cell_dictionary: cell_id, chembl_id, cell_name, cell_description, cell_source_tissue, cell_source_organism, cell_source_tax_id, clo_id, efo_id, cellosaurus_id, cl_lincs_id, cell_ontology_id; assay_type: assay_type, assay_desc; tissue_dictionary: tissue_id, chembl_id, pref_name; docs: doc_id, chembl_id, journal, title, year, authors, pubmed_id, doi; source: src_id, src_description; ligand_eff: activity_id, bei, le, lle, sei; relationship_type: relationship_type, relationship_desc; confidence_score_lookup: confidence_score, description, target_mapping; curation_lookup: curated_by, description</td>
 </tr>
 </tbody>
 </table>
-<h2 id="linkml-source">LinkML Source</h2>
-<details open>
-
-<pre><code class="language-yaml">name: DataFormatEnum
-description: Formats in which data is serialized.
-from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-permissible_values:
-  tsv:
-    text: tsv
-  xml:
-    text: xml
-  csv:
-    text: csv
-  json:
-    text: json
-  yaml:
-    text: yaml
-  obo:
-    text: obo
-  protobuff:
-    text: protobuff
-  kgx:
-    text: kgx
-  mysql:
-    text: mysql
-  postgresql:
-    text: postgresql
-  sqlite:
-    text: sqlite
-  other:
-    text: other
-
-</code></pre>
-
-</details>
+<h3 id="filtered-content">Filtered Content</h3>
+<table>
+<thead>
+<tr>
+<th>File Name</th>
+<th>Filtered Records</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chembl_35_sqlite.tar.gz</td>
+<td>Gene targets - removed tragets that cannot be mapped to genes (like cell-lines)</td>
+<td>tragets that cannot be mapped to genes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="target-information">Target Information</h2>
+<p><strong>Target InfoRes ID:</strong> infores:translator-chembl-kgx</p>
+<h3 id="edge-types">Edge Types</h3>
+<table>
+<thead>
+<tr>
+<th>Subject Categories</th>
+<th>Predicate</th>
+<th>Object Categories</th>
+<th>Knowledge Level</th>
+<th>Agent Type</th>
+<th>UI Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>biolink:SmallMolecule, biolink:MolecularMixture, biolink:ChemicalEntity, biolink:Protein</td>
+<td>biolink:affects</td>
+<td>biolink:Gene, biolink:MacromolecularComplexMixin, biolink:NucleicAcidEntity, biolink:Organism, biolink:PairwiseGeneToGeneInteraction, biolink:Protein, biolink:ProteinComplex</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>Drug mechanisms from ChEMBL</td>
+</tr>
+<tr>
+<td>biolink:SmallMolecule, biolink:MolecularMixture, biolink:ChemicalEntity, biolink:Protein</td>
+<td>biolink:directly_physically_interacts_with</td>
+<td>biolink:Gene, biolink:MacromolecularComplexMixin, biolink:NucleicAcidEntity, biolink:Organism, biolink:PairwiseGeneToGeneInteraction, biolink:Protein, biolink:ProteinComplex</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>Drug mechanisms from ChEMBL</td>
+</tr>
+<tr>
+<td>biolink:SmallMolecule, biolink:MolecularMixture, biolink:ChemicalEntity, biolink:Protein</td>
+<td>biolink:disrupts</td>
+<td>biolink:Gene, biolink:MacromolecularComplexMixin, biolink:NucleicAcidEntity, biolink:Organism, biolink:PairwiseGeneToGeneInteraction, biolink:Protein, biolink:ProteinComplex</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>Drug mechanisms from ChEMBL</td>
+</tr>
+<tr>
+<td>biolink:SmallMolecule, biolink:MolecularMixture, biolink:ChemicalEntity, biolink:Protein</td>
+<td>biolink:is_substrate_of</td>
+<td>biolink:Gene, biolink:MacromolecularComplexMixin, biolink:NucleicAcidEntity, biolink:Organism, biolink:PairwiseGeneToGeneInteraction, biolink:Protein, biolink:ProteinComplex</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>Drug mechanisms from ChEMBL</td>
+</tr>
+<tr>
+<td>biolink:SmallMolecule, biolink:MolecularMixture, biolink:ChemicalEntity, biolink:Protein</td>
+<td>biolink:regulates</td>
+<td>biolink:Gene, biolink:MacromolecularComplexMixin, biolink:NucleicAcidEntity, biolink:Organism, biolink:PairwiseGeneToGeneInteraction, biolink:Protein, biolink:ProteinComplex</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>Drug mechanisms from ChEMBL</td>
+</tr>
+<tr>
+<td>biolink:SmallMolecule, biolink:MolecularMixture, biolink:ChemicalEntity, biolink:Protein</td>
+<td>biolink:affects</td>
+<td>biolink:Gene</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>Drug mechanisms mapped to genes from ChEMBL</td>
+</tr>
+<tr>
+<td>biolink:SmallMolecule, biolink:MolecularMixture, biolink:ChemicalEntity, biolink:Protein</td>
+<td>biolink:assesses</td>
+<td>biolink:AnatomicalEntity, biolink:Cell, biolink:CellLine, biolink:OrganismTaxon, biolink:PhenotypicFeature</td>
+<td>observation</td>
+<td>experimental_agent</td>
+<td>Drug activities from ChEMBL</td>
+</tr>
+<tr>
+<td>biolink:SmallMolecule, biolink:MolecularMixture, biolink:ChemicalEntity</td>
+<td>biolink:has_metabolite</td>
+<td>biolink:SmallMolecule, biolink:MolecularMixture, biolink:ChemicalEntity</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>Metabolism information from ChEMBL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="node-types">Node Types</h3>
+<table>
+<thead>
+<tr>
+<th>Node Category</th>
+<th>Source Identifier Types</th>
+<th>Additional Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>biolink:AnatomicalEntity</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:Cell</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:CellLine</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:CellularComponent</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:ChemicalEntity</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:Gene</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:MacromolecularComplexMixin</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:MolecularMixture</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:NucleicAcidEntity</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:Organism</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:PairwiseGeneToGeneInteraction</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:PhenotypicFeature</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:Protein</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:ProteinComplex</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:ProteinFamily</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:SmallMolecule</td>
+<td>ChEMBL</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="provenance-information">Provenance Information</h2>
+<p><strong>Contributors:</strong>
+- Vlado Dancik - code author, domain expertise
+- Kevin Schaper - code support
+- Evan Morris - code support
+- Sierra Moxon - data modeling, code support
+- Matthew Brush - data modeling, domain expertise</p>
+<p><strong>Artifacts:</strong>
+- Ingest Survey: https://docs.google.com/spreadsheets/d/1CENLoKukPCHW2SimabAm6HfXeldeRYmPTV_--Fs9whg/edit?gid=0#gid=0</p>
 
 
 

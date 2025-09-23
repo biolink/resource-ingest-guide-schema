@@ -8,10 +8,8 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/rig_index/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/ttd-rig/">
       
-      
-        <link rel="prev" href="../example-rigs/">
       
       
       
@@ -20,7 +18,7 @@
     
     
       
-        <title>Index of Existing RIGs - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>Therapeutic Target Database (TTD) Reference Ingest Guide - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -80,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reference-ingest-guides-rigs" class="md-skip">
+        <a href="#therapeutic-target-database-ttd-reference-ingest-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index of Existing RIGs
+              Therapeutic Target Database (TTD) Reference Ingest Guide
             
           </span>
         </div>
@@ -275,32 +273,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Index of Existing RIGs
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../rig_index/" class="md-nav__link">
         
   
   
@@ -311,44 +287,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#about-rigs" class="md-nav__link">
-    <span class="md-ellipsis">
-      About RIGs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#available-rigs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Available RIGs
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -380,18 +318,102 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#about-rigs" class="md-nav__link">
+  <a href="#source-information" class="md-nav__link">
     <span class="md-ellipsis">
-      About RIGs
+      Source Information
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#available-rigs" class="md-nav__link">
+  <a href="#ingest-information" class="md-nav__link">
     <span class="md-ellipsis">
-      Available RIGs
+      Ingest Information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingest Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relevant-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relevant Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtered-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filtered Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-content-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Content Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#target-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Target Information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Target Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edge-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-modeling-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Modeling Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provenance-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provenance Information
     </span>
   </a>
   
@@ -416,94 +438,195 @@
   
 
 
-<h1 id="reference-ingest-guides-rigs">Reference Ingest Guides (RIGs)</h1>
-<p>This page contains an index of all Reference Ingest Guides available in this repository.</p>
-<h2 id="about-rigs">About RIGs</h2>
-<p>Reference Ingest Guides (RIGs) are structured documents that describe the scope, rationale, and modeling approach for ingesting content from an external source to a data repository compliant with the Biolink Model.</p>
-<p>Each RIG contains:</p>
-<ul>
-<li><strong>Source Information</strong>: Details about the data source, including access locations, formats, and terms of use</li>
-<li><strong>Ingest Information</strong>: What content is included/excluded and why, including relevant files and filtering criteria</li>
-<li><strong>Target Information</strong>: How the data is modeled in the output graph, including edge and node types</li>
-<li><strong>Provenance Information</strong>: Contributors and related artifacts</li>
-</ul>
-<p>For guidance on creating new RIGs, see the <a href="../example-rigs/">RIG Creation Guide</a>.</p>
-<h2 id="available-rigs">Available RIGs</h2>
-<!-- RIG_TABLE_START -->
-<!-- This table is automatically generated during documentation build -->
+<h1 id="therapeutic-target-database-ttd-reference-ingest-guide">Therapeutic Target Database (TTD) Reference Ingest Guide</h1>
+<h2 id="source-information">Source Information</h2>
+<p><strong>InfoRes ID:</strong> infores:ttd</p>
+<p><strong>Citations:</strong>
+- 2024: https://doi.org/10.1093/nar/gkad751
+- 2022: https://doi.org/10.1093/nar/gkab953
+- 2020: https://doi.org/10.1093/nar/gkz981
+- 2018: https://doi.org/10.1093/nar/gkx1076
+- 2016: https://doi.org/10.1093/nar/gkv1230
+- 2014: https://doi.org/10.1093/nar/gkt1129
+- 2012: https://doi.org/10.1093/nar/gkr797
+- 2010: https://doi.org/10.1093/nar/gkp1014
+- 2002 first paper: https://doi.org/10.1093/nar/30.1.412</p>
+<p><strong>Data Access Locations:</strong>
+- Downloads page: https://db.idrblab.net/ttd/full-data-download</p>
+<p><strong>Data Provision Mechanisms:</strong> file_download</p>
+<p><strong>Data Formats:</strong> other</p>
+<p><strong>Data Versioning and Releases:</strong> New release ~ every 2 years. Versioning is a little complicated. Some files have a header section that includes a semantic version number and date (these dates can differ a lot). Others don't. The Downloads page has a 'Last update by' section with a date, but it's unclear if this applies to all files that lack version info in their header.</p>
+<h2 id="ingest-information">Ingest Information</h2>
+<p><strong>Ingest Categories:</strong> primary_knowledge_provider</p>
+<p><strong>Utility:</strong> TTD provides associations for drugs/chemicals, therapeutic targets (mostly proteins), and diseases that appear to be manually curated from literature review. This literature review includes information that may not be covered by other resources, including: drug industry reports, drug pipeline reports of hundreds of companies, patents from multiple countries, and manual review of Pubmed literature searches. This associations could be used in MVP1 (may treat disease X), MVP2 (drug Y may increase/decrease gene Z's activity), or Pathfinder queries.</p>
+<p><strong>Scope:</strong> This ingest covers the drug-disease associations and the protein-drug associations from one file. For more details on the data content and decision-making on what files to ingest, see Colleen Xu's internal document and https://github.com/NCATSTranslator/Data-Ingest-Coordination-Working-Group/issues/30.</p>
+<h3 id="relevant-files">Relevant Files</h3>
 <table>
 <thead>
 <tr>
-<th>InfoRes ID</th>
-<th>Source Name</th>
-<th>YAML</th>
-<th>Markdown</th>
+<th>File Name</th>
+<th>Location</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>infores:chembl</td>
-<td>ChEMBL Reference Ingest Guide</td>
-<td><a href="../chembl-rig.yaml">chembl-rig.yaml</a></td>
-<td><a href="../chembl-rig/">chembl-rig.md</a></td>
+<td>P1-05-Drug_disease.txt</td>
+<td>https://db.idrblab.net/ttd/full-data-download</td>
+<td>Description on Downloads page is 'Drug to disease mapping with ICD identifiers'. Includes chemical/drug 'treats' disease associations. Uses TTD drug IDs - need to use other file to map to usable IDs for Translator</td>
 </tr>
 <tr>
-<td>infores:ctd</td>
-<td>CTD Resource Ingest Guide</td>
-<td><a href="../ctd_rig.yaml">ctd_rig.yaml</a></td>
-<td><a href="../ctd_rig/">ctd_rig.md</a></td>
+<td>P1-07-Drug-TargetMapping.xlsx</td>
+<td>https://db.idrblab.net/ttd/full-data-download</td>
+<td>Description on Downloads page is 'Target to drug mapping with mode of action'. Has chemical/drug 'affects' protein associations. Uses TTD target IDs and drug IDs - need to use other file to map to usable IDs for Translator</td>
 </tr>
 <tr>
-<td>infores:diseases</td>
-<td>Jensen Lab DISEASES Database Reference Ingest Guide</td>
-<td><a href="../diseases_rig.yaml">diseases_rig.yaml</a></td>
-<td><a href="../diseases_rig/">diseases_rig.md</a></td>
+<td>P1-03-TTD_crossmatching.txt</td>
+<td>https://db.idrblab.net/ttd/full-data-download</td>
+<td>Description on Downloads page is 'Cross-matching ID between TTD drugs and public databases'. Using for ID mapping only. Has TTD drug ID (start with 'D') mappings to PUBCHEM.COMPOUND, CAS, and/or CHEBI. This file does not have info for all TTD drug IDs. It also doesn't have any info on TTD chemical IDs (start with 'C').</td>
 </tr>
 <tr>
-<td>infores:ebi-gene2phenotype</td>
-<td>EBI Gene2Phenotype Reference Ingest Guide</td>
-<td><a href="../ebi-gene2phenotype-rig.yaml">ebi-gene2phenotype-rig.yaml</a></td>
-<td><a href="../ebi-gene2phenotype-rig/">ebi-gene2phenotype-rig.md</a></td>
-</tr>
-<tr>
-<td>infores:goa</td>
-<td>GO Annotations (GOA) Reference Ingest Guide</td>
-<td><a href="../goa-rig.yaml">goa-rig.yaml</a></td>
-<td><a href="../goa-rig/">goa-rig.md</a></td>
-</tr>
-<tr>
-<td>infores:gocam</td>
-<td>Gene Ontology Causal Activity Models (GO-CAM) Reference Ingest Guide</td>
-<td><a href="../gocam-rig.yaml">gocam-rig.yaml</a></td>
-<td><a href="../gocam-rig/">gocam-rig.md</a></td>
-</tr>
-<tr>
-<td>infores:hpo-annotations</td>
-<td>Human Phenotype Ontology Annotations</td>
-<td><a href="../hpo-annotations_rig.yaml">hpo-annotations_rig.yaml</a></td>
-<td><a href="../hpo-annotations_rig/">hpo-annotations_rig.md</a></td>
-</tr>
-<tr>
-<td>infores:multiomics-clinicaltrials</td>
-<td>Multiomics Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide</td>
-<td><a href="../ctkp_rig.yaml">ctkp_rig.yaml</a></td>
-<td><a href="../ctkp_rig/">ctkp_rig.md</a></td>
-</tr>
-<tr>
-<td>infores:signor</td>
-<td>SIGnaling Network Open Resource (Signor) Reference Ingest Guide</td>
-<td><a href="../signor-rig.yaml">signor-rig.yaml</a></td>
-<td><a href="../signor-rig/">signor-rig.md</a></td>
-</tr>
-<tr>
-<td>infores:ttd</td>
-<td>Therapeutic Target Database (TTD) Reference Ingest Guide</td>
-<td><a href="../ttd-rig.yaml">ttd-rig.yaml</a></td>
-<td><a href="../ttd-rig/">ttd-rig.md</a></td>
+<td>P2-01-TTD_uniprot_all.txt</td>
+<td>https://db.idrblab.net/ttd/full-data-download</td>
+<td>Description on Downloads page is 'Download Uniprot IDs for all targets'. Using for ID mapping only. Has TTD target ID mappings to UNIPROT NAME (not ID). This file does not actually include all TTD Target IDs. It also has special values ('NOUNIPROTAC' appears to mean no name/mapping).</td>
 </tr>
 </tbody>
 </table>
-<!-- RIG_TABLE_END -->
+<h3 id="filtered-content">Filtered Content</h3>
+<table>
+<thead>
+<tr>
+<th>File Name</th>
+<th>Filtered Records</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1-05-Drug_disease.txt</td>
+<td>ICD-11 ID is 'N.A.'</td>
+<td>This means there isn't an ID for this disease, and we need one for each node.</td>
+</tr>
+<tr>
+<td>P1-05-Drug_disease.txt</td>
+<td>TTD drug ID doesn't have mapping to an external namespace, or its name doesn't successfully retrieve an entity in NameResolver.</td>
+<td>Need node IDs that are in NodeNorm's scope.</td>
+</tr>
+<tr>
+<td>P1-07-Drug-TargetMapping.xlsx</td>
+<td>TTD drug ID doesn't have mapping to an external namespace, or its name doesn't successfully retrieve an entity in NameResolver.</td>
+<td>Need node IDs that are in NodeNorm's scope.</td>
+</tr>
+<tr>
+<td>P1-07-Drug-TargetMapping.xlsx</td>
+<td>TTD target ID doesn't have a mapping to a UniProt name, or that UniProt name doesn't successfully map to a UniProt ID.</td>
+<td>Need node IDs that are in NodeNorm's scope.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="future-content-considerations">Future Content Considerations</h3>
+<p><strong>edge_content:</strong> Could ingest another file 'Target to compound mapping with activity data', which contains chemical/drug 'affects' protein associations. Involves more parsing and filtering work. See https://github.com/NCATSTranslator/Data-Ingest-Coordination-Working-Group/issues/30#issuecomment-3209860820 for details.
+  - Relevant files: P1-09-Target_compound_activity.txt</p>
+<p><strong>other:</strong> Could run disease names through NameResolver when ICD-11 ID is 'N.A.' (&lt;200 records right now). But it'd involve manual review to see if the output seems accurate.
+  - Relevant files: P1-05-Drug_disease.txt</p>
+<h2 id="target-information">Target Information</h2>
+<h3 id="edge-types">Edge Types</h3>
+<table>
+<thead>
+<tr>
+<th>Subject Categories</th>
+<th>Predicate</th>
+<th>Object Categories</th>
+<th>Knowledge Level</th>
+<th>Agent Type</th>
+<th>UI Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>biolink:ChemicalEntity</td>
+<td>biolink:treats</td>
+<td>biolink:Disease</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>The TTD curators assigned this relationship a clinical status of 'approved', 'phase 4', 'approved (orphan drug)', or 'NDA filed'.</td>
+</tr>
+<tr>
+<td>biolink:ChemicalEntity</td>
+<td>biolink:studied_to_treat</td>
+<td>biolink:Disease</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>The TTD curators assigned this relationship a clinical status of 'investigative', 'patented', 'discontinued in preregistration', 'preregistration', or 'withdrawn from market'.</td>
+</tr>
+<tr>
+<td>biolink:ChemicalEntity</td>
+<td>biolink:in_preclinical_trials_for</td>
+<td>biolink:Disease</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>The TTD curators assigned this relationship a clinical status of 'preclinical'.</td>
+</tr>
+<tr>
+<td>biolink:ChemicalEntity</td>
+<td>biolink:in_clinical_trials_for</td>
+<td>biolink:Disease</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>The TTD curators assigned this relationship a clinical status related to clinical trials (which could be a specific phase, registered, various submissions, discontinued in a specific phase, or terminated).</td>
+</tr>
+<tr>
+<td>biolink:ChemicalEntity</td>
+<td>biolink:affects</td>
+<td>biolink:Gene, biolink:Protein</td>
+<td>knowledge_assertion</td>
+<td>manual_agent</td>
+<td>The TTD curators associated this chemical or drug with its therapeutic target (reported in literature) and sometimes included the mode of action.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="node-types">Node Types</h3>
+<table>
+<thead>
+<tr>
+<th>Node Category</th>
+<th>Source Identifier Types</th>
+<th>Additional Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>biolink:ChemicalEntity</td>
+<td>PUBCHEM.COMPOUND, CAS, CHEBI</td>
+<td>Original ID is TTD drug ID, but we are using TTD mapping files to get these external IDs that can be NodeNormed.</td>
+</tr>
+<tr>
+<td>biolink:Disease</td>
+<td>icd11</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:Gene</td>
+<td>UNIPROTKB</td>
+<td>Original ID is TTD target ID, but we are using TTD mapping files and NameResolver to get UniProt IDs that can be NodeNormed. Some are non-human.</td>
+</tr>
+<tr>
+<td>biolink:Protein</td>
+<td>UNIPROTKB</td>
+<td>Original ID is TTD target ID, but we are using TTD mapping files and NameResolver to get UniProt IDs that can be NodeNormed. Some are non-human.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="future-modeling-considerations">Future Modeling Considerations</h3>
+<p><strong>other:</strong> P1-02 ('Download TTD drug information in raw format') contains TTD drug ID to INCHIKEY mappings, which could be explored to see if it fills gaps in the TTD drug ID mappings.</p>
+<p><strong>node_properties:</strong> TTD has files with information on drugs and therapeutic target proteins (P1-01 targets, P1-02 drugs). This could potentially be used for node properties (but it may be better to use existing resources that are updated more frequently).</p>
+<h2 id="provenance-information">Provenance Information</h2>
+<p><strong>Contributors:</strong>
+- Colleen Xu - code author, data modeling
+- Andrew Su - code support, domain expertise
+- Matthew Brush - data modeling, domain expertise</p>
+<p><strong>Artifacts:</strong>
+- https://github.com/NCATSTranslator/Data-Ingest-Coordination-Working-Group/issues/30</p>
 
 
 

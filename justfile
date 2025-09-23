@@ -57,7 +57,7 @@ _status: _check-config
     @echo "Source: {{source_schema_path}}"
 
 # Run initial setup (run this first)
-setup: _check-config _git-init install _gen-project _gen-examples _gendoc _git-add _git-commit
+setup: _check-config _git-init install _gen-project _gen-examples gendoc _git-add _git-commit
 
 # Install project dependencies
 install:
@@ -92,7 +92,7 @@ _create-data-harmonizer:
 alias all := site
 
 # Generate site locally
-site: _gen-project _gendoc
+site: _gen-project gendoc
 
 # Deploy site
 deploy: site
@@ -153,7 +153,7 @@ lint:
     {{run}} linkml-lint {{source_schema_path}}
 
 # Generate documentation
-_gendoc: _ensure_docdir
+gendoc: _ensure_docdir
     cp {{source_schema_path}} {{docdir}}
     cp {{src}}/docs/files/*.md {{docdir}}
     cp {{src}}/docs/files/*.yaml {{docdir}}
@@ -166,7 +166,7 @@ _gendoc: _ensure_docdir
 
 
 # Build docs and run test server
-testdoc: _gendoc _serve
+testdoc: gendoc _serve
 
 # Run documentation server
 _serve:

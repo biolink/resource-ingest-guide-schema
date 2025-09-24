@@ -196,9 +196,9 @@ _git-status:
 # Usage: just INFORES=infores:ctd NAME="CTD Chemical-Disease Associations" new-rig
 new-rig:
     @if [[ -z "{{INFORES}}" ]]; then \
-        echo "INFORES is required. Usage: just new-rig INFORES=infores:example NAME='Example RIG'"; \
+        echo "INFORES is required. Usage: just INFORES=infores:example NAME='Example RIG' new-rig "; \
     elif [[ -z "{{NAME}}" ]]; then \
-        echo "NAME is required. Usage: just new-rig INFORES=infores:example NAME='Example RIG'"; \
+        echo "NAME is required. Usage: just INFORES=infores:example NAME='Example RIG' new-rig "; \
     else \
        {{run}} python {{src}}/scripts/create_rig.py --infores "{{INFORES}}" --name "{{NAME}}"; \
     fi

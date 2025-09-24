@@ -193,7 +193,7 @@ _git-status:
     git status
 
 # Create a new RIG from template
-# Usage: just new-rig INFORES=infores:ctd NAME="CTD Chemical-Disease Associations"
+# Usage: just INFORES=infores:ctd NAME="CTD Chemical-Disease Associations" new-rig
 new-rig:
     @if [[ -z "{{INFORES}}" ]]; then \
         echo "INFORES is required. Usage: just new-rig INFORES=infores:example NAME='Example RIG'"; \

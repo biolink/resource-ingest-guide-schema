@@ -100,7 +100,7 @@ def main(infores, name, output, template):
         output = f"{source_name}_rig.yaml"
 
     # Sanity check: ensure the rigs directory exists
-    makedirs(path.dirname(RIGS_DIRECTORY), exist_ok=True)
+    makedirs(path.abspath(RIGS_DIRECTORY), exist_ok=True)
     output_path = f"{RIGS_DIRECTORY}{sep}{output}"
 
     # Check if template exists

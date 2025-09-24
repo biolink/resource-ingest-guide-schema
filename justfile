@@ -49,6 +49,7 @@ src := "src"
 dest := "project"
 pymodel := src / schema_name / "datamodel"
 docdir := "docs"
+doctemplates := "{{src}}/docs/doc-templates"
 exampledir := "examples"
 
 # Show current project status
@@ -159,10 +160,10 @@ _gendoc: _ensure_docdir
     cp {{src}}/docs/files/*.yaml {{docdir}}
     cp -r {{src}}/docs/images {{docdir}}/images
     {{run}} python {{src}}/scripts/rig_to_markdown.py --input-dir {{src}}/docs/rigs --output-dir {{docdir}} ; \
-    {{run}} python {{src}}/scripts/generate_rig_index.py --rig-dir {{src}}/docs/rigs \
-         --template-dir {{src}}/docs/doc-templates --input-file {{src}}/docs/files/rig_index.md --output-file {{docdir}}/rig_index.md ; \
+    {{run}} python {{src}}/scripts/generate_rig_index.py --rig-dir {{src}}/docs/rigs --template-dir {{doctemplates}} \
+         --input-file {{src}}/docs/files/rig_index.md --output-file {{docdir}}/rig_index.md ; \
     if ls {{src}}/docs/rigs/*.yaml 1> /dev/null 2>&1; then cp {{src}}/docs/rigs/*.yaml {{docdir}}/; fi ; \
-    {{run}} gen-doc {{gen_doc_args}} -d {{docdir}} --template-directory {{src}}/docs/doc-templates/ {{source_schema_path}}
+    {{run}} gen-doc {{gen_doc_args}} -d {{docdir}} --template-directory {{doctemplates}} {{source_schema_path}}
 
 
 # Build docs and run test server

@@ -95,9 +95,9 @@ gendoc: $(DOCDIR)
 	cp $(SRC)/docs/files/*.yaml $(DOCDIR) ; \
 	cp -r $(SRC)/docs/images $(DOCDIR)/images ; \
 	$(RUN) python $(SRC)/scripts/rig_to_markdown.py --input-dir $(SRC)/docs/rigs --output-dir $(DOCDIR) ; \
-	$(RUN) python $(SRC)/scripts/generate_rig_index.py --rig-dir $(SRC)/docs/rigs --template-dir $(SRC)/docs/doc-templates --input-file $(SRC)/docs/files/rig_index.md --output-file $(DOCDIR)/rig_index.md ; \
+	$(RUN) python $(SRC)/scripts/generate_rig_index.py --rig-dir $(SRC)/docs/rigs --template-dir $(DOCTEMPLATES) --input-file $(SRC)/docs/files/rig_index.md --output-file $(DOCDIR)/rig_index.md ; \
 	if ls $(SRC)/docs/rigs/*.yaml 1> /dev/null 2>&1; then cp $(SRC)/docs/rigs/*.yaml $(DOCDIR)/; fi ; \
-	$(RUN) gen-doc -d $(DOCDIR) --template-directory $(SRC)/docs/doc-templates/ $(SOURCE_SCHEMA_PATH)
+	$(RUN) gen-doc ${GEN_DOC_ARGS} -d $(DOCDIR) --template-directory $(DOCTEMPLATES) $(SOURCE_SCHEMA_PATH)
 
 testdoc: gendoc serve
 

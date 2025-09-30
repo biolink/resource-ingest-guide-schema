@@ -99,7 +99,6 @@ target_info:
     - HGNC
     - MGI
     - RGD
-    - NCBIGene
     - ENSEMBL
     node_properties:
     - in_taxon

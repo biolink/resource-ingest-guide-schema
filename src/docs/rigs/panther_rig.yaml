@@ -27,7 +27,7 @@ source_info:
   terms_of_use_info:
     terms_of_use_url: "http://www.pantherdb.org/tou.jsp"
   data_access_locations:
-    - "http://data.pantherdb.org/ftp/ortholog/current_release/AllOrthologs.tar.gz"
+    - "http://data.pantherdb.org/ftp/ortholog/current_release/RefGenomeOrthologs.tar.gz"
   data_provision_mechanisms:
     - file_download
   data_formats:
@@ -45,15 +45,15 @@ ingest_info:
     easily or ethically replicated in human beings.
   scope: "Gene to gene genomic orthology relationships"
   relevant_files:
-  - file_name: "AllOrthologs.tar.gz"
+  - file_name: "RefGenomeOrthologs.tar.gz"
     location: "http://data.pantherdb.org/ftp/ortholog/current_release/"
     description: "Gene to Gene Orthology Relationships"
   included_content:
-  - file_name: "AllOrthologs.tar.gz"
+  - file_name: "RefGenomeOrthologs.tar.gz"
     included_records: "All records, with taxonomic filtering noted below."
     fields_used: "Gene, Ortholog, Type of ortholog, Panther Ortholog ID"
   filtered_content:
-  - file_name: "AllOrthologs.tar.gz"
+  - file_name: "RefGenomeOrthologs.tar.gz"
     filtered_records: "All records with Gene and Ortholog pairwise annotated as 'HUMAN', 'MOUSE' or 'RAT' specific."
     rationale: >-
       Panther contains a huge number of records covering orthologs across 144 diverse species

@@ -27,7 +27,7 @@ source_info:
   terms_of_use_info:
     terms_of_use_url: "http://www.pantherdb.org/tou.jsp"
   data_access_locations:
-    - "http://data.pantherdb.org/ftp/ortholog/current_release/RefGenomeOrthologs.tar.gz"
+    - "http://data.pantherdb.org/ftp/"
   data_provision_mechanisms:
     - file_download
   data_formats:
@@ -50,7 +50,7 @@ ingest_info:
     location: "http://data.pantherdb.org/ftp/ortholog/current_release/"
     description: "Gene to Gene Orthology Relationships in reference genomes"
   - file_name: "PTHR<Panther-version>_<taxon_name>"
-    location: "/sequence_classifications/current_release/PANTHER_Sequence_Classification_files/"
+    location: "http://data.pantherdb.org/ftp/sequence_classifications/current_release/PANTHER_Sequence_Classification_files/"
     description: "Gene sequence annotation from specific genomes"
   included_content:
   - file_name: "RefGenomeOrthologs.tar.gz"
@@ -104,7 +104,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther gene family to gene family relationship"
   #automat-panther: Gene Family--has part->Gene
   - subject_categories:
@@ -115,7 +115,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther Gene family membership"
   #automat-panther: Gene Family--located in->Cellular Component
   - subject_categories:
@@ -126,7 +126,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther Gene family cellular location of expression"
   #automat-panther: Gene Family--actively involved in->Biological Process
   - subject_categories:
@@ -137,7 +137,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther Gene Family involvement in a biological process"
   #automat-panther: Gene Family--catalyzes->Molecular Activity
   - subject_categories:
@@ -148,7 +148,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther Gene Family catalysis of a molecular activity"
   #automat-panther: Gene Family--actively involved in->Pathway
   - subject_categories:
@@ -159,7 +159,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther active involvement of a Gene Family in a pathway"
   #automat-panther: Pathway--has participant->Gene Family
   - subject_categories:
@@ -170,7 +170,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther participation of a Gene Family in a pathway"
   #automat-panther: Pathway--subclass of->Biological Process
   - subject_categories:
@@ -181,7 +181,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther pathway as a subclass of a biological process"
   #automat-panther: Pathway--subclass of->Pathway
   - subject_categories:
@@ -192,7 +192,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther pathway as a subclass of another pathway"
   #automat-panther: Molecular Activity--subclass of->Molecular Activity
   - subject_categories:
@@ -203,7 +203,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther molecular activity as a subclass of another molecular activity"
   #automat-panther: Biological Process--subclass of->Biological Process
   - subject_categories:
@@ -214,7 +214,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther biological process as a subclass of another biological process"
   #automat-panther: Cellular Component--subclass of->Cellular Component
   - subject_categories:
@@ -225,7 +225,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther cellular component as a subclass of another cellular component"
   #automat-panther: Cellular Component--subclass of->Anatomical Entity
   - subject_categories:
@@ -236,7 +236,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther cellular component as a subclass of anatomical entity"
   #automat-panther: Cellular Component--subclass of->Gross Anatomical Structure
   - subject_categories:
@@ -247,7 +247,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther cellular component as a subclass of gross anatomical structure"
   #automat-panther: Anatomical Entity--subclass of->Cellular Component
   - subject_categories:
@@ -258,7 +258,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther anatomical entity as a subclass of cellular component"
   #automat-panther: Gross Anatomical Structure--subclass of->Cellular Component
   - subject_categories:
@@ -269,7 +269,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - manual_agent
+    - manual_validation_of_automated_agent
     ui_explanation: "Panther gross anatomical structure as a subclass of cellular component"
   node_type_info:
   - node_category: "biolink:Gene"

@@ -8,10 +8,8 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/rig_index/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/panther_rig/">
       
-      
-        <link rel="prev" href="../example-rigs/">
       
       
       
@@ -20,7 +18,7 @@
     
     
       
-        <title>Index of Existing RIGs - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>Panther Gene Orthology and Annotation RIG - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -80,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reference-ingest-guides-rigs" class="md-skip">
+        <a href="#panther-gene-orthology-and-annotation-rig" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index of Existing RIGs
+              Panther Gene Orthology and Annotation RIG
             
           </span>
         </div>
@@ -275,32 +273,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Index of Existing RIGs
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../rig_index/" class="md-nav__link">
         
   
   
@@ -311,44 +287,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#about-rigs" class="md-nav__link">
-    <span class="md-ellipsis">
-      About RIGs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#available-rigs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Available RIGs
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -380,18 +318,111 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#about-rigs" class="md-nav__link">
+  <a href="#source-information" class="md-nav__link">
     <span class="md-ellipsis">
-      About RIGs
+      Source Information
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#available-rigs" class="md-nav__link">
+  <a href="#ingest-information" class="md-nav__link">
     <span class="md-ellipsis">
-      Available RIGs
+      Ingest Information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingest Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relevant-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relevant Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#included-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Included Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtered-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filtered Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-content-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Content Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#target-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Target Information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Target Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edge-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-modeling-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Modeling Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provenance-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provenance Information
     </span>
   </a>
   
@@ -416,100 +447,302 @@
   
 
 
-<h1 id="reference-ingest-guides-rigs">Reference Ingest Guides (RIGs)</h1>
-<p>This page contains an index of all Reference Ingest Guides available in this repository.</p>
-<h2 id="about-rigs">About RIGs</h2>
-<p>Reference Ingest Guides (RIGs) are structured documents that describe the scope, rationale, and modeling approach for ingesting content from an external source to a data repository compliant with the Biolink Model.</p>
-<p>Each RIG contains:</p>
-<ul>
-<li><strong>Source Information</strong>: Details about the data source, including access locations, formats, and terms of use</li>
-<li><strong>Ingest Information</strong>: What content is included/excluded and why, including relevant files and filtering criteria</li>
-<li><strong>Target Information</strong>: How the data is modeled in the output graph, including edge and node types</li>
-<li><strong>Provenance Information</strong>: Contributors and related artifacts</li>
-</ul>
-<p>For guidance on creating new RIGs, see the <a href="../example-rigs/">RIG Creation Guide</a>.</p>
-<h2 id="available-rigs">Available RIGs</h2>
-<!-- RIG_TABLE_START -->
-<!-- This table is automatically generated during documentation build -->
+<h1 id="panther-gene-orthology-and-annotation-rig">Panther Gene Orthology and Annotation RIG</h1>
+<h2 id="source-information">Source Information</h2>
+<p><strong>InfoRes ID:</strong> infores:panther</p>
+<p><strong>Description:</strong> The PANTHER (Protein ANalysis THrough Evolutionary Relationships) Classification System  was designed to classify proteins (and their genes) in order to facilitate high-throughput analysis. The core of PANTHER is a comprehensive, annotated library of gene family phylogenetic trees. All nodes in the tree have persistent identifiers that are maintained between versions of PANTHER, providing a stable substrate for annotations of protein properties like subfamily and function.</p>
+<p><strong>Citations:</strong>
+- https://onlinelibrary.wiley.com/doi/10.1002/pro.4218</p>
+<p><strong>Data Access Locations:</strong>
+- http://data.pantherdb.org/ftp/</p>
+<p><strong>Data Provision Mechanisms:</strong> file_download</p>
+<p><strong>Data Formats:</strong> csv</p>
+<p><strong>Data Versioning and Releases:</strong> Versioning by number. See https://www.pantherdb.org/data/</p>
+<p><strong>Additional Notes:</strong> None</p>
+<h2 id="ingest-information">Ingest Information</h2>
+<p><strong>Ingest Categories:</strong> primary_knowledge_provider</p>
+<p><strong>Utility:</strong> Homology relationships and association of GO and related annotation by orthology inference can be made in between human genes and  non-human species like mouse, rat and many model species, based on the phenotypic characteristics of genes transitively inferred from experimental observations in the model species which cannot generally be easily or ethically replicated upon human beings.</p>
+<p><strong>Scope:</strong> Gene to gene genomic orthology relationships and associated annotations</p>
+<h3 id="relevant-files">Relevant Files</h3>
 <table>
 <thead>
 <tr>
-<th>InfoRes ID</th>
-<th>Source Name</th>
-<th>YAML</th>
-<th>Markdown</th>
+<th>File Name</th>
+<th>Location</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>infores:chembl</td>
-<td>ChEMBL Reference Ingest Guide</td>
-<td><a href="../chembl-rig.yaml">chembl-rig.yaml</a></td>
-<td><a href="../chembl-rig/">chembl-rig.md</a></td>
+<td>RefGenomeOrthologs.tar.gz</td>
+<td>http://data.pantherdb.org/ftp/ortholog/current_release/</td>
+<td>Gene to Gene Orthology Relationships in reference genomes</td>
 </tr>
 <tr>
-<td>infores:ctd</td>
-<td>CTD Resource Ingest Guide</td>
-<td><a href="../ctd_rig.yaml">ctd_rig.yaml</a></td>
-<td><a href="../ctd_rig/">ctd_rig.md</a></td>
-</tr>
-<tr>
-<td>infores:diseases</td>
-<td>Jensen Lab DISEASES Database Reference Ingest Guide</td>
-<td><a href="../diseases_rig.yaml">diseases_rig.yaml</a></td>
-<td><a href="../diseases_rig/">diseases_rig.md</a></td>
-</tr>
-<tr>
-<td>infores:ebi-gene2phenotype</td>
-<td>EBI Gene2Phenotype Reference Ingest Guide</td>
-<td><a href="../ebi-gene2phenotype-rig.yaml">ebi-gene2phenotype-rig.yaml</a></td>
-<td><a href="../ebi-gene2phenotype-rig/">ebi-gene2phenotype-rig.md</a></td>
-</tr>
-<tr>
-<td>infores:goa</td>
-<td>GO Annotations (GOA) Reference Ingest Guide</td>
-<td><a href="../goa-rig.yaml">goa-rig.yaml</a></td>
-<td><a href="../goa-rig/">goa-rig.md</a></td>
-</tr>
-<tr>
-<td>infores:gocam</td>
-<td>Gene Ontology Causal Activity Models (GO-CAM) Reference Ingest Guide</td>
-<td><a href="../gocam-rig.yaml">gocam-rig.yaml</a></td>
-<td><a href="../gocam-rig/">gocam-rig.md</a></td>
-</tr>
-<tr>
-<td>infores:hpo-annotations</td>
-<td>Human Phenotype Ontology Annotations</td>
-<td><a href="../hpo-annotations_rig.yaml">hpo-annotations_rig.yaml</a></td>
-<td><a href="../hpo-annotations_rig/">hpo-annotations_rig.md</a></td>
-</tr>
-<tr>
-<td>infores:multiomics-clinicaltrials</td>
-<td>Multiomics Clinical Trials Knowledge Provider (CTKP) Reference Ingest Guide</td>
-<td><a href="../ctkp_rig.yaml">ctkp_rig.yaml</a></td>
-<td><a href="../ctkp_rig/">ctkp_rig.md</a></td>
-</tr>
-<tr>
-<td>infores:panther</td>
-<td>Panther Gene Orthology and Annotation RIG</td>
-<td><a href="../panther_rig.yaml">panther_rig.yaml</a></td>
-<td><a href="../panther_rig/">panther_rig.md</a></td>
-</tr>
-<tr>
-<td>infores:signor</td>
-<td>SIGnaling Network Open Resource (Signor) Reference Ingest Guide</td>
-<td><a href="../signor-rig.yaml">signor-rig.yaml</a></td>
-<td><a href="../signor-rig/">signor-rig.md</a></td>
-</tr>
-<tr>
-<td>infores:ttd</td>
-<td>Therapeutic Target Database (TTD) Reference Ingest Guide</td>
-<td><a href="../ttd-rig.yaml">ttd-rig.yaml</a></td>
-<td><a href="../ttd-rig/">ttd-rig.md</a></td>
+<td>PTHR<Panther-version>_<taxon_name></td>
+<td>http://data.pantherdb.org/ftp/sequence_classifications/current_release/PANTHER_Sequence_Classification_files/</td>
+<td>Gene sequence annotation from specific genomes</td>
 </tr>
 </tbody>
 </table>
-<!-- RIG_TABLE_END -->
+<h3 id="included-content">Included Content</h3>
+<table>
+<thead>
+<tr>
+<th>File Name</th>
+<th>Included Records</th>
+<th>Fields Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RefGenomeOrthologs.tar.gz</td>
+<td>All records, with taxonomic filtering noted below.</td>
+<td>Gene, Ortholog, Type of ortholog, Panther Ortholog ID</td>
+</tr>
+<tr>
+<td>PTHR<Panther-version>_<taxon_name></td>
+<td>All records for the specified taxon.</td>
+<td>Gene, Ortholog, Type of ortholog, Panther Ortholog ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="filtered-content">Filtered Content</h3>
+<table>
+<thead>
+<tr>
+<th>File Name</th>
+<th>Filtered Records</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RefGenomeOrthologs.tar.gz, PTHR<Panther-version>_<taxon_name></td>
+<td>All records with Gene and Ortholog pairwise annotated with taxon name as 'HUMAN', 'MOUSE' or 'RAT' specific.</td>
+<td>Panther contains a huge number of records covering orthologs across 144 diverse species (as of September 2025), but our core interest in Translator focuses on genes in taxa close in evolutionary terms to human, thus having significant genetic, molecular and physiological  annotation closer to human biology in character. It is also expected that the genes of these evolutionarily close species also already have a significant assignment of functional roles  partially inferred from other model organisms (e.g. developmental gene functions mapped  from fruit fly or nematode onto mouse genes, but also experimentally tested in mouse). The character of genetic and physiological systems are much more similar between humans and  mice or rats, in particular, studied responses in pharmacology, metabolism, and the immune system.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="future-content-considerations">Future Content Considerations</h3>
+<p><strong>other:</strong> Additional model species may be included in the future.</p>
+<h2 id="target-information">Target Information</h2>
+<p><strong>Target InfoRes ID:</strong> infores:translator-panther-kgx</p>
+<h3 id="edge-types">Edge Types</h3>
+<table>
+<thead>
+<tr>
+<th>Subject Categories</th>
+<th>Predicate</th>
+<th>Object Categories</th>
+<th>Knowledge Level</th>
+<th>Agent Type</th>
+<th>UI Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>biolink:Gene</td>
+<td>biolink:orthologous_to</td>
+<td>biolink:Gene</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther orthology family</td>
+</tr>
+<tr>
+<td>biolink:GeneFamily</td>
+<td>biolink:has_part</td>
+<td>biolink:GeneFamily</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther gene family to gene family relationship</td>
+</tr>
+<tr>
+<td>biolink:GeneFamily</td>
+<td>biolink:has_part</td>
+<td>biolink:Gene</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther Gene family membership</td>
+</tr>
+<tr>
+<td>biolink:GeneFamily</td>
+<td>biolink:located_in</td>
+<td>biolink:CellularComponent</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther Gene family cellular location of expression</td>
+</tr>
+<tr>
+<td>biolink:GeneFamily</td>
+<td>biolink:actively_involved_in</td>
+<td>biolink:BiologicalProcess</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther Gene Family involvement in a biological process</td>
+</tr>
+<tr>
+<td>biolink:GeneFamily</td>
+<td>biolink:catalyzes</td>
+<td>biolink:MolecularActivity</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther Gene Family catalysis of a molecular activity</td>
+</tr>
+<tr>
+<td>biolink:GeneFamily</td>
+<td>biolink:actively_involved_in</td>
+<td>biolink:Pathway</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther active involvement of a Gene Family in a pathway</td>
+</tr>
+<tr>
+<td>biolink:Pathway</td>
+<td>biolink:has_participant</td>
+<td>biolink:GeneFamily</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther participation of a Gene Family in a pathway</td>
+</tr>
+<tr>
+<td>biolink:Pathway</td>
+<td>biolink:subclass_of</td>
+<td>biolink:BiologicalProcess</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther pathway as a subclass of a biological process</td>
+</tr>
+<tr>
+<td>biolink:Pathway</td>
+<td>biolink:subclass_of</td>
+<td>biolink:Pathway</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther pathway as a subclass of another pathway</td>
+</tr>
+<tr>
+<td>biolink:MolecularActivity</td>
+<td>biolink:subclass_of</td>
+<td>biolink:MolecularActivity</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther molecular activity as a subclass of another molecular activity</td>
+</tr>
+<tr>
+<td>biolink:BiologicalProcess</td>
+<td>biolink:subclass_of</td>
+<td>biolink:BiologicalProcess</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther biological process as a subclass of another biological process</td>
+</tr>
+<tr>
+<td>biolink:CellularComponent</td>
+<td>biolink:subclass_of</td>
+<td>biolink:CellularComponent</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther cellular component as a subclass of another cellular component</td>
+</tr>
+<tr>
+<td>biolink:CellularComponent</td>
+<td>biolink:subclass_of</td>
+<td>biolink:AnatomicalEntity</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther cellular component as a subclass of anatomical entity</td>
+</tr>
+<tr>
+<td>biolink:CellularComponent</td>
+<td>biolink:subclass_of</td>
+<td>biolink:GrossAnatomicalStructure</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther cellular component as a subclass of gross anatomical structure</td>
+</tr>
+<tr>
+<td>biolink:AnatomicalEntity</td>
+<td>biolink:subclass_of</td>
+<td>biolink:CellularComponent</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther anatomical entity as a subclass of cellular component</td>
+</tr>
+<tr>
+<td>biolink:GrossAnatomicalStructure</td>
+<td>biolink:subclass_of</td>
+<td>biolink:CellularComponent</td>
+<td>knowledge_assertion</td>
+<td>manual_validation_of_automated_agent</td>
+<td>Panther gross anatomical structure as a subclass of cellular component</td>
+</tr>
+</tbody>
+</table>
+<h3 id="node-types">Node Types</h3>
+<table>
+<thead>
+<tr>
+<th>Node Category</th>
+<th>Source Identifier Types</th>
+<th>Additional Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>biolink:Gene</td>
+<td>HGNC, MGI, RGD, ENSEMBL, NCBIGene</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:GeneFamily</td>
+<td>PANTHER.FAMILY</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:Pathway</td>
+<td>PANTHER.PATHWAY</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:MolecularActivity</td>
+<td>GO</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:BiologicalProcess</td>
+<td>GO</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:CellularComponent</td>
+<td>GO</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:AnatomicalEntity</td>
+<td>UBERON, UMLS</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:GrossAnatomicalStructure</td>
+<td>UBERON</td>
+<td>biolink:Attribute is used to capture the information content</td>
+</tr>
+</tbody>
+</table>
+<h3 id="future-modeling-considerations">Future Modeling Considerations</h3>
+<p><strong>other:</strong> The Monarch Initiative ingest of Panther data (https://github.com/monarch-initiative/pantherdb-orthologs-ingest) sometimes attempts to map eccentric identifiers to the NCBI gene identifier space. The initial iteration of  the Panther ingest in Translator does not attempt to do this at this time, but rather simply uses the given UniProt identifier.</p>
+<h2 id="provenance-information">Provenance Information</h2>
+<p><strong>Contributors:</strong>
+- Richard Bruskiewich - data modelling, domain expertise, code author
+- Kevin Schaper - Phase 2 legacy code expert
+- Evan Morris - Phase 2 legacy code expert
+- Chunlei Wu - Phase 2 legacy code expert
+- Matt Brush - data modelling</p>
+<p><strong>Artifacts:</strong>
+- Ingest Survey (https://docs.google.com/spreadsheets/d/1YlpI5bjGNGR5JC9VWxZJ7dd87hS_b4BMZv5geYe2NCk/edit?gid=0#gid=0)
+- Ingest Ticket (https://github.com/NCATSTranslator/Data-Ingest-Coordination-Working-Group/issues/44)</p>
 
 
 

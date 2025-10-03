@@ -89,7 +89,7 @@ target_info:
     knowledge_level:
     - knowledge_assertion
     agent_type:
-    - not_provided xxx review Panther web site to see if this is a good way to stage the agent type
+    - manual_validation_of_automated_agent
     edge_properties:
     - has_evidence
     ui_explanation: "Panther orthology family"
@@ -278,58 +278,64 @@ target_info:
     - MGI
     - RGD
     - ENSEMBL
+    - NCBIGene
     node_properties:
+    - "biolink:name"
+    - "biolink:same_as"
     - "biolink:in_taxon"
+    - "dct:description"
+    - "information_content"
   - node_category: "biolink:GeneFamily"
     source_identifier_types:
       - PANTHER.FAMILY
     node_properties:
+      - "biolink:name"
       - "biolink:same_as"
   - node_category: "biolink:Pathway"
     source_identifier_types:
       - PANTHER.PATHWAY
     node_properties:
+      - "biolink:name"
       - "biolink:same_as"
       - "dct:description"
-      - "biolink:Attribute"
-    additional_notes: "biolink:Attribute is used to capture the information content"
+      - "information_content"
   - node_category: "biolink:MolecularActivity"
     source_identifier_types:
       - GO
     node_properties:
+      - "biolink:name"
       - "biolink:same_as"
       - "dct:description"
-      - "biolink:Attribute"
-    additional_notes: "biolink:Attribute is used to capture the information content"
+      - "information_content"
   - node_category: "biolink:BiologicalProcess"
     source_identifier_types:
       - GO
     node_properties:
+      - "biolink:name"
       - "biolink:same_as"
       - "dct:description"
-      - "biolink:Attribute"
-    additional_notes: "biolink:Attribute is used to capture the information content"
+      - "information_content"
   - node_category: "biolink:CellularComponent"
     source_identifier_types:
       - GO
     node_properties:
+      - "biolink:name"
       - "biolink:same_as"
       - "dct:description"
-      - "biolink:Attribute"
-    additional_notes: "biolink:Attribute is used to capture the information content"
+      - "information_content"
   - node_category: "biolink:AnatomicalEntity"
     source_identifier_types:
       - UBERON
       - UMLS
     node_properties:
+      - "biolink:name"
       - "biolink:same_as"
       - "dct:description"
-      - "biolink:Attribute"
-    additional_notes: "biolink:Attribute is used to capture the information content"
   - node_category: "biolink:GrossAnatomicalStructure"
     source_identifier_types:
       - UBERON
     node_properties:
+      - "biolink:name"
       - "biolink:same_as"
       - "dct:description"
       - "biolink:Attribute"

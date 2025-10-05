@@ -220,7 +220,7 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="../source_identifier_types/">source_identifier_types</a>: <br/> <i> The type of identifier(s) used for this category of entity by the source system. Report as a prefix for an identifier system where appropriate/possible (preferably a prefix as cataloged in the Biolink prefix registry). e.g. "MESH", "CTD", "ECTO". But can be a free text description if needed. e.g. "The source uses entity names but does not assign identifiers". </i></td>
+<td><a href="../source_identifier_types/">source_identifier_types</a>: <br/> <i> The type of identifier(s) used for this category of entity by the source system. Report as a prefix for an identifier system where appropriate/possible (preferably a prefix as cataloged in the Biolink prefix map here: https://github.com/biolink/biolink-model/blob/master/project/prefixmap/biolink-model-prefix-map.json). e.g. "MESH", "CTD", "ECTO". If prefix for a public system/database is not in the prefix map, you may make a PR to add it.  If the identifiers used are bespoke, or no identifiers are used, the value can be a free text description. e.g. "The source uses entity names but does not assign identifiers". </i></td>
 <td>1..* <br/> <a href="../String/">String</a></td>
 <td>direct</td>
 <td></td>
@@ -278,11 +278,13 @@ attributes:
     required: true
   source_identifier_types:
     name: source_identifier_types
-    description: The type of identifier(s) used for this category of entity by the
+    description: 'The type of identifier(s) used for this category of entity by the
       source system. Report as a prefix for an identifier system where appropriate/possible
-      (preferably a prefix as cataloged in the Biolink prefix registry). e.g. "MESH",
-      "CTD", "ECTO". But can be a free text description if needed. e.g. "The source
-      uses entity names but does not assign identifiers".
+      (preferably a prefix as cataloged in the Biolink prefix map here: https://github.com/biolink/biolink-model/blob/master/project/prefixmap/biolink-model-prefix-map.json).
+      e.g. "MESH", "CTD", "ECTO". If prefix for a public system/database is not in
+      the prefix map, you may make a PR to add it.  If the identifiers used are bespoke,
+      or no identifiers are used, the value can be a free text description. e.g. "The
+      source uses entity names but does not assign identifiers".'
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
     - NodeType

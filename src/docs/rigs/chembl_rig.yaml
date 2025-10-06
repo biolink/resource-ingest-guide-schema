@@ -7,7 +7,9 @@ ReferenceIngestGuide:
     citations:
       - "Barbara Zdrazil, Eloy Felix, Fiona Hunter, Emma J Manners, James Blackshaw, Sybilla Corbett, Marleen de Veij, Harris Ioannidis, David Mendez Lopez, Juan F Mosquera, Maria Paula Magarinos, Nicolas Bosc, Ricardo Arcila, Tevik Kizilören, Anna Gaulton, A Patrícia Bento, Melissa. F Adasme, Pater Monecke, Gregory A Landrum, Andrew R Leach. Nucleic Acids Res. 2023: gkad1004. doi: 10.1093/nar/gkad1004"
       - "Davies M, Nowotka M, Papadatos G, Dedman N, Gaulton A, Atkinson F, Bellis L, Overington JP. Nucleic Acids Res. 2015; 43(W1):W612-20, doi: 10.1093/nar/gkv352"
-    terms_of_use: "Creative Commons Attribution-ShareAlike 3.0 Unported license (https://creativecommons.org/licenses/by-sa/3.0/)"
+    terms_of_use:
+      license_name: "Creative Commons Attribution-ShareAlike 3.0 Unported license"
+      license_url: "https://creativecommons.org/licenses/by-sa/3.0/"
     data_access_locations:
       - https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/latest/
     data_provision_mechanisms:
@@ -61,7 +63,6 @@ ReferenceIngestGuide:
           - Protein
         predicate: 
           - biolink:affects
-          - biolink:directly_physically_interacts_with
           - biolink:disrupts
           - biolink:is_substrate_of
           - biolink:regulates
@@ -73,7 +74,18 @@ ReferenceIngestGuide:
           - PairwiseGeneToGeneInteraction
           - Protein
           - ProteinComplex
-        qualifier_types: "https://raw.githubusercontent.com/broadinstitute/molecular-data-provider/refs/heads/master/transformers/chembl/python-flask-server/conf/chembl_qualifiers.json"
+        qualifiers:
+          - property: "biolink:qualified_predicate"
+            value_constant: "biolink:causes"        
+          - property: "biolink:object_direction_qualifier"
+            value_range:
+              - "biolink:DirectionQualifierEnum"
+          - property: "biolink:object_aspect_qualifier"
+            value_range:
+              - "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum"
+          - property: "biolink:causal_mechanism_qualifier"
+            value_range:
+              - "biolink:CausalMechanismQualifierEnum"
         knowledge_level:
           - knowledge_assertion
         agent_type:
@@ -86,20 +98,26 @@ ReferenceIngestGuide:
           - document_chembl_id
           - selectivity_comment
           - site_name
-        ui_explanation: "Drug mechanisms from ChEMBL"
+        ui_explanation: "Drug mechanisms, some mapped to genes, from ChEMBL"
       - subject_categories:
           - SmallMolecule
           - MolecularMixture
           - ChemicalEntity
           - Protein
         predicate: 
-          - biolink:affects
           - biolink:directly_physically_interacts_with
-          - biolink:disrupts
-          - biolink:is_substrate_of
         object_categories:
           - Gene
-        qualifier_types: "https://raw.githubusercontent.com/broadinstitute/molecular-data-provider/refs/heads/master/transformers/chembl/python-flask-server/conf/chembl_qualifiers.json"
+          - MacromolecularComplexMixin
+          - NucleicAcidEntity
+          - Organism
+          - PairwiseGeneToGeneInteraction
+          - Protein
+          - ProteinComplex
+        qualifiers:
+          - property: "biolink:causal_mechanism_qualifier"
+            value_range:
+              - "biolink:CausalMechanismQualifierEnum"        
         knowledge_level:
           - knowledge_assertion
         agent_type:
@@ -112,7 +130,7 @@ ReferenceIngestGuide:
           - document_chembl_id
           - selectivity_comment
           - site_name
-        ui_explanation: "Drug mechanisms mapped to genes from ChEMBL"
+        ui_explanation: "Drug mechanisms, some mapped to genes, from ChEMBL"
       - subject_categories:
           - SmallMolecule
           - MolecularMixture
@@ -126,12 +144,19 @@ ReferenceIngestGuide:
           - CellLine
           - OrganismTaxon
           - PhenotypicFeature
-        qualifier_types: 
-          - causal_mechanism_qualifier
-          - object_aspect_qualifier
-          - object_direction_qualifier
-          - qualified_predicate
-          - species_context_qualifier
+        qualifiers:
+          - property: "biolink:qualified_predicate"
+            value_constant: "biolink:causes"        
+          - property: "biolink:object_direction_qualifier"
+            value_range:
+              - "biolink:DirectionQualifierEnum"
+          - property: "biolink:object_aspect_qualifier"
+            value_range:
+              - "biolink:GeneOrGeneProductOrChemicalEntityAspectEnum"
+          - property: "biolink:species_context_qualifier"
+            value_id_prefixes:
+              - "NCBITaxon"
+          value_description: "A term from the 'cellular organisms' (NCBITaxon:131567) or 'viruses' (NCBITaxon:10239) branch of the NCBITaxon Ontology"
         knowledge_level:
           - observation
         agent_type:

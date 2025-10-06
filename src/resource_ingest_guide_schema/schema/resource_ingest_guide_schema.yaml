@@ -360,6 +360,14 @@ classes:
         including what types of edge properties it holds, and a brief explanation of why this modeling pattern
         was deemed appropriate to represent the source data (for display to end users in a UI system).
       attributes:
+        edge_category:
+          description: >-
+            The high-level Biolink 'Association' category of an edge as assumed or assigned by ingestors. 
+            e.g. "biolink:GeneToGeneAssociation" or "biolink:GeneToPhenotypicFeatureAssociation".
+            Note that downstream normalization of subject, predicate and object may result in 
+            new/different categories ultimately being assigned in the final graph.
+          range: uriorcurie
+          required: false
         subject_categories:
           description: >-
             The Biolink category of the subject node of this edge type. e.g. "biolink:SmallMolecule".

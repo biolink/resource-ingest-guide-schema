@@ -56,8 +56,8 @@ classes:
         provenance_info:
           description: >-
             Information about the provenance of the ingest, including who contributed and how,
-            and links to external provenance-related artifacts (e.g. Github tickets,  ingest
-            surveys, etc.
+            and links to external provenance-related artifacts (e.g. Github tickets, ingest
+            surveys, etc.)
           range: ProvenanceInformation
 
   SupportingDataSourceInformation:

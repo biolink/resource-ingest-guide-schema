@@ -70,7 +70,7 @@
     infores_id:  # (optional, range = URIorCURIE)
 
     edge_type_info:  # (required, multivalued, range = EdgeType)
-      - subject_categories:  # (required, multivalued, range = URIorCURIE)
+      - subject_categories:  # (required, multivalued, range = URIorCURIE) Note: multiple sub_cat and obj_cat values for an edge type does not mean that the full cross-product must be instantiated in the data. See schema for more details.
           -
         predicate:  # (required, range = URIorCURIE)
         object_categories:  # (required, multivalued, range = URIorCURIE)

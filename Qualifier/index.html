@@ -187,15 +187,15 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-qualifier"><strong>  Class: Qualifier </strong></h1>
 <div class="highlight-box">
-<strong>Description:</strong><i> A qualifier property + value tuple that specifies a type of qualifier and value that may be applied to a Statement. Qualfied predicates are considered qualifiers and captured here as well. Values can be specified to come from a proper range (e.g. Biolink class, data type, or enum), be a constant (e.g. "biolink"causes"), use a specific id prefix, and/or using a free-text description. </i><br/>
+<strong>Description:</strong><i> A qualifier property + value tuple that specifies a type of qualifier and value that may be applied to a Statement. Qualfied predicates are considered qualifiers and captured here as well. Values can be specified to come from a proper range (e.g. Biolink class, data type, or enum), come from an enumerated list, use a specific id prefix, and/or conform informally to a free-text description. </i><br/>
 </div>
 <div class="mermaid"> classDiagram
     class Qualifier
       Qualifier : property
 
-      Qualifier : value_constant
-
       Qualifier : value_description
+
+      Qualifier : value_enumeration
 
       Qualifier : value_id_prefixes
 
@@ -228,8 +228,8 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="../value_constant/">value_constant</a>: <br/> <i> A single value that is the one and only value for the qualifier in an Edge type (.g. "biolink:causes" as the only value for the "biolink:qualified_predicate" qualifier property)  </i></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
+<td><a href="../value_enumeration/">value_enumeration</a>: <br/> <i> A set of one or more specific values for the qualifier in an Edge type (e.g. ["biolink:causes"] as the only value for the "biolink:qualified_predicate" qualifier property, ["activity_or_abundance", "activity", "abundance"]  as the values for the "biolink:object_aspect_qualifier" property).  </i></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>direct</td>
 <td></td>
 </tr>
@@ -272,8 +272,8 @@
 description: 'A qualifier property + value tuple that specifies a type of qualifier
   and value that may be applied to a Statement. Qualfied predicates are considered
   qualifiers and captured here as well. Values can be specified to come from a proper
-  range (e.g. Biolink class, data type, or enum), be a constant (e.g. "biolink"causes"),
-  use a specific id prefix, and/or using a free-text description. '
+  range (e.g. Biolink class, data type, or enum), come from an enumerated list, use
+  a specific id prefix, and/or conform informally to a free-text description. '
 from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
 attributes:
   property:
@@ -296,15 +296,17 @@ attributes:
     - Qualifier
     range: uriorcurie
     multivalued: true
-  value_constant:
-    name: value_constant
-    description: 'A single value that is the one and only value for the qualifier
-      in an Edge type (.g. "biolink:causes" as the only value for the "biolink:qualified_predicate"
-      qualifier property) '
+  value_enumeration:
+    name: value_enumeration
+    description: 'A set of one or more specific values for the qualifier in an Edge
+      type (e.g. ["biolink:causes"] as the only value for the "biolink:qualified_predicate"
+      qualifier property, ["activity_or_abundance", "activity", "abundance"]  as the
+      values for the "biolink:object_aspect_qualifier" property). '
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
     - Qualifier
     range: string
+    multivalued: true
   value_id_prefixes:
     name: value_id_prefixes
     description: 'One or more id prefixes from which the qualifier value mush come.

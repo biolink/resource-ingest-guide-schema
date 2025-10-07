@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/value_constant/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/value_enumeration/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: value_constant - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>Slot: value_enumeration (multivalued) - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-value_constant" class="md-skip">
+        <a href="#slot-value_enumeration-multivalued" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: value_constant
+              Slot: value_enumeration (multivalued)
             
           </span>
         </div>
@@ -345,8 +345,8 @@
   
 
 
-<h1 id="slot-value_constant"><strong> Slot: value_constant </strong></h1>
-<div class="highlight-box"><strong>Description:</strong><i> A single value that is the one and only value for the qualifier in an Edge type (.g. "biolink:causes" as the only value for the "biolink:qualified_predicate" qualifier property) </i><br>
+<h1 id="slot-value_enumeration-multivalued"><strong> Slot: value_enumeration </strong>  (multivalued)</h1>
+<div class="highlight-box"><strong>Description:</strong><i> A set of one or more specific values for the qualifier in an Edge type (e.g. ["biolink:causes"] as the only value for the "biolink:qualified_predicate" qualifier property, ["activity_or_abundance", "activity", "abundance"]  as the values for the "biolink:object_aspect_qualifier" property). </i><br>
 
 
 <br>
@@ -359,16 +359,18 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details open>
 
-<pre><code class="language-yaml">name: value_constant
-description: 'A single value that is the one and only value for the qualifier in an
-  Edge type (.g. &quot;biolink:causes&quot; as the only value for the &quot;biolink:qualified_predicate&quot;
-  qualifier property) '
+<pre><code class="language-yaml">name: value_enumeration
+description: 'A set of one or more specific values for the qualifier in an Edge type
+  (e.g. [&quot;biolink:causes&quot;] as the only value for the &quot;biolink:qualified_predicate&quot;
+  qualifier property, [&quot;activity_or_abundance&quot;, &quot;activity&quot;, &quot;abundance&quot;]  as the values
+  for the &quot;biolink:object_aspect_qualifier&quot; property). '
 from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-alias: value_constant
+alias: value_enumeration
 owner: Qualifier
 domain_of:
 - Qualifier
 range: string
+multivalued: true
 
 </code></pre>
 

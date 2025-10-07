@@ -324,7 +324,7 @@ classes:
         infores_id:
           description: >-
             An infores identifier assigned to the target resource that will be created from the
-            ingested content.
+            ingested content. e.g. "infores:translator-ctd".
           range: uriorcurie
         edge_type_info:
           description: >-

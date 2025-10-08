@@ -63,7 +63,8 @@ target_info:
   edge_type_info:
     - subject_categories:
         - biolink:Gene
-      predicate: biolink:associated_with
+      predicates:
+        - biolink:associated_with
       object_categories:
         - biolink:Disease
       qualifiers:

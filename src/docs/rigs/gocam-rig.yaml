@@ -69,7 +69,8 @@ target_info:
   edge_type_info:
     - subject_categories:
         - biolink:Gene
-      predicate: biolink:directly_positively_regulates
+      predicates:
+        - biolink:directly_positively_regulates
       object_categories:
         - biolink:Gene
       knowledge_level:
@@ -87,7 +88,8 @@ target_info:
       ui_explanation: "GO-CAM models provide explicit causal relationships where one gene product directly positively regulates another gene product's activity."
     - subject_categories:
         - biolink:Gene
-      predicate: biolink:directly_negatively_regulates
+      predicates:
+        - biolink:directly_negatively_regulates
       object_categories:
         - biolink:Gene
       knowledge_level:
@@ -105,7 +107,8 @@ target_info:
       ui_explanation: "GO-CAM models provide explicit causal relationships where one gene product directly negatively regulates another gene product's activity."
     - subject_categories:
         - biolink:Gene
-      predicate: biolink:positively_regulates
+      predicates:
+        - biolink:positively_regulates
       object_categories:
         - biolink:Gene
       knowledge_level:
@@ -123,7 +126,8 @@ target_info:
       ui_explanation: "GO-CAM models provide causal relationships where one gene product positively regulates another gene product's activity, potentially through indirect mechanisms."
     - subject_categories:
         - biolink:Gene
-      predicate: biolink:negatively_regulates
+      predicates:
+        - biolink:negatively_regulates
       object_categories:
         - biolink:Gene
       knowledge_level:

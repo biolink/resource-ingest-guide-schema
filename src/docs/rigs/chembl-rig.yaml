@@ -73,7 +73,8 @@
           - ProteinComplex
         qualifiers:
           - property: "biolink:qualified_predicate"
-            value_constant: "biolink:causes"        
+            value_enumeration:
+              - "biolink:causes"        
           - property: "biolink:object_direction_qualifier"
             value_range:
               - "biolink:DirectionQualifierEnum"

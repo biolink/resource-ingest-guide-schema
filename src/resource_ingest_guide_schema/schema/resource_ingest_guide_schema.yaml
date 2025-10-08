@@ -358,7 +358,11 @@ classes:
       description: >-
         A structure for describing each type of edge (metaedge) created in the target knowledge graph by this ingest,
         including what types of edge properties it holds, and a brief explanation of why this modeling pattern
-        was deemed appropriate to represent the source data (for display to end users in a UI system).
+        was deemed appropriate to represent the source data (for display to end users in a UI system). Note that an edge type
+        with multiple subject_category and object_category values does not mean that the full cross-product must be instantiated
+        in the data. e.g. A KG with the edge type sub_cat: [Gene, Protein, Small Molecule], predicate: affects, obj_cat: [disease,
+        phenotype, symptom] might include  Protein-affects-Disease and Gene-affects-Symptom edges, but not include any 
+        Protein-affects-Symptom edges.
       attributes:
         subject_categories:
           description: >-
@@ -367,7 +371,7 @@ classes:
             edge properties, and general provenance, they can be described together in a single NodeType object
             that captures the alternative subject categories. e.g. if a source provides SmallMolecule-treats-Disease and 
             MolecularMixture-treats-Disease edge types, these can be described in a single EdgeType object with two
-            subject categories (SmallMolecule and MolecularMixture)
+            subject categories (SmallMolecule and MolecularMixture).
           range: uriorcurie
           multivalued: true
           required: true

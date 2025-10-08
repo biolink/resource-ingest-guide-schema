@@ -83,7 +83,8 @@ target_info:
   #Monarch: Gene--orthologous to->Gene
   - subject_categories:
     - "biolink:Gene"
-    predicate: "biolink:orthologous_to"
+    predicates:
+      - "biolink:orthologous_to"
     object_categories:
     - "biolink:Gene"
     knowledge_level:
@@ -98,7 +99,8 @@ target_info:
   #automat-panther: Gene Family--has part->Gene Family
   - subject_categories:
     - "biolink:GeneFamily"
-    predicate: "biolink:has_part"
+    predicates:
+      - "biolink:has_part"
     object_categories:
     - "biolink:GeneFamily"
     knowledge_level:
@@ -109,7 +111,8 @@ target_info:
   #automat-panther: Gene Family--has part->Gene
   - subject_categories:
     - "biolink:GeneFamily"
-    predicate: "biolink:has_part"
+    predicates:
+      - "biolink:has_part"
     object_categories:
     - "biolink:Gene"
     knowledge_level:
@@ -120,7 +123,8 @@ target_info:
   #automat-panther: Gene Family--located in->Cellular Component
   - subject_categories:
     - "biolink:GeneFamily"
-    predicate: "biolink:located_in"
+    predicates:
+      - "biolink:located_in"
     object_categories:
     - "biolink:CellularComponent"
     knowledge_level:
@@ -131,7 +135,8 @@ target_info:
   #automat-panther: Gene Family--actively involved in->Biological Process
   - subject_categories:
     - "biolink:GeneFamily"
-    predicate: "biolink:actively_involved_in"
+    predicates:
+      - "biolink:actively_involved_in"
     object_categories:
     - "biolink:BiologicalProcess"
     knowledge_level:
@@ -142,7 +147,8 @@ target_info:
   #automat-panther: Gene Family--catalyzes->Molecular Activity
   - subject_categories:
     - "biolink:GeneFamily"
-    predicate: "biolink:catalyzes"
+    predicates:
+      - "biolink:catalyzes"
     object_categories:
     - "biolink:MolecularActivity"
     knowledge_level:
@@ -153,7 +159,8 @@ target_info:
   #automat-panther: Gene Family--actively involved in->Pathway
   - subject_categories:
     - "biolink:GeneFamily"
-    predicate: "biolink:actively_involved_in"
+    predicates:
+      - "biolink:actively_involved_in"
     object_categories:
     - "biolink:Pathway"
     knowledge_level:
@@ -164,7 +171,8 @@ target_info:
   #automat-panther: Pathway--has participant->Gene Family
   - subject_categories:
     - "biolink:Pathway"
-    predicate: "biolink:has_participant"
+    predicates:
+      - "biolink:has_participant"
     object_categories:
     - "biolink:GeneFamily"
     knowledge_level:
@@ -175,7 +183,8 @@ target_info:
   #automat-panther: Pathway--subclass of->Biological Process
   - subject_categories:
     - "biolink:Pathway"
-    predicate: "biolink:subclass_of"
+    predicates:
+      - "biolink:subclass_of"
     object_categories:
     - "biolink:BiologicalProcess"
     knowledge_level:
@@ -186,7 +195,8 @@ target_info:
   #automat-panther: Pathway--subclass of->Pathway
   - subject_categories:
     - "biolink:Pathway"
-    predicate: "biolink:subclass_of"
+    predicates:
+      - "biolink:subclass_of"
     object_categories:
     - "biolink:Pathway"
     knowledge_level:
@@ -197,7 +207,8 @@ target_info:
   #automat-panther: Molecular Activity--subclass of->Molecular Activity
   - subject_categories:
     - "biolink:MolecularActivity"
-    predicate: "biolink:subclass_of"
+    predicates:
+      - "biolink:subclass_of"
     object_categories:
     - "biolink:MolecularActivity"
     knowledge_level:
@@ -208,7 +219,8 @@ target_info:
   #automat-panther: Biological Process--subclass of->Biological Process
   - subject_categories:
     - "biolink:BiologicalProcess"
-    predicate: "biolink:subclass_of"
+    predicates:
+      - "biolink:subclass_of"
     object_categories:
     - "biolink:BiologicalProcess"
     knowledge_level:
@@ -219,7 +231,8 @@ target_info:
   #automat-panther: Cellular Component--subclass of->Cellular Component
   - subject_categories:
     - "biolink:CellularComponent"
-    predicate: "biolink:subclass_of"
+    predicates:
+      - "biolink:subclass_of"
     object_categories:
     - "biolink:CellularComponent"
     knowledge_level:
@@ -230,7 +243,8 @@ target_info:
   #automat-panther: Cellular Component--subclass of->Anatomical Entity
   - subject_categories:
     - "biolink:CellularComponent"
-    predicate: "biolink:subclass_of"
+    predicates:
+      - "biolink:subclass_of"
     object_categories:
     - "biolink:AnatomicalEntity"
     knowledge_level:
@@ -241,7 +255,8 @@ target_info:
   #automat-panther: Cellular Component--subclass of->Gross Anatomical Structure
   - subject_categories:
     - "biolink:CellularComponent"
-    predicate: "biolink:subclass_of"
+    predicates:
+      - "biolink:subclass_of"
     object_categories:
     - "biolink:GrossAnatomicalStructure"
     knowledge_level:
@@ -252,7 +267,8 @@ target_info:
   #automat-panther: Anatomical Entity--subclass of->Cellular Component
   - subject_categories:
     - "biolink:AnatomicalEntity"
-    predicate: "biolink:subclass_of"
+    predicates:
+      - "biolink:subclass_of"
     object_categories:
     - "biolink:CellularComponent"
     knowledge_level:
@@ -263,7 +279,8 @@ target_info:
   #automat-panther: Gross Anatomical Structure--subclass of->Cellular Component
   - subject_categories:
     - "biolink:GrossAnatomicalStructure"
-    predicate: "biolink:subclass_of"
+    predicates:
+      - "biolink:subclass_of"
     object_categories:
     - "biolink:CellularComponent"
     knowledge_level:

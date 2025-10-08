@@ -205,7 +205,7 @@
 
       EdgeType : object_categories
 
-      EdgeType : predicate
+      EdgeType : predicates
 
       EdgeType : qualifiers
 
@@ -236,8 +236,8 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="../predicate/">predicate</a>: <br/> <i> The Biolink predicate that defines this type of edge (e.g. "biolink:treats) </i></td>
-<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td><a href="../predicates/">predicates</a>: <br/> <i> Biolink predicate(s) that defines this type of edge. Multiple values allowed ONLY if they are a predicate and one or more of its descendent predicates (e.g. ["biolink:affects", "biolink:regulates", "biolink:disrupts"]. Otherwise,  separate EdgeType objects should be created for each predicate.  </i></td>
+<td>1..* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>direct</td>
 <td></td>
 </tr>
@@ -333,14 +333,18 @@ attributes:
     range: uriorcurie
     required: true
     multivalued: true
-  predicate:
-    name: predicate
-    description: The Biolink predicate that defines this type of edge (e.g. "biolink:treats)
+  predicates:
+    name: predicates
+    description: 'Biolink predicate(s) that defines this type of edge. Multiple values
+      allowed ONLY if they are a predicate and one or more of its descendent predicates
+      (e.g. ["biolink:affects", "biolink:regulates", "biolink:disrupts"]. Otherwise,  separate
+      EdgeType objects should be created for each predicate. '
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
     - EdgeType
     range: uriorcurie
     required: true
+    multivalued: true
   object_categories:
     name: object_categories
     description: The Biolink category of the object node of this edge type. e.g. "biolink:Disease".

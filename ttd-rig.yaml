@@ -73,7 +73,8 @@ target_info:
   edge_type_info:
     - subject_categories:
         - biolink:ChemicalEntity
-      predicate: biolink:treats
+      predicates:
+        - biolink:treats
       object_categories:
         - biolink:Disease
       knowledge_level:
@@ -86,7 +87,8 @@ target_info:
       ui_explanation: "The TTD curators assigned this relationship a clinical status of 'approved', 'phase 4', 'approved (orphan drug)', or 'NDA filed'."
     - subject_categories:
         - biolink:ChemicalEntity
-      predicate: biolink:studied_to_treat
+      predicates:
+        - biolink:studied_to_treat
       object_categories:
         - biolink:Disease
       knowledge_level:
@@ -99,7 +101,8 @@ target_info:
       ui_explanation: "The TTD curators assigned this relationship a clinical status of 'investigative', 'patented', 'discontinued in preregistration', 'preregistration', or 'withdrawn from market'."
     - subject_categories:
         - biolink:ChemicalEntity
-      predicate: biolink:in_preclinical_trials_for
+      predicates:
+        - biolink:in_preclinical_trials_for
       object_categories:
         - biolink:Disease
       knowledge_level:
@@ -112,7 +115,8 @@ target_info:
       ui_explanation: "The TTD curators assigned this relationship a clinical status of 'preclinical'."
     - subject_categories:
         - biolink:ChemicalEntity
-      predicate: biolink:in_clinical_trials_for
+      predicates:
+        - biolink:in_clinical_trials_for
       object_categories:
         - biolink:Disease
       knowledge_level:
@@ -126,7 +130,8 @@ target_info:
       additional_notes: "This includes >30 unique values. Some values have the same meaning (perhaps curators aren't consistent with what terminology they use), and perhaps the possible values will change between releases."
     - subject_categories:
         - biolink:ChemicalEntity
-      predicate: biolink:affects
+      predicates:
+        - biolink:affects
       object_categories:
         - biolink:Gene
         - biolink:Protein

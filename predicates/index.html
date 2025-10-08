@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/predicate/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/predicates/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: predicate - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>Slot: predicates (multivalued) - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-predicate" class="md-skip">
+        <a href="#slot-predicates-multivalued" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: predicate
+              Slot: predicates (multivalued)
             
           </span>
         </div>
@@ -345,8 +345,8 @@
   
 
 
-<h1 id="slot-predicate"><strong> Slot: predicate </strong></h1>
-<div class="highlight-box"><strong>Description:</strong><i> The Biolink predicate that defines this type of edge (e.g. "biolink:treats)</i><br>
+<h1 id="slot-predicates-multivalued"><strong> Slot: predicates </strong>  (multivalued)</h1>
+<div class="highlight-box"><strong>Description:</strong><i> Biolink predicate(s) that defines this type of edge. Multiple values allowed ONLY if they are a predicate and one or more of its descendent predicates (e.g. ["biolink:affects", "biolink:regulates", "biolink:disrupts"]. Otherwise,  separate EdgeType objects should be created for each predicate. </i><br>
    <strong>Required:</strong> True<br>
 
 <br>
@@ -359,15 +359,19 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details open>
 
-<pre><code class="language-yaml">name: predicate
-description: The Biolink predicate that defines this type of edge (e.g. &quot;biolink:treats)
+<pre><code class="language-yaml">name: predicates
+description: 'Biolink predicate(s) that defines this type of edge. Multiple values
+  allowed ONLY if they are a predicate and one or more of its descendent predicates
+  (e.g. [&quot;biolink:affects&quot;, &quot;biolink:regulates&quot;, &quot;biolink:disrupts&quot;]. Otherwise,  separate
+  EdgeType objects should be created for each predicate. '
 from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-alias: predicate
+alias: predicates
 owner: EdgeType
 domain_of:
 - EdgeType
 range: uriorcurie
 required: true
+multivalued: true
 
 </code></pre>
 

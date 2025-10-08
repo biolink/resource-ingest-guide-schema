@@ -51,7 +51,8 @@ target_info:
   edge_type_info:
     - subject_categories:
         - biolink:Gene
-      predicate: biolink:regulates
+      predicates:
+        - biolink:regulates
       object_categories:
         - biolink:Gene
       qualifiers:
@@ -68,7 +69,8 @@ target_info:
       ui_explanation: "Signor records indicate the gene to be 'regulate' another gene - which maps best to the Biolink predicate 'regulates' with additional directional qualifier."
     - subject_categories:
         - biolink:ChemicalEntity
-      predicate: biolink:affects
+      predicates:
+        - biolink:affects
       object_categories:
         - biolink:Gene
       qualifiers:
@@ -85,7 +87,8 @@ target_info:
       ui_explanation: "Signor records indicate the chemical to be 'regulate' another gene - which maps best to the Biolink predicate 'affects' with additional directional qualifier."
     - subject_categories:
         - biolink:Gene
-      predicate: biolink:affects
+      predicates:
+        - biolink:affects
       object_categories:
         - biolink:Phenotype
       qualifiers:
@@ -102,7 +105,8 @@ target_info:
       ui_explanation: "Signor records indicate the gene to be 'regulate' another phenotype - which maps best to the Biolink predicate 'affects' with additional directional qualifier."
     - subject_categories:
         - biolink:Complex
-      predicate: biolink:affects
+      predicates:
+        - biolink:affects
       object_categories:
         - biolink:Gene
       qualifiers:
@@ -119,7 +123,8 @@ target_info:
       ui_explanation: "Signor records indicate the complex to be 'regulate' another gene - which maps best to the Biolink predicate 'affects' with additional directional qualifier."
     - subject_categories:
         - biolink:Gene
-      predicate: biolink:affects
+      predicates:
+        - biolink:affects
       object_categories:
         - biolink:SmallMolecule
       qualifiers:
@@ -136,7 +141,8 @@ target_info:
       ui_explanation: "Signor records indicate the gene to be 'regulate' another smallmolecule - which maps best to the Biolink predicate 'affects' with additional directional qualifier."
     - subject_categories:
         - biolink:ProteinFamily
-      predicate: biolink:regulates
+      predicates:
+        - biolink:regulates
       object_categories:
         - biolink:Gene
       qualifiers:

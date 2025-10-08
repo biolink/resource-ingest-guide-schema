@@ -92,7 +92,8 @@
     edge_type_info:
       - subject_categories:
           - biolink:ChemicalEntity
-        predicate:  biolink:treats_or_applied_or_studied_to_treat
+        predicates:  
+          - biolink:treats_or_applied_or_studied_to_treat
         object_categories:
           - biolink:DiseaseOrPhenotypicFeature
         knowledge_level:
@@ -105,7 +106,8 @@
         additional_notes: The 'treats_or_applied_or_studied_to_treat' predicate is used to avoid making too strong a claim, as CTDs definition of its "T" flag is broad ("a chemical that has a known or potential therapeutic role in a disease"), which covered cases where a chemical may formally treat a disease or only have been studied or applied to treat a disease. All edges are manual agent knowledge assertions, as the ingested data is based on manual literature curation.
       - subject_categories:
           - biolink:ChemicalEntity
-        predicate:  biolink:correlated_with
+        predicates: 
+          - biolink:correlated_with
         object_categories:
           - biolink:DiseaseOrPhenotypicFeature
         knowledge_level:
@@ -117,7 +119,8 @@
         ui_explanation: CTD Chemical-Disease records with a DirectEvidence code of "M" (marker/mechanism) indicate that the chemical is manually flagged as a marker or contributing factor for a condition. This implies that at minimum there is correlation between the presence of the chemical and condition, for which we use the Biolink 'correlated_with' predicate.
       - subject_categories:
           - biolink:ChemicalEntity
-        predicate:  biolink:associated_with
+        predicates: 
+          - biolink:associated_with
         object_categories:
           - biolink:DiseaseOrPhenotypicFeature
         knowledge_level:

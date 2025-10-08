@@ -76,7 +76,8 @@ target_info:
         - biolink:Protein
         - biolink:MacromolecularComplex
         - biolink:RNAProduct
-      predicate: biolink:enables
+      predicates:
+        - biolink:enables
       object_categories:
         - biolink:MolecularActivity
       knowledge_level:
@@ -91,7 +92,8 @@ target_info:
       additional_notes: "varies, depending on mappings from GO evidence codes"
     - subject_categories:
         - biolink:MacromolecularComplex
-      predicate: biolink:contributes_to
+      predicates:
+        - biolink:contributes_to
       object_categories:
         - biolink:MolecularActivity
       knowledge_level:
@@ -109,7 +111,8 @@ target_info:
         - biolink:Protein
         - biolink:MacromolecularComplex
         - biolink:RNAProduct
-      predicate: biolink:involved_in
+      predicates:
+        - biolink:involved_in
       object_categories:
         - biolink:BiologicalProcess
       knowledge_level:
@@ -127,7 +130,8 @@ target_info:
         - biolink:Protein
         - biolink:MacromolecularComplex
         - biolink:RNAProduct
-      predicate: biolink:acts_upstream_of_or_within
+      predicates:
+        - biolink:acts_upstream_of_or_within
       object_categories:
         - biolink:BiologicalProcess
       knowledge_level:
@@ -145,7 +149,8 @@ target_info:
         - biolink:Protein
         - biolink:MacromolecularComplex
         - biolink:RNAProduct
-      predicate: biolink:acts_upstream_of_or_within_positive_effect
+      predicates:
+        - biolink:acts_upstream_of_or_within_positive_effect
       object_categories:
         - biolink:BiologicalProcess
       knowledge_level:
@@ -163,7 +168,8 @@ target_info:
         - biolink:Protein
         - biolink:MacromolecularComplex
         - biolink:RNAProduct
-      predicate: biolink:acts_upstream_of_or_within_negative_effect
+      predicates:
+        - biolink:acts_upstream_of_or_within_negative_effect
       object_categories:
         - biolink:BiologicalProcess
       knowledge_level:
@@ -181,7 +187,8 @@ target_info:
         - biolink:Protein
         - biolink:MacromolecularComplex
         - biolink:RNAProduct
-      predicate: biolink:acts_upstream_of
+      predicates:
+        - biolink:acts_upstream_of
       object_categories:
         - biolink:BiologicalProcess
       knowledge_level:
@@ -199,7 +206,8 @@ target_info:
         - biolink:Protein
         - biolink:MacromolecularComplex
         - biolink:RNAProduct
-      predicate: biolink:acts_upstream_of_positive_effect
+      predicates:
+        - biolink:acts_upstream_of_positive_effect
       object_categories:
         - biolink:BiologicalProcess
       knowledge_level:
@@ -217,7 +225,8 @@ target_info:
         - biolink:Protein
         - biolink:MacromolecularComplex
         - biolink:RNAProduct
-      predicate: biolink:acts_upstream_of_negative_effect
+      predicates:
+        - biolink:acts_upstream_of_negative_effect
       object_categories:
         - biolink:BiologicalProcess
       knowledge_level:
@@ -235,7 +244,8 @@ target_info:
         - biolink:Protein
         - biolink:MacromolecularComplex
         - biolink:RNAProduct
-      predicate: biolink:is_active_in
+      predicates:
+        - biolink:is_active_in
       object_categories:
         - biolink:CellularComponent
       knowledge_level:
@@ -253,7 +263,8 @@ target_info:
         - biolink:Protein
         - biolink:MacromolecularComplex
         - biolink:RNAProduct
-      predicate: biolink:located_in
+      predicates:
+        - biolink:located_in
       object_categories:
         - biolink:CellularComponent
       knowledge_level:
@@ -270,7 +281,8 @@ target_info:
         - biolink:Gene
         - biolink:Protein
         - biolink:RNAProduct
-      predicate: biolink:part_of
+      predicates:
+        - biolink:part_of
       object_categories:
         - biolink:MacromolecularComplex
       knowledge_level:
@@ -288,7 +300,8 @@ target_info:
         - biolink:Protein
         - biolink:MacromolecularComplex
         - biolink:RNAProduct
-      predicate: biolink:colocalizes_with
+      predicates:
+        - biolink:colocalizes_with
       object_categories:
         - biolink:CellularComponent
       knowledge_level:

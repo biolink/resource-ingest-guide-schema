@@ -375,9 +375,13 @@ classes:
           range: uriorcurie
           multivalued: true
           required: true
-        predicate:
-          description: The Biolink predicate that defines this type of edge (e.g. "biolink:treats)
+        predicates:
+          description: >-
+            Biolink predicate(s) that defines this type of edge. Multiple values allowed ONLY if they are a predicate
+            and one or more of its descendent predicates (e.g. ["biolink:affects", "biolink:regulates", "biolink:disrupts"]. Otherwise, 
+            separate EdgeType objects should be created for each predicate. 
           range: uriorcurie
+          multivalued: true
           required: true
         object_categories:
           description: >-

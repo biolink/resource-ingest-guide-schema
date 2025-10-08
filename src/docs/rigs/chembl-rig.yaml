@@ -59,7 +59,7 @@
           - MolecularMixture
           - ChemicalEntity
           - Protein
-        predicate: 
+        predicates: 
           - biolink:affects
           - biolink:disrupts
           - biolink:regulates
@@ -101,7 +101,7 @@
           - MolecularMixture
           - ChemicalEntity
           - Protein
-        predicate: 
+        predicates: 
           - biolink:directly_physically_interacts_with
         object_categories:
           - Gene
@@ -133,7 +133,7 @@
           - MolecularMixture
           - ChemicalEntity
           - Protein
-        predicate: 
+        predicates: 
           - biolink:assesses
         object_categories:
           - AnatomicalEntity
@@ -168,7 +168,7 @@
           - SmallMolecule
           - MolecularMixture
           - ChemicalEntity
-        predicate: 
+        predicates: 
           - biolink:has_metabolite
         object_categories:
           - SmallMolecule

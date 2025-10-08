@@ -49,7 +49,8 @@ target_info:
     - subject_categories:
         - "biolink:ChemicalEntity"
         - "biolink:MolecularMixture"
-      predicate: "biolink:in_clinical_trials_for"
+      predicates: 
+        - "biolink:in_clinical_trials_for"
       object_categories:
         - "biolink:DiseaseOrPhenotypicFeature"
       knowledge_level:
@@ -60,7 +61,8 @@ target_info:
     - subject_categories:
         - "biolink:ChemicalEntity"
         - "biolink:MolecularMixture"
-      predicate: "biolink:treats"
+      predicates: 
+        - "biolink:treats"
       object_categories:
         - "biolink:DiseaseOrPhenotypicFeature"
       knowledge_level:

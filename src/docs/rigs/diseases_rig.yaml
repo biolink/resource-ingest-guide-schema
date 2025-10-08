@@ -71,7 +71,8 @@ target_info:
     - subject_categories:
         - "biolink:Gene"
         - "biolink:Protein"
-      predicate: "biolink:occurs_together_in_literature_with"
+      predicates:
+        - "biolink:occurs_together_in_literature_with"
       object_categories:
         - "biolink:Disease"
       knowledge_level:
@@ -87,7 +88,8 @@ target_info:
     - subject_categories:
         - "biolink:Gene"
         - "biolink:Protein"
-      predicate: "biolink:associated_with"
+      predicates:
+        - "biolink:associated_with"
       object_categories:
         - "biolink:Disease"
       knowledge_level:

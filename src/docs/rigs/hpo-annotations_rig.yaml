@@ -110,7 +110,8 @@ target_info:
   edge_type_info:
     - subject_categories:
       - "biolink:Disease"
-      predicate: "biolink:has_phenotype"
+      predicates:
+        - "biolink:has_phenotype"
       object_categories:
       - "biolink:PhenotypicFeature"
       qualifiers:
@@ -145,7 +146,8 @@ target_info:
       additional_notes: null
     - subject_categories:
       - "biolink:Gene"
-      predicate: "biolink:associated_with"
+      predicates:
+        - "biolink:associated_with"
       object_categories:
       - "biolink:Disease"
       qualifiers:
@@ -168,7 +170,8 @@ target_info:
       additional_notes: null
     - subject_categories:
       - "biolink:Gene"
-      predicate: "biolink:associated_with"
+      predicates:
+        - "biolink:associated_with"
       object_categories:
       - "biolink:Disease"
       qualifiers:
@@ -191,7 +194,8 @@ target_info:
       additional_notes: null
     - subject_categories:
       - "biolink:Gene"
-      predicate: "biolink:associated_with"
+      predicates:
+        - "biolink:associated_with"
       object_categories:
       - "biolink:Disease"
       knowledge_level:
@@ -206,7 +210,8 @@ target_info:
       additional_notes: null
     - subject_categories:
       - "biolink:Gene"
-      predicate: "biolink:has_phenotype"
+      predicates:
+        - "biolink:has_phenotype"
       object_categories:
       - "biolink:PhenotypicFeature"
       qualifiers:

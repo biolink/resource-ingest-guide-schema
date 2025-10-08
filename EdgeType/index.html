@@ -187,7 +187,7 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-edgetype"><strong>  Class: EdgeType </strong></h1>
 <div class="highlight-box">
-<strong>Description:</strong><i> A structure for describing each type of edge (metaedge) created in the target knowledge graph by this ingest, including what types of edge properties it holds, and a brief explanation of why this modeling pattern was deemed appropriate to represent the source data (for display to end users in a UI system).</i><br/>
+<strong>Description:</strong><i> A structure for describing each type of edge (metaedge) created in the target knowledge graph by this ingest, including what types of edge properties it holds, and a brief explanation of why this modeling pattern was deemed appropriate to represent the source data (for display to end users in a UI system). Note that an edge type with multiple subject_category and object_category values does not mean that the full cross-product must be instantiated in the data. e.g. A KG with the edge type sub_cat: [Gene, Protein, Small Molecule], predicate: affects, obj_cat: [disease, phenotype, symptom] might include  Protein-affects-Disease and Gene-affects-Symptom edges, but not include any  Protein-affects-Symptom edges.</i><br/>
 </div>
 <div class="mermaid"> classDiagram
     class EdgeType
@@ -230,7 +230,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../subject_categories/">subject_categories</a>: <br> <i> The Biolink category of the subject node of this edge type. e.g. "biolink:SmallMolecule". If two edge types differ only in their subject category, but use the same predicate, object_category,  edge properties, and general provenance, they can be described together in a single NodeType object that captures the alternative subject categories. e.g. if a source provides SmallMolecule-treats-Disease and  MolecularMixture-treats-Disease edge types, these can be described in a single EdgeType object with two subject categories (SmallMolecule and MolecularMixture) </i></br></td>
+<td><a href="../subject_categories/">subject_categories</a>: <br> <i> The Biolink category of the subject node of this edge type. e.g. "biolink:SmallMolecule". If two edge types differ only in their subject category, but use the same predicate, object_category,  edge properties, and general provenance, they can be described together in a single NodeType object that captures the alternative subject categories. e.g. if a source provides SmallMolecule-treats-Disease and  MolecularMixture-treats-Disease edge types, these can be described in a single EdgeType object with two subject categories (SmallMolecule and MolecularMixture). </i></br></td>
 <td>1..* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>direct</td>
 <td></td>
@@ -307,10 +307,15 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details open="">
 <pre><code class="language-yaml">name: EdgeType
-description: A structure for describing each type of edge (metaedge) created in the
+description: 'A structure for describing each type of edge (metaedge) created in the
   target knowledge graph by this ingest, including what types of edge properties it
   holds, and a brief explanation of why this modeling pattern was deemed appropriate
-  to represent the source data (for display to end users in a UI system).
+  to represent the source data (for display to end users in a UI system). Note that
+  an edge type with multiple subject_category and object_category values does not
+  mean that the full cross-product must be instantiated in the data. e.g. A KG with
+  the edge type sub_cat: [Gene, Protein, Small Molecule], predicate: affects, obj_cat:
+  [disease, phenotype, symptom] might include  Protein-affects-Disease and Gene-affects-Symptom
+  edges, but not include any  Protein-affects-Symptom edges.'
 from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
 attributes:
   subject_categories:
@@ -321,7 +326,7 @@ attributes:
       they can be described together in a single NodeType object that captures the
       alternative subject categories. e.g. if a source provides SmallMolecule-treats-Disease
       and  MolecularMixture-treats-Disease edge types, these can be described in a
-      single EdgeType object with two subject categories (SmallMolecule and MolecularMixture)
+      single EdgeType object with two subject categories (SmallMolecule and MolecularMixture).
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
     - EdgeType

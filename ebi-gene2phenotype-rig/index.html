@@ -458,8 +458,8 @@
 - Latest data is provided at https://www.ebi.ac.uk/gene2phenotype/download (downloads created on-the-fly)
 - Archived static releases provided on the FTP site at https://ftp.ebi.ac.uk/pub/databases/gene2phenotype/G2P_data_downloads/</p>
 <p><strong>Data Provision Mechanisms:</strong> file_download</p>
-<p><strong>Data Formats:</strong> csv</p>
-<p><strong>Data Versioning and Releases:</strong> Releases cut and archived roughly every 1-2 months. On-the-fly downloads: creation/download date are the same and can be used for versioning. Note that the date in the filename may differ from the date in your timezone. Static releases: creation date (shown on FTP site and in folder/file names) can be used for versioning</p>
+<p><strong>Data Formats:</strong> csv, other</p>
+<p><strong>Data Versioning and Releases:</strong> On-the-fly downloads: creation/download date are the same and can be used for versioning; note that the date in the filename may differ from the date in your timezone. Static releases: creation date (shown on FTP site and in folder/file names) can be used for versioning; releases cut and archived roughly every 1-2 months.</p>
 <h2 id="ingest-information">Ingest Information</h2>
 <p><strong>Ingest Categories:</strong> primary_knowledge_provider</p>
 <p><strong>Utility:</strong> EBI G2P associations are useful as edges in support paths for MVP1 ('what may treat disease X'), and in Pathfinder queries.</p>
@@ -526,7 +526,7 @@
 </table>
 <h3 id="future-content-considerations">Future Content Considerations</h3>
 <p><strong>edge_content:</strong> Revisit exclusion of 'disputed' and/or 'refuted' records once Translator can model/handle negation better</p>
-<p><strong>edge_property_content:</strong> Lots of additional edge-level information that we could include in future iterations: 'confidence' level values when we improve/refactor modeling of confidence in Biolink, variant information ('variant consequence', 'variant types' columns). The values map to SO terms. Rich evidence and provenance metadata provided by the source (e.g. type of experiments/methods used to determine the molecular mechanism, and supporting publications).</p>
+<p><strong>edge_property_content:</strong> Lots of additional edge-level information that we could include in future iterations, including: 'confidence' level values when we improve/refactor modeling of confidence in Biolink; variant information ('variant consequence', 'variant types' columns - their values map to SO terms); (Matt's note) rich evidence and provenance metadata provided by the source (e.g. type of experiments/methods used to determine the molecular mechanism, and supporting publications).</p>
 <h2 id="target-information">Target Information</h2>
 <p><strong>Target InfoRes ID:</strong> infores:translator-ebi-gene2phenotype-kgx</p>
 <h3 id="edge-types">Edge Types</h3>
@@ -576,7 +576,7 @@
 </table>
 <h3 id="future-modeling-considerations">Future Modeling Considerations</h3>
 <p><strong>qualifiers:</strong> May want to revisit how we handle the 'molecular mechanism' and 'variant types' columns VS the biolink-model qualifier options</p>
-<p><strong>qualifiers:</strong> Revisit modeling of allelic_requirement (uses a regex pattern to match HP id syntax now, rather than an enumerated list of permissible values)</p>
+<p><strong>edge_properties:</strong> Revisit modeling of allelic_requirement (uses a regex pattern to match HP id syntax now, rather than an enumerated list of permissible values)</p>
 <h2 id="provenance-information">Provenance Information</h2>
 <p><strong>Contributors:</strong>
 - Colleen Xu: code author, data modeling

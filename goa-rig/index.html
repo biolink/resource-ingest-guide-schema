@@ -511,8 +511,9 @@
 </table>
 <h3 id="future-content-considerations">Future Content Considerations</h3>
 <p><strong>edge_content:</strong> Consider ingesting Gene/Product to GO Term annotations from other taxon (beyond human, mouse, and rat)</p>
-<p><strong>edge_content:</strong> Consider inclusion of qualifying information (as may be found in the Annotation Extensions, or With or From columns) to existing and new Gene/Product to GO Term annotations</p>
+<p><strong>edge_content:</strong> Consider inclusion of qualifying information (as may be found in the Annotation Extensions, or With or From columns) to existing and new Gene/Product to GO Term annotations. With/From column in particular to show provenance of inferred associations with codes like IBA or IEA.</p>
 <p><strong>edge_content:</strong> Consider ingesting associations between two GO Terms, per the specification at https://wiki.geneontology.org/index.php/Annotation_Relations#Standard_Annotation:_Annotation_Extension_Relations</p>
+<p><strong>node_property_content:</strong> GOA generally adds some curatorial value when pulling annotations from sources like MODs, PANTHER, etc.  Minimally, id mapping, quality checking, etc. - but often more than this. This is why we are ok with making them the primary source. But we should attribute MODs, PANTHER, etc. as supporting data sources in these cases, if we can find this info in the data.</p>
 <p><strong>node_property_content:</strong> t.b.d. if we will bring in taxon info about gene/gene product nodes from GOA, or rely on other gene property authorities for this information (e.g. ncbigene)</p>
 <h2 id="target-information">Target Information</h2>
 <p><strong>Target InfoRes ID:</strong> infores:translator-goa-kgx</p>

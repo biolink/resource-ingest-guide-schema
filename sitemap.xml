@@ -189,10 +189,6 @@
          <lastmod>2025-10-14</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/information-resource-ingest-guide/chembl-rig/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
          <loc>https://biolink.github.io/information-resource-ingest-guide/citations/</loc>
          <lastmod>2025-10-14</lastmod>
     </url>
@@ -202,14 +198,6 @@
     </url>
     <url>
          <loc>https://biolink.github.io/information-resource-ingest-guide/contributions/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/information-resource-ingest-guide/ctd_rig/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/information-resource-ingest-guide/ctkp_rig/</loc>
          <lastmod>2025-10-14</lastmod>
     </url>
     <url>
@@ -230,14 +218,6 @@
     </url>
     <url>
          <loc>https://biolink.github.io/information-resource-ingest-guide/description/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/information-resource-ingest-guide/diseases_rig/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/information-resource-ingest-guide/ebi-gene2phenotype-rig/</loc>
          <lastmod>2025-10-14</lastmod>
     </url>
     <url>
@@ -270,18 +250,6 @@
     </url>
     <url>
          <loc>https://biolink.github.io/information-resource-ingest-guide/future_considerations/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/information-resource-ingest-guide/goa-rig/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/information-resource-ingest-guide/gocam-rig/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/information-resource-ingest-guide/hpo-annotations_rig/</loc>
          <lastmod>2025-10-14</lastmod>
     </url>
     <url>
@@ -341,10 +309,6 @@
          <lastmod>2025-10-14</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/information-resource-ingest-guide/panther_rig/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
          <loc>https://biolink.github.io/information-resource-ingest-guide/predicates/</loc>
          <lastmod>2025-10-14</lastmod>
     </url>
@@ -381,10 +345,6 @@
          <lastmod>2025-10-14</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/information-resource-ingest-guide/signor-rig/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
          <loc>https://biolink.github.io/information-resource-ingest-guide/source_identifier_types/</loc>
          <lastmod>2025-10-14</lastmod>
     </url>
@@ -414,10 +374,6 @@
     </url>
     <url>
          <loc>https://biolink.github.io/information-resource-ingest-guide/terms_of_use_url/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/information-resource-ingest-guide/ttd-rig/</loc>
          <lastmod>2025-10-14</lastmod>
     </url>
     <url>

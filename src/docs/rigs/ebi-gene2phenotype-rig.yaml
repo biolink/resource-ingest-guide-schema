@@ -10,7 +10,7 @@ source_info:
     - "https://doi.org/10.1186/s13073-024-01398-1"
     - "https://www.nature.com/articles/s41467-019-10016-3"
   terms_of_use_info:
-    terms_of_use_description: "Unsure, but likely uses EMBL-EBI terms of use (linked in the website footer). Don't see a formal license. Various webpages say that all data is 'freely available'. Also, various webpages say to please cite the date accessed/data version and Thorman et al 2019"
+    terms_of_use_description: "Unsure, but likely uses EMBL-EBI terms of use (linked in website footer). Currently don't see a formal standard license. Various resource webpages (About -> The G2P Project, Downloads, Publications) say that all data is 'freely available' and to please cite the date accessed/data version and Thorman et al 2019"
     terms_of_use_url: "https://www.ebi.ac.uk/about/terms-of-use/#general"
   data_access_locations:
     - "Latest data is provided at https://www.ebi.ac.uk/gene2phenotype/download (downloads created on-the-fly)"
@@ -18,8 +18,9 @@ source_info:
   data_provision_mechanisms:
     - file_download
   data_formats:
-    - csv
-  data_versioning_and_releases: "Releases cut and archived roughly every 1-2 months. On-the-fly downloads: creation/download date are the same and can be used for versioning. Note that the date in the filename may differ from the date in your timezone. Static releases: creation date (shown on FTP site and in folder/file names) can be used for versioning"
+    - csv    # on-the-fly downloads
+    - other    # FTP static releases are csv.gz
+  data_versioning_and_releases: "On-the-fly downloads: creation/download date are the same and can be used for versioning; note that the date in the filename may differ from the date in your timezone. Static releases: creation date (shown on FTP site and in folder/file names) can be used for versioning; releases cut and archived roughly every 1-2 months."
 
 # Information about Ingested Content
 ingest_info:
@@ -52,7 +53,7 @@ ingest_info:
     - category: edge_content
       consideration: "Revisit exclusion of 'disputed' and/or 'refuted' records once Translator can model/handle negation better"
     - category: edge_property_content
-      consideration: "Lots of additional edge-level information that we could include in future iterations: 'confidence' level values when we improve/refactor modeling of confidence in Biolink, variant information ('variant consequence', 'variant types' columns). The values map to SO terms. Rich evidence and provenance metadata provided by the source (e.g. type of experiments/methods used to determine the molecular mechanism, and supporting publications)."
+      consideration: "Lots of additional edge-level information that we could include in future iterations, including: 'confidence' level values when we improve/refactor modeling of confidence in Biolink; variant information ('variant consequence', 'variant types' columns - their values map to SO terms); (Matt's note) rich evidence and provenance metadata provided by the source (e.g. type of experiments/methods used to determine the molecular mechanism, and supporting publications)."
 
   # Note: additional_notes field has been removed from this section according to new schema
 
@@ -98,7 +99,7 @@ target_info:
   future_considerations:
     - category: qualifiers
       consideration: "May want to revisit how we handle the 'molecular mechanism' and 'variant types' columns VS the biolink-model qualifier options"
-    - category: qualifiers
+    - category: edge_properties
       consideration: "Revisit modeling of allelic_requirement (uses a regex pattern to match HP id syntax now, rather than an enumerated list of permissible values)"
 
 # Information about the how the ingest was specified and performed

@@ -263,7 +263,7 @@
 </tr>
 <tr>
 <td><a href="../data_access_locations/">data_access_locations</a>: <br/> <i> Where the source data that is being ingested can be accessed. Provide one or more URLs,  along with optional descriptions of what each URL provides. </i></td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
 <td>direct</td>
 <td></td>
 </tr>
@@ -378,6 +378,7 @@ attributes:
     domain_of:
     - SourceInformation
     range: string
+    required: true
     multivalued: true
   data_provision_mechanisms:
     name: data_provision_mechanisms

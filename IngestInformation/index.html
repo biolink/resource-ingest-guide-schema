@@ -257,7 +257,7 @@
 </tr>
 <tr>
 <td><a href="../included_content/">included_content</a>: <br/> <i> A description of what types of records from relevant files/endpoints/tables above are included in this ingest, and optionally a list of fields from these records that are part of the ingest or used to inform it. </i></td>
-<td>* <br/> <a href="../IncludedContent/">IncludedContent</a></td>
+<td>1..* <br/> <a href="../IncludedContent/">IncludedContent</a></td>
 <td>direct</td>
 <td></td>
 </tr>
@@ -357,6 +357,7 @@ attributes:
     domain_of:
     - IngestInformation
     range: IncludedContent
+    required: true
     multivalued: true
   filtered_content:
     name: filtered_content

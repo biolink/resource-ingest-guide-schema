@@ -134,6 +134,7 @@ classes:
             along with optional descriptions of what each URL provides.
           range: string
           multivalued: true
+          required: true
         data_provision_mechanisms:
           description: >-
             How the source distributes their data (file download, API endpoints, database dump).
@@ -216,6 +217,7 @@ classes:
             of the ingest or used to inform it.
           range: IncludedContent
           multivalued: true
+          required: true
         filtered_content:
           description: >-
            A description of what types of records from each relevant file are not included in the

@@ -2,14 +2,15 @@
 This script loads details from a Biolink Model-compliant
 Meta Knowledge Graph (TRAPI) json file, into a specified RIG YAML file.
 """
+from os import path, rename
+import sys
 from pathlib import Path
 import yaml
 import json
 import click
 
-# TODO: weak link here: what exact value should
-#       this actually be, from Translator Ingests?
-TRANSLATOR_INGESTS = Path("src/translator_ingest/ingests")
+# TODO: weak link here: how should this path be set within Translator Ingests?
+TRANSLATOR_INGESTS = Path("src/translator_ingest/ingests").absolute()
 
 @click.command()
 @click.option(
@@ -18,15 +19,15 @@ TRANSLATOR_INGESTS = Path("src/translator_ingest/ingests")
     help='Target ingest folder name of the target data source folder (e.g., icees)'
 )
 @click.option(
+    '--rig',
+    default=None,
+    help='Target RIG file (default: <ingest folder name>_rig.yaml)'
+)
+@click.option(
     '--mkg',
     default='meta_knowledge_graph.json',
     help='Meta Knowledge Graph JSON file source of details to be loaded into the RIG ' +
          '(default: "meta_knowledge_graph.json",  assumed co-located with RIG in the ingest folder)'
-)
-@click.option(
-    '--rig',
-    default=None,
-    help='Target RIG file (default: <ingest folder name>_rig.yaml)'
 )
 @click.option(
     '--knowledge_level',
@@ -58,7 +59,11 @@ def main(ingest, mkg, rig, knowledge_level, agent_type):
     """
     ingest_path = TRANSLATOR_INGESTS / ingest
 
+    print(f"Ingest Data: {ingest_path}")
+
     mkg_path = ingest_path / mkg
+
+    print(f"Metadata: {mkg_path}")
 
     # Validate infores format
     if rig is None:
@@ -66,35 +71,33 @@ def main(ingest, mkg, rig, knowledge_level, agent_type):
 
     rig_path = ingest_path / rig
 
-    # Check if mkg json file exists
-    if not path.exists(mkg):
-        click.echo(f"Error: Meta Knowledge Graph json file not found: {mkg}", err=True)
+    print(f"RIG: {rig_path}")
+
+    # Check if RIG file exists
+    if not path.exists(rig_path):
+        click.echo(f"Error: RIG yaml file not found: {rig_path}", err=True)
         sys.exit(1)
 
     # Check if mkg json file exists
-    if not path.exists(rig):
-        click.echo(f"Error: RIG yaml file not found: {rig}", err=True)
+    if not path.exists(mkg_path):
+        click.echo(f"Error: Meta Knowledge Graph json file not found: {mkg_path}", err=True)
         sys.exit(1)
 
     try:
         rig_data: dict
-        with open(rig, 'r') as r:
+        with open(rig_path, 'r') as r:
             rig_data = yaml.safe_load(r)
             # target_info:
             #   ...
 
             target_info = rig_data.setdefault('target_info', {}) # conservative, in case other info is present
 
-            # TODO: what happens here if either 'node_type_info' and/or
-            #      'edge_type_info' are already set? Should we rather
-            #      consider overwriting their values?
-            #
             #   node_type_info:
-            node_type_info = target_info.setdefault('node_type_info', [])
+            node_type_info = target_info['node_type_info'] = []
             #   edge_type_info:
-            edge_type_info = target_info.setdefault('edge_type_info', [])
+            edge_type_info = target_info['edge_type_info'] = []
 
-            with open(mkg, 'r') as m:
+            with open(mkg_path, 'r') as m:
                 mkg_data = json.load(m)
                 for category, details in mkg_data['nodes'].items():
                     # 'target_info.node_type_info' is a list of rig_node entries
@@ -120,23 +123,27 @@ def main(ingest, mkg, rig, knowledge_level, agent_type):
                         #       let alone, other associated properties?
                         # original_attribute_names = attribute['original_attribute_names']
 
+                    # Finally, add the node into the RIG list..
+                    node_type_info.append(rig_node)
+
                 for edge in mkg_data['edges']:
                     subject = edge['subject']
                     predicate = edge['predicate']
                     object = edge['object']
                     rig_edge = dict()
+
                     #       subject_categories:
                     #       - "biolink:Disease"
-
                     rig_edge['subject'] = [edge['subject']]
+
                     #       predicates:
                     #         - "biolink:has_phenotype"
+                    rig_edge['predicates'] = [edge['predicate']]
 
-                    rig_edge['predicates'] = [edge['predicates']]
                     #       object_categories:
                     #       - "biolink:PhenotypicFeature"
+                    rig_edge['object'] = [edge['object']]
 
-                    rig_edge['subject'] = [edge['subject']]
                     # TODO: rig_edge['qualifiers']
 
                     #       knowledge_level:
@@ -157,8 +164,12 @@ def main(ingest, mkg, rig, knowledge_level, agent_type):
                         #       let alone, other associated properties?
                         # original_attribute_names = attribute['original_attribute_names']
 
-        with open(rig, 'w') as r:
-            yaml.safe_dump(rig_data, r)
+                    # Add the edge into the RIG list..
+                    edge_type_info.append(rig_edge)
+
+        rename(rig_path, str(rig_path)+".original")
+        with open(rig_path, 'w') as r:
+            yaml.safe_dump(rig_data, r, sort_keys=False)
 
     except Exception as e:
         click.echo(f"Error integrating Meta Knowledge Graph JSON data into RIG: {e}", err=True)

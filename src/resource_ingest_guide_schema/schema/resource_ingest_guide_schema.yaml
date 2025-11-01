@@ -462,13 +462,13 @@ classes:
           multivalued: true
         value_id_prefixes:
           description: >-
-            One or more id prefixes from which the qualifier value mush come. e.g. "HP" if the qualifier must be a
+            One or more id prefixes from which the qualifier value must come. e.g. "HP" if the qualifier must be a
             Human Phenotype Ontology term. 
           range: string
           multivalued: true
         value_description: 
           description: >-
-            A free text description of the tyeps of value allowed for the qualifier.
+            A free text description of the types of value allowed for the qualifier.
           range: string
   NodeType:
       description: >-

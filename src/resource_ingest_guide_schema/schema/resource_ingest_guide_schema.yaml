@@ -417,6 +417,21 @@ classes:
           range: AgentTypeEnum
           multivalued: true
           required: true
+        primary_knowledge_source:
+          description: >-
+            The infores id of the 'primary knowledge source' for this type of edge. 
+          range: uriorcurie
+          required: true
+        supporting_data_sources:
+          description: >-
+            The infores ids of any 'supporting data sources' for this type of edge. 
+          range: uriorcurie
+          multivalued: true
+         aggregator_knowledge_source:
+          description: >-
+            The infores id of a 'aggregator_knowledge source' for this type of edge. 
+          range: uriorcurie
+          multivalued: true         
         edge_properties:
           description: A list of one or more Biolink edge properties used in instances of this edge type in the data.
           range: uriorcurie

@@ -417,6 +417,10 @@ classes:
           range: AgentTypeEnum
           multivalued: true
           required: true
+        klat_rationale:
+          description: >-
+            The rationale for why the knowledge level and agent type choices for this edge type were made.
+          range: string        
         primary_knowledge_source:
           description: >-
             The infores id of the 'primary knowledge source' for this type of edge. 
@@ -431,7 +435,11 @@ classes:
           description: >-
             The infores id of a 'aggregator_knowledge source' for this type of edge. 
           range: uriorcurie
-          multivalued: true         
+          multivalued: true
+        knowledge_source_rationale:
+          description: >-
+            The rationale for why the knowledge source choices for this edge type were made.
+          range: string               
         edge_properties:
           description: A list of one or more Biolink edge properties used in instances of this edge type in the data.
           range: uriorcurie

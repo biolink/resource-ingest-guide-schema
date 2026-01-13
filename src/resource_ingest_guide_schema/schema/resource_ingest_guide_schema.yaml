@@ -432,18 +432,14 @@ classes:
             The infores id of a 'aggregator_knowledge source' for this type of edge. 
           range: uriorcurie
           multivalued: true
-        knowledge_source_rationale:
-          description: >-
-            The rationale for why the knowledge source choices for this edge type were made.
-          range: string               
-        klat_and_source_rationale:
-          description: >-
-            The rationale for why the knowledge level and agent type choices for this edge type were made.
-          range: string
         edge_properties:
           description: A list of one or more Biolink edge properties used in instances of this edge type in the data.
           range: uriorcurie
-          multivalued: true          
+          multivalued: true
+        klat_and_source_rationale:
+          description: >-
+            The rationale for why the knowledge level, agent type, and knowledge source choices for this edge type were made.
+          range: string               
         transform_rationale:
           description: >-
             The rationale for how/why source data is transformed into the specified Biolink edge-based representation.

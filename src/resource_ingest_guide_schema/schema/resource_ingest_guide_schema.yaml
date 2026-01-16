@@ -450,6 +450,11 @@ classes:
             (for display to end users in a UI system). Derive from content of the klat/source and transform rationale fields as possible. 
           range: string
           required: true
+        source_files: 
+          description: >-
+            The source file or files that provided data included in or informing edges of this type. Will usually be a single file. If source is a database instance or API endpoint, provide analogous information.
+          range: string
+          multivalued: true
         additional_notes:
           description: >-
             Additional notes, considerations, or explanations of modeling patterns used for this edge type, that were

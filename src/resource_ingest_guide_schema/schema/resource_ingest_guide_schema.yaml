@@ -417,10 +417,13 @@ classes:
           range: AgentTypeEnum
           multivalued: true
           required: true
-        primary_knowledge_source:
+        primary_knowledge_sources:
           description: >-
-            The infores id of the 'primary knowledge source' for this type of edge. 
+            The infores id(s) of the 'primary knowledge sources' for this type of edge. Note that only one primary knowledge source
+            is allowed per edge, but there may be more than one possible value here across edges for a given type (e.g. see the
+            infores:diseases RIG/data)
           range: uriorcurie
+          multivalued: true          
           required: true
         supporting_data_sources:
           description: >-
@@ -436,23 +439,19 @@ classes:
           description: A list of one or more Biolink edge properties used in instances of this edge type in the data.
           range: uriorcurie
           multivalued: true
-        klat_and_source_rationale:
-          description: >-
-            The rationale for why the knowledge level, agent type, and knowledge source choices for this edge type were made.
-          range: string               
-        transform_rationale:
-          description: >-
-            The rationale for how/why source data is transformed into the specified Biolink edge-based representation.
-          range: string  
         ui_explanation:
           description: >-
-            A brief explanation of why this modeling pattern was deemed appropriate to represent the source data
-            (for display to end users in a UI system). Derive from content of the klat/source and transform rationale fields as possible. 
-          range: string
+            An explanation of how the source data for an edge of a particular type was generated (as rationale for why
+            the knowledge level, agent type, and knowledge source choices for this edge type were made), along with an explanation
+            for how/why the source data record for a particular edge was transformed into a its current Biolink edge-based representation.
+            Note that this text will be displayed in the UI to explain the provenance of a specific edge, and should be framed accordingly.
+          range: string               
           required: true
         source_files: 
           description: >-
-            The source file or files that provided data included in or informing edges of this type. Will usually be a single file. If source is a database instance or API endpoint, provide analogous information.
+            The source file or files that provided data included in or informing edges of this type. Will usually be a single file. Multivalued
+            because some edges are based on data that come form more than one file. If the data is ingested from a database instance or API endpoint,
+            provide analogous information here (e.g. the name of an specific API endpoint, a database access url, or a set of tables in a database schema). 
           range: string
           multivalued: true
         additional_notes:

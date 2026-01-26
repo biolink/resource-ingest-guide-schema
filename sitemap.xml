@@ -181,6 +181,10 @@
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
+         <loc>https://biolink.github.io/information-resource-ingest-guide/aggregator_knowledge_sources/</loc>
+         <lastmod>2026-01-26</lastmod>
+    </url>
+    <url>
          <loc>https://biolink.github.io/information-resource-ingest-guide/artifacts/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
@@ -313,6 +317,10 @@
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
+         <loc>https://biolink.github.io/information-resource-ingest-guide/primary_knowledge_sources/</loc>
+         <lastmod>2026-01-26</lastmod>
+    </url>
+    <url>
          <loc>https://biolink.github.io/information-resource-ingest-guide/property/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
@@ -345,6 +353,10 @@
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>
+         <loc>https://biolink.github.io/information-resource-ingest-guide/source_files/</loc>
+         <lastmod>2026-01-26</lastmod>
+    </url>
+    <url>
          <loc>https://biolink.github.io/information-resource-ingest-guide/source_identifier_types/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
@@ -358,6 +370,10 @@
     </url>
     <url>
          <loc>https://biolink.github.io/information-resource-ingest-guide/supporting_data_source_info/</loc>
+         <lastmod>2026-01-26</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/information-resource-ingest-guide/supporting_data_sources/</loc>
          <lastmod>2026-01-26</lastmod>
     </url>
     <url>

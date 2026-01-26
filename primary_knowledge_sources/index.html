@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/ui_explanation/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/primary_knowledge_sources/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: ui_explanation - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>Slot: primary_knowledge_sources (multivalued) - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-ui_explanation" class="md-skip">
+        <a href="#slot-primary_knowledge_sources-multivalued" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: ui_explanation
+              Slot: primary_knowledge_sources (multivalued)
             
           </span>
         </div>
@@ -345,34 +345,33 @@
   
 
 
-<h1 id="slot-ui_explanation"><strong> Slot: ui_explanation </strong></h1>
-<div class="highlight-box"><strong>Description:</strong><i> An explanation of how the source data for an edge of a particular type was generated (as rationale for why the knowledge level, agent type, and knowledge source choices for this edge type were made), along with an explanation for how/why the source data record for a particular edge was transformed into a its current Biolink edge-based representation. Note that this text will be displayed in the UI to explain the provenance of a specific edge, and should be framed accordingly.</i><br>
+<h1 id="slot-primary_knowledge_sources-multivalued"><strong> Slot: primary_knowledge_sources </strong>  (multivalued)</h1>
+<div class="highlight-box"><strong>Description:</strong><i> The infores id(s) of the 'primary knowledge sources' for this type of edge. Note that only one primary knowledge source is allowed per edge, but there may be more than one possible value here across edges for a given type (e.g. see the infores:diseases RIG/data)</i><br>
    <strong>Required:</strong> True<br>
 
 <br>
 
 </div>
 
-<p><strong>Range:</strong>   <a href="../String/">String</a> <br></p>
+<p><strong>Range:</strong>   <a href="../Uriorcurie/">Uriorcurie</a> <br></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="linkml-source">LinkML Source</h2>
 <details open>
 
-<pre><code class="language-yaml">name: ui_explanation
-description: An explanation of how the source data for an edge of a particular type
-  was generated (as rationale for why the knowledge level, agent type, and knowledge
-  source choices for this edge type were made), along with an explanation for how/why
-  the source data record for a particular edge was transformed into a its current
-  Biolink edge-based representation. Note that this text will be displayed in the
-  UI to explain the provenance of a specific edge, and should be framed accordingly.
+<pre><code class="language-yaml">name: primary_knowledge_sources
+description: The infores id(s) of the 'primary knowledge sources' for this type of
+  edge. Note that only one primary knowledge source is allowed per edge, but there
+  may be more than one possible value here across edges for a given type (e.g. see
+  the infores:diseases RIG/data)
 from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-alias: ui_explanation
+alias: primary_knowledge_sources
 owner: EdgeType
 domain_of:
 - EdgeType
-range: string
+range: uriorcurie
 required: true
+multivalued: true
 
 </code></pre>
 

@@ -565,7 +565,7 @@
 <tbody>
 <tr>
 <td><a href="additional_notes/">additional_notes</a></td>
-<td>None</td>
+<td>Additional notes, considerations, or resources relevant to the source, that were not otherwise captured in dedicated attributes.</td>
 </tr>
 <tr>
 <td>---</td>
@@ -574,6 +574,14 @@
 <tr>
 <td><a href="agent_type/">agent_type</a></td>
 <td>The agent type (or types) relevant to this type of edge. Multivalued only if instances of this type of edge can have different agent types in the data.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><a href="aggregator_knowledge_sources/">aggregator_knowledge_sources</a></td>
+<td>The infores id(s) of any 'aggregator_knowledge sources' for this type of edge.</td>
 </tr>
 <tr>
 <td>---</td>
@@ -836,6 +844,14 @@
 <td>---</td>
 </tr>
 <tr>
+<td><a href="primary_knowledge_sources/">primary_knowledge_sources</a></td>
+<td>The infores id(s) of the 'primary knowledge sources' for this type of edge. Note that only one primary knowledge source is allowed per edge, but there may be more than one possible value here across edges for a given type (e.g. see the infores:diseases RIG/data)</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
 <td><a href="property/">property</a></td>
 <td>The Biolink qualifier slot that defines the kind of Qualifier specified, e.g. "biolink:subject_aspect_qualifier", "qualified_predicate".</td>
 </tr>
@@ -884,6 +900,14 @@
 <td>---</td>
 </tr>
 <tr>
+<td><a href="source_files/">source_files</a></td>
+<td>The source file or files that provided data included in or informing edges of this type. Will usually be a single file. Multivalued because some edges are based on data that come form more than one file. If the data is ingested from a database instance or API endpoint, provide analogous information here (e.g. the name of an specific API endpoint, a database access url, or a set of tables in a database schema).</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
 <td><a href="source_identifier_types/">source_identifier_types</a></td>
 <td>The type of identifier(s) used for this category of entity by the source system. Report as a prefix for an identifier system where appropriate/possible (preferably a prefix as cataloged in the Biolink prefix map here: https://github.com/biolink/biolink-model/blob/master/project/prefixmap/biolink-model-prefix-map.json). e.g. "MESH", "CTD", "ECTO". If prefix for a public system/database is not in the prefix map, you may make a PR to add it.  If the identifiers used are bespoke, or no identifiers are used, the value can be a free text description. e.g. "The source uses entity names but does not assign identifiers".</td>
 </tr>
@@ -910,6 +934,14 @@
 <tr>
 <td><a href="supporting_data_source_info/">supporting_data_source_info</a></td>
 <td>Information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest.</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><a href="supporting_data_sources/">supporting_data_sources</a></td>
+<td>The infores id(s) of any 'supporting data sources' for this type of edge.</td>
 </tr>
 <tr>
 <td>---</td>
@@ -949,7 +981,7 @@
 </tr>
 <tr>
 <td><a href="ui_explanation/">ui_explanation</a></td>
-<td>A brief explanation of why this modeling pattern was deemed appropriate to represent the source data (for display to end users in a UI system).</td>
+<td>An explanation of how the source data for an edge of a particular type was generated (as rationale for why the knowledge level, agent type, and knowledge source choices for this edge type were made), along with an explanation for how/why the source data record for a particular edge was transformed into a its current Biolink edge-based representation. Note that this text will be displayed in the UI to explain the provenance of a specific edge, and should be framed accordingly.</td>
 </tr>
 <tr>
 <td>---</td>

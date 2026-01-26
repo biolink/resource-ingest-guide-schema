@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/ui_explanation/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/source_files/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: ui_explanation - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>Slot: source_files (multivalued) - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-ui_explanation" class="md-skip">
+        <a href="#slot-source_files-multivalued" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: ui_explanation
+              Slot: source_files (multivalued)
             
           </span>
         </div>
@@ -345,9 +345,9 @@
   
 
 
-<h1 id="slot-ui_explanation"><strong> Slot: ui_explanation </strong></h1>
-<div class="highlight-box"><strong>Description:</strong><i> An explanation of how the source data for an edge of a particular type was generated (as rationale for why the knowledge level, agent type, and knowledge source choices for this edge type were made), along with an explanation for how/why the source data record for a particular edge was transformed into a its current Biolink edge-based representation. Note that this text will be displayed in the UI to explain the provenance of a specific edge, and should be framed accordingly.</i><br>
-   <strong>Required:</strong> True<br>
+<h1 id="slot-source_files-multivalued"><strong> Slot: source_files </strong>  (multivalued)</h1>
+<div class="highlight-box"><strong>Description:</strong><i> The source file or files that provided data included in or informing edges of this type. Will usually be a single file. Multivalued because some edges are based on data that come form more than one file. If the data is ingested from a database instance or API endpoint, provide analogous information here (e.g. the name of an specific API endpoint, a database access url, or a set of tables in a database schema). </i><br>
+
 
 <br>
 
@@ -359,20 +359,20 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details open>
 
-<pre><code class="language-yaml">name: ui_explanation
-description: An explanation of how the source data for an edge of a particular type
-  was generated (as rationale for why the knowledge level, agent type, and knowledge
-  source choices for this edge type were made), along with an explanation for how/why
-  the source data record for a particular edge was transformed into a its current
-  Biolink edge-based representation. Note that this text will be displayed in the
-  UI to explain the provenance of a specific edge, and should be framed accordingly.
+<pre><code class="language-yaml">name: source_files
+description: 'The source file or files that provided data included in or informing
+  edges of this type. Will usually be a single file. Multivalued because some edges
+  are based on data that come form more than one file. If the data is ingested from
+  a database instance or API endpoint, provide analogous information here (e.g. the
+  name of an specific API endpoint, a database access url, or a set of tables in a
+  database schema). '
 from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-alias: ui_explanation
+alias: source_files
 owner: EdgeType
 domain_of:
 - EdgeType
 range: string
-required: true
+multivalued: true
 
 </code></pre>
 

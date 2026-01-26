@@ -153,6 +153,9 @@ classes:
           range: string
           multivalued: false
         additional_notes:
+          description: >-
+            Additional notes, considerations, or resources relevant to the source, that were not
+            otherwise captured in dedicated attributes.
           range: string
 
   TermsOfUseInformation:
@@ -427,10 +430,10 @@ classes:
           required: true
         supporting_data_sources:
           description: >-
-            The infores id(s) of any 'supporting data sources' for this type of edge. 
+            The infores id(s) of any 'supporting data sources' for this type of edge.
           range: uriorcurie
           multivalued: true
-         aggregator_knowledge_sources:
+        aggregator_knowledge_sources:
           description: >-
             The infores id(s) of any 'aggregator_knowledge sources' for this type of edge. 
           range: uriorcurie

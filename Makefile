@@ -92,7 +92,7 @@ $(DOCDIR):
 gendoc: $(DOCDIR)
 	cp $(SOURCE_SCHEMA_PATH) $(DOCDIR) ; \
 	cp $(SRC)/docs/files/*.md $(DOCDIR) ; \
-	cp $(SRC)/docs/files/*.yaml $(DOCDIR) ; \
+	if ls $(SRC)/docs/files/*.yaml 1> /dev/null 2>&1; then cp $(SRC)/docs/files/*.yaml $(DOCDIR); fi ; \
 	cp -r $(SRC)/docs/images $(DOCDIR)/images ; \
 	$(RUN) python $(SRC)/scripts/rig_to_markdown.py --input-dir $(SRC)/docs/rigs --output-dir $(DOCDIR) ; \
 	$(RUN) python $(SRC)/scripts/generate_rig_index.py --rig-dir $(SRC)/docs/rigs --template-dir $(DOCTEMPLATES) --input-file $(SRC)/docs/files/rig_index.md --output-file $(DOCDIR)/rig_index.md ; \

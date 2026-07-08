@@ -152,6 +152,12 @@ classes:
             describing such information.
           range: string
           multivalued: false
+        source_status:
+          description: >-
+            The maintenance status of the source, indicating whether it is actively
+            maintained and how regularly it is updated.
+          range: SourceStatusEnum
+          required: true
         additional_notes:
           description: >-
             Additional notes, considerations, or resources relevant to the source, that were not
@@ -627,9 +633,29 @@ enums:
       varies:
 
 
+  SourceStatusEnum:
+    description: >-
+      The maintenance status of a source, indicating whether it is actively
+      maintained and how regularly it is updated.
+    permissible_values:
+      maintained_regular_updates:
+        description: >-
+          The source is actively maintained and updated on a regular, predictable
+          release cadence.
+      maintained_as_needed_updates:
+        description: >-
+          The source is actively maintained but updated on an as-needed basis rather
+          than a regular cadence.
+      not_maintained:
+        description: >-
+          The source is no longer actively maintained or updated.
+      unknown:
+        description: >-
+          The maintenance status of the source is not known.
+
   ModelingCategoryEnum:
     description: >-
-      Categories of future modeling considerations (what type of modeling the 
+      Categories of future modeling considerations (what type of modeling the
       consideration is about).
     permissible_values:
       spoq_pattern:

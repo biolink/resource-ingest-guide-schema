@@ -1,9 +1,8 @@
 # metamodel_version: 1.7.0
-BASE <https://w3id.org/biolink/resource-ingest-guide-schema/>
+BASE <https://w3id.org/biolink/vocab/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
-PREFIX schema1: <http://schema.org/>
 
 
 linkml:String xsd:string
@@ -44,31 +43,211 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
-<NamedThing>  (
-    CLOSED {
-       (  $<NamedThing_tes> (  schema1:name @linkml:String ? ;
-             schema1:description @linkml:String ?
-          ) ;
-          rdf:type [ schema1:Thing ]
-       )
-    } OR @<ReferenceIngestGuide>
-)
-
-<ReferenceIngestGuide> CLOSED {
-    (  $<ReferenceIngestGuide_tes> (  &<NamedThing_tes> ;
-          rdf:type [ schema1:Thing ] ? ;
-          schema1:email @linkml:String ? ;
-          schema1:birthDate @linkml:Date ? ;
-          <age_in_years> @linkml:Integer ? ;
-          <vital_status> [ <http://purl.obolibrary.org/obo/PATO_0001421> <http://purl.obolibrary.org/obo/PATO_0001422>
-             <https://w3id.org/biolink/resource-ingest-guide-schema/PersonStatus#UNKNOWN> ] ?
+<EdgeType> CLOSED {
+    (  $<EdgeType_tes> (  <subject_categories> @linkml:Uriorcurie + ;
+          <predicates> @linkml:Uriorcurie + ;
+          <object_categories> @linkml:Uriorcurie + ;
+          <qualifiers> @<Qualifier> * ;
+          <knowledge_level> [ <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#knowledge_assertion>
+             <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#logical_entailment>
+             <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#prediction>
+             <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#statistical_association>
+             <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#observation>
+             <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#not_provided>
+             <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#varies> ] + ;
+          <agent_type> [ <https://w3id.org/biolink/vocab/AgentTypeEnum#manual_agent>
+             <https://w3id.org/biolink/vocab/AgentTypeEnum#automated_agent>
+             <https://w3id.org/biolink/vocab/AgentTypeEnum#computational_model>
+             <https://w3id.org/biolink/vocab/AgentTypeEnum#data_analysis_pipeline>
+             <https://w3id.org/biolink/vocab/AgentTypeEnum#text_mining_agent>
+             <https://w3id.org/biolink/vocab/AgentTypeEnum#image_processing_agent>
+             <https://w3id.org/biolink/vocab/AgentTypeEnum#manual_validation_of_automated_agent>
+             <https://w3id.org/biolink/vocab/AgentTypeEnum#experimental_agent>
+             <https://w3id.org/biolink/vocab/AgentTypeEnum#not_provided> <https://w3id.org/biolink/vocab/AgentTypeEnum#varies> ] +
+          ;
+          <primary_knowledge_sources> @linkml:Uriorcurie + ;
+          <supporting_data_sources> @linkml:Uriorcurie * ;
+          <aggregator_knowledge_sources> @linkml:Uriorcurie * ;
+          <edge_properties> @linkml:Uriorcurie * ;
+          <ui_explanation> @linkml:String ;
+          <source_files> @linkml:String * ;
+          <additional_notes> @linkml:String ?
        ) ;
-       rdf:type [ <ReferenceIngestGuide> ]
+       rdf:type [ <EdgeType> ] ?
     )
 }
 
-<ReferenceIngestGuideCollection> CLOSED {
-    (  $<ReferenceIngestGuideCollection_tes> <entries> @<ReferenceIngestGuide> * ;
-       rdf:type [ <ReferenceIngestGuideCollection> ] ?
+<FilteredContent> CLOSED {
+    (  $<FilteredContent_tes> (  <file_name> @linkml:String ;
+          <filtered_records> @linkml:String ;
+          <rationale> @linkml:String
+       ) ;
+       rdf:type [ <FilteredContent> ] ?
+    )
+}
+
+<FutureContentConsiderations> CLOSED {
+    (  $<FutureContentConsiderations_tes> (  <category> [ <https://w3id.org/biolink/vocab/ContentCategoryEnum#edge_content>
+             <https://w3id.org/biolink/vocab/ContentCategoryEnum#node_property_content>
+             <https://w3id.org/biolink/vocab/ContentCategoryEnum#edge_property_content>
+             <https://w3id.org/biolink/vocab/ContentCategoryEnum#other> ] ;
+          <consideration> @linkml:String ;
+          <relevant_files> @linkml:String ?
+       ) ;
+       rdf:type [ <FutureContentConsiderations> ] ?
+    )
+}
+
+<FutureModelingConsiderations> CLOSED {
+    (  $<FutureModelingConsiderations_tes> (  <category> [ <https://w3id.org/biolink/vocab/ModelingCategoryEnum#spoq_pattern>
+             <https://w3id.org/biolink/vocab/ModelingCategoryEnum#predicates>
+             <https://w3id.org/biolink/vocab/ModelingCategoryEnum#qualifiers>
+             <https://w3id.org/biolink/vocab/ModelingCategoryEnum#edge_properties>
+             <https://w3id.org/biolink/vocab/ModelingCategoryEnum#node_properties>
+             <https://w3id.org/biolink/vocab/ModelingCategoryEnum#other> ] ? ;
+          <consideration> @linkml:String
+       ) ;
+       rdf:type [ <FutureModelingConsiderations> ] ?
+    )
+}
+
+<IncludedContent> CLOSED {
+    (  $<IncludedContent_tes> (  <file_name> @linkml:String ;
+          <included_records> @linkml:String ;
+          <fields_used> @linkml:String ?
+       ) ;
+       rdf:type [ <IncludedContent> ] ?
+    )
+}
+
+<IngestInformation> CLOSED {
+    (  $<IngestInformation_tes> (  <ingest_categories> [
+             <https://w3id.org/biolink/vocab/IngestCategoryEnum#primary_knowledge_provider>
+             <https://w3id.org/biolink/vocab/IngestCategoryEnum#aggregation_provider>
+             <https://w3id.org/biolink/vocab/IngestCategoryEnum#aggregation_interpreter>
+             <https://w3id.org/biolink/vocab/IngestCategoryEnum#supporting_data_provider>
+             <https://w3id.org/biolink/vocab/IngestCategoryEnum#translator_knowledge_creator>
+             <https://w3id.org/biolink/vocab/IngestCategoryEnum#ontology_provider>
+             <https://w3id.org/biolink/vocab/IngestCategoryEnum#node_property_only_provider>
+             <https://w3id.org/biolink/vocab/IngestCategoryEnum#other> ] * ;
+          <utility> @linkml:String ;
+          <scope> @linkml:String ? ;
+          <relevant_files> @<RelevantFiles> + ;
+          <included_content> @<IncludedContent> + ;
+          <filtered_content> @<FilteredContent> * ;
+          <future_considerations> @<FutureContentConsiderations> * ;
+          <additional_notes> @linkml:String ?
+       ) ;
+       rdf:type [ <IngestInformation> ] ?
+    )
+}
+
+<NodeType> CLOSED {
+    (  $<NodeType_tes> (  <node_category> @linkml:Uriorcurie ;
+          <source_identifier_types> @linkml:String + ;
+          <node_properties> @linkml:Uriorcurie * ;
+          <additional_notes> @linkml:String ?
+       ) ;
+       rdf:type [ <NodeType> ] ?
+    )
+}
+
+<ProvenanceInformation> CLOSED {
+    (  $<ProvenanceInformation_tes> (  <contributions> @linkml:String * ;
+          <artifacts> @linkml:String *
+       ) ;
+       rdf:type [ <ProvenanceInformation> ] ?
+    )
+}
+
+<Qualifier> CLOSED {
+    (  $<Qualifier_tes> (  <property> @linkml:Uriorcurie ;
+          <value_range> @linkml:Uriorcurie * ;
+          <value_enumeration> @linkml:String * ;
+          <value_id_prefixes> @linkml:String * ;
+          <value_description> @linkml:String ?
+       ) ;
+       rdf:type [ <Qualifier> ] ?
+    )
+}
+
+<ReferenceIngestGuide> CLOSED {
+    (  $<ReferenceIngestGuide_tes> (  <name> @linkml:String ? ;
+          <supporting_data_source_info> @<SupportingDataSourceInformation> * ;
+          <source_info> @<SourceInformation> ;
+          <ingest_info> @<IngestInformation> ;
+          <target_info> @<TargetInformation> ;
+          <provenance_info> @<ProvenanceInformation> ?
+       ) ;
+       rdf:type [ <ReferenceIngestGuide> ] ?
+    )
+}
+
+<RelevantFiles> CLOSED {
+    (  $<RelevantFiles_tes> (  <file_name> @linkml:String ;
+          <location> @linkml:Uriorcurie ;
+          <description> @linkml:String ?
+       ) ;
+       rdf:type [ <RelevantFiles> ] ?
+    )
+}
+
+<SourceInformation> CLOSED {
+    (  $<SourceInformation_tes> (  <infores_id> @linkml:Uriorcurie ;
+          <name> @linkml:String ? ;
+          <description> @linkml:String ? ;
+          <citations> @linkml:String * ;
+          <terms_of_use_info> @<TermsOfUseInformation> ;
+          <data_access_locations> @linkml:String + ;
+          <data_provision_mechanisms> [ <https://w3id.org/biolink/vocab/ProvisionMechanismEnum#file_download>
+             <https://w3id.org/biolink/vocab/ProvisionMechanismEnum#api_endpoint>
+             <https://w3id.org/biolink/vocab/ProvisionMechanismEnum#database_dump>
+             <https://w3id.org/biolink/vocab/ProvisionMechanismEnum#other> ] * ;
+          <data_formats> [ <https://w3id.org/biolink/vocab/DataFormatEnum#tsv> <https://w3id.org/biolink/vocab/DataFormatEnum#xml>
+             <https://w3id.org/biolink/vocab/DataFormatEnum#csv> <https://w3id.org/biolink/vocab/DataFormatEnum#json>
+             <https://w3id.org/biolink/vocab/DataFormatEnum#yaml> <https://w3id.org/biolink/vocab/DataFormatEnum#obo>
+             <https://w3id.org/biolink/vocab/DataFormatEnum#protobuff> <https://w3id.org/biolink/vocab/DataFormatEnum#kgx>
+             <https://w3id.org/biolink/vocab/DataFormatEnum#mysql> <https://w3id.org/biolink/vocab/DataFormatEnum#postgresql>
+             <https://w3id.org/biolink/vocab/DataFormatEnum#sqlite> <https://w3id.org/biolink/vocab/DataFormatEnum#other> ] * ;
+          <data_versioning_and_releases> @linkml:String ? ;
+          <source_status> [ <https://w3id.org/biolink/vocab/SourceStatusEnum#maintained_regular_updates>
+             <https://w3id.org/biolink/vocab/SourceStatusEnum#maintained_as_needed_updates>
+             <https://w3id.org/biolink/vocab/SourceStatusEnum#not_maintained>
+             <https://w3id.org/biolink/vocab/SourceStatusEnum#unknown> ] ;
+          <additional_notes> @linkml:String ?
+       ) ;
+       rdf:type [ <SourceInformation> ] ?
+    )
+}
+
+<SupportingDataSourceInformation> CLOSED {
+    (  $<SupportingDataSourceInformation_tes> (  <infores_id> @linkml:Uriorcurie ;
+          <name> @linkml:String ? ;
+          <description> @linkml:String ? ;
+          <terms_of_use_info> @<TermsOfUseInformation> ;
+          <relevant_files> @<RelevantFiles> +
+       ) ;
+       rdf:type [ <SupportingDataSourceInformation> ] ?
+    )
+}
+
+<TargetInformation> CLOSED {
+    (  $<TargetInformation_tes> (  <infores_id> @linkml:Uriorcurie ? ;
+          <edge_type_info> @<EdgeType> + ;
+          <node_type_info> @<NodeType> + ;
+          <future_considerations> @<FutureModelingConsiderations> * ;
+          <additional_notes> @linkml:String ?
+       ) ;
+       rdf:type [ <TargetInformation> ] ?
+    )
+}
+
+<TermsOfUseInformation> CLOSED {
+    (  $<TermsOfUseInformation_tes> (  <terms_of_use_url> @linkml:Uriorcurie ? ;
+          <terms_of_use_description> @linkml:String ? ;
+          <license_name> @linkml:String ? ;
+          <license_url> @linkml:Uriorcurie ?
+       ) ;
+       rdf:type [ <TermsOfUseInformation> ] ?
     )
 }

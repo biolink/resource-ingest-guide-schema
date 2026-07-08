@@ -1,183 +1,1390 @@
-@prefix PATO: <http://purl.obolibrary.org/obo/PATO_> .
-@prefix biolink: <https://w3id.org/biolink/> .
+@prefix biolink: <https://w3id.org/biolink/vocab/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix linkml: <https://w3id.org/linkml/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix resource_ingest_guide_schema: <https://w3id.org/biolink/resource-ingest-guide-schema/> .
-@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-resource_ingest_guide_schema:ReferenceIngestGuideCollection a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "ReferenceIngestGuideCollection" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom resource_ingest_guide_schema:ReferenceIngestGuide ;
-            owl:onProperty resource_ingest_guide_schema:entries ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty resource_ingest_guide_schema:entries ] ;
-    skos:definition "A holder for ReferenceIngestGuide objects" ;
-    skos:inScheme biolink:resource-ingest-guide-schema .
-
-resource_ingest_guide_schema:NamedThing a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "NamedThing" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty resource_ingest_guide_schema:description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty resource_ingest_guide_schema:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty resource_ingest_guide_schema:description ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty resource_ingest_guide_schema:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty resource_ingest_guide_schema:description ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty resource_ingest_guide_schema:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty resource_ingest_guide_schema:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty resource_ingest_guide_schema:id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty resource_ingest_guide_schema:name ] ;
-    skos:definition "A generic grouping for any identifiable entity" ;
-    skos:exactMatch schema1:Thing ;
-    skos:inScheme biolink:resource-ingest-guide-schema .
-
-resource_ingest_guide_schema:ReferenceIngestGuide a owl:Class,
+biolink:ReferenceIngestGuide a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ReferenceIngestGuide" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom resource_ingest_guide_schema:PersonStatus ;
-            owl:onProperty resource_ingest_guide_schema:vital_status ],
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:source_info ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty resource_ingest_guide_schema:birth_date ],
+            owl:onProperty biolink:source_info ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:provenance_info ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:TargetInformation ;
+            owl:onProperty biolink:target_info ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:IngestInformation ;
+            owl:onProperty biolink:ingest_info ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty resource_ingest_guide_schema:primary_email ],
+            owl:onProperty biolink:provenance_info ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty resource_ingest_guide_schema:birth_date ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:onDatatype xsd:string ;
-                    owl:withRestrictions ( [ xsd:pattern "^\\S+@[\\S+\\.]+\\S+" ] ) ] ;
-            owl:onProperty resource_ingest_guide_schema:primary_email ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty resource_ingest_guide_schema:age_in_years ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Date ;
-            owl:onProperty resource_ingest_guide_schema:birth_date ],
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:target_info ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty resource_ingest_guide_schema:vital_status ],
+            owl:onProperty biolink:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:SupportingDataSourceInformation ;
+            owl:onProperty biolink:supporting_data_source_info ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:ProvenanceInformation ;
+            owl:onProperty biolink:provenance_info ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty resource_ingest_guide_schema:age_in_years ],
+            owl:onProperty biolink:target_info ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:ingest_info ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty resource_ingest_guide_schema:vital_status ],
+            owl:onProperty biolink:supporting_data_source_info ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:ingest_info ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty resource_ingest_guide_schema:primary_email ],
+            owl:onProperty biolink:name ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Integer ;
-            owl:onProperty resource_ingest_guide_schema:age_in_years ],
-        resource_ingest_guide_schema:NamedThing ;
-    skos:definition "Represents a ReferenceIngestGuide" ;
-    skos:inScheme biolink:resource-ingest-guide-schema .
+            owl:allValuesFrom biolink:SourceInformation ;
+            owl:onProperty biolink:source_info ] ;
+    skos:definition "A container that holds attributes for the discrete sections of information comprising a Resource Ingest Guide." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
-PATO:0001421 a owl:Class,
-        resource_ingest_guide_schema:PersonStatus ;
-    rdfs:label "ALIVE" ;
-    rdfs:subClassOf resource_ingest_guide_schema:PersonStatus .
+biolink:EdgeType a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "EdgeType" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:object_categories ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:ui_explanation ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:subject_categories ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:KnowledgeLevelEnum ;
+            owl:onProperty biolink:knowledge_level ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:subject_categories ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:edge_properties ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:predicates ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:supporting_data_sources ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:source_files ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:object_categories ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:AgentTypeEnum ;
+            owl:onProperty biolink:agent_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:qualifiers ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:aggregator_knowledge_sources ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:primary_knowledge_sources ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:source_files ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:Qualifier ;
+            owl:onProperty biolink:qualifiers ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:knowledge_level ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:aggregator_knowledge_sources ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:ui_explanation ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:ui_explanation ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:supporting_data_sources ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:predicates ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:edge_properties ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:agent_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:primary_knowledge_sources ] ;
+    skos:definition "A structure for describing each type of edge (metaedge) created in the target knowledge graph by this ingest, including what types of edge properties it holds, and a brief explanation of why this modeling pattern was deemed appropriate to represent the source data (for display to end users in a UI system). Note that an edge type with multiple subject_category and object_category values does not mean that the full cross-product must be instantiated in the data. e.g. A KG with the edge type sub_cat: [Gene, Protein, Small Molecule], predicate: affects, obj_cat: [disease, phenotype, symptom] might include  Protein-affects-Disease and Gene-affects-Symptom edges, but not include any  Protein-affects-Symptom edges." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
-PATO:0001422 a owl:Class,
-        resource_ingest_guide_schema:PersonStatus ;
-    rdfs:label "DEAD" ;
-    rdfs:subClassOf resource_ingest_guide_schema:PersonStatus .
+biolink:FilteredContent a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "FilteredContent" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:rationale ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:rationale ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:filtered_records ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:file_name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:file_name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:filtered_records ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:rationale ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:file_name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:filtered_records ] ;
+    skos:definition "A structure for describing the types of records from each relevant file/endpoint/table not included in the ingest, and the rationale for any filtering rules or exclusion criteria. Only list a file if some but not all records it contains are included in the ingest - to document what subset was excluded, and why." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
-<https://w3id.org/biolink/resource-ingest-guide-schema/PersonStatus#UNKNOWN> a owl:Class,
-        resource_ingest_guide_schema:PersonStatus ;
-    rdfs:label "UNKNOWN" ;
-    rdfs:subClassOf resource_ingest_guide_schema:PersonStatus .
+biolink:FutureContentConsiderations a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "FutureContentConsiderations" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:consideration ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:ContentCategoryEnum ;
+            owl:onProperty biolink:category ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:category ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:relevant_files ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:category ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:relevant_files ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:relevant_files ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:consideration ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:consideration ] ;
+    skos:definition "A structure for collecting notes about content additions or changes to consider in future iterations of this ingest. Create separate objects for each distinct consideration, and indicate if it relates to  content that will be captured as Edges, Node Properties, or Edge Properties in the target knowledge graph." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
-resource_ingest_guide_schema:entries a owl:ObjectProperty,
+biolink:FutureModelingConsiderations a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "FutureModelingConsiderations" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:consideration ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:category ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:category ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:ModelingCategoryEnum ;
+            owl:onProperty biolink:category ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:consideration ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:consideration ] ;
+    skos:definition "A structure for collecting discrete considerations about modeling changes to consider in future iterations of this ingest. Create and categorize separate objects for each distinct consideration." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:IncludedContent a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "IncludedContent" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:file_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:fields_used ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:fields_used ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:included_records ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:file_name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:included_records ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:fields_used ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:file_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:included_records ] ;
+    skos:definition "A structure for describing the types of records from relevant files/endpoints/tables are included in this ingest, and optionally a list of fields from these records that are part of the ingest or used to inform it." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:IngestInformation a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "IngestInformation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom biolink:FilteredContent ;
+            owl:onProperty biolink:filtered_content ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:relevant_files ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:RelevantFiles ;
+            owl:onProperty biolink:relevant_files ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:IngestCategoryEnum ;
+            owl:onProperty biolink:ingest_categories ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:included_content ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:scope ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:ingest_categories ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:utility ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:filtered_content ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:FutureContentConsiderations ;
+            owl:onProperty biolink:future_considerations ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:utility ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:scope ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:utility ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:scope ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:future_considerations ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:IncludedContent ;
+            owl:onProperty biolink:included_content ] ;
+    skos:definition "A container for capturing information about the rationale and scope of an ingest, including what source content was included and excluded from the ingest, and what additional content might be considered in future iterations." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:NodeType a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "NodeType" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:node_properties ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:node_category ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:source_identifier_types ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:node_category ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:node_properties ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:source_identifier_types ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:node_category ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:additional_notes ] ;
+    skos:definition "A structured object describing each type of node created in the target knowledge graph by this ingest." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:ProvenanceInformation a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ProvenanceInformation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:contributions ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:artifacts ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:artifacts ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:contributions ] ;
+    skos:definition "A container holding information about the provenance of the ingest, including who contributed and how, and links to external provenance artifacts." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:Qualifier a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Qualifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:property ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:value_id_prefixes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:value_description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:value_range ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:property ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:property ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:value_enumeration ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:value_description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:value_enumeration ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:value_id_prefixes ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:value_description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:value_range ] ;
+    skos:definition "A qualifier property + value tuple that specifies a type of qualifier and value that may be applied to a Statement. Qualified predicates are considered qualifiers and captured here as well. Values can be specified to come from a proper range (e.g. Biolink class, data type, or enum), come from an enumerated list, use a specific id prefix, and/or conform informally to a free-text description. " ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:SourceInformation a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "SourceInformation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom biolink:DataFormatEnum ;
+            owl:onProperty biolink:data_formats ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:terms_of_use_info ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:data_access_locations ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:citations ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:data_provision_mechanisms ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:data_versioning_and_releases ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:terms_of_use_info ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:data_versioning_and_releases ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:ProvisionMechanismEnum ;
+            owl:onProperty biolink:data_provision_mechanisms ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:data_access_locations ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:data_versioning_and_releases ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:TermsOfUseInformation ;
+            owl:onProperty biolink:terms_of_use_info ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:source_status ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:SourceStatusEnum ;
+            owl:onProperty biolink:source_status ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:source_status ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:citations ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:data_formats ] ;
+    skos:definition "A container for capturing information about the source of the ingest." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:SupportingDataSourceInformation a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "SupportingDataSourceInformation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:terms_of_use_info ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:RelevantFiles ;
+            owl:onProperty biolink:relevant_files ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:relevant_files ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:TermsOfUseInformation ;
+            owl:onProperty biolink:terms_of_use_info ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:terms_of_use_info ] ;
+    skos:definition "A container for information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest. This info is not relevant for typical ingest of an external knowledge source, and applies mainly for describing \"ingest\" of data-derived KPs like ICEES, COHD, various Multiomics KPs, etc." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:TargetInformation a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "TargetInformation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:edge_type_info ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:future_considerations ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:EdgeType ;
+            owl:onProperty biolink:edge_type_info ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:FutureModelingConsiderations ;
+            owl:onProperty biolink:future_considerations ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:node_type_info ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:NodeType ;
+            owl:onProperty biolink:node_type_info ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:additional_notes ] ;
+    skos:definition "A structure for capturing information about the target dataset / knowledge graph output by the ingest, including what types of edges and nodes were produced, modeling rationale, and what modeling changes might be considered in future iterations." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+<https://w3id.org/biolink/vocab/AgentTypeEnum#automated_agent> a owl:Class,
+        biolink:AgentTypeEnum ;
+    rdfs:label "automated_agent" ;
+    rdfs:subClassOf biolink:AgentTypeEnum .
+
+<https://w3id.org/biolink/vocab/AgentTypeEnum#computational_model> a owl:Class,
+        biolink:AgentTypeEnum ;
+    rdfs:label "computational_model" ;
+    rdfs:subClassOf biolink:AgentTypeEnum .
+
+<https://w3id.org/biolink/vocab/AgentTypeEnum#data_analysis_pipeline> a owl:Class,
+        biolink:AgentTypeEnum ;
+    rdfs:label "data_analysis_pipeline" ;
+    rdfs:subClassOf biolink:AgentTypeEnum .
+
+<https://w3id.org/biolink/vocab/AgentTypeEnum#experimental_agent> a owl:Class,
+        biolink:AgentTypeEnum ;
+    rdfs:label "experimental_agent" ;
+    rdfs:subClassOf biolink:AgentTypeEnum .
+
+<https://w3id.org/biolink/vocab/AgentTypeEnum#image_processing_agent> a owl:Class,
+        biolink:AgentTypeEnum ;
+    rdfs:label "image_processing_agent" ;
+    rdfs:subClassOf biolink:AgentTypeEnum .
+
+<https://w3id.org/biolink/vocab/AgentTypeEnum#manual_agent> a owl:Class,
+        biolink:AgentTypeEnum ;
+    rdfs:label "manual_agent" ;
+    rdfs:subClassOf biolink:AgentTypeEnum .
+
+<https://w3id.org/biolink/vocab/AgentTypeEnum#manual_validation_of_automated_agent> a owl:Class,
+        biolink:AgentTypeEnum ;
+    rdfs:label "manual_validation_of_automated_agent" ;
+    rdfs:subClassOf biolink:AgentTypeEnum .
+
+<https://w3id.org/biolink/vocab/AgentTypeEnum#not_provided> a owl:Class,
+        biolink:AgentTypeEnum ;
+    rdfs:label "not_provided" ;
+    rdfs:subClassOf biolink:AgentTypeEnum .
+
+<https://w3id.org/biolink/vocab/AgentTypeEnum#text_mining_agent> a owl:Class,
+        biolink:AgentTypeEnum ;
+    rdfs:label "text_mining_agent" ;
+    rdfs:subClassOf biolink:AgentTypeEnum .
+
+<https://w3id.org/biolink/vocab/AgentTypeEnum#varies> a owl:Class,
+        biolink:AgentTypeEnum ;
+    rdfs:label "varies" ;
+    rdfs:subClassOf biolink:AgentTypeEnum .
+
+<https://w3id.org/biolink/vocab/ContentCategoryEnum#edge_content> a owl:Class,
+        biolink:ContentCategoryEnum ;
+    rdfs:label "edge_content" ;
+    rdfs:subClassOf biolink:ContentCategoryEnum .
+
+<https://w3id.org/biolink/vocab/ContentCategoryEnum#edge_property_content> a owl:Class,
+        biolink:ContentCategoryEnum ;
+    rdfs:label "edge_property_content" ;
+    rdfs:subClassOf biolink:ContentCategoryEnum .
+
+<https://w3id.org/biolink/vocab/ContentCategoryEnum#node_property_content> a owl:Class,
+        biolink:ContentCategoryEnum ;
+    rdfs:label "node_property_content" ;
+    rdfs:subClassOf biolink:ContentCategoryEnum .
+
+<https://w3id.org/biolink/vocab/ContentCategoryEnum#other> a owl:Class,
+        biolink:ContentCategoryEnum ;
+    rdfs:label "other" ;
+    rdfs:subClassOf biolink:ContentCategoryEnum .
+
+<https://w3id.org/biolink/vocab/DataFormatEnum#csv> a owl:Class,
+        biolink:DataFormatEnum ;
+    rdfs:label "csv" ;
+    rdfs:subClassOf biolink:DataFormatEnum .
+
+<https://w3id.org/biolink/vocab/DataFormatEnum#json> a owl:Class,
+        biolink:DataFormatEnum ;
+    rdfs:label "json" ;
+    rdfs:subClassOf biolink:DataFormatEnum .
+
+<https://w3id.org/biolink/vocab/DataFormatEnum#kgx> a owl:Class,
+        biolink:DataFormatEnum ;
+    rdfs:label "kgx" ;
+    rdfs:subClassOf biolink:DataFormatEnum .
+
+<https://w3id.org/biolink/vocab/DataFormatEnum#mysql> a owl:Class,
+        biolink:DataFormatEnum ;
+    rdfs:label "mysql" ;
+    rdfs:subClassOf biolink:DataFormatEnum .
+
+<https://w3id.org/biolink/vocab/DataFormatEnum#obo> a owl:Class,
+        biolink:DataFormatEnum ;
+    rdfs:label "obo" ;
+    rdfs:subClassOf biolink:DataFormatEnum .
+
+<https://w3id.org/biolink/vocab/DataFormatEnum#other> a owl:Class,
+        biolink:DataFormatEnum ;
+    rdfs:label "other" ;
+    rdfs:subClassOf biolink:DataFormatEnum .
+
+<https://w3id.org/biolink/vocab/DataFormatEnum#postgresql> a owl:Class,
+        biolink:DataFormatEnum ;
+    rdfs:label "postgresql" ;
+    rdfs:subClassOf biolink:DataFormatEnum .
+
+<https://w3id.org/biolink/vocab/DataFormatEnum#protobuff> a owl:Class,
+        biolink:DataFormatEnum ;
+    rdfs:label "protobuff" ;
+    rdfs:subClassOf biolink:DataFormatEnum .
+
+<https://w3id.org/biolink/vocab/DataFormatEnum#sqlite> a owl:Class,
+        biolink:DataFormatEnum ;
+    rdfs:label "sqlite" ;
+    rdfs:subClassOf biolink:DataFormatEnum .
+
+<https://w3id.org/biolink/vocab/DataFormatEnum#tsv> a owl:Class,
+        biolink:DataFormatEnum ;
+    rdfs:label "tsv" ;
+    rdfs:subClassOf biolink:DataFormatEnum .
+
+<https://w3id.org/biolink/vocab/DataFormatEnum#xml> a owl:Class,
+        biolink:DataFormatEnum ;
+    rdfs:label "xml" ;
+    rdfs:subClassOf biolink:DataFormatEnum .
+
+<https://w3id.org/biolink/vocab/DataFormatEnum#yaml> a owl:Class,
+        biolink:DataFormatEnum ;
+    rdfs:label "yaml" ;
+    rdfs:subClassOf biolink:DataFormatEnum .
+
+<https://w3id.org/biolink/vocab/IngestCategoryEnum#aggregation_interpreter> a owl:Class,
+        biolink:IngestCategoryEnum ;
+    rdfs:label "aggregation_interpreter" ;
+    rdfs:subClassOf biolink:IngestCategoryEnum .
+
+<https://w3id.org/biolink/vocab/IngestCategoryEnum#aggregation_provider> a owl:Class,
+        biolink:IngestCategoryEnum ;
+    rdfs:label "aggregation_provider" ;
+    rdfs:subClassOf biolink:IngestCategoryEnum .
+
+<https://w3id.org/biolink/vocab/IngestCategoryEnum#node_property_only_provider> a owl:Class,
+        biolink:IngestCategoryEnum ;
+    rdfs:label "node_property_only_provider" ;
+    rdfs:subClassOf biolink:IngestCategoryEnum .
+
+<https://w3id.org/biolink/vocab/IngestCategoryEnum#ontology_provider> a owl:Class,
+        biolink:IngestCategoryEnum ;
+    rdfs:label "ontology_provider" ;
+    rdfs:subClassOf biolink:IngestCategoryEnum .
+
+<https://w3id.org/biolink/vocab/IngestCategoryEnum#other> a owl:Class,
+        biolink:IngestCategoryEnum ;
+    rdfs:label "other" ;
+    rdfs:subClassOf biolink:IngestCategoryEnum .
+
+<https://w3id.org/biolink/vocab/IngestCategoryEnum#primary_knowledge_provider> a owl:Class,
+        biolink:IngestCategoryEnum ;
+    rdfs:label "primary_knowledge_provider" ;
+    rdfs:subClassOf biolink:IngestCategoryEnum .
+
+<https://w3id.org/biolink/vocab/IngestCategoryEnum#supporting_data_provider> a owl:Class,
+        biolink:IngestCategoryEnum ;
+    rdfs:label "supporting_data_provider" ;
+    rdfs:subClassOf biolink:IngestCategoryEnum .
+
+<https://w3id.org/biolink/vocab/IngestCategoryEnum#translator_knowledge_creator> a owl:Class,
+        biolink:IngestCategoryEnum ;
+    rdfs:label "translator_knowledge_creator" ;
+    rdfs:subClassOf biolink:IngestCategoryEnum .
+
+<https://w3id.org/biolink/vocab/KnowledgeLevelEnum#knowledge_assertion> a owl:Class,
+        biolink:KnowledgeLevelEnum ;
+    rdfs:label "knowledge_assertion" ;
+    rdfs:subClassOf biolink:KnowledgeLevelEnum .
+
+<https://w3id.org/biolink/vocab/KnowledgeLevelEnum#logical_entailment> a owl:Class,
+        biolink:KnowledgeLevelEnum ;
+    rdfs:label "logical_entailment" ;
+    rdfs:subClassOf biolink:KnowledgeLevelEnum .
+
+<https://w3id.org/biolink/vocab/KnowledgeLevelEnum#not_provided> a owl:Class,
+        biolink:KnowledgeLevelEnum ;
+    rdfs:label "not_provided" ;
+    rdfs:subClassOf biolink:KnowledgeLevelEnum .
+
+<https://w3id.org/biolink/vocab/KnowledgeLevelEnum#observation> a owl:Class,
+        biolink:KnowledgeLevelEnum ;
+    rdfs:label "observation" ;
+    rdfs:subClassOf biolink:KnowledgeLevelEnum .
+
+<https://w3id.org/biolink/vocab/KnowledgeLevelEnum#prediction> a owl:Class,
+        biolink:KnowledgeLevelEnum ;
+    rdfs:label "prediction" ;
+    rdfs:subClassOf biolink:KnowledgeLevelEnum .
+
+<https://w3id.org/biolink/vocab/KnowledgeLevelEnum#statistical_association> a owl:Class,
+        biolink:KnowledgeLevelEnum ;
+    rdfs:label "statistical_association" ;
+    rdfs:subClassOf biolink:KnowledgeLevelEnum .
+
+<https://w3id.org/biolink/vocab/KnowledgeLevelEnum#varies> a owl:Class,
+        biolink:KnowledgeLevelEnum ;
+    rdfs:label "varies" ;
+    rdfs:subClassOf biolink:KnowledgeLevelEnum .
+
+<https://w3id.org/biolink/vocab/ModelingCategoryEnum#edge_properties> a owl:Class,
+        biolink:ModelingCategoryEnum ;
+    rdfs:label "edge_properties" ;
+    rdfs:subClassOf biolink:ModelingCategoryEnum .
+
+<https://w3id.org/biolink/vocab/ModelingCategoryEnum#node_properties> a owl:Class,
+        biolink:ModelingCategoryEnum ;
+    rdfs:label "node_properties" ;
+    rdfs:subClassOf biolink:ModelingCategoryEnum .
+
+<https://w3id.org/biolink/vocab/ModelingCategoryEnum#other> a owl:Class,
+        biolink:ModelingCategoryEnum ;
+    rdfs:label "other" ;
+    rdfs:subClassOf biolink:ModelingCategoryEnum .
+
+<https://w3id.org/biolink/vocab/ModelingCategoryEnum#predicates> a owl:Class,
+        biolink:ModelingCategoryEnum ;
+    rdfs:label "predicates" ;
+    rdfs:subClassOf biolink:ModelingCategoryEnum .
+
+<https://w3id.org/biolink/vocab/ModelingCategoryEnum#qualifiers> a owl:Class,
+        biolink:ModelingCategoryEnum ;
+    rdfs:label "qualifiers" ;
+    rdfs:subClassOf biolink:ModelingCategoryEnum .
+
+<https://w3id.org/biolink/vocab/ModelingCategoryEnum#spoq_pattern> a owl:Class,
+        biolink:ModelingCategoryEnum ;
+    rdfs:label "spoq_pattern" ;
+    rdfs:subClassOf biolink:ModelingCategoryEnum .
+
+<https://w3id.org/biolink/vocab/ProvisionMechanismEnum#api_endpoint> a owl:Class,
+        biolink:ProvisionMechanismEnum ;
+    rdfs:label "api_endpoint" ;
+    rdfs:subClassOf biolink:ProvisionMechanismEnum .
+
+<https://w3id.org/biolink/vocab/ProvisionMechanismEnum#database_dump> a owl:Class,
+        biolink:ProvisionMechanismEnum ;
+    rdfs:label "database_dump" ;
+    rdfs:subClassOf biolink:ProvisionMechanismEnum .
+
+<https://w3id.org/biolink/vocab/ProvisionMechanismEnum#file_download> a owl:Class,
+        biolink:ProvisionMechanismEnum ;
+    rdfs:label "file_download" ;
+    rdfs:subClassOf biolink:ProvisionMechanismEnum .
+
+<https://w3id.org/biolink/vocab/ProvisionMechanismEnum#other> a owl:Class,
+        biolink:ProvisionMechanismEnum ;
+    rdfs:label "other" ;
+    rdfs:subClassOf biolink:ProvisionMechanismEnum .
+
+biolink:RelevantFiles a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "RelevantFiles" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:location ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:file_name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:file_name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:file_name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:location ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:location ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:description ] ;
+    skos:definition "A structure for describing each source file (or API endpoint, database, or table) that contains content in scope for the ingest. Source files containing which content is not retrieved  in this ingest need not be listed or described." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+<https://w3id.org/biolink/vocab/SourceStatusEnum#maintained_as_needed_updates> a owl:Class,
+        biolink:SourceStatusEnum ;
+    rdfs:label "maintained_as_needed_updates" ;
+    rdfs:subClassOf biolink:SourceStatusEnum .
+
+<https://w3id.org/biolink/vocab/SourceStatusEnum#maintained_regular_updates> a owl:Class,
+        biolink:SourceStatusEnum ;
+    rdfs:label "maintained_regular_updates" ;
+    rdfs:subClassOf biolink:SourceStatusEnum .
+
+<https://w3id.org/biolink/vocab/SourceStatusEnum#not_maintained> a owl:Class,
+        biolink:SourceStatusEnum ;
+    rdfs:label "not_maintained" ;
+    rdfs:subClassOf biolink:SourceStatusEnum .
+
+<https://w3id.org/biolink/vocab/SourceStatusEnum#unknown> a owl:Class,
+        biolink:SourceStatusEnum ;
+    rdfs:label "unknown" ;
+    rdfs:subClassOf biolink:SourceStatusEnum .
+
+biolink:TermsOfUseInformation a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "TermsOfUseInformation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:terms_of_use_description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:license_name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:license_name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:terms_of_use_url ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:terms_of_use_url ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:terms_of_use_url ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:license_url ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:terms_of_use_description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:license_url ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:license_url ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:license_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:terms_of_use_description ] ;
+    skos:definition "A structured representation describing terms for re-use of data from an information resource." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:agent_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "entries" ;
-    skos:inScheme biolink:resource-ingest-guide-schema .
+    rdfs:label "agent_type" ;
+    skos:definition "The agent type (or types) relevant to this type of edge. Multivalued only if instances of this type of edge can have different agent types in the data." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
-resource_ingest_guide_schema:age_in_years a owl:ObjectProperty,
+biolink:aggregator_knowledge_sources a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "age_in_years" ;
-    rdfs:range linkml:Integer ;
-    skos:definition "Number of years since birth" ;
-    skos:inScheme biolink:resource-ingest-guide-schema .
+    rdfs:label "aggregator_knowledge_sources" ;
+    skos:definition "The infores id(s) of any 'aggregator_knowledge sources' for this type of edge. " ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
-resource_ingest_guide_schema:birth_date a owl:ObjectProperty,
+biolink:artifacts a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "birth_date" ;
-    rdfs:range linkml:Date ;
-    skos:definition "Date on which a person is born" ;
-    skos:inScheme biolink:resource-ingest-guide-schema .
+    rdfs:label "artifacts" ;
+    skos:definition "Links to and descriptions of external artifacts related to the provenance of the ingest, such as Github issues, surveys of prior ingests of the source, etc." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
-resource_ingest_guide_schema:description a owl:ObjectProperty,
+biolink:citations a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "description" ;
-    skos:definition "A human-readable description for a thing" ;
-    skos:inScheme biolink:resource-ingest-guide-schema .
+    rdfs:label "citations" ;
+    skos:definition "One ore more citations to publications describing the source. May be a identifier (e.g a pmid or doi), a url to the published document, or a free-text citation." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
-resource_ingest_guide_schema:id a owl:ObjectProperty,
+biolink:contributions a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "id" ;
-    rdfs:range linkml:Uriorcurie ;
-    skos:definition "A unique identifier for a thing" ;
-    skos:inScheme biolink:resource-ingest-guide-schema .
+    rdfs:label "contributions" ;
+    skos:definition "The name of a person making a contribution, and the type of contribution made. e.g. \"code author\", \"code support\", \"data modeling\", \"domain expertise\"." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
-resource_ingest_guide_schema:name a owl:ObjectProperty,
+biolink:data_access_locations a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "name" ;
-    skos:definition "A human-readable name for a thing" ;
-    skos:inScheme biolink:resource-ingest-guide-schema .
+    rdfs:label "data_access_locations" ;
+    skos:definition "Where the source data that is being ingested can be accessed. Provide one or more URLs,  along with optional descriptions of what each URL provides." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
-resource_ingest_guide_schema:primary_email a owl:ObjectProperty,
+biolink:data_formats a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "primary_email" ;
-    skos:definition "The main email address of a person" ;
-    skos:inScheme biolink:resource-ingest-guide-schema .
+    rdfs:label "data_formats" ;
+    skos:definition "The format(s) in which the data is serialized for retrieval and use." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
-resource_ingest_guide_schema:vital_status a owl:ObjectProperty,
+biolink:data_provision_mechanisms a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "vital_status" ;
-    rdfs:range resource_ingest_guide_schema:PersonStatus ;
-    skos:definition "living or dead status" ;
-    skos:inScheme biolink:resource-ingest-guide-schema .
+    rdfs:label "data_provision_mechanisms" ;
+    skos:definition "How the source distributes their data (file download, API endpoints, database dump)." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
-resource_ingest_guide_schema:PersonStatus a owl:Class,
+biolink:edge_properties a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "edge_properties" ;
+    skos:definition "A list of one or more Biolink edge properties used in instances of this edge type in the data." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:edge_type_info a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "edge_type_info" ;
+    skos:definition "A description of each type of edge (metaedge) created in the target knowledge graph by this ingest, including what types of edge properties it holds, and a brief explanation of why this modeling pattern was deemed appropriate to represent the source data (to be displayed for end users in a UI system)." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:filtered_content a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "filtered_content" ;
+    skos:definition "A description of what types of records from each relevant file are not included in the ingest, and the rationale for any filtering rules or exclusion criteria. Only list a file if some but not all records it contains are included in the ingest - to document what subset was excluded, and why." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:included_content a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "included_content" ;
+    skos:definition "A description of what types of records from relevant files/endpoints/tables above are included in this ingest, and optionally a list of fields from these records that are part of the ingest or used to inform it." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:ingest_categories a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ingest_categories" ;
+    skos:definition "A term or terms indicating the type of source being ingested, from the perspective of the ingesting system (e.g. primary knowledge provider, supporting data provider, ontology/terminology provider)." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:knowledge_level a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "knowledge_level" ;
+    skos:definition "The knowledge level (or levels) relevant to this type of edge. Multivalued only if instances of this type of edge can have different knowledge levels in the data." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:node_properties a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "node_properties" ;
+    skos:definition "A list of one or more Biolink node properties used in instances of this node type in the data." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:node_type_info a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "node_type_info" ;
+    skos:definition "A description of each type of node created in the target knowledge graph by this ingest, in terms of the high-level Biolink categories of nodes as assumed or assigned by ingestors.  Note however that downstream normalization of node identifiers may result in new/different categories ultimately being assigned in the final graph." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:object_categories a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "object_categories" ;
+    skos:definition "The Biolink category of the object node of this edge type. e.g. \"biolink:Disease\". If two edge types differ only in their object category, but use the same predicate, subject_category,  edge properties, and general provenance, they can be described together in a single NodeType object that captures the alternative object categories. e.g. if a source provides Gene-associated_with-Disease and  Gene-associated_with-PhenotypicFeature edge types, these can be described in a single EdgeType object with two subject categories (Disease and PhenotypicFeature)" ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:predicates a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "predicates" ;
+    skos:definition "Biolink predicate(s) that defines this type of edge. Multiple values allowed ONLY if they are a predicate and one or more of its descendent predicates (e.g. [\"biolink:affects\", \"biolink:regulates\", \"biolink:disrupts\"]. Otherwise,  separate EdgeType objects should be created for each predicate. " ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:primary_knowledge_sources a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "primary_knowledge_sources" ;
+    skos:definition "The infores id(s) of the 'primary knowledge sources' for this type of edge. Note that only one primary knowledge source is allowed per edge, but there may be more than one possible value here across edges for a given type (e.g. see the infores:diseases RIG/data)" ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:qualifiers a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "qualifiers" ;
+    skos:definition "If relevant, report any qualifiers applied to the edge type, as a Qualifier object that contains a  qualifier_property and qualifier_range pair. e.g. the property \"biolink:subject_aspect_qualifier\", and range  \"biolink:GeneOrGeneProductOrChemicalEntityAspectEnum" ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:source_files a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "source_files" ;
+    skos:definition "The source file or files that provided data included in or informing edges of this type. Will usually be a single file. Multivalued because some edges are based on data that come form more than one file. If the data is ingested from a database instance or API endpoint, provide analogous information here (e.g. the name of an specific API endpoint, a database access url, or a set of tables in a database schema). " ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:source_identifier_types a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "source_identifier_types" ;
+    skos:definition "The type of identifier(s) used for this category of entity by the source system. Report as a prefix for an identifier system where appropriate/possible (preferably a prefix as cataloged in the Biolink prefix map here: https://github.com/biolink/biolink-model/blob/master/project/prefixmap/biolink-model-prefix-map.json). e.g. \"MESH\", \"CTD\", \"ECTO\". If prefix for a public system/database is not in the prefix map, you may make a PR to add it.  If the identifiers used are bespoke, or no identifiers are used, the value can be a free text description. e.g. \"The source uses entity names but does not assign identifiers\"." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:subject_categories a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subject_categories" ;
+    skos:definition "The Biolink category of the subject node of this edge type. e.g. \"biolink:SmallMolecule\". If two edge types differ only in their subject category, but use the same predicate, object_category,  edge properties, and general provenance, they can be described together in a single NodeType object that captures the alternative subject categories. e.g. if a source provides SmallMolecule-treats-Disease and  MolecularMixture-treats-Disease edge types, these can be described in a single EdgeType object with two subject categories (SmallMolecule and MolecularMixture)." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:supporting_data_source_info a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "supporting_data_source_info" ;
+    skos:definition "Information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> ;
+    skos:note "This slot is optional, and can be omitted for typical ingest of an external knowledge source - as it is mainly relevant for describing \"ingest\" of data-derived KPs like ICEES, COHD, various Multiomics KPs, etc." .
+
+biolink:supporting_data_sources a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "supporting_data_sources" ;
+    skos:definition "The infores id(s) of any 'supporting data sources' for this type of edge." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:value_enumeration a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "value_enumeration" ;
+    skos:definition "A set of one or more specific values for the qualifier in an Edge type (e.g. [\"biolink:causes\"] as the only value for the \"biolink:qualified_predicate\" qualifier property, [\"activity_or_abundance\", \"activity\", \"abundance\"]  as the values for the \"biolink:object_aspect_qualifier\" property). " ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:value_id_prefixes a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "value_id_prefixes" ;
+    skos:definition "One or more id prefixes from which the qualifier value must come. e.g. \"HP\" if the qualifier must be a Human Phenotype Ontology term. " ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:value_range a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "value_range" ;
+    skos:definition "The Biolink class(es) or type(s) that specifies the kind of value the qualifier property takes, Reported as the name of a Biolink class, enumeration, or data type, as appropriate.  e.g. \"biolink:Disease\", \"biolink:GeneOrGeneProductOrChemicalEntityAspectEnum\", \"biolink:string\"" ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:data_versioning_and_releases a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "data_versioning_and_releases" ;
+    skos:definition "A description of how releases are versioned and managed by the source (e.g. general approach, frequency, other important considerations). May also include links to web pages describing such information." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:fields_used a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "fields_used" ;
+    skos:definition "Optional list of the specific source fields that are part of or inform the ingest." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:filtered_records a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "filtered_records" ;
+    skos:definition "A description of what types of records were excluded from the ingest, in terms of filtering rules or exclusion criteria." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:included_records a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "included_records" ;
+    skos:definition "A description of the types of records that are included in the ingest." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:ingest_info a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ingest_info" ;
+    skos:definition "Information about the rationale and scope of an ingest, including what source content was included and excluded from the ingest, and what additional content might be considered in future iterations." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:license_name a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "license_name" ;
+    skos:definition "The name of an established license used by the source (e.g. \"CC BY 4.0\")" ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:license_url a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "license_url" ;
+    skos:definition "The url of an established license (e.g. \"https://creativecommons.org/licenses/by/4.0/\")" ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:location a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "location" ;
+    skos:definition "The URL of a web page or ftp site where the indicated file (or endpoint or table) was accessed." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:node_category a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "node_category" ;
+    skos:definition "The high-level Biolink category of nodes as assumed or assigned by ingestors. e.g. \"biolink:Gene\". Note that downstream normalization of node identifiers may result in new/different categories ultimately being assigned in the final graph." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:property a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "property" ;
+    skos:definition "The Biolink qualifier slot that defines the kind of Qualifier specified, e.g. \"biolink:subject_aspect_qualifier\", \"qualified_predicate\"." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:provenance_info a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "provenance_info" ;
+    skos:definition "Information about the provenance of the ingest, including who contributed and how, and links to external provenance-related artifacts (e.g. Github tickets, ingest surveys, etc.)" ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:rationale a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "rationale" ;
+    skos:definition "The rationale for excluding the indicated content (why this subset of records was filtered out)." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:scope a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "scope" ;
+    skos:definition "A short, high-level narrative describing of the types of knowledge form the source that are included and excluded in this ingest." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:source_info a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "source_info" ;
+    skos:definition "Information about the source from which content is ingested." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:source_status a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "source_status" ;
+    skos:definition "The maintenance status of the source, indicating whether it is actively maintained and how regularly it is updated." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:target_info a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "target_info" ;
+    skos:definition "Information about the dataset / knowledge graph output by the ingest,  including what types of edges and nodes were produced, modeling rationale,  and what modeling changes might be considered in future iterations." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:terms_of_use_description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "terms_of_use_description" ;
+    skos:definition "A free text description of the terms of use for a source.  (e.g. \"Source only indicates 'all rights reserved' in their documentation\")" ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:terms_of_use_url a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "terms_of_use_url" ;
+    skos:definition "The url of a document or web page where a source describes its terms of use, and/or references a community license that it adopts. (e.g. \"https://ctdbase.org/about/legal.jsp\")" ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:ui_explanation a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ui_explanation" ;
+    skos:definition "An explanation of how the source data for an edge of a particular type was generated (as rationale for why the knowledge level, agent type, and knowledge source choices for this edge type were made), along with an explanation for how/why the source data record for a particular edge was transformed into a its current Biolink edge-based representation. Note that this text will be displayed in the UI to explain the provenance of a specific edge, and should be framed accordingly." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:utility a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "utility" ;
+    skos:definition "Brief description of why the source was ingested, and the utility of the data it provides for target system use cases." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:value_description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "value_description" ;
+    skos:definition "A free text description of the types of value allowed for the qualifier." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:future_considerations a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+biolink:category a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+biolink:consideration a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+biolink:terms_of_use_info a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+biolink:relevant_files a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+biolink:ContentCategoryEnum a owl:Class,
         linkml:EnumDefinition ;
-    owl:unionOf ( PATO:0001421 PATO:0001422 <https://w3id.org/biolink/resource-ingest-guide-schema/PersonStatus#UNKNOWN> ) ;
-    linkml:permissible_values PATO:0001421,
-        PATO:0001422,
-        <https://w3id.org/biolink/resource-ingest-guide-schema/PersonStatus#UNKNOWN> .
+    owl:unionOf ( <https://w3id.org/biolink/vocab/ContentCategoryEnum#edge_content> <https://w3id.org/biolink/vocab/ContentCategoryEnum#node_property_content> <https://w3id.org/biolink/vocab/ContentCategoryEnum#edge_property_content> <https://w3id.org/biolink/vocab/ContentCategoryEnum#other> ) ;
+    linkml:permissible_values <https://w3id.org/biolink/vocab/ContentCategoryEnum#edge_content>,
+        <https://w3id.org/biolink/vocab/ContentCategoryEnum#edge_property_content>,
+        <https://w3id.org/biolink/vocab/ContentCategoryEnum#node_property_content>,
+        <https://w3id.org/biolink/vocab/ContentCategoryEnum#other> .
 
-biolink:resource-ingest-guide-schema a owl:Ontology ;
-    rdfs:label "resource-ingest-guide-schema" ;
+biolink:ProvisionMechanismEnum a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/biolink/vocab/ProvisionMechanismEnum#file_download> <https://w3id.org/biolink/vocab/ProvisionMechanismEnum#api_endpoint> <https://w3id.org/biolink/vocab/ProvisionMechanismEnum#database_dump> <https://w3id.org/biolink/vocab/ProvisionMechanismEnum#other> ) ;
+    linkml:permissible_values <https://w3id.org/biolink/vocab/ProvisionMechanismEnum#api_endpoint>,
+        <https://w3id.org/biolink/vocab/ProvisionMechanismEnum#database_dump>,
+        <https://w3id.org/biolink/vocab/ProvisionMechanismEnum#file_download>,
+        <https://w3id.org/biolink/vocab/ProvisionMechanismEnum#other> .
+
+biolink:SourceStatusEnum a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/biolink/vocab/SourceStatusEnum#maintained_regular_updates> <https://w3id.org/biolink/vocab/SourceStatusEnum#maintained_as_needed_updates> <https://w3id.org/biolink/vocab/SourceStatusEnum#not_maintained> <https://w3id.org/biolink/vocab/SourceStatusEnum#unknown> ) ;
+    linkml:permissible_values <https://w3id.org/biolink/vocab/SourceStatusEnum#maintained_as_needed_updates>,
+        <https://w3id.org/biolink/vocab/SourceStatusEnum#maintained_regular_updates>,
+        <https://w3id.org/biolink/vocab/SourceStatusEnum#not_maintained>,
+        <https://w3id.org/biolink/vocab/SourceStatusEnum#unknown> .
+
+biolink:description a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+biolink:file_name a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+biolink:infores_id a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+biolink:name a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+biolink:ModelingCategoryEnum a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/biolink/vocab/ModelingCategoryEnum#spoq_pattern> <https://w3id.org/biolink/vocab/ModelingCategoryEnum#predicates> <https://w3id.org/biolink/vocab/ModelingCategoryEnum#qualifiers> <https://w3id.org/biolink/vocab/ModelingCategoryEnum#edge_properties> <https://w3id.org/biolink/vocab/ModelingCategoryEnum#node_properties> <https://w3id.org/biolink/vocab/ModelingCategoryEnum#other> ) ;
+    linkml:permissible_values <https://w3id.org/biolink/vocab/ModelingCategoryEnum#edge_properties>,
+        <https://w3id.org/biolink/vocab/ModelingCategoryEnum#node_properties>,
+        <https://w3id.org/biolink/vocab/ModelingCategoryEnum#other>,
+        <https://w3id.org/biolink/vocab/ModelingCategoryEnum#predicates>,
+        <https://w3id.org/biolink/vocab/ModelingCategoryEnum#qualifiers>,
+        <https://w3id.org/biolink/vocab/ModelingCategoryEnum#spoq_pattern> .
+
+biolink:KnowledgeLevelEnum a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#knowledge_assertion> <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#logical_entailment> <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#prediction> <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#statistical_association> <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#observation> <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#not_provided> <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#varies> ) ;
+    linkml:permissible_values <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#knowledge_assertion>,
+        <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#logical_entailment>,
+        <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#not_provided>,
+        <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#observation>,
+        <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#prediction>,
+        <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#statistical_association>,
+        <https://w3id.org/biolink/vocab/KnowledgeLevelEnum#varies> .
+
+biolink:additional_notes a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+biolink:IngestCategoryEnum a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/biolink/vocab/IngestCategoryEnum#primary_knowledge_provider> <https://w3id.org/biolink/vocab/IngestCategoryEnum#aggregation_provider> <https://w3id.org/biolink/vocab/IngestCategoryEnum#aggregation_interpreter> <https://w3id.org/biolink/vocab/IngestCategoryEnum#supporting_data_provider> <https://w3id.org/biolink/vocab/IngestCategoryEnum#translator_knowledge_creator> <https://w3id.org/biolink/vocab/IngestCategoryEnum#ontology_provider> <https://w3id.org/biolink/vocab/IngestCategoryEnum#node_property_only_provider> <https://w3id.org/biolink/vocab/IngestCategoryEnum#other> ) ;
+    linkml:permissible_values <https://w3id.org/biolink/vocab/IngestCategoryEnum#aggregation_interpreter>,
+        <https://w3id.org/biolink/vocab/IngestCategoryEnum#aggregation_provider>,
+        <https://w3id.org/biolink/vocab/IngestCategoryEnum#node_property_only_provider>,
+        <https://w3id.org/biolink/vocab/IngestCategoryEnum#ontology_provider>,
+        <https://w3id.org/biolink/vocab/IngestCategoryEnum#other>,
+        <https://w3id.org/biolink/vocab/IngestCategoryEnum#primary_knowledge_provider>,
+        <https://w3id.org/biolink/vocab/IngestCategoryEnum#supporting_data_provider>,
+        <https://w3id.org/biolink/vocab/IngestCategoryEnum#translator_knowledge_creator> .
+
+biolink:AgentTypeEnum a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/biolink/vocab/AgentTypeEnum#manual_agent> <https://w3id.org/biolink/vocab/AgentTypeEnum#automated_agent> <https://w3id.org/biolink/vocab/AgentTypeEnum#computational_model> <https://w3id.org/biolink/vocab/AgentTypeEnum#data_analysis_pipeline> <https://w3id.org/biolink/vocab/AgentTypeEnum#text_mining_agent> <https://w3id.org/biolink/vocab/AgentTypeEnum#image_processing_agent> <https://w3id.org/biolink/vocab/AgentTypeEnum#manual_validation_of_automated_agent> <https://w3id.org/biolink/vocab/AgentTypeEnum#experimental_agent> <https://w3id.org/biolink/vocab/AgentTypeEnum#not_provided> <https://w3id.org/biolink/vocab/AgentTypeEnum#varies> ) ;
+    linkml:permissible_values <https://w3id.org/biolink/vocab/AgentTypeEnum#automated_agent>,
+        <https://w3id.org/biolink/vocab/AgentTypeEnum#computational_model>,
+        <https://w3id.org/biolink/vocab/AgentTypeEnum#data_analysis_pipeline>,
+        <https://w3id.org/biolink/vocab/AgentTypeEnum#experimental_agent>,
+        <https://w3id.org/biolink/vocab/AgentTypeEnum#image_processing_agent>,
+        <https://w3id.org/biolink/vocab/AgentTypeEnum#manual_agent>,
+        <https://w3id.org/biolink/vocab/AgentTypeEnum#manual_validation_of_automated_agent>,
+        <https://w3id.org/biolink/vocab/AgentTypeEnum#not_provided>,
+        <https://w3id.org/biolink/vocab/AgentTypeEnum#text_mining_agent>,
+        <https://w3id.org/biolink/vocab/AgentTypeEnum#varies> .
+
+biolink:DataFormatEnum a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( <https://w3id.org/biolink/vocab/DataFormatEnum#tsv> <https://w3id.org/biolink/vocab/DataFormatEnum#xml> <https://w3id.org/biolink/vocab/DataFormatEnum#csv> <https://w3id.org/biolink/vocab/DataFormatEnum#json> <https://w3id.org/biolink/vocab/DataFormatEnum#yaml> <https://w3id.org/biolink/vocab/DataFormatEnum#obo> <https://w3id.org/biolink/vocab/DataFormatEnum#protobuff> <https://w3id.org/biolink/vocab/DataFormatEnum#kgx> <https://w3id.org/biolink/vocab/DataFormatEnum#mysql> <https://w3id.org/biolink/vocab/DataFormatEnum#postgresql> <https://w3id.org/biolink/vocab/DataFormatEnum#sqlite> <https://w3id.org/biolink/vocab/DataFormatEnum#other> ) ;
+    linkml:permissible_values <https://w3id.org/biolink/vocab/DataFormatEnum#csv>,
+        <https://w3id.org/biolink/vocab/DataFormatEnum#json>,
+        <https://w3id.org/biolink/vocab/DataFormatEnum#kgx>,
+        <https://w3id.org/biolink/vocab/DataFormatEnum#mysql>,
+        <https://w3id.org/biolink/vocab/DataFormatEnum#obo>,
+        <https://w3id.org/biolink/vocab/DataFormatEnum#other>,
+        <https://w3id.org/biolink/vocab/DataFormatEnum#postgresql>,
+        <https://w3id.org/biolink/vocab/DataFormatEnum#protobuff>,
+        <https://w3id.org/biolink/vocab/DataFormatEnum#sqlite>,
+        <https://w3id.org/biolink/vocab/DataFormatEnum#tsv>,
+        <https://w3id.org/biolink/vocab/DataFormatEnum#xml>,
+        <https://w3id.org/biolink/vocab/DataFormatEnum#yaml> .
+
+<https://w3id.org/biolink/resource-ingest-guide-schema> a owl:Ontology ;
+    rdfs:label "reference_ingest_guide" ;
     dcterms:license "MIT" ;
-    dcterms:title "resource-ingest-guide-schema" ;
+    dcterms:title "Reference Ingest Guide Schema" ;
     rdfs:seeAlso <https://biolink.github.io/resource-ingest-guide-schema> ;
-    skos:definition "This is the project description." .
+    skos:definition "A schema for describing the scope, rationale, and modeling approach for ingesting content from an external resource to a data repository compliant with the Biolink Model." .
 

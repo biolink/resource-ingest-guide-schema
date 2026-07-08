@@ -7,13 +7,12 @@ biolink:ReferenceIngestGuide a sh:NodeShape ;
     sh:closed true ;
     sh:description "A container that holds attributes for the discrete sections of information comprising a Resource Ingest Guide." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class biolink:TargetInformation ;
-            sh:description "Information about the dataset / knowledge graph output by the ingest,  including what types of edges and nodes were produced, modeling rationale,  and what modeling changes might be considered in future iterations." ;
+    sh:property [ sh:class biolink:ProvenanceInformation ;
+            sh:description "Information about the provenance of the ingest, including who contributed and how, and links to external provenance-related artifacts (e.g. Github tickets, ingest surveys, etc.)" ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path biolink:target_info ],
+            sh:order 5 ;
+            sh:path biolink:provenance_info ],
         [ sh:class biolink:SourceInformation ;
             sh:description "Information about the source from which content is ingested." ;
             sh:maxCount 1 ;
@@ -26,6 +25,12 @@ biolink:ReferenceIngestGuide a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 1 ;
             sh:path biolink:supporting_data_source_info ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human readable name for the RIG." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path biolink:name ],
         [ sh:class biolink:IngestInformation ;
             sh:description "Information about the rationale and scope of an ingest, including what source content was included and excluded from the ingest, and what additional content might be considered in future iterations." ;
             sh:maxCount 1 ;
@@ -33,18 +38,13 @@ biolink:ReferenceIngestGuide a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path biolink:ingest_info ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human readable name for the RIG." ;
+        [ sh:class biolink:TargetInformation ;
+            sh:description "Information about the dataset / knowledge graph output by the ingest,  including what types of edges and nodes were produced, modeling rationale,  and what modeling changes might be considered in future iterations." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path biolink:name ],
-        [ sh:class biolink:ProvenanceInformation ;
-            sh:description "Information about the provenance of the ingest, including who contributed and how, and links to external provenance-related artifacts (e.g. Github tickets, ingest surveys, etc.)" ;
-            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 5 ;
-            sh:path biolink:provenance_info ] ;
+            sh:order 4 ;
+            sh:path biolink:target_info ] ;
     sh:targetClass biolink:ReferenceIngestGuide .
 
 biolink:EdgeType a sh:NodeShape ;
@@ -56,33 +56,22 @@ biolink:EdgeType a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path biolink:aggregator_knowledge_sources ],
-        [ sh:description "The agent type (or types) relevant to this type of edge. Multivalued only if instances of this type of edge can have different agent types in the data." ;
-            sh:in ( "manual_agent" "automated_agent" "computational_model" "data_analysis_pipeline" "text_mining_agent" "image_processing_agent" "manual_validation_of_automated_agent" "experimental_agent" "not_provided" "varies" ) ;
-            sh:minCount 1 ;
-            sh:order 5 ;
-            sh:path biolink:agent_type ],
-        [ sh:class biolink:Qualifier ;
-            sh:description "If relevant, report any qualifiers applied to the edge type, as a Qualifier object that contains a  qualifier_property and qualifier_range pair. e.g. the property \"biolink:subject_aspect_qualifier\", and range  \"biolink:GeneOrGeneProductOrChemicalEntityAspectEnum" ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path biolink:qualifiers ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A list of one or more Biolink edge properties used in instances of this edge type in the data." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path biolink:edge_properties ],
         [ sh:datatype xsd:anyURI ;
             sh:description "The Biolink category of the subject node of this edge type. e.g. \"biolink:SmallMolecule\". If two edge types differ only in their subject category, but use the same predicate, object_category,  edge properties, and general provenance, they can be described together in a single NodeType object that captures the alternative subject categories. e.g. if a source provides SmallMolecule-treats-Disease and  MolecularMixture-treats-Disease edge types, these can be described in a single EdgeType object with two subject categories (SmallMolecule and MolecularMixture)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path biolink:subject_categories ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "The infores id(s) of the 'primary knowledge sources' for this type of edge. Note that only one primary knowledge source is allowed per edge, but there may be more than one possible value here across edges for a given type (e.g. see the infores:diseases RIG/data)" ;
+        [ sh:description "The knowledge level (or levels) relevant to this type of edge. Multivalued only if instances of this type of edge can have different knowledge levels in the data." ;
+            sh:in ( "knowledge_assertion" "logical_entailment" "prediction" "statistical_association" "observation" "not_provided" "varies" ) ;
             sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path biolink:primary_knowledge_sources ],
+            sh:order 4 ;
+            sh:path biolink:knowledge_level ],
+        [ sh:class biolink:Qualifier ;
+            sh:description "If relevant, report any qualifiers applied to the edge type, as a Qualifier object that contains a  qualifier_property and qualifier_range pair. e.g. the property \"biolink:subject_aspect_qualifier\", and range  \"biolink:GeneOrGeneProductOrChemicalEntityAspectEnum" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path biolink:qualifiers ],
         [ sh:datatype xsd:string ;
             sh:description "An explanation of how the source data for an edge of a particular type was generated (as rationale for why the knowledge level, agent type, and knowledge source choices for this edge type were made), along with an explanation for how/why the source data record for a particular edge was transformed into a its current Biolink edge-based representation. Note that this text will be displayed in the UI to explain the provenance of a specific edge, and should be framed accordingly." ;
             sh:maxCount 1 ;
@@ -90,28 +79,6 @@ biolink:EdgeType a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 10 ;
             sh:path biolink:ui_explanation ],
-        [ sh:datatype xsd:string ;
-            sh:description "Additional notes, considerations, or explanations of modeling patterns used for this edge type, that were not otherwise captured in dedicated fields." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path biolink:additional_notes ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "The Biolink category of the object node of this edge type. e.g. \"biolink:Disease\". If two edge types differ only in their object category, but use the same predicate, subject_category,  edge properties, and general provenance, they can be described together in a single NodeType object that captures the alternative object categories. e.g. if a source provides Gene-associated_with-Disease and  Gene-associated_with-PhenotypicFeature edge types, these can be described in a single EdgeType object with two subject categories (Disease and PhenotypicFeature)" ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path biolink:object_categories ],
-        [ sh:description "The knowledge level (or levels) relevant to this type of edge. Multivalued only if instances of this type of edge can have different knowledge levels in the data." ;
-            sh:in ( "knowledge_assertion" "logical_entailment" "prediction" "statistical_association" "observation" "not_provided" "varies" ) ;
-            sh:minCount 1 ;
-            sh:order 4 ;
-            sh:path biolink:knowledge_level ],
-        [ sh:datatype xsd:string ;
-            sh:description "The source file or files that provided data included in or informing edges of this type. Will usually be a single file. Multivalued because some edges are based on data that come form more than one file. If the data is ingested from a database instance or API endpoint, provide analogous information here (e.g. the name of an specific API endpoint, a database access url, or a set of tables in a database schema). " ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path biolink:source_files ],
         [ sh:datatype xsd:anyURI ;
             sh:description "Biolink predicate(s) that defines this type of edge. Multiple values allowed ONLY if they are a predicate and one or more of its descendent predicates (e.g. [\"biolink:affects\", \"biolink:regulates\", \"biolink:disrupts\"]. Otherwise,  separate EdgeType objects should be created for each predicate. " ;
             sh:minCount 1 ;
@@ -119,10 +86,43 @@ biolink:EdgeType a sh:NodeShape ;
             sh:order 1 ;
             sh:path biolink:predicates ],
         [ sh:datatype xsd:anyURI ;
+            sh:description "The infores id(s) of the 'primary knowledge sources' for this type of edge. Note that only one primary knowledge source is allowed per edge, but there may be more than one possible value here across edges for a given type (e.g. see the infores:diseases RIG/data)" ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path biolink:primary_knowledge_sources ],
+        [ sh:datatype xsd:string ;
+            sh:description "Additional notes, considerations, or explanations of modeling patterns used for this edge type, that were not otherwise captured in dedicated fields." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path biolink:additional_notes ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A list of one or more Biolink edge properties used in instances of this edge type in the data." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path biolink:edge_properties ],
+        [ sh:description "The agent type (or types) relevant to this type of edge. Multivalued only if instances of this type of edge can have different agent types in the data." ;
+            sh:in ( "manual_agent" "automated_agent" "computational_model" "data_analysis_pipeline" "text_mining_agent" "image_processing_agent" "manual_validation_of_automated_agent" "experimental_agent" "not_provided" "varies" ) ;
+            sh:minCount 1 ;
+            sh:order 5 ;
+            sh:path biolink:agent_type ],
+        [ sh:datatype xsd:anyURI ;
             sh:description "The infores id(s) of any 'supporting data sources' for this type of edge." ;
             sh:nodeKind sh:Literal ;
             sh:order 7 ;
-            sh:path biolink:supporting_data_sources ] ;
+            sh:path biolink:supporting_data_sources ],
+        [ sh:datatype xsd:string ;
+            sh:description "The source file or files that provided data included in or informing edges of this type. Will usually be a single file. Multivalued because some edges are based on data that come form more than one file. If the data is ingested from a database instance or API endpoint, provide analogous information here (e.g. the name of an specific API endpoint, a database access url, or a set of tables in a database schema). " ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path biolink:source_files ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "The Biolink category of the object node of this edge type. e.g. \"biolink:Disease\". If two edge types differ only in their object category, but use the same predicate, subject_category,  edge properties, and general provenance, they can be described together in a single NodeType object that captures the alternative object categories. e.g. if a source provides Gene-associated_with-Disease and  Gene-associated_with-PhenotypicFeature edge types, these can be described in a single EdgeType object with two subject categories (Disease and PhenotypicFeature)" ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path biolink:object_categories ] ;
     sh:targetClass biolink:EdgeType .
 
 biolink:FilteredContent a sh:NodeShape ;
@@ -130,13 +130,6 @@ biolink:FilteredContent a sh:NodeShape ;
     sh:description "A structure for describing the types of records from each relevant file/endpoint/table not included in the ingest, and the rationale for any filtering rules or exclusion criteria. Only list a file if some but not all records it contains are included in the ingest - to document what subset was excluded, and why." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "The rationale for excluding the indicated content (why this subset of records was filtered out)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path biolink:rationale ],
-        [ sh:datatype xsd:string ;
             sh:description "The name of the relevant file (or endpoint, or table) form which content was filtered." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -149,32 +142,39 @@ biolink:FilteredContent a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path biolink:filtered_records ] ;
+            sh:path biolink:filtered_records ],
+        [ sh:datatype xsd:string ;
+            sh:description "The rationale for excluding the indicated content (why this subset of records was filtered out)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path biolink:rationale ] ;
     sh:targetClass biolink:FilteredContent .
 
 biolink:FutureContentConsiderations a sh:NodeShape ;
     sh:closed true ;
     sh:description "A structure for collecting notes about content additions or changes to consider in future iterations of this ingest. Create separate objects for each distinct consideration, and indicate if it relates to  content that will be captured as Edges, Node Properties, or Edge Properties in the target knowledge graph." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "A description of what additional content should be considered and why." ;
+    sh:property [ sh:description "The category of content described by a given consideration, based on how the content will be represented in the target graph (e.g. \"Edges\", 'Node Properties\",  \"Edge Properties\")." ;
+            sh:in ( "edge_content" "node_property_content" "edge_property_content" "other" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path biolink:consideration ],
+            sh:order 0 ;
+            sh:path biolink:category ],
         [ sh:datatype xsd:string ;
             sh:description "A list of the relevant source file or files that provide the considered content." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path biolink:relevant_files ],
-        [ sh:description "The category of content described by a given consideration, based on how the content will be represented in the target graph (e.g. \"Edges\", 'Node Properties\",  \"Edge Properties\")." ;
-            sh:in ( "edge_content" "node_property_content" "edge_property_content" "other" ) ;
+        [ sh:datatype xsd:string ;
+            sh:description "A description of what additional content should be considered and why." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path biolink:category ] ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path biolink:consideration ] ;
     sh:targetClass biolink:FutureContentConsiderations .
 
 biolink:FutureModelingConsiderations a sh:NodeShape ;
@@ -200,12 +200,12 @@ biolink:IncludedContent a sh:NodeShape ;
     sh:description "A structure for describing the types of records from relevant files/endpoints/tables are included in this ingest, and optionally a list of fields from these records that are part of the ingest or used to inform it." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "A description of the types of records that are included in the ingest." ;
+            sh:description "The name of the relevant file (or endpoint, or table) from which content is included." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path biolink:included_records ],
+            sh:order 0 ;
+            sh:path biolink:file_name ],
         [ sh:datatype xsd:string ;
             sh:description "Optional list of the specific source fields that are part of or inform the ingest." ;
             sh:maxCount 1 ;
@@ -213,40 +213,23 @@ biolink:IncludedContent a sh:NodeShape ;
             sh:order 2 ;
             sh:path biolink:fields_used ],
         [ sh:datatype xsd:string ;
-            sh:description "The name of the relevant file (or endpoint, or table) from which content is included." ;
+            sh:description "A description of the types of records that are included in the ingest." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path biolink:file_name ] ;
+            sh:order 1 ;
+            sh:path biolink:included_records ] ;
     sh:targetClass biolink:IncludedContent .
 
 biolink:IngestInformation a sh:NodeShape ;
     sh:closed true ;
     sh:description "A container for capturing information about the rationale and scope of an ingest, including what source content was included and excluded from the ingest, and what additional content might be considered in future iterations." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Additional notes, considerations or resources relevant to source content ingest, that were not otherwise captured in dedicated attributes." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path biolink:additional_notes ],
-        [ sh:class biolink:IncludedContent ;
-            sh:description "A description of what types of records from relevant files/endpoints/tables above are included in this ingest, and optionally a list of fields from these records that are part of the ingest or used to inform it." ;
-            sh:minCount 1 ;
+    sh:property [ sh:class biolink:FilteredContent ;
+            sh:description "A description of what types of records from each relevant file are not included in the ingest, and the rationale for any filtering rules or exclusion criteria. Only list a file if some but not all records it contains are included in the ingest - to document what subset was excluded, and why." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path biolink:included_content ],
-        [ sh:class biolink:RelevantFiles ;
-            sh:description "A description of each source file (or API endpoint, database, or table) that contains content in scope for the ingest. Source files containing content which is not retrieved  in this ingest need not be listed or described." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path biolink:relevant_files ],
-        [ sh:description "A term or terms indicating the type of source being ingested, from the perspective of the ingesting system (e.g. primary knowledge provider, supporting data provider, ontology/terminology provider)." ;
-            sh:in ( "primary_knowledge_provider" "aggregation_provider" "aggregation_interpreter" "supporting_data_provider" "translator_knowledge_creator" "ontology_provider" "node_property_only_provider" "other" ) ;
-            sh:order 0 ;
-            sh:path biolink:ingest_categories ],
+            sh:order 5 ;
+            sh:path biolink:filtered_content ],
         [ sh:datatype xsd:string ;
             sh:description "Brief description of why the source was ingested, and the utility of the data it provides for target system use cases." ;
             sh:maxCount 1 ;
@@ -260,34 +243,39 @@ biolink:IngestInformation a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path biolink:scope ],
+        [ sh:class biolink:RelevantFiles ;
+            sh:description "A description of each source file (or API endpoint, database, or table) that contains content in scope for the ingest. Source files containing content which is not retrieved  in this ingest need not be listed or described." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path biolink:relevant_files ],
+        [ sh:description "A term or terms indicating the type of source being ingested, from the perspective of the ingesting system (e.g. primary knowledge provider, supporting data provider, ontology/terminology provider)." ;
+            sh:in ( "primary_knowledge_provider" "aggregation_provider" "aggregation_interpreter" "supporting_data_provider" "translator_knowledge_creator" "ontology_provider" "node_property_only_provider" "other" ) ;
+            sh:order 0 ;
+            sh:path biolink:ingest_categories ],
+        [ sh:datatype xsd:string ;
+            sh:description "Additional notes, considerations or resources relevant to source content ingest, that were not otherwise captured in dedicated attributes." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path biolink:additional_notes ],
+        [ sh:class biolink:IncludedContent ;
+            sh:description "A description of what types of records from relevant files/endpoints/tables above are included in this ingest, and optionally a list of fields from these records that are part of the ingest or used to inform it." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path biolink:included_content ],
         [ sh:class biolink:FutureContentConsiderations ;
             sh:description "Notes about content additions or changes to consider in future iterations of this ingest. Separately consider content that will be represented as Edges vs Node Properties vs Edge Properties in the target knowledge graph." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 6 ;
-            sh:path biolink:future_considerations ],
-        [ sh:class biolink:FilteredContent ;
-            sh:description "A description of what types of records from each relevant file are not included in the ingest, and the rationale for any filtering rules or exclusion criteria. Only list a file if some but not all records it contains are included in the ingest - to document what subset was excluded, and why." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 5 ;
-            sh:path biolink:filtered_content ] ;
+            sh:path biolink:future_considerations ] ;
     sh:targetClass biolink:IngestInformation .
 
 biolink:NodeType a sh:NodeShape ;
     sh:closed true ;
     sh:description "A structured object describing each type of node created in the target knowledge graph by this ingest." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Additional notes, considerations, or explanations concerning this node type, that were not otherwise captured in dedicated attributes." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path biolink:additional_notes ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A list of one or more Biolink node properties used in instances of this node type in the data." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path biolink:node_properties ],
-        [ sh:datatype xsd:anyURI ;
+    sh:property [ sh:datatype xsd:anyURI ;
             sh:description "The high-level Biolink category of nodes as assumed or assigned by ingestors. e.g. \"biolink:Gene\". Note that downstream normalization of node identifiers may result in new/different categories ultimately being assigned in the final graph." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -299,7 +287,18 @@ biolink:NodeType a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path biolink:source_identifier_types ] ;
+            sh:path biolink:source_identifier_types ],
+        [ sh:datatype xsd:string ;
+            sh:description "Additional notes, considerations, or explanations concerning this node type, that were not otherwise captured in dedicated attributes." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path biolink:additional_notes ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A list of one or more Biolink node properties used in instances of this node type in the data." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path biolink:node_properties ] ;
     sh:targetClass biolink:NodeType .
 
 biolink:ProvenanceInformation a sh:NodeShape ;
@@ -307,15 +306,15 @@ biolink:ProvenanceInformation a sh:NodeShape ;
     sh:description "A container holding information about the provenance of the ingest, including who contributed and how, and links to external provenance artifacts." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "The name of a person making a contribution, and the type of contribution made. e.g. \"code author\", \"code support\", \"data modeling\", \"domain expertise\"." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path biolink:contributions ],
-        [ sh:datatype xsd:string ;
             sh:description "Links to and descriptions of external artifacts related to the provenance of the ingest, such as Github issues, surveys of prior ingests of the source, etc." ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path biolink:artifacts ] ;
+            sh:path biolink:artifacts ],
+        [ sh:datatype xsd:string ;
+            sh:description "The name of a person making a contribution, and the type of contribution made. e.g. \"code author\", \"code support\", \"data modeling\", \"domain expertise\"." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path biolink:contributions ] ;
     sh:targetClass biolink:ProvenanceInformation .
 
 biolink:Qualifier a sh:NodeShape ;
@@ -323,72 +322,71 @@ biolink:Qualifier a sh:NodeShape ;
     sh:description "A qualifier property + value tuple that specifies a type of qualifier and value that may be applied to a Statement. Qualified predicates are considered qualifiers and captured here as well. Values can be specified to come from a proper range (e.g. Biolink class, data type, or enum), come from an enumerated list, use a specific id prefix, and/or conform informally to a free-text description. " ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "A free text description of the types of value allowed for the qualifier." ;
-            sh:maxCount 1 ;
+            sh:description "One or more id prefixes from which the qualifier value must come. e.g. \"HP\" if the qualifier must be a Human Phenotype Ontology term. " ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path biolink:value_description ],
-        [ sh:datatype xsd:string ;
-            sh:description "A set of one or more specific values for the qualifier in an Edge type (e.g. [\"biolink:causes\"] as the only value for the \"biolink:qualified_predicate\" qualifier property, [\"activity_or_abundance\", \"activity\", \"abundance\"]  as the values for the \"biolink:object_aspect_qualifier\" property). " ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path biolink:value_enumeration ],
+            sh:order 3 ;
+            sh:path biolink:value_id_prefixes ],
         [ sh:datatype xsd:anyURI ;
             sh:description "The Biolink class(es) or type(s) that specifies the kind of value the qualifier property takes, Reported as the name of a Biolink class, enumeration, or data type, as appropriate.  e.g. \"biolink:Disease\", \"biolink:GeneOrGeneProductOrChemicalEntityAspectEnum\", \"biolink:string\"" ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path biolink:value_range ],
         [ sh:datatype xsd:string ;
-            sh:description "One or more id prefixes from which the qualifier value must come. e.g. \"HP\" if the qualifier must be a Human Phenotype Ontology term. " ;
+            sh:description "A free text description of the types of value allowed for the qualifier." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path biolink:value_id_prefixes ],
+            sh:order 4 ;
+            sh:path biolink:value_description ],
         [ sh:datatype xsd:anyURI ;
             sh:description "The Biolink qualifier slot that defines the kind of Qualifier specified, e.g. \"biolink:subject_aspect_qualifier\", \"qualified_predicate\"." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path biolink:property ] ;
+            sh:path biolink:property ],
+        [ sh:datatype xsd:string ;
+            sh:description "A set of one or more specific values for the qualifier in an Edge type (e.g. [\"biolink:causes\"] as the only value for the \"biolink:qualified_predicate\" qualifier property, [\"activity_or_abundance\", \"activity\", \"abundance\"]  as the values for the \"biolink:object_aspect_qualifier\" property). " ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path biolink:value_enumeration ] ;
     sh:targetClass biolink:Qualifier .
 
 biolink:SourceInformation a sh:NodeShape ;
     sh:closed true ;
     sh:description "A container for capturing information about the source of the ingest." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "The format(s) in which the data is serialized for retrieval and use." ;
-            sh:in ( "tsv" "xml" "csv" "json" "yaml" "obo" "protobuff" "kgx" "mysql" "postgresql" "sqlite" "other" ) ;
-            sh:order 7 ;
-            sh:path biolink:data_formats ],
+    sh:property [ sh:description "How the source distributes their data (file download, API endpoints, database dump)." ;
+            sh:in ( "file_download" "api_endpoint" "database_dump" "other" ) ;
+            sh:order 6 ;
+            sh:path biolink:data_provision_mechanisms ],
         [ sh:datatype xsd:string ;
             sh:description "A brief description of the source, including its purpose, scope, and any relevant background information." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path biolink:description ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human readable name for the RIG" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path biolink:name ],
-        [ sh:datatype xsd:string ;
-            sh:description "Additional notes, considerations, or resources relevant to the source, that were not otherwise captured in dedicated attributes." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path biolink:additional_notes ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "The infores identifier of the source from which content is being ingested, e.g. \"infores:ctd\"." ;
+        [ sh:class biolink:TermsOfUseInformation ;
+            sh:description "Information about conditions for use of the ingested source. May include the name of a community license (e.g. `CC-BY 4.0`), a link to a \"terms of use\" or license information web page (e.g. `https://ctdbase.org/about/legal.jsp`), and/or a free-text summary of key terms of use." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path biolink:terms_of_use_info ],
+        [ sh:datatype xsd:string ;
+            sh:description "One ore more citations to publications describing the source. May be a identifier (e.g a pmid or doi), a url to the published document, or a free-text citation." ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path biolink:infores_id ],
-        [ sh:description "How the source distributes their data (file download, API endpoints, database dump)." ;
-            sh:in ( "file_download" "api_endpoint" "database_dump" "other" ) ;
-            sh:order 6 ;
-            sh:path biolink:data_provision_mechanisms ],
+            sh:order 3 ;
+            sh:path biolink:citations ],
+        [ sh:datatype xsd:string ;
+            sh:description "Where the source data that is being ingested can be accessed. Provide one or more URLs,  along with optional descriptions of what each URL provides." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path biolink:data_access_locations ],
+        [ sh:description "The format(s) in which the data is serialized for retrieval and use." ;
+            sh:in ( "tsv" "xml" "csv" "json" "yaml" "obo" "protobuff" "kgx" "mysql" "postgresql" "sqlite" "other" ) ;
+            sh:order 7 ;
+            sh:path biolink:data_formats ],
         [ sh:description "The maintenance status of the source, indicating whether it is actively maintained and how regularly it is updated." ;
             sh:in ( "maintained_regular_updates" "maintained_as_needed_updates" "not_maintained" "unknown" ) ;
             sh:maxCount 1 ;
@@ -396,54 +394,49 @@ biolink:SourceInformation a sh:NodeShape ;
             sh:order 9 ;
             sh:path biolink:source_status ],
         [ sh:datatype xsd:string ;
-            sh:description "Where the source data that is being ingested can be accessed. Provide one or more URLs,  along with optional descriptions of what each URL provides." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path biolink:data_access_locations ],
-        [ sh:class biolink:TermsOfUseInformation ;
-            sh:description "Information about conditions for use of the ingested source. May include the name of a community license (e.g. `CC-BY 4.0`), a link to a \"terms of use\" or license information web page (e.g. `https://ctdbase.org/about/legal.jsp`), and/or a free-text summary of key terms of use." ;
+            sh:description "Additional notes, considerations, or resources relevant to the source, that were not otherwise captured in dedicated attributes." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path biolink:terms_of_use_info ],
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path biolink:additional_notes ],
         [ sh:datatype xsd:string ;
             sh:description "A description of how releases are versioned and managed by the source (e.g. general approach, frequency, other important considerations). May also include links to web pages describing such information." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path biolink:data_versioning_and_releases ],
-        [ sh:datatype xsd:string ;
-            sh:description "One ore more citations to publications describing the source. May be a identifier (e.g a pmid or doi), a url to the published document, or a free-text citation." ;
+        [ sh:datatype xsd:anyURI ;
+            sh:description "The infores identifier of the source from which content is being ingested, e.g. \"infores:ctd\"." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path biolink:citations ] ;
+            sh:order 0 ;
+            sh:path biolink:infores_id ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human readable name for the RIG" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path biolink:name ] ;
     sh:targetClass biolink:SourceInformation .
 
 biolink:SupportingDataSourceInformation a sh:NodeShape ;
     sh:closed true ;
     sh:description "A container for information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest. This info is not relevant for typical ingest of an external knowledge source, and applies mainly for describing \"ingest\" of data-derived KPs like ICEES, COHD, various Multiomics KPs, etc." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for the source of supporting data, e.g. \"Aggregate Analysis of ClinicalTrial.gov (AACT)\"" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path biolink:name ],
-        [ sh:class biolink:RelevantFiles ;
-            sh:description "A description of each source file (or API endpoint, database, or table) that contains data used to create the ingested knowledge. Source files that contain data not used to created knowledge need not be listed or described." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path biolink:relevant_files ],
-        [ sh:class biolink:TermsOfUseInformation ;
+    sh:property [ sh:class biolink:TermsOfUseInformation ;
             sh:description "Information about conditions for use of the ingested source. May include the name of a community license (e.g. `CC-BY 4.0`), a link to a \"terms of use\" or license information web page (e.g. `https://ctdbase.org/about/legal.jsp`), and/or a free-text summary of key terms of use." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path biolink:terms_of_use_info ],
+        [ sh:class biolink:RelevantFiles ;
+            sh:description "A description of each source file (or API endpoint, database, or table) that contains data used to create the ingested knowledge. Source files that contain data not used to created knowledge need not be listed or described." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path biolink:relevant_files ],
         [ sh:datatype xsd:anyURI ;
             sh:description "The infores identifier of the source from which content is being ingested, e.g. \"infores:ctd\"." ;
             sh:maxCount 1 ;
@@ -456,7 +449,13 @@ biolink:SupportingDataSourceInformation a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path biolink:description ] ;
+            sh:path biolink:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for the source of supporting data, e.g. \"Aggregate Analysis of ClinicalTrial.gov (AACT)\"" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path biolink:name ] ;
     sh:targetClass biolink:SupportingDataSourceInformation .
 
 biolink:TargetInformation a sh:NodeShape ;
@@ -480,32 +479,25 @@ biolink:TargetInformation a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path biolink:future_considerations ],
-        [ sh:datatype xsd:string ;
-            sh:description "Additional notes, considerations or resources relevant to mapping or modeling source data to the target model, that were not otherwise captured in dedicated attributes." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path biolink:additional_notes ],
         [ sh:class biolink:EdgeType ;
             sh:description "A description of each type of edge (metaedge) created in the target knowledge graph by this ingest, including what types of edge properties it holds, and a brief explanation of why this modeling pattern was deemed appropriate to represent the source data (to be displayed for end users in a UI system)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 1 ;
-            sh:path biolink:edge_type_info ] ;
+            sh:path biolink:edge_type_info ],
+        [ sh:datatype xsd:string ;
+            sh:description "Additional notes, considerations or resources relevant to mapping or modeling source data to the target model, that were not otherwise captured in dedicated attributes." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path biolink:additional_notes ] ;
     sh:targetClass biolink:TargetInformation .
 
 biolink:RelevantFiles a sh:NodeShape ;
     sh:closed true ;
     sh:description "A structure for describing each source file (or API endpoint, database, or table) that contains content in scope for the ingest. Source files containing which content is not retrieved  in this ingest need not be listed or described." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "The name of the relevant file (or endpoint, or table)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path biolink:file_name ],
-        [ sh:datatype xsd:anyURI ;
+    sh:property [ sh:datatype xsd:anyURI ;
             sh:description "The URL of a web page or ftp site where the indicated file (or endpoint or table) was accessed." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -517,19 +509,26 @@ biolink:RelevantFiles a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path biolink:description ] ;
+            sh:path biolink:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "The name of the relevant file (or endpoint, or table)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path biolink:file_name ] ;
     sh:targetClass biolink:RelevantFiles .
 
 biolink:TermsOfUseInformation a sh:NodeShape ;
     sh:closed true ;
     sh:description "A structured representation describing terms for re-use of data from an information resource." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "A free text description of the terms of use for a source.  (e.g. \"Source only indicates 'all rights reserved' in their documentation\")" ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "The url of a document or web page where a source describes its terms of use, and/or references a community license that it adopts. (e.g. \"https://ctdbase.org/about/legal.jsp\")" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path biolink:terms_of_use_description ],
+            sh:order 0 ;
+            sh:path biolink:terms_of_use_url ],
         [ sh:datatype xsd:anyURI ;
             sh:description "The url of an established license (e.g. \"https://creativecommons.org/licenses/by/4.0/\")" ;
             sh:maxCount 1 ;
@@ -537,16 +536,16 @@ biolink:TermsOfUseInformation a sh:NodeShape ;
             sh:order 3 ;
             sh:path biolink:license_url ],
         [ sh:datatype xsd:string ;
+            sh:description "A free text description of the terms of use for a source.  (e.g. \"Source only indicates 'all rights reserved' in their documentation\")" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path biolink:terms_of_use_description ],
+        [ sh:datatype xsd:string ;
             sh:description "The name of an established license used by the source (e.g. \"CC BY 4.0\")" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path biolink:license_name ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "The url of a document or web page where a source describes its terms of use, and/or references a community license that it adopts. (e.g. \"https://ctdbase.org/about/legal.jsp\")" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path biolink:terms_of_use_url ] ;
+            sh:path biolink:license_name ] ;
     sh:targetClass biolink:TermsOfUseInformation .
 

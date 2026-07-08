@@ -136,7 +136,7 @@ type IngestInformation
     utility: String!
     scope: String
     relevantFiles: [RelevantFiles]!
-    includedContent: [IncludedContent]!
+    includedContent: [IncludedContent]
     filteredContent: [FilteredContent]
     futureConsiderations: [FutureContentConsiderations]
     additionalNotes: String

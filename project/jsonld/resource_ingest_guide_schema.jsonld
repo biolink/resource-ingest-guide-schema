@@ -1015,7 +1015,6 @@
         "IngestInformation"
       ],
       "range": "IncludedContent",
-      "required": true,
       "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
@@ -1973,7 +1972,6 @@
           "name": "included_content",
           "description": "A description of what types of records from relevant files/endpoints/tables above are included in this ingest, and optionally a list of fields from these records that are part of the ingest or used to inform it.",
           "range": "IncludedContent",
-          "required": true,
           "multivalued": true,
           "@type": "SlotDefinition"
         },
@@ -2478,9 +2476,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "resource_ingest_guide_schema.yaml",
-  "source_file_date": "2026-07-08T13:08:48",
-  "source_file_size": 33035,
-  "generation_date": "2026-07-08T13:08:59",
+  "source_file_date": "2026-07-08T15:57:16",
+  "source_file_size": 33010,
+  "generation_date": "2026-07-08T15:57:25",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/resource_ingest_guide_schema.context.jsonld",

@@ -316,7 +316,10 @@
                     "items": {
                         "$ref": "#/$defs/IncludedContent"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "ingest_categories": {
                     "description": "A term or terms indicating the type of source being ingested, from the perspective of the ingesting system (e.g. primary knowledge provider, supporting data provider, ontology/terminology provider).",
@@ -349,8 +352,7 @@
             },
             "required": [
                 "utility",
-                "relevant_files",
-                "included_content"
+                "relevant_files"
             ],
             "title": "IngestInformation",
             "type": "object"

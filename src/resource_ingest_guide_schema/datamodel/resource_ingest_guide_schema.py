@@ -1,5 +1,5 @@
 # Auto generated from resource_ingest_guide_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-08T13:08:59
+# Generation date: 2026-07-08T15:57:25
 # Schema: reference_ingest_guide
 #
 # id: https://w3id.org/biolink/resource-ingest-guide-schema
@@ -285,9 +285,9 @@ class IngestInformation(YAMLRoot):
 
     utility: str = None
     relevant_files: Union[Union[dict, "RelevantFiles"], list[Union[dict, "RelevantFiles"]]] = None
-    included_content: Union[Union[dict, "IncludedContent"], list[Union[dict, "IncludedContent"]]] = None
     ingest_categories: Optional[Union[Union[str, "IngestCategoryEnum"], list[Union[str, "IngestCategoryEnum"]]]] = empty_list()
     scope: Optional[str] = None
+    included_content: Optional[Union[Union[dict, "IncludedContent"], list[Union[dict, "IncludedContent"]]]] = empty_list()
     filtered_content: Optional[Union[Union[dict, "FilteredContent"], list[Union[dict, "FilteredContent"]]]] = empty_list()
     future_considerations: Optional[Union[Union[dict, "FutureContentConsiderations"], list[Union[dict, "FutureContentConsiderations"]]]] = empty_list()
     additional_notes: Optional[str] = None
@@ -302,16 +302,14 @@ class IngestInformation(YAMLRoot):
             self.MissingRequiredField("relevant_files")
         self._normalize_inlined_as_dict(slot_name="relevant_files", slot_type=RelevantFiles, key_name="file_name", keyed=False)
 
-        if self._is_empty(self.included_content):
-            self.MissingRequiredField("included_content")
-        self._normalize_inlined_as_dict(slot_name="included_content", slot_type=IncludedContent, key_name="file_name", keyed=False)
-
         if not isinstance(self.ingest_categories, list):
             self.ingest_categories = [self.ingest_categories] if self.ingest_categories is not None else []
         self.ingest_categories = [v if isinstance(v, IngestCategoryEnum) else IngestCategoryEnum(v) for v in self.ingest_categories]
 
         if self.scope is not None and not isinstance(self.scope, str):
             self.scope = str(self.scope)
+
+        self._normalize_inlined_as_dict(slot_name="included_content", slot_type=IncludedContent, key_name="file_name", keyed=False)
 
         self._normalize_inlined_as_dict(slot_name="filtered_content", slot_type=FilteredContent, key_name="file_name", keyed=False)
 
@@ -997,7 +995,7 @@ slots.ingestInformation__relevant_files = Slot(uri=BIOLINK.relevant_files, name=
                    model_uri=BIOLINK.ingestInformation__relevant_files, domain=None, range=Union[Union[dict, RelevantFiles], list[Union[dict, RelevantFiles]]])
 
 slots.ingestInformation__included_content = Slot(uri=BIOLINK.included_content, name="ingestInformation__included_content", curie=BIOLINK.curie('included_content'),
-                   model_uri=BIOLINK.ingestInformation__included_content, domain=None, range=Union[Union[dict, IncludedContent], list[Union[dict, IncludedContent]]])
+                   model_uri=BIOLINK.ingestInformation__included_content, domain=None, range=Optional[Union[Union[dict, IncludedContent], list[Union[dict, IncludedContent]]]])
 
 slots.ingestInformation__filtered_content = Slot(uri=BIOLINK.filtered_content, name="ingestInformation__filtered_content", curie=BIOLINK.curie('filtered_content'),
                    model_uri=BIOLINK.ingestInformation__filtered_content, domain=None, range=Optional[Union[Union[dict, FilteredContent], list[Union[dict, FilteredContent]]]])

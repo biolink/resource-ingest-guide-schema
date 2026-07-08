@@ -133,7 +133,7 @@ linkml:Sparqlpath xsd:string
           <utility> @linkml:String ;
           <scope> @linkml:String ? ;
           <relevant_files> @<RelevantFiles> + ;
-          <included_content> @<IncludedContent> + ;
+          <included_content> @<IncludedContent> * ;
           <filtered_content> @<FilteredContent> * ;
           <future_considerations> @<FutureContentConsiderations> * ;
           <additional_notes> @linkml:String ?

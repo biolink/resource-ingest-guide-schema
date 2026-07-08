@@ -273,7 +273,7 @@ CREATE TABLE "IngestInformation_ingest_categories" (
 	ingest_categories VARCHAR(28),
 	PRIMARY KEY ("IngestInformation_id", ingest_categories),
 	FOREIGN KEY("IngestInformation_id") REFERENCES "IngestInformation" (id)
-);CREATE INDEX "ix_IngestInformation_ingest_categories_IngestInformation_id" ON "IngestInformation_ingest_categories" ("IngestInformation_id");CREATE INDEX "ix_IngestInformation_ingest_categories_ingest_categories" ON "IngestInformation_ingest_categories" (ingest_categories);
+);CREATE INDEX "ix_IngestInformation_ingest_categories_ingest_categories" ON "IngestInformation_ingest_categories" (ingest_categories);CREATE INDEX "ix_IngestInformation_ingest_categories_IngestInformation_id" ON "IngestInformation_ingest_categories" ("IngestInformation_id");
 CREATE TABLE "IngestInformation_relevant_files" (
 	"IngestInformation_id" INTEGER,
 	relevant_files_id INTEGER NOT NULL,
@@ -283,11 +283,11 @@ CREATE TABLE "IngestInformation_relevant_files" (
 );CREATE INDEX "ix_IngestInformation_relevant_files_IngestInformation_id" ON "IngestInformation_relevant_files" ("IngestInformation_id");CREATE INDEX "ix_IngestInformation_relevant_files_relevant_files_id" ON "IngestInformation_relevant_files" (relevant_files_id);
 CREATE TABLE "IngestInformation_included_content" (
 	"IngestInformation_id" INTEGER,
-	included_content_id INTEGER NOT NULL,
+	included_content_id INTEGER,
 	PRIMARY KEY ("IngestInformation_id", included_content_id),
 	FOREIGN KEY("IngestInformation_id") REFERENCES "IngestInformation" (id),
 	FOREIGN KEY(included_content_id) REFERENCES "IncludedContent" (id)
-);CREATE INDEX "ix_IngestInformation_included_content_included_content_id" ON "IngestInformation_included_content" (included_content_id);CREATE INDEX "ix_IngestInformation_included_content_IngestInformation_id" ON "IngestInformation_included_content" ("IngestInformation_id");
+);CREATE INDEX "ix_IngestInformation_included_content_IngestInformation_id" ON "IngestInformation_included_content" ("IngestInformation_id");CREATE INDEX "ix_IngestInformation_included_content_included_content_id" ON "IngestInformation_included_content" (included_content_id);
 CREATE TABLE "IngestInformation_filtered_content" (
 	"IngestInformation_id" INTEGER,
 	filtered_content_id INTEGER,
@@ -322,13 +322,13 @@ CREATE TABLE "TargetInformation_future_considerations" (
 	PRIMARY KEY ("TargetInformation_id", future_considerations_id),
 	FOREIGN KEY("TargetInformation_id") REFERENCES "TargetInformation" (id),
 	FOREIGN KEY(future_considerations_id) REFERENCES "FutureModelingConsiderations" (id)
-);CREATE INDEX "ix_TargetInformation_future_considerations_future_considerations_id" ON "TargetInformation_future_considerations" (future_considerations_id);CREATE INDEX "ix_TargetInformation_future_considerations_TargetInformation_id" ON "TargetInformation_future_considerations" ("TargetInformation_id");
+);CREATE INDEX "ix_TargetInformation_future_considerations_TargetInformation_id" ON "TargetInformation_future_considerations" ("TargetInformation_id");CREATE INDEX "ix_TargetInformation_future_considerations_future_considerations_id" ON "TargetInformation_future_considerations" (future_considerations_id);
 CREATE TABLE "EdgeType_subject_categories" (
 	"EdgeType_id" INTEGER,
 	subject_categories TEXT NOT NULL,
 	PRIMARY KEY ("EdgeType_id", subject_categories),
 	FOREIGN KEY("EdgeType_id") REFERENCES "EdgeType" (id)
-);CREATE INDEX "ix_EdgeType_subject_categories_EdgeType_id" ON "EdgeType_subject_categories" ("EdgeType_id");CREATE INDEX "ix_EdgeType_subject_categories_subject_categories" ON "EdgeType_subject_categories" (subject_categories);
+);CREATE INDEX "ix_EdgeType_subject_categories_subject_categories" ON "EdgeType_subject_categories" (subject_categories);CREATE INDEX "ix_EdgeType_subject_categories_EdgeType_id" ON "EdgeType_subject_categories" ("EdgeType_id");
 CREATE TABLE "EdgeType_predicates" (
 	"EdgeType_id" INTEGER,
 	predicates TEXT NOT NULL,
@@ -347,13 +347,13 @@ CREATE TABLE "EdgeType_qualifiers" (
 	PRIMARY KEY ("EdgeType_id", qualifiers_id),
 	FOREIGN KEY("EdgeType_id") REFERENCES "EdgeType" (id),
 	FOREIGN KEY(qualifiers_id) REFERENCES "Qualifier" (id)
-);CREATE INDEX "ix_EdgeType_qualifiers_EdgeType_id" ON "EdgeType_qualifiers" ("EdgeType_id");CREATE INDEX "ix_EdgeType_qualifiers_qualifiers_id" ON "EdgeType_qualifiers" (qualifiers_id);
+);CREATE INDEX "ix_EdgeType_qualifiers_qualifiers_id" ON "EdgeType_qualifiers" (qualifiers_id);CREATE INDEX "ix_EdgeType_qualifiers_EdgeType_id" ON "EdgeType_qualifiers" ("EdgeType_id");
 CREATE TABLE "EdgeType_knowledge_level" (
 	"EdgeType_id" INTEGER,
 	knowledge_level VARCHAR(23) NOT NULL,
 	PRIMARY KEY ("EdgeType_id", knowledge_level),
 	FOREIGN KEY("EdgeType_id") REFERENCES "EdgeType" (id)
-);CREATE INDEX "ix_EdgeType_knowledge_level_knowledge_level" ON "EdgeType_knowledge_level" (knowledge_level);CREATE INDEX "ix_EdgeType_knowledge_level_EdgeType_id" ON "EdgeType_knowledge_level" ("EdgeType_id");
+);CREATE INDEX "ix_EdgeType_knowledge_level_EdgeType_id" ON "EdgeType_knowledge_level" ("EdgeType_id");CREATE INDEX "ix_EdgeType_knowledge_level_knowledge_level" ON "EdgeType_knowledge_level" (knowledge_level);
 CREATE TABLE "EdgeType_agent_type" (
 	"EdgeType_id" INTEGER,
 	agent_type VARCHAR(36) NOT NULL,
@@ -365,13 +365,13 @@ CREATE TABLE "EdgeType_primary_knowledge_sources" (
 	primary_knowledge_sources TEXT NOT NULL,
 	PRIMARY KEY ("EdgeType_id", primary_knowledge_sources),
 	FOREIGN KEY("EdgeType_id") REFERENCES "EdgeType" (id)
-);CREATE INDEX "ix_EdgeType_primary_knowledge_sources_primary_knowledge_sources" ON "EdgeType_primary_knowledge_sources" (primary_knowledge_sources);CREATE INDEX "ix_EdgeType_primary_knowledge_sources_EdgeType_id" ON "EdgeType_primary_knowledge_sources" ("EdgeType_id");
+);CREATE INDEX "ix_EdgeType_primary_knowledge_sources_EdgeType_id" ON "EdgeType_primary_knowledge_sources" ("EdgeType_id");CREATE INDEX "ix_EdgeType_primary_knowledge_sources_primary_knowledge_sources" ON "EdgeType_primary_knowledge_sources" (primary_knowledge_sources);
 CREATE TABLE "EdgeType_supporting_data_sources" (
 	"EdgeType_id" INTEGER,
 	supporting_data_sources TEXT,
 	PRIMARY KEY ("EdgeType_id", supporting_data_sources),
 	FOREIGN KEY("EdgeType_id") REFERENCES "EdgeType" (id)
-);CREATE INDEX "ix_EdgeType_supporting_data_sources_supporting_data_sources" ON "EdgeType_supporting_data_sources" (supporting_data_sources);CREATE INDEX "ix_EdgeType_supporting_data_sources_EdgeType_id" ON "EdgeType_supporting_data_sources" ("EdgeType_id");
+);CREATE INDEX "ix_EdgeType_supporting_data_sources_EdgeType_id" ON "EdgeType_supporting_data_sources" ("EdgeType_id");CREATE INDEX "ix_EdgeType_supporting_data_sources_supporting_data_sources" ON "EdgeType_supporting_data_sources" (supporting_data_sources);
 CREATE TABLE "EdgeType_aggregator_knowledge_sources" (
 	"EdgeType_id" INTEGER,
 	aggregator_knowledge_sources TEXT,
@@ -407,7 +407,7 @@ CREATE TABLE "Qualifier_value_id_prefixes" (
 	value_id_prefixes TEXT,
 	PRIMARY KEY ("Qualifier_id", value_id_prefixes),
 	FOREIGN KEY("Qualifier_id") REFERENCES "Qualifier" (id)
-);CREATE INDEX "ix_Qualifier_value_id_prefixes_value_id_prefixes" ON "Qualifier_value_id_prefixes" (value_id_prefixes);CREATE INDEX "ix_Qualifier_value_id_prefixes_Qualifier_id" ON "Qualifier_value_id_prefixes" ("Qualifier_id");
+);CREATE INDEX "ix_Qualifier_value_id_prefixes_Qualifier_id" ON "Qualifier_value_id_prefixes" ("Qualifier_id");CREATE INDEX "ix_Qualifier_value_id_prefixes_value_id_prefixes" ON "Qualifier_value_id_prefixes" (value_id_prefixes);
 CREATE TABLE "NodeType_source_identifier_types" (
 	"NodeType_id" INTEGER,
 	source_identifier_types TEXT NOT NULL,
@@ -419,7 +419,7 @@ CREATE TABLE "NodeType_node_properties" (
 	node_properties TEXT,
 	PRIMARY KEY ("NodeType_id", node_properties),
 	FOREIGN KEY("NodeType_id") REFERENCES "NodeType" (id)
-);CREATE INDEX "ix_NodeType_node_properties_NodeType_id" ON "NodeType_node_properties" ("NodeType_id");CREATE INDEX "ix_NodeType_node_properties_node_properties" ON "NodeType_node_properties" (node_properties);
+);CREATE INDEX "ix_NodeType_node_properties_node_properties" ON "NodeType_node_properties" (node_properties);CREATE INDEX "ix_NodeType_node_properties_NodeType_id" ON "NodeType_node_properties" ("NodeType_id");
 CREATE TABLE "ProvenanceInformation_contributions" (
 	"ProvenanceInformation_id" INTEGER,
 	contributions TEXT,
@@ -451,13 +451,13 @@ CREATE TABLE "SupportingDataSourceInformation_relevant_files" (
 	PRIMARY KEY ("SupportingDataSourceInformation_id", relevant_files_id),
 	FOREIGN KEY("SupportingDataSourceInformation_id") REFERENCES "SupportingDataSourceInformation" (id),
 	FOREIGN KEY(relevant_files_id) REFERENCES "RelevantFiles" (id)
-);CREATE INDEX "ix_SupportingDataSourceInformation_relevant_files_relevant_files_id" ON "SupportingDataSourceInformation_relevant_files" (relevant_files_id);CREATE INDEX "ix_SupportingDataSourceInformation_relevant_files_SupportingDataSourceInformation_id" ON "SupportingDataSourceInformation_relevant_files" ("SupportingDataSourceInformation_id");
+);CREATE INDEX "ix_SupportingDataSourceInformation_relevant_files_SupportingDataSourceInformation_id" ON "SupportingDataSourceInformation_relevant_files" ("SupportingDataSourceInformation_id");CREATE INDEX "ix_SupportingDataSourceInformation_relevant_files_relevant_files_id" ON "SupportingDataSourceInformation_relevant_files" (relevant_files_id);
 CREATE TABLE "SourceInformation_citations" (
 	"SourceInformation_id" INTEGER,
 	citations TEXT,
 	PRIMARY KEY ("SourceInformation_id", citations),
 	FOREIGN KEY("SourceInformation_id") REFERENCES "SourceInformation" (id)
-);CREATE INDEX "ix_SourceInformation_citations_citations" ON "SourceInformation_citations" (citations);CREATE INDEX "ix_SourceInformation_citations_SourceInformation_id" ON "SourceInformation_citations" ("SourceInformation_id");
+);CREATE INDEX "ix_SourceInformation_citations_SourceInformation_id" ON "SourceInformation_citations" ("SourceInformation_id");CREATE INDEX "ix_SourceInformation_citations_citations" ON "SourceInformation_citations" (citations);
 CREATE TABLE "SourceInformation_data_access_locations" (
 	"SourceInformation_id" INTEGER,
 	data_access_locations TEXT NOT NULL,
@@ -469,7 +469,7 @@ CREATE TABLE "SourceInformation_data_provision_mechanisms" (
 	data_provision_mechanisms VARCHAR(13),
 	PRIMARY KEY ("SourceInformation_id", data_provision_mechanisms),
 	FOREIGN KEY("SourceInformation_id") REFERENCES "SourceInformation" (id)
-);CREATE INDEX "ix_SourceInformation_data_provision_mechanisms_data_provision_mechanisms" ON "SourceInformation_data_provision_mechanisms" (data_provision_mechanisms);CREATE INDEX "ix_SourceInformation_data_provision_mechanisms_SourceInformation_id" ON "SourceInformation_data_provision_mechanisms" ("SourceInformation_id");
+);CREATE INDEX "ix_SourceInformation_data_provision_mechanisms_SourceInformation_id" ON "SourceInformation_data_provision_mechanisms" ("SourceInformation_id");CREATE INDEX "ix_SourceInformation_data_provision_mechanisms_data_provision_mechanisms" ON "SourceInformation_data_provision_mechanisms" (data_provision_mechanisms);
 CREATE TABLE "SourceInformation_data_formats" (
 	"SourceInformation_id" INTEGER,
 	data_formats VARCHAR(10),
@@ -482,4 +482,4 @@ CREATE TABLE "ReferenceIngestGuide_supporting_data_source_info" (
 	PRIMARY KEY ("ReferenceIngestGuide_id", supporting_data_source_info_id),
 	FOREIGN KEY("ReferenceIngestGuide_id") REFERENCES "ReferenceIngestGuide" (id),
 	FOREIGN KEY(supporting_data_source_info_id) REFERENCES "SupportingDataSourceInformation" (id)
-);CREATE INDEX "ix_ReferenceIngestGuide_supporting_data_source_info_supporting_data_source_info_id" ON "ReferenceIngestGuide_supporting_data_source_info" (supporting_data_source_info_id);CREATE INDEX "ix_ReferenceIngestGuide_supporting_data_source_info_ReferenceIngestGuide_id" ON "ReferenceIngestGuide_supporting_data_source_info" ("ReferenceIngestGuide_id");
+);CREATE INDEX "ix_ReferenceIngestGuide_supporting_data_source_info_ReferenceIngestGuide_id" ON "ReferenceIngestGuide_supporting_data_source_info" ("ReferenceIngestGuide_id");CREATE INDEX "ix_ReferenceIngestGuide_supporting_data_source_info_supporting_data_source_info_id" ON "ReferenceIngestGuide_supporting_data_source_info" (supporting_data_source_info_id);

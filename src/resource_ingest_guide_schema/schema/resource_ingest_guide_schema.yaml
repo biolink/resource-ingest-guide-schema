@@ -226,7 +226,6 @@ classes:
             of the ingest or used to inform it.
           range: IncludedContent
           multivalued: true
-          required: true
         filtered_content:
           description: >-
            A description of what types of records from each relevant file are not included in the

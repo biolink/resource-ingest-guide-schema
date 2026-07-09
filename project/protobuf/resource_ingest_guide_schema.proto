@@ -1,26 +1,140 @@
  syntax="proto3";
  package
 // metamodel_version: 1.7.0
-// A generic grouping for any identifiable entity
-message NamedThing
+// A structure for describing each type of edge (metaedge) created in the target knowledge graph by this ingest, including what types of edge properties it holds, and a brief explanation of why this modeling pattern was deemed appropriate to represent the source data (for display to end users in a UI system). Note that an edge type with multiple subject_category and object_category values does not mean that the full cross-product must be instantiated in the data. e.g. A KG with the edge type sub_cat: [Gene, Protein, Small Molecule], predicate: affects, obj_cat: [disease, phenotype, symptom] might include  Protein-affects-Disease and Gene-affects-Symptom edges, but not include any  Protein-affects-Symptom edges.
+message EdgeType
  {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
+ repeated  uriorcurie subjectCategories = 0
+ repeated  uriorcurie predicates = 0
+ repeated  uriorcurie objectCategories = 0
+ repeated  qualifier qualifiers = 0
+ repeated  knowledgeLevelEnum knowledgeLevel = 0
+ repeated  agentTypeEnum agentType = 0
+ repeated  uriorcurie primaryKnowledgeSources = 0
+ repeated  uriorcurie supportingDataSources = 0
+ repeated  uriorcurie aggregatorKnowledgeSources = 0
+ repeated  uriorcurie edgeProperties = 0
+  string uiExplanation = 0
+ repeated  string sourceFiles = 0
+ repeated  string additionalNotes = 0
  }
-// Represents a ReferenceIngestGuide
+// A structure for describing the types of records from each relevant file/endpoint/table not included in the ingest, and the rationale for any filtering rules or exclusion criteria. Only list a file if some but not all records it contains are included in the ingest - to document what subset was excluded, and why.
+message FilteredContent
+ {
+  string fileName = 0
+  string filteredRecords = 0
+  string rationale = 0
+ }
+// A structure for collecting notes about content additions or changes to consider in future iterations of this ingest. Create separate objects for each distinct consideration, and indicate if it relates to  content that will be captured as Edges, Node Properties, or Edge Properties in the target knowledge graph.
+message FutureContentConsiderations
+ {
+  contentCategoryEnum category = 0
+  string consideration = 0
+  string relevantFiles = 0
+ }
+// A structure for collecting discrete considerations about modeling changes to consider in future iterations of this ingest. Create and categorize separate objects for each distinct consideration.
+message FutureModelingConsiderations
+ {
+  modelingCategoryEnum category = 0
+  string consideration = 0
+ }
+// A structure for describing the types of records from relevant files/endpoints/tables are included in this ingest, and optionally a list of fields from these records that are part of the ingest or used to inform it.
+message IncludedContent
+ {
+  string fileName = 0
+  string includedRecords = 0
+  string fieldsUsed = 0
+ }
+// A container for capturing information about the rationale and scope of an ingest, including what source content was included and excluded from the ingest, and what additional content might be considered in future iterations.
+message IngestInformation
+ {
+ repeated  ingestCategoryEnum ingestCategories = 0
+  string utility = 0
+  string scope = 0
+ repeated  relevantFiles relevantFiles = 0
+ repeated  includedContent includedContent = 0
+ repeated  filteredContent filteredContent = 0
+ repeated  futureContentConsiderations futureConsiderations = 0
+ repeated  string additionalNotes = 0
+ }
+// A structured object describing each type of node created in the target knowledge graph by this ingest.
+message NodeType
+ {
+  uriorcurie nodeCategory = 0
+ repeated  string sourceIdentifierTypes = 0
+ repeated  uriorcurie nodeProperties = 0
+ repeated  string additionalNotes = 0
+ }
+// A container holding information about the provenance of the ingest, including who contributed and how, and links to external provenance artifacts.
+message ProvenanceInformation
+ {
+ repeated  string contributions = 0
+ repeated  string artifacts = 0
+ }
+// A qualifier property + value tuple that specifies a type of qualifier and value that may be applied to a Statement. Qualified predicates are considered qualifiers and captured here as well. Values can be specified to come from a proper range (e.g. Biolink class, data type, or enum), come from an enumerated list, use a specific id prefix, and/or conform informally to a free-text description. 
+message Qualifier
+ {
+  uriorcurie property = 0
+ repeated  uriorcurie valueRange = 0
+ repeated  string valueEnumeration = 0
+ repeated  string valueIdPrefixes = 0
+  string valueDescription = 0
+ }
+// A container that holds attributes for the discrete sections of information comprising a Resource Ingest Guide.
 message ReferenceIngestGuide
  {
-  uriorcurie id = 0
+  string name = 0
+ repeated  supportingDataSourceInformation supportingDataSourceInfo = 0
+  sourceInformation sourceInfo = 0
+  ingestInformation ingestInfo = 0
+  targetInformation targetInfo = 0
+  provenanceInformation provenanceInfo = 0
+ }
+// A structure for describing each source file (or API endpoint, database, or table) that contains content in scope for the ingest. Source files containing which content is not retrieved  in this ingest need not be listed or described.
+message RelevantFiles
+ {
+  string fileName = 0
+  uriorcurie location = 0
+  string description = 0
+ }
+// A container for capturing information about the source of the ingest.
+message SourceInformation
+ {
+  uriorcurie inforesId = 0
   string name = 0
   string description = 0
-  string primaryEmail = 0
-  date birthDate = 0
-  integer ageInYears = 0
-  personStatus vitalStatus = 0
+ repeated  string citations = 0
+  termsOfUseInformation termsOfUseInfo = 0
+ repeated  string dataAccessLocations = 0
+ repeated  provisionMechanismEnum dataProvisionMechanisms = 0
+ repeated  dataFormatEnum dataFormats = 0
+  string dataVersioningAndReleases = 0
+  sourceStatusEnum sourceStatus = 0
+ repeated  string additionalNotes = 0
  }
-// A holder for ReferenceIngestGuide objects
-message ReferenceIngestGuideCollection
+// A container for information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest. This info is not relevant for typical ingest of an external knowledge source, and applies mainly for describing "ingest" of data-derived KPs like ICEES, COHD, various Multiomics KPs, etc.
+message SupportingDataSourceInformation
  {
- repeated  referenceIngestGuide entries = 0
+  uriorcurie inforesId = 0
+  string name = 0
+  string description = 0
+  termsOfUseInformation termsOfUseInfo = 0
+ repeated  relevantFiles relevantFiles = 0
+ }
+// A structure for capturing information about the target dataset / knowledge graph output by the ingest, including what types of edges and nodes were produced, modeling rationale, and what modeling changes might be considered in future iterations.
+message TargetInformation
+ {
+  uriorcurie inforesId = 0
+ repeated  edgeType edgeTypeInfo = 0
+ repeated  nodeType nodeTypeInfo = 0
+ repeated  futureModelingConsiderations futureConsiderations = 0
+ repeated  string additionalNotes = 0
+ }
+// A structured representation describing terms for re-use of data from an information resource.
+message TermsOfUseInformation
+ {
+  uriorcurie termsOfUseUrl = 0
+  string termsOfUseDescription = 0
+  string licenseName = 0
+  uriorcurie licenseUrl = 0
  }

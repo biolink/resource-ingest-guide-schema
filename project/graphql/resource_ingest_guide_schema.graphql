@@ -1,30 +1,224 @@
 # metamodel_version: 1.7.0
-enum PersonStatus
+enum AgentTypeEnum
   {
-    ALIVE
-    DEAD
-    UNKNOWN
+    manual_agent
+    automated_agent
+    computational_model
+    data_analysis_pipeline
+    text_mining_agent
+    image_processing_agent
+    manual_validation_of_automated_agent
+    experimental_agent
+    not_provided
+    varies
   }
 
-type NamedThing
+enum ContentCategoryEnum
   {
-    id: Uriorcurie!
-    name: String
-    description: String
+    edge_content
+    node_property_content
+    edge_property_content
+    other
+  }
+
+enum DataFormatEnum
+  {
+    tsv
+    xml
+    csv
+    json
+    yaml
+    obo
+    protobuff
+    kgx
+    mysql
+    postgresql
+    sqlite
+    other
+  }
+
+enum IngestCategoryEnum
+  {
+    primary_knowledge_provider
+    aggregation_provider
+    aggregation_interpreter
+    supporting_data_provider
+    translator_knowledge_creator
+    ontology_provider
+    node_property_only_provider
+    other
+  }
+
+enum KnowledgeLevelEnum
+  {
+    knowledge_assertion
+    logical_entailment
+    prediction
+    statistical_association
+    observation
+    not_provided
+    varies
+  }
+
+enum ModelingCategoryEnum
+  {
+    spoq_pattern
+    predicates
+    qualifiers
+    edge_properties
+    node_properties
+    other
+  }
+
+enum ProvisionMechanismEnum
+  {
+    file_download
+    api_endpoint
+    database_dump
+    other
+  }
+
+enum SourceStatusEnum
+  {
+    maintained_regular_updates
+    maintained_as_needed_updates
+    not_maintained
+    unknown
+  }
+
+type EdgeType
+  {
+    subjectCategories: [Uriorcurie]!
+    predicates: [Uriorcurie]!
+    objectCategories: [Uriorcurie]!
+    qualifiers: [Qualifier]
+    knowledgeLevel: [KnowledgeLevelEnum]!
+    agentType: [AgentTypeEnum]!
+    primaryKnowledgeSources: [Uriorcurie]!
+    supportingDataSources: [Uriorcurie]
+    aggregatorKnowledgeSources: [Uriorcurie]
+    edgeProperties: [Uriorcurie]
+    uiExplanation: String!
+    sourceFiles: [String]
+    additionalNotes: [String]
+  }
+
+type FilteredContent
+  {
+    fileName: String!
+    filteredRecords: String!
+    rationale: String!
+  }
+
+type FutureContentConsiderations
+  {
+    category: ContentCategoryEnum!
+    consideration: String!
+    relevantFiles: String
+  }
+
+type FutureModelingConsiderations
+  {
+    category: ModelingCategoryEnum
+    consideration: String!
+  }
+
+type IncludedContent
+  {
+    fileName: String!
+    includedRecords: String!
+    fieldsUsed: String
+  }
+
+type IngestInformation
+  {
+    ingestCategories: [IngestCategoryEnum]
+    utility: String!
+    scope: String
+    relevantFiles: [RelevantFiles]!
+    includedContent: [IncludedContent]
+    filteredContent: [FilteredContent]
+    futureConsiderations: [FutureContentConsiderations]
+    additionalNotes: [String]
+  }
+
+type NodeType
+  {
+    nodeCategory: Uriorcurie!
+    sourceIdentifierTypes: [String]!
+    nodeProperties: [Uriorcurie]
+    additionalNotes: [String]
+  }
+
+type ProvenanceInformation
+  {
+    contributions: [String]
+    artifacts: [String]
+  }
+
+type Qualifier
+  {
+    property: Uriorcurie!
+    valueRange: [Uriorcurie]
+    valueEnumeration: [String]
+    valueIdPrefixes: [String]
+    valueDescription: String
   }
 
 type ReferenceIngestGuide
   {
-    id: Uriorcurie!
     name: String
-    description: String
-    primaryEmail: String
-    birthDate: Date
-    ageInYears: Integer
-    vitalStatus: PersonStatus
+    supportingDataSourceInfo: [SupportingDataSourceInformation]
+    sourceInfo: SourceInformation!
+    ingestInfo: IngestInformation!
+    targetInfo: TargetInformation!
+    provenanceInfo: ProvenanceInformation
   }
 
-type ReferenceIngestGuideCollection
+type RelevantFiles
   {
-    entries: [ReferenceIngestGuide]
+    fileName: String!
+    location: Uriorcurie!
+    description: String
+  }
+
+type SourceInformation
+  {
+    inforesId: Uriorcurie!
+    name: String
+    description: String
+    citations: [String]
+    termsOfUseInfo: TermsOfUseInformation!
+    dataAccessLocations: [String]!
+    dataProvisionMechanisms: [ProvisionMechanismEnum]
+    dataFormats: [DataFormatEnum]
+    dataVersioningAndReleases: String
+    sourceStatus: SourceStatusEnum
+    additionalNotes: [String]
+  }
+
+type SupportingDataSourceInformation
+  {
+    inforesId: Uriorcurie!
+    name: String
+    description: String
+    termsOfUseInfo: TermsOfUseInformation!
+    relevantFiles: [RelevantFiles]!
+  }
+
+type TargetInformation
+  {
+    inforesId: Uriorcurie
+    edgeTypeInfo: [EdgeType]!
+    nodeTypeInfo: [NodeType]!
+    futureConsiderations: [FutureModelingConsiderations]
+    additionalNotes: [String]
+  }
+
+type TermsOfUseInformation
+  {
+    termsOfUseUrl: Uriorcurie
+    termsOfUseDescription: String
+    licenseName: String
+    licenseUrl: Uriorcurie
   }

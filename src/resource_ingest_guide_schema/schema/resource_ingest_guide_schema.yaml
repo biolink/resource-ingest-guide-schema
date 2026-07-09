@@ -155,12 +155,13 @@ classes:
         source_status:
           description: >-
             A term indicating the development status of the data provided by resource.
-          range: SourceStatusEnum      
+          range: SourceStatusEnum
         additional_notes:
           description: >-
             Additional notes, considerations, or resources relevant to the source, that were not
             otherwise captured in dedicated attributes.
           range: string
+          multivalued: true
           
   TermsOfUseInformation:
     description: >-
@@ -224,7 +225,6 @@ classes:
             of the ingest or used to inform it.
           range: IncludedContent
           multivalued: true
-          required: true
         filtered_content:
           description: >-
            A description of what types of records from each relevant file are not included in the
@@ -245,6 +245,7 @@ classes:
             Additional notes, considerations or resources relevant to source content ingest, that were not
             otherwise captured in dedicated attributes.
           range: string
+          multivalued: true
 
   RelevantFiles:
       description: >-
@@ -362,6 +363,7 @@ classes:
             Additional notes, considerations or resources relevant to mapping or modeling source data
             to the target model, that were not otherwise captured in dedicated attributes.
           range: string
+          multivalued: true
 
   EdgeType:
       description: >-
@@ -466,6 +468,7 @@ classes:
             Additional notes, considerations, or explanations of modeling patterns used for this edge type, that were
             not otherwise captured in dedicated fields.
           range: string
+          multivalued: true
 
   Qualifier:
       description: >-
@@ -535,6 +538,7 @@ classes:
             Additional notes, considerations, or explanations concerning this node type, that were not otherwise
             captured in dedicated attributes.
           range: string
+          multivalued: true
           
   FutureModelingConsiderations:
       description: >-
@@ -581,10 +585,14 @@ enums:
     description: >-
       A term indicating the development status of a resource. 
     permissible_values:
-      maintained_regular_updates: the resource's data is being actively maintained and updated on a regular or recurring schedule
-      maintained_as_needed_updates: the resource's data is not being actively maintained and updated on a regular or recurring schedule
-      not_maintained: the resource's data is not being actively maintained, and not subject to updates. 
-      unknown: status of the source w.r.t. its maintenance and updates is not able to be determined. 
+      maintained_regular_updates:
+        description: the resource's data is being actively maintained and updated on a regular or recurring schedule
+      maintained_as_needed_updates:
+        description: the resource's data is not being actively maintained and updated on a regular or recurring schedule
+      not_maintained:
+        description: the resource's data is not being actively maintained, and not subject to updates.
+      unknown:
+        description: status of the source w.r.t. its maintenance and updates is not able to be determined.
 
   DataFormatEnum:
     description: Formats in which data is serialized.

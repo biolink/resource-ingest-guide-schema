@@ -311,7 +311,7 @@
 </tr>
 <tr>
 <td><a href="../additional_notes/">additional_notes</a>: <br/> <i> Additional notes, considerations, or explanations of modeling patterns used for this edge type, that were not otherwise captured in dedicated fields. </i></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>direct</td>
 <td></td>
 </tr>
@@ -502,6 +502,7 @@ attributes:
     - EdgeType
     - NodeType
     range: string
+    multivalued: true
 
 </code></pre>
 </details>

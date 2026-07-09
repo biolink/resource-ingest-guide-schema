@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/included_content/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/source_status/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: included_content (multivalued) - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>Slot: source_status - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-included_content-multivalued" class="md-skip">
+        <a href="#slot-source_status" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: included_content (multivalued)
+              Slot: source_status
             
           </span>
         </div>
@@ -345,31 +345,28 @@
   
 
 
-<h1 id="slot-included_content-multivalued"><strong> Slot: included_content </strong>  (multivalued)</h1>
-<div class="highlight-box"><strong>Description:</strong><i> A description of what types of records from relevant files/endpoints/tables above are included in this ingest, and optionally a list of fields from these records that are part of the ingest or used to inform it.</i><br>
+<h1 id="slot-source_status"><strong> Slot: source_status </strong></h1>
+<div class="highlight-box"><strong>Description:</strong><i> A term indicating the development status of the data provided by resource.</i><br>
 
 
 <br>
 
 </div>
 
-<p><strong>Range:</strong>   <a href="../IncludedContent/">IncludedContent</a> <br></p>
+<p><strong>Range:</strong>   <a href="../SourceStatusEnum/">SourceStatusEnum</a> <br></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="linkml-source">LinkML Source</h2>
 <details open>
 
-<pre><code class="language-yaml">name: included_content
-description: A description of what types of records from relevant files/endpoints/tables
-  above are included in this ingest, and optionally a list of fields from these records
-  that are part of the ingest or used to inform it.
+<pre><code class="language-yaml">name: source_status
+description: A term indicating the development status of the data provided by resource.
 from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-alias: included_content
-owner: IngestInformation
+alias: source_status
+owner: SourceInformation
 domain_of:
-- IngestInformation
-range: IncludedContent
-multivalued: true
+- SourceInformation
+range: SourceStatusEnum
 
 </code></pre>
 

@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/included_content/">
+        <link rel="canonical" href="https://biolink.github.io/information-resource-ingest-guide/SourceStatusEnum/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: included_content (multivalued) - Biolink Reference Ingest Guide Schema Documentation</title>
+        <title>Enum: SourceStatusEnum - Biolink Reference Ingest Guide Schema Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-included_content-multivalued" class="md-skip">
+        <a href="#enum-sourcestatusenum" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: included_content (multivalued)
+              Enum: SourceStatusEnum
             
           </span>
         </div>
@@ -318,6 +318,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#permissible-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissible Values
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots-constrained-by-this-enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slots constrained by this enum
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#linkml-source" class="md-nav__link">
     <span class="md-ellipsis">
       LinkML Source
@@ -345,31 +363,76 @@
   
 
 
-<h1 id="slot-included_content-multivalued"><strong> Slot: included_content </strong>  (multivalued)</h1>
-<div class="highlight-box"><strong>Description:</strong><i> A description of what types of records from relevant files/endpoints/tables above are included in this ingest, and optionally a list of fields from these records that are part of the ingest or used to inform it.</i><br>
-
-
-<br>
-
-</div>
-
-<p><strong>Range:</strong>   <a href="../IncludedContent/">IncludedContent</a> <br></p>
-<!-- no inheritance hierarchy -->
-
+<h1 id="enum-sourcestatusenum"><strong> Enum: </strong> SourceStatusEnum</h1>
+<p>_A term indicating the development status of a resource. _</p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>maintained_regular_updates</td>
+<td>None</td>
+<td>the resource's data is being actively maintained and updated on a regular or recurring schedule</td>
+</tr>
+<tr>
+<td>maintained_as_needed_updates</td>
+<td>None</td>
+<td>the resource's data is not being actively maintained and updated on a regular or recurring schedule</td>
+</tr>
+<tr>
+<td>not_maintained</td>
+<td>None</td>
+<td>the resource's data is not being actively maintained, and not subject to updates.</td>
+</tr>
+<tr>
+<td>unknown</td>
+<td>None</td>
+<td>status of the source w.r.t. its maintenance and updates is not able to be determined.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots-constrained-by-this-enum">Slots constrained by this enum</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../source_status/">source_status</a></td>
+</tr>
+</tbody>
+</table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details open>
 
-<pre><code class="language-yaml">name: included_content
-description: A description of what types of records from relevant files/endpoints/tables
-  above are included in this ingest, and optionally a list of fields from these records
-  that are part of the ingest or used to inform it.
+<pre><code class="language-yaml">name: SourceStatusEnum
+description: 'A term indicating the development status of a resource. '
 from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
-alias: included_content
-owner: IngestInformation
-domain_of:
-- IngestInformation
-range: IncludedContent
-multivalued: true
+permissible_values:
+  maintained_regular_updates:
+    text: maintained_regular_updates
+    description: the resource's data is being actively maintained and updated on a
+      regular or recurring schedule
+  maintained_as_needed_updates:
+    text: maintained_as_needed_updates
+    description: the resource's data is not being actively maintained and updated
+      on a regular or recurring schedule
+  not_maintained:
+    text: not_maintained
+    description: the resource's data is not being actively maintained, and not subject
+      to updates.
+  unknown:
+    text: unknown
+    description: status of the source w.r.t. its maintenance and updates is not able
+      to be determined.
 
 </code></pre>
 

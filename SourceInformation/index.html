@@ -213,6 +213,10 @@
 
       SourceInformation : name
 
+      SourceInformation : source_status
+
+          SourceInformation --|&gt; SourceStatusEnum : source_status
+
       SourceInformation : terms_of_use_info
 
           SourceInformation --|&gt; TermsOfUseInformation : terms_of_use_info
@@ -238,7 +242,7 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="../name/">name</a>: <br/> <i> A human readable name for the RIG </i></td>
+<td><a href="../name/">name</a>: <br/> <i> A human readable name for the source </i></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>direct</td>
 <td></td>
@@ -286,8 +290,14 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../source_status/">source_status</a>: <br/> <i> A term indicating the development status of the data provided by resource. </i></td>
+<td>0..1 <br/> <a href="../SourceStatusEnum/">SourceStatusEnum</a></td>
+<td>direct</td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../additional_notes/">additional_notes</a>: <br/> <i> Additional notes, considerations, or resources relevant to the source, that were not otherwise captured in dedicated attributes. </i></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>direct</td>
 <td></td>
 </tr>
@@ -331,7 +341,7 @@ attributes:
     required: true
   name:
     name: name
-    description: A human readable name for the RIG
+    description: A human readable name for the source
     from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
     domain_of:
     - ReferenceIngestGuide
@@ -407,6 +417,14 @@ attributes:
     - SourceInformation
     range: string
     multivalued: false
+  source_status:
+    name: source_status
+    description: A term indicating the development status of the data provided by
+      resource.
+    from_schema: https://w3id.org/biolink/resource-ingest-guide-schema
+    domain_of:
+    - SourceInformation
+    range: SourceStatusEnum
   additional_notes:
     name: additional_notes
     description: Additional notes, considerations, or resources relevant to the source,
@@ -419,6 +437,7 @@ attributes:
     - EdgeType
     - NodeType
     range: string
+    multivalued: true
 
 </code></pre>
 </details>

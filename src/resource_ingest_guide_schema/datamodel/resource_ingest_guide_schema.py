@@ -1,5 +1,5 @@
 # Auto generated from resource_ingest_guide_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-08T21:34:51
+# Generation date: 2026-07-09T18:38:47
 # Schema: reference_ingest_guide
 #
 # id: https://w3id.org/biolink/resource-ingest-guide-schema
@@ -489,7 +489,7 @@ class TargetInformation(YAMLRoot):
 
         if self._is_empty(self.node_type_info):
             self.MissingRequiredField("node_type_info")
-        self._normalize_inlined_as_dict(slot_name="node_type_info", slot_type=NodeType, key_name="node_category", keyed=False)
+        self._normalize_inlined_as_dict(slot_name="node_type_info", slot_type=NodeType, key_name="node_categories", keyed=False)
 
         if self.infores_id is not None and not isinstance(self.infores_id, URIorCURIE):
             self.infores_id = URIorCURIE(self.infores_id)
@@ -659,16 +659,17 @@ class NodeType(YAMLRoot):
     class_name: ClassVar[str] = "NodeType"
     class_model_uri: ClassVar[URIRef] = BIOLINK.NodeType
 
-    node_category: Union[str, URIorCURIE] = None
+    node_categories: Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]] = None
     source_identifier_types: Union[str, list[str]] = None
     node_properties: Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]] = empty_list()
     additional_notes: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.node_category):
-            self.MissingRequiredField("node_category")
-        if not isinstance(self.node_category, URIorCURIE):
-            self.node_category = URIorCURIE(self.node_category)
+        if self._is_empty(self.node_categories):
+            self.MissingRequiredField("node_categories")
+        if not isinstance(self.node_categories, list):
+            self.node_categories = [self.node_categories] if self.node_categories is not None else []
+        self.node_categories = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.node_categories]
 
         if self._is_empty(self.source_identifier_types):
             self.MissingRequiredField("source_identifier_types")
@@ -1114,8 +1115,8 @@ slots.qualifier__value_id_prefixes = Slot(uri=BIOLINK.value_id_prefixes, name="q
 slots.qualifier__value_description = Slot(uri=BIOLINK.value_description, name="qualifier__value_description", curie=BIOLINK.curie('value_description'),
                    model_uri=BIOLINK.qualifier__value_description, domain=None, range=Optional[str])
 
-slots.nodeType__node_category = Slot(uri=BIOLINK.node_category, name="nodeType__node_category", curie=BIOLINK.curie('node_category'),
-                   model_uri=BIOLINK.nodeType__node_category, domain=None, range=Union[str, URIorCURIE])
+slots.nodeType__node_categories = Slot(uri=BIOLINK.node_categories, name="nodeType__node_categories", curie=BIOLINK.curie('node_categories'),
+                   model_uri=BIOLINK.nodeType__node_categories, domain=None, range=Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]])
 
 slots.nodeType__source_identifier_types = Slot(uri=BIOLINK.source_identifier_types, name="nodeType__source_identifier_types", curie=BIOLINK.curie('source_identifier_types'),
                    model_uri=BIOLINK.nodeType__source_identifier_types, domain=None, range=Union[str, list[str]])

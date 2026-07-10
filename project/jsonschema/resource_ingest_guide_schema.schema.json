@@ -404,9 +404,12 @@
                         "null"
                     ]
                 },
-                "node_category": {
-                    "description": "The high-level Biolink category of nodes as assumed or assigned by ingestors. e.g. \"biolink:Gene\". Note that downstream normalization of node identifiers may result in new/different categories ultimately being assigned in the final graph.",
-                    "type": "string"
+                "node_categories": {
+                    "description": "The high-level Biolink category (or categories) of nodes as assumed or assigned by ingestors, e.g. \"biolink:Gene\". More than one may be listed when the source considers a node type to span several categories (e.g. ChemicalEntity, SmallMolecule, MolecularMixture). Note that downstream normalization of node identifiers may result in new/different categories ultimately being assigned in the final graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "node_properties": {
                     "description": "A list of one or more Biolink node properties used in instances of this node type in the data.",
@@ -427,7 +430,7 @@
                 }
             },
             "required": [
-                "node_category",
+                "node_categories",
                 "source_identifier_types"
             ],
             "title": "NodeType",

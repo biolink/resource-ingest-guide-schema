@@ -60,7 +60,7 @@ message IngestInformation
 // A structured object describing each type of node created in the target knowledge graph by this ingest.
 message NodeType
  {
-  uriorcurie nodeCategory = 0
+ repeated  uriorcurie nodeCategories = 0
  repeated  string sourceIdentifierTypes = 0
  repeated  uriorcurie nodeProperties = 0
  repeated  string additionalNotes = 0

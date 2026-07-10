@@ -61,7 +61,6 @@
 --     * Slot: value_description Description: A free text description of the types of value allowed for the qualifier.
 -- # Class: NodeType Description: A structured object describing each type of node created in the target knowledge graph by this ingest.
 --     * Slot: id
---     * Slot: node_category Description: The high-level Biolink category of nodes as assumed or assigned by ingestors. e.g. "biolink:Gene". Note that downstream normalization of node identifiers may result in new/different categories ultimately being assigned in the final graph.
 -- # Class: FutureModelingConsiderations Description: A structure for collecting discrete considerations about modeling changes to consider in future iterations of this ingest. Create and categorize separate objects for each distinct consideration.
 --     * Slot: id
 --     * Slot: category Description: An optional general category for the modeling consideration (e.g. "spoq_pattern", "edge_properties")
@@ -164,6 +163,9 @@
 -- # Class: Qualifier_value_id_prefixes
 --     * Slot: Qualifier_id Description: Autocreated FK slot
 --     * Slot: value_id_prefixes Description: One or more id prefixes from which the qualifier value must come. e.g. "HP" if the qualifier must be a Human Phenotype Ontology term.
+-- # Class: NodeType_node_categories
+--     * Slot: NodeType_id Description: Autocreated FK slot
+--     * Slot: node_categories Description: The high-level Biolink category (or categories) of nodes as assumed or assigned by ingestors, e.g. "biolink:Gene". More than one may be listed when the source considers a node type to span several categories (e.g. ChemicalEntity, SmallMolecule, MolecularMixture). Note that downstream normalization of node identifiers may result in new/different categories ultimately being assigned in the final graph.
 -- # Class: NodeType_source_identifier_types
 --     * Slot: NodeType_id Description: Autocreated FK slot
 --     * Slot: source_identifier_types Description: The type of identifier(s) used for this category of entity by the source system. Report as a prefix for an identifier system where appropriate/possible (preferably a prefix as cataloged in the Biolink prefix map here: https://github.com/biolink/biolink-model/blob/master/project/prefixmap/biolink-model-prefix-map.json). e.g. "MESH", "CTD", "ECTO". If prefix for a public system/database is not in the prefix map, you may make a PR to add it.  If the identifiers used are bespoke, or no identifiers are used, the value can be a free text description. e.g. "The source uses entity names but does not assign identifiers".
@@ -240,7 +242,6 @@ CREATE TABLE "Qualifier" (
 );CREATE INDEX "ix_Qualifier_id" ON "Qualifier" (id);
 CREATE TABLE "NodeType" (
 	id INTEGER NOT NULL,
-	node_category TEXT NOT NULL,
 	PRIMARY KEY (id)
 );CREATE INDEX "ix_NodeType_id" ON "NodeType" (id);
 CREATE TABLE "FutureModelingConsiderations" (
@@ -278,21 +279,21 @@ CREATE TABLE "IngestInformation_ingest_categories" (
 	ingest_categories VARCHAR(28),
 	PRIMARY KEY ("IngestInformation_id", ingest_categories),
 	FOREIGN KEY("IngestInformation_id") REFERENCES "IngestInformation" (id)
-);CREATE INDEX "ix_IngestInformation_ingest_categories_ingest_categories" ON "IngestInformation_ingest_categories" (ingest_categories);CREATE INDEX "ix_IngestInformation_ingest_categories_IngestInformation_id" ON "IngestInformation_ingest_categories" ("IngestInformation_id");
+);CREATE INDEX "ix_IngestInformation_ingest_categories_IngestInformation_id" ON "IngestInformation_ingest_categories" ("IngestInformation_id");CREATE INDEX "ix_IngestInformation_ingest_categories_ingest_categories" ON "IngestInformation_ingest_categories" (ingest_categories);
 CREATE TABLE "IngestInformation_relevant_files" (
 	"IngestInformation_id" INTEGER,
 	relevant_files_id INTEGER NOT NULL,
 	PRIMARY KEY ("IngestInformation_id", relevant_files_id),
 	FOREIGN KEY("IngestInformation_id") REFERENCES "IngestInformation" (id),
 	FOREIGN KEY(relevant_files_id) REFERENCES "RelevantFiles" (id)
-);CREATE INDEX "ix_IngestInformation_relevant_files_IngestInformation_id" ON "IngestInformation_relevant_files" ("IngestInformation_id");CREATE INDEX "ix_IngestInformation_relevant_files_relevant_files_id" ON "IngestInformation_relevant_files" (relevant_files_id);
+);CREATE INDEX "ix_IngestInformation_relevant_files_relevant_files_id" ON "IngestInformation_relevant_files" (relevant_files_id);CREATE INDEX "ix_IngestInformation_relevant_files_IngestInformation_id" ON "IngestInformation_relevant_files" ("IngestInformation_id");
 CREATE TABLE "IngestInformation_included_content" (
 	"IngestInformation_id" INTEGER,
 	included_content_id INTEGER,
 	PRIMARY KEY ("IngestInformation_id", included_content_id),
 	FOREIGN KEY("IngestInformation_id") REFERENCES "IngestInformation" (id),
 	FOREIGN KEY(included_content_id) REFERENCES "IncludedContent" (id)
-);CREATE INDEX "ix_IngestInformation_included_content_IngestInformation_id" ON "IngestInformation_included_content" ("IngestInformation_id");CREATE INDEX "ix_IngestInformation_included_content_included_content_id" ON "IngestInformation_included_content" (included_content_id);
+);CREATE INDEX "ix_IngestInformation_included_content_included_content_id" ON "IngestInformation_included_content" (included_content_id);CREATE INDEX "ix_IngestInformation_included_content_IngestInformation_id" ON "IngestInformation_included_content" ("IngestInformation_id");
 CREATE TABLE "IngestInformation_filtered_content" (
 	"IngestInformation_id" INTEGER,
 	filtered_content_id INTEGER,
@@ -306,7 +307,7 @@ CREATE TABLE "IngestInformation_future_considerations" (
 	PRIMARY KEY ("IngestInformation_id", future_considerations_id),
 	FOREIGN KEY("IngestInformation_id") REFERENCES "IngestInformation" (id),
 	FOREIGN KEY(future_considerations_id) REFERENCES "FutureContentConsiderations" (id)
-);CREATE INDEX "ix_IngestInformation_future_considerations_future_considerations_id" ON "IngestInformation_future_considerations" (future_considerations_id);CREATE INDEX "ix_IngestInformation_future_considerations_IngestInformation_id" ON "IngestInformation_future_considerations" ("IngestInformation_id");
+);CREATE INDEX "ix_IngestInformation_future_considerations_IngestInformation_id" ON "IngestInformation_future_considerations" ("IngestInformation_id");CREATE INDEX "ix_IngestInformation_future_considerations_future_considerations_id" ON "IngestInformation_future_considerations" (future_considerations_id);
 CREATE TABLE "IngestInformation_additional_notes" (
 	"IngestInformation_id" INTEGER,
 	additional_notes TEXT,
@@ -326,7 +327,7 @@ CREATE TABLE "TargetInformation_node_type_info" (
 	PRIMARY KEY ("TargetInformation_id", node_type_info_id),
 	FOREIGN KEY("TargetInformation_id") REFERENCES "TargetInformation" (id),
 	FOREIGN KEY(node_type_info_id) REFERENCES "NodeType" (id)
-);CREATE INDEX "ix_TargetInformation_node_type_info_TargetInformation_id" ON "TargetInformation_node_type_info" ("TargetInformation_id");CREATE INDEX "ix_TargetInformation_node_type_info_node_type_info_id" ON "TargetInformation_node_type_info" (node_type_info_id);
+);CREATE INDEX "ix_TargetInformation_node_type_info_node_type_info_id" ON "TargetInformation_node_type_info" (node_type_info_id);CREATE INDEX "ix_TargetInformation_node_type_info_TargetInformation_id" ON "TargetInformation_node_type_info" ("TargetInformation_id");
 CREATE TABLE "TargetInformation_future_considerations" (
 	"TargetInformation_id" INTEGER,
 	future_considerations_id INTEGER,
@@ -339,19 +340,19 @@ CREATE TABLE "TargetInformation_additional_notes" (
 	additional_notes TEXT,
 	PRIMARY KEY ("TargetInformation_id", additional_notes),
 	FOREIGN KEY("TargetInformation_id") REFERENCES "TargetInformation" (id)
-);CREATE INDEX "ix_TargetInformation_additional_notes_TargetInformation_id" ON "TargetInformation_additional_notes" ("TargetInformation_id");CREATE INDEX "ix_TargetInformation_additional_notes_additional_notes" ON "TargetInformation_additional_notes" (additional_notes);
+);CREATE INDEX "ix_TargetInformation_additional_notes_additional_notes" ON "TargetInformation_additional_notes" (additional_notes);CREATE INDEX "ix_TargetInformation_additional_notes_TargetInformation_id" ON "TargetInformation_additional_notes" ("TargetInformation_id");
 CREATE TABLE "EdgeType_subject_categories" (
 	"EdgeType_id" INTEGER,
 	subject_categories TEXT NOT NULL,
 	PRIMARY KEY ("EdgeType_id", subject_categories),
 	FOREIGN KEY("EdgeType_id") REFERENCES "EdgeType" (id)
-);CREATE INDEX "ix_EdgeType_subject_categories_EdgeType_id" ON "EdgeType_subject_categories" ("EdgeType_id");CREATE INDEX "ix_EdgeType_subject_categories_subject_categories" ON "EdgeType_subject_categories" (subject_categories);
+);CREATE INDEX "ix_EdgeType_subject_categories_subject_categories" ON "EdgeType_subject_categories" (subject_categories);CREATE INDEX "ix_EdgeType_subject_categories_EdgeType_id" ON "EdgeType_subject_categories" ("EdgeType_id");
 CREATE TABLE "EdgeType_predicates" (
 	"EdgeType_id" INTEGER,
 	predicates TEXT NOT NULL,
 	PRIMARY KEY ("EdgeType_id", predicates),
 	FOREIGN KEY("EdgeType_id") REFERENCES "EdgeType" (id)
-);CREATE INDEX "ix_EdgeType_predicates_predicates" ON "EdgeType_predicates" (predicates);CREATE INDEX "ix_EdgeType_predicates_EdgeType_id" ON "EdgeType_predicates" ("EdgeType_id");
+);CREATE INDEX "ix_EdgeType_predicates_EdgeType_id" ON "EdgeType_predicates" ("EdgeType_id");CREATE INDEX "ix_EdgeType_predicates_predicates" ON "EdgeType_predicates" (predicates);
 CREATE TABLE "EdgeType_object_categories" (
 	"EdgeType_id" INTEGER,
 	object_categories TEXT NOT NULL,
@@ -364,19 +365,19 @@ CREATE TABLE "EdgeType_qualifiers" (
 	PRIMARY KEY ("EdgeType_id", qualifiers_id),
 	FOREIGN KEY("EdgeType_id") REFERENCES "EdgeType" (id),
 	FOREIGN KEY(qualifiers_id) REFERENCES "Qualifier" (id)
-);CREATE INDEX "ix_EdgeType_qualifiers_qualifiers_id" ON "EdgeType_qualifiers" (qualifiers_id);CREATE INDEX "ix_EdgeType_qualifiers_EdgeType_id" ON "EdgeType_qualifiers" ("EdgeType_id");
+);CREATE INDEX "ix_EdgeType_qualifiers_EdgeType_id" ON "EdgeType_qualifiers" ("EdgeType_id");CREATE INDEX "ix_EdgeType_qualifiers_qualifiers_id" ON "EdgeType_qualifiers" (qualifiers_id);
 CREATE TABLE "EdgeType_knowledge_level" (
 	"EdgeType_id" INTEGER,
 	knowledge_level VARCHAR(23) NOT NULL,
 	PRIMARY KEY ("EdgeType_id", knowledge_level),
 	FOREIGN KEY("EdgeType_id") REFERENCES "EdgeType" (id)
-);CREATE INDEX "ix_EdgeType_knowledge_level_knowledge_level" ON "EdgeType_knowledge_level" (knowledge_level);CREATE INDEX "ix_EdgeType_knowledge_level_EdgeType_id" ON "EdgeType_knowledge_level" ("EdgeType_id");
+);CREATE INDEX "ix_EdgeType_knowledge_level_EdgeType_id" ON "EdgeType_knowledge_level" ("EdgeType_id");CREATE INDEX "ix_EdgeType_knowledge_level_knowledge_level" ON "EdgeType_knowledge_level" (knowledge_level);
 CREATE TABLE "EdgeType_agent_type" (
 	"EdgeType_id" INTEGER,
 	agent_type VARCHAR(36) NOT NULL,
 	PRIMARY KEY ("EdgeType_id", agent_type),
 	FOREIGN KEY("EdgeType_id") REFERENCES "EdgeType" (id)
-);CREATE INDEX "ix_EdgeType_agent_type_EdgeType_id" ON "EdgeType_agent_type" ("EdgeType_id");CREATE INDEX "ix_EdgeType_agent_type_agent_type" ON "EdgeType_agent_type" (agent_type);
+);CREATE INDEX "ix_EdgeType_agent_type_agent_type" ON "EdgeType_agent_type" (agent_type);CREATE INDEX "ix_EdgeType_agent_type_EdgeType_id" ON "EdgeType_agent_type" ("EdgeType_id");
 CREATE TABLE "EdgeType_primary_knowledge_sources" (
 	"EdgeType_id" INTEGER,
 	primary_knowledge_sources TEXT NOT NULL,
@@ -406,13 +407,13 @@ CREATE TABLE "EdgeType_source_files" (
 	source_files TEXT,
 	PRIMARY KEY ("EdgeType_id", source_files),
 	FOREIGN KEY("EdgeType_id") REFERENCES "EdgeType" (id)
-);CREATE INDEX "ix_EdgeType_source_files_EdgeType_id" ON "EdgeType_source_files" ("EdgeType_id");CREATE INDEX "ix_EdgeType_source_files_source_files" ON "EdgeType_source_files" (source_files);
+);CREATE INDEX "ix_EdgeType_source_files_source_files" ON "EdgeType_source_files" (source_files);CREATE INDEX "ix_EdgeType_source_files_EdgeType_id" ON "EdgeType_source_files" ("EdgeType_id");
 CREATE TABLE "EdgeType_additional_notes" (
 	"EdgeType_id" INTEGER,
 	additional_notes TEXT,
 	PRIMARY KEY ("EdgeType_id", additional_notes),
 	FOREIGN KEY("EdgeType_id") REFERENCES "EdgeType" (id)
-);CREATE INDEX "ix_EdgeType_additional_notes_additional_notes" ON "EdgeType_additional_notes" (additional_notes);CREATE INDEX "ix_EdgeType_additional_notes_EdgeType_id" ON "EdgeType_additional_notes" ("EdgeType_id");
+);CREATE INDEX "ix_EdgeType_additional_notes_EdgeType_id" ON "EdgeType_additional_notes" ("EdgeType_id");CREATE INDEX "ix_EdgeType_additional_notes_additional_notes" ON "EdgeType_additional_notes" (additional_notes);
 CREATE TABLE "Qualifier_value_range" (
 	"Qualifier_id" INTEGER,
 	value_range TEXT,
@@ -424,13 +425,19 @@ CREATE TABLE "Qualifier_value_enumeration" (
 	value_enumeration TEXT,
 	PRIMARY KEY ("Qualifier_id", value_enumeration),
 	FOREIGN KEY("Qualifier_id") REFERENCES "Qualifier" (id)
-);CREATE INDEX "ix_Qualifier_value_enumeration_Qualifier_id" ON "Qualifier_value_enumeration" ("Qualifier_id");CREATE INDEX "ix_Qualifier_value_enumeration_value_enumeration" ON "Qualifier_value_enumeration" (value_enumeration);
+);CREATE INDEX "ix_Qualifier_value_enumeration_value_enumeration" ON "Qualifier_value_enumeration" (value_enumeration);CREATE INDEX "ix_Qualifier_value_enumeration_Qualifier_id" ON "Qualifier_value_enumeration" ("Qualifier_id");
 CREATE TABLE "Qualifier_value_id_prefixes" (
 	"Qualifier_id" INTEGER,
 	value_id_prefixes TEXT,
 	PRIMARY KEY ("Qualifier_id", value_id_prefixes),
 	FOREIGN KEY("Qualifier_id") REFERENCES "Qualifier" (id)
-);CREATE INDEX "ix_Qualifier_value_id_prefixes_Qualifier_id" ON "Qualifier_value_id_prefixes" ("Qualifier_id");CREATE INDEX "ix_Qualifier_value_id_prefixes_value_id_prefixes" ON "Qualifier_value_id_prefixes" (value_id_prefixes);
+);CREATE INDEX "ix_Qualifier_value_id_prefixes_value_id_prefixes" ON "Qualifier_value_id_prefixes" (value_id_prefixes);CREATE INDEX "ix_Qualifier_value_id_prefixes_Qualifier_id" ON "Qualifier_value_id_prefixes" ("Qualifier_id");
+CREATE TABLE "NodeType_node_categories" (
+	"NodeType_id" INTEGER,
+	node_categories TEXT NOT NULL,
+	PRIMARY KEY ("NodeType_id", node_categories),
+	FOREIGN KEY("NodeType_id") REFERENCES "NodeType" (id)
+);CREATE INDEX "ix_NodeType_node_categories_node_categories" ON "NodeType_node_categories" (node_categories);CREATE INDEX "ix_NodeType_node_categories_NodeType_id" ON "NodeType_node_categories" ("NodeType_id");
 CREATE TABLE "NodeType_source_identifier_types" (
 	"NodeType_id" INTEGER,
 	source_identifier_types TEXT NOT NULL,
@@ -442,7 +449,7 @@ CREATE TABLE "NodeType_node_properties" (
 	node_properties TEXT,
 	PRIMARY KEY ("NodeType_id", node_properties),
 	FOREIGN KEY("NodeType_id") REFERENCES "NodeType" (id)
-);CREATE INDEX "ix_NodeType_node_properties_node_properties" ON "NodeType_node_properties" (node_properties);CREATE INDEX "ix_NodeType_node_properties_NodeType_id" ON "NodeType_node_properties" ("NodeType_id");
+);CREATE INDEX "ix_NodeType_node_properties_NodeType_id" ON "NodeType_node_properties" ("NodeType_id");CREATE INDEX "ix_NodeType_node_properties_node_properties" ON "NodeType_node_properties" (node_properties);
 CREATE TABLE "NodeType_additional_notes" (
 	"NodeType_id" INTEGER,
 	additional_notes TEXT,
@@ -454,13 +461,13 @@ CREATE TABLE "ProvenanceInformation_contributions" (
 	contributions TEXT,
 	PRIMARY KEY ("ProvenanceInformation_id", contributions),
 	FOREIGN KEY("ProvenanceInformation_id") REFERENCES "ProvenanceInformation" (id)
-);CREATE INDEX "ix_ProvenanceInformation_contributions_ProvenanceInformation_id" ON "ProvenanceInformation_contributions" ("ProvenanceInformation_id");CREATE INDEX "ix_ProvenanceInformation_contributions_contributions" ON "ProvenanceInformation_contributions" (contributions);
+);CREATE INDEX "ix_ProvenanceInformation_contributions_contributions" ON "ProvenanceInformation_contributions" (contributions);CREATE INDEX "ix_ProvenanceInformation_contributions_ProvenanceInformation_id" ON "ProvenanceInformation_contributions" ("ProvenanceInformation_id");
 CREATE TABLE "ProvenanceInformation_artifacts" (
 	"ProvenanceInformation_id" INTEGER,
 	artifacts TEXT,
 	PRIMARY KEY ("ProvenanceInformation_id", artifacts),
 	FOREIGN KEY("ProvenanceInformation_id") REFERENCES "ProvenanceInformation" (id)
-);CREATE INDEX "ix_ProvenanceInformation_artifacts_ProvenanceInformation_id" ON "ProvenanceInformation_artifacts" ("ProvenanceInformation_id");CREATE INDEX "ix_ProvenanceInformation_artifacts_artifacts" ON "ProvenanceInformation_artifacts" (artifacts);
+);CREATE INDEX "ix_ProvenanceInformation_artifacts_artifacts" ON "ProvenanceInformation_artifacts" (artifacts);CREATE INDEX "ix_ProvenanceInformation_artifacts_ProvenanceInformation_id" ON "ProvenanceInformation_artifacts" ("ProvenanceInformation_id");
 CREATE TABLE "ReferenceIngestGuide" (
 	id INTEGER NOT NULL,
 	name TEXT,
@@ -492,7 +499,7 @@ CREATE TABLE "SourceInformation_data_access_locations" (
 	data_access_locations TEXT NOT NULL,
 	PRIMARY KEY ("SourceInformation_id", data_access_locations),
 	FOREIGN KEY("SourceInformation_id") REFERENCES "SourceInformation" (id)
-);CREATE INDEX "ix_SourceInformation_data_access_locations_SourceInformation_id" ON "SourceInformation_data_access_locations" ("SourceInformation_id");CREATE INDEX "ix_SourceInformation_data_access_locations_data_access_locations" ON "SourceInformation_data_access_locations" (data_access_locations);
+);CREATE INDEX "ix_SourceInformation_data_access_locations_data_access_locations" ON "SourceInformation_data_access_locations" (data_access_locations);CREATE INDEX "ix_SourceInformation_data_access_locations_SourceInformation_id" ON "SourceInformation_data_access_locations" ("SourceInformation_id");
 CREATE TABLE "SourceInformation_data_provision_mechanisms" (
 	"SourceInformation_id" INTEGER,
 	data_provision_mechanisms VARCHAR(13),
@@ -504,7 +511,7 @@ CREATE TABLE "SourceInformation_data_formats" (
 	data_formats VARCHAR(10),
 	PRIMARY KEY ("SourceInformation_id", data_formats),
 	FOREIGN KEY("SourceInformation_id") REFERENCES "SourceInformation" (id)
-);CREATE INDEX "ix_SourceInformation_data_formats_data_formats" ON "SourceInformation_data_formats" (data_formats);CREATE INDEX "ix_SourceInformation_data_formats_SourceInformation_id" ON "SourceInformation_data_formats" ("SourceInformation_id");
+);CREATE INDEX "ix_SourceInformation_data_formats_SourceInformation_id" ON "SourceInformation_data_formats" ("SourceInformation_id");CREATE INDEX "ix_SourceInformation_data_formats_data_formats" ON "SourceInformation_data_formats" (data_formats);
 CREATE TABLE "SourceInformation_additional_notes" (
 	"SourceInformation_id" INTEGER,
 	additional_notes TEXT,
@@ -517,4 +524,4 @@ CREATE TABLE "ReferenceIngestGuide_supporting_data_source_info" (
 	PRIMARY KEY ("ReferenceIngestGuide_id", supporting_data_source_info_id),
 	FOREIGN KEY("ReferenceIngestGuide_id") REFERENCES "ReferenceIngestGuide" (id),
 	FOREIGN KEY(supporting_data_source_info_id) REFERENCES "SupportingDataSourceInformation" (id)
-);CREATE INDEX "ix_ReferenceIngestGuide_supporting_data_source_info_supporting_data_source_info_id" ON "ReferenceIngestGuide_supporting_data_source_info" (supporting_data_source_info_id);CREATE INDEX "ix_ReferenceIngestGuide_supporting_data_source_info_ReferenceIngestGuide_id" ON "ReferenceIngestGuide_supporting_data_source_info" ("ReferenceIngestGuide_id");
+);CREATE INDEX "ix_ReferenceIngestGuide_supporting_data_source_info_ReferenceIngestGuide_id" ON "ReferenceIngestGuide_supporting_data_source_info" ("ReferenceIngestGuide_id");CREATE INDEX "ix_ReferenceIngestGuide_supporting_data_source_info_supporting_data_source_info_id" ON "ReferenceIngestGuide_supporting_data_source_info" (supporting_data_source_info_id);

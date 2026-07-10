@@ -143,7 +143,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <NodeType> CLOSED {
-    (  $<NodeType_tes> (  <node_category> @linkml:Uriorcurie ;
+    (  $<NodeType_tes> (  <node_categories> @linkml:Uriorcurie + ;
           <source_identifier_types> @linkml:String + ;
           <node_properties> @linkml:Uriorcurie * ;
           <additional_notes> @linkml:String *

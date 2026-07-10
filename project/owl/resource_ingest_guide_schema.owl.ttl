@@ -11,56 +11,56 @@ biolink:ReferenceIngestGuide a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ReferenceIngestGuide" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:provenance_info ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:name ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty biolink:target_info ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:ingest_info ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom biolink:SupportingDataSourceInformation ;
-            owl:onProperty biolink:supporting_data_source_info ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom biolink:TargetInformation ;
-            owl:onProperty biolink:target_info ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom biolink:ProvenanceInformation ;
+            owl:minCardinality 0 ;
             owl:onProperty biolink:provenance_info ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:supporting_data_source_info ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty biolink:source_info ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:IngestInformation ;
+            owl:onProperty biolink:ingest_info ],
         [ a owl:Restriction ;
             owl:allValuesFrom biolink:SourceInformation ;
             owl:onProperty biolink:source_info ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty biolink:source_info ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:TargetInformation ;
             owl:onProperty biolink:target_info ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:supporting_data_source_info ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty biolink:ingest_info ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:source_info ],
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:target_info ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:name ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty biolink:provenance_info ],
         [ a owl:Restriction ;
-            owl:allValuesFrom biolink:IngestInformation ;
-            owl:onProperty biolink:ingest_info ] ;
+            owl:allValuesFrom biolink:SupportingDataSourceInformation ;
+            owl:onProperty biolink:supporting_data_source_info ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:ingest_info ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:ProvenanceInformation ;
+            owl:onProperty biolink:provenance_info ] ;
     skos:definition "A container that holds attributes for the discrete sections of information comprising a Resource Ingest Guide." ;
     skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
@@ -68,17 +68,8 @@ biolink:EdgeType a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "EdgeType" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:ui_explanation ],
-        [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty biolink:primary_knowledge_sources ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty biolink:predicates ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:supporting_data_sources ],
+            owl:onProperty biolink:object_categories ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty biolink:aggregator_knowledge_sources ],
@@ -86,68 +77,77 @@ biolink:EdgeType a owl:Class,
             owl:allValuesFrom biolink:Qualifier ;
             owl:onProperty biolink:qualifiers ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty biolink:subject_categories ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:ui_explanation ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty biolink:predicates ],
         [ a owl:Restriction ;
-            owl:allValuesFrom biolink:KnowledgeLevelEnum ;
-            owl:onProperty biolink:knowledge_level ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:agent_type ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:aggregator_knowledge_sources ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:additional_notes ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:knowledge_level ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:edge_properties ],
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:ui_explanation ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty biolink:edge_properties ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty biolink:supporting_data_sources ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:source_files ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:additional_notes ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:subject_categories ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:source_files ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:object_categories ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
             owl:onProperty biolink:primary_knowledge_sources ],
         [ a owl:Restriction ;
             owl:allValuesFrom biolink:AgentTypeEnum ;
             owl:onProperty biolink:agent_type ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:source_files ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:ui_explanation ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:KnowledgeLevelEnum ;
+            owl:onProperty biolink:knowledge_level ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:knowledge_level ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty biolink:object_categories ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:subject_categories ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:agent_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:source_files ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:subject_categories ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:edge_properties ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:primary_knowledge_sources ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty biolink:qualifiers ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:ui_explanation ],
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:supporting_data_sources ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:ui_explanation ] ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:edge_properties ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:supporting_data_sources ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:predicates ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:aggregator_knowledge_sources ] ;
     skos:definition "A structure for describing each type of edge (metaedge) created in the target knowledge graph by this ingest, including what types of edge properties it holds, and a brief explanation of why this modeling pattern was deemed appropriate to represent the source data (for display to end users in a UI system). Note that an edge type with multiple subject_category and object_category values does not mean that the full cross-product must be instantiated in the data. e.g. A KG with the edge type sub_cat: [Gene, Protein, Small Molecule], predicate: affects, obj_cat: [disease, phenotype, symptom] might include  Protein-affects-Disease and Gene-affects-Symptom edges, but not include any  Protein-affects-Symptom edges." ;
     skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
@@ -155,11 +155,14 @@ biolink:FilteredContent a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "FilteredContent" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
+            owl:minCardinality 1 ;
             owl:onProperty biolink:filtered_records ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:file_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:rationale ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty biolink:filtered_records ],
@@ -168,16 +171,13 @@ biolink:FilteredContent a owl:Class,
             owl:onProperty biolink:file_name ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty biolink:file_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:filtered_records ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty biolink:rationale ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:rationale ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:file_name ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty biolink:rationale ] ;
@@ -188,31 +188,31 @@ biolink:FutureContentConsiderations a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "FutureContentConsiderations" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:relevant_files ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty biolink:category ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:category ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:relevant_files ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:consideration ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty biolink:consideration ],
         [ a owl:Restriction ;
             owl:allValuesFrom biolink:ContentCategoryEnum ;
             owl:onProperty biolink:category ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:relevant_files ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:category ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:consideration ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty biolink:consideration ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:relevant_files ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:relevant_files ] ;
     skos:definition "A structure for collecting notes about content additions or changes to consider in future iterations of this ingest. Create separate objects for each distinct consideration, and indicate if it relates to  content that will be captured as Edges, Node Properties, or Edge Properties in the target knowledge graph." ;
     skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
@@ -221,12 +221,6 @@ biolink:FutureModelingConsiderations a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "FutureModelingConsiderations" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:category ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:consideration ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty biolink:category ],
         [ a owl:Restriction ;
@@ -237,6 +231,12 @@ biolink:FutureModelingConsiderations a owl:Class,
             owl:onProperty biolink:consideration ],
         [ a owl:Restriction ;
             owl:allValuesFrom biolink:ModelingCategoryEnum ;
+            owl:onProperty biolink:category ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:consideration ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty biolink:category ] ;
     skos:definition "A structure for collecting discrete considerations about modeling changes to consider in future iterations of this ingest. Create and categorize separate objects for each distinct consideration." ;
     skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
@@ -245,32 +245,32 @@ biolink:IncludedContent a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "IncludedContent" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:included_records ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty biolink:fields_used ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty biolink:file_name ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty biolink:included_records ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
+            owl:minCardinality 1 ;
             owl:onProperty biolink:included_records ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:fields_used ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
+            owl:minCardinality 1 ;
             owl:onProperty biolink:file_name ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty biolink:fields_used ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:file_name ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:included_records ] ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:file_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:fields_used ] ;
     skos:definition "A structure for describing the types of records from relevant files/endpoints/tables are included in this ingest, and optionally a list of fields from these records that are part of the ingest or used to inform it." ;
     skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
@@ -278,47 +278,47 @@ biolink:IngestInformation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "IngestInformation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom biolink:IngestCategoryEnum ;
             owl:onProperty biolink:ingest_categories ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:filtered_content ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:scope ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:future_considerations ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty biolink:scope ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom biolink:IncludedContent ;
-            owl:onProperty biolink:included_content ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:additional_notes ],
         [ a owl:Restriction ;
             owl:allValuesFrom biolink:RelevantFiles ;
             owl:onProperty biolink:relevant_files ],
         [ a owl:Restriction ;
-            owl:allValuesFrom biolink:IngestCategoryEnum ;
-            owl:onProperty biolink:ingest_categories ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:utility ],
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:additional_notes ],
         [ a owl:Restriction ;
             owl:allValuesFrom biolink:FilteredContent ;
             owl:onProperty biolink:filtered_content ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:scope ],
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:utility ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:additional_notes ],
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:ingest_categories ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty biolink:included_content ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:future_considerations ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:additional_notes ],
         [ a owl:Restriction ;
-            owl:allValuesFrom biolink:FutureContentConsiderations ;
-            owl:onProperty biolink:future_considerations ],
+            owl:allValuesFrom biolink:IncludedContent ;
+            owl:onProperty biolink:included_content ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:filtered_content ],
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:utility ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty biolink:relevant_files ],
@@ -326,10 +326,10 @@ biolink:IngestInformation a owl:Class,
             owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:scope ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:utility ],
+            owl:allValuesFrom biolink:FutureContentConsiderations ;
+            owl:onProperty biolink:future_considerations ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:utility ] ;
     skos:definition "A container for capturing information about the rationale and scope of an ingest, including what source content was included and excluded from the ingest, and what additional content might be considered in future iterations." ;
     skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
@@ -338,20 +338,8 @@ biolink:NodeType a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "NodeType" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty biolink:node_category ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty biolink:source_identifier_types ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty biolink:node_properties ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:node_properties ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:node_category ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:source_identifier_types ],
@@ -359,11 +347,20 @@ biolink:NodeType a owl:Class,
             owl:minCardinality 0 ;
             owl:onProperty biolink:additional_notes ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:node_category ],
-        [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:additional_notes ] ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:node_properties ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:node_categories ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:node_properties ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:node_categories ] ;
     skos:definition "A structured object describing each type of node created in the target knowledge graph by this ingest." ;
     skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
@@ -371,13 +368,13 @@ biolink:ProvenanceInformation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ProvenanceInformation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:contributions ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:artifacts ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
+            owl:minCardinality 0 ;
             owl:onProperty biolink:contributions ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
@@ -389,8 +386,11 @@ biolink:Qualifier a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Qualifier" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:value_enumeration ],
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:value_description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:property ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:value_id_prefixes ],
@@ -399,31 +399,28 @@ biolink:Qualifier a owl:Class,
             owl:onProperty biolink:value_range ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:value_description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:value_enumeration ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty biolink:property ],
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:value_description ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty biolink:property ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty biolink:property ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty biolink:value_id_prefixes ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:value_description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:value_description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:property ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:value_description ],
-        [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty biolink:value_range ] ;
+            owl:onProperty biolink:value_range ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:value_enumeration ] ;
     skos:definition "A qualifier property + value tuple that specifies a type of qualifier and value that may be applied to a Statement. Qualified predicates are considered qualifiers and captured here as well. Values can be specified to come from a proper range (e.g. Biolink class, data type, or enum), come from an enumerated list, use a specific id prefix, and/or conform informally to a free-text description. " ;
     skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
@@ -432,88 +429,88 @@ biolink:SourceInformation a owl:Class,
     rdfs:label "SourceInformation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty biolink:additional_notes ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:additional_notes ],
+            owl:onProperty biolink:name ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty biolink:data_versioning_and_releases ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:data_access_locations ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:terms_of_use_info ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty biolink:infores_id ],
         [ a owl:Restriction ;
             owl:allValuesFrom biolink:TermsOfUseInformation ;
             owl:onProperty biolink:terms_of_use_info ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty biolink:data_formats ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:terms_of_use_info ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty biolink:infores_id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom biolink:DataFormatEnum ;
-            owl:onProperty biolink:data_formats ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:data_provision_mechanisms ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:data_versioning_and_releases ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:data_access_locations ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty biolink:citations ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:data_access_locations ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom biolink:ProvisionMechanismEnum ;
-            owl:onProperty biolink:data_provision_mechanisms ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:infores_id ],
         [ a owl:Restriction ;
             owl:allValuesFrom biolink:SourceStatusEnum ;
             owl:onProperty biolink:source_status ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:description ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty biolink:description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty biolink:source_status ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:data_versioning_and_releases ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty biolink:terms_of_use_info ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:data_versioning_and_releases ],
+            owl:onProperty biolink:data_access_locations ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:citations ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:name ],
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:terms_of_use_info ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty biolink:name ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty biolink:source_status ] ;
+            owl:onProperty biolink:data_provision_mechanisms ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:DataFormatEnum ;
+            owl:onProperty biolink:data_formats ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:data_versioning_and_releases ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:additional_notes ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:source_status ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:ProvisionMechanismEnum ;
+            owl:onProperty biolink:data_provision_mechanisms ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:data_formats ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:description ] ;
     skos:definition "A container for capturing information about the source of the ingest." ;
     skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
@@ -521,26 +518,26 @@ biolink:SupportingDataSourceInformation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "SupportingDataSourceInformation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom biolink:TermsOfUseInformation ;
-            owl:onProperty biolink:terms_of_use_info ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:name ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty biolink:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:infores_id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:infores_id ],
+            owl:onProperty biolink:description ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:name ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:name ],
+        [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:name ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty biolink:relevant_files ],
@@ -551,17 +548,17 @@ biolink:SupportingDataSourceInformation a owl:Class,
             owl:allValuesFrom biolink:RelevantFiles ;
             owl:onProperty biolink:relevant_files ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:description ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty biolink:terms_of_use_info ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom biolink:TermsOfUseInformation ;
             owl:onProperty biolink:terms_of_use_info ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:description ] ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:terms_of_use_info ] ;
     skos:definition "A container for information about upstream sources of data that are used by an ingested source, to derive the knowledge that we ingest. This info is not relevant for typical ingest of an external knowledge source, and applies mainly for describing \"ingest\" of data-derived KPs like ICEES, COHD, various Multiomics KPs, etc." ;
     skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
@@ -569,32 +566,32 @@ biolink:TargetInformation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "TargetInformation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom biolink:EdgeType ;
-            owl:onProperty biolink:edge_type_info ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:infores_id ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty biolink:node_type_info ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty biolink:additional_notes ],
+            owl:onProperty biolink:future_considerations ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:infores_id ],
+            owl:allValuesFrom biolink:EdgeType ;
+            owl:onProperty biolink:edge_type_info ],
         [ a owl:Restriction ;
             owl:allValuesFrom biolink:NodeType ;
             owl:onProperty biolink:node_type_info ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty biolink:future_considerations ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:additional_notes ],
         [ a owl:Restriction ;
             owl:allValuesFrom biolink:FutureModelingConsiderations ;
             owl:onProperty biolink:future_considerations ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:infores_id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:additional_notes ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty biolink:infores_id ],
@@ -863,11 +860,14 @@ biolink:RelevantFiles a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "RelevantFiles" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:location ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty biolink:file_name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty biolink:location ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:description ],
@@ -875,17 +875,14 @@ biolink:RelevantFiles a owl:Class,
             owl:maxCardinality 1 ;
             owl:onProperty biolink:location ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:file_name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty biolink:location ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:description ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty biolink:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:file_name ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:file_name ] ;
@@ -916,32 +913,26 @@ biolink:TermsOfUseInformation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "TermsOfUseInformation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:terms_of_use_description ],
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:terms_of_use_url ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:license_name ],
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:license_url ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:license_url ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:terms_of_use_description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:license_name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty biolink:terms_of_use_url ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:license_name ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:license_name ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:license_url ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:terms_of_use_description ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty biolink:license_url ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:license_url ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty biolink:terms_of_use_url ],
@@ -949,8 +940,14 @@ biolink:TermsOfUseInformation a owl:Class,
             owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:terms_of_use_description ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:license_name ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty biolink:terms_of_use_url ] ;
+            owl:onProperty biolink:terms_of_use_description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:license_url ] ;
     skos:definition "A structured representation describing terms for re-use of data from an information resource." ;
     skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
@@ -1036,6 +1033,12 @@ biolink:knowledge_level a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "knowledge_level" ;
     skos:definition "The knowledge level (or levels) relevant to this type of edge. Multivalued only if instances of this type of edge can have different knowledge levels in the data." ;
+    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
+
+biolink:node_categories a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "node_categories" ;
+    skos:definition "The high-level Biolink category (or categories) of nodes as assumed or assigned by ingestors, e.g. \"biolink:Gene\". More than one may be listed when the source considers a node type to span several categories (e.g. ChemicalEntity, SmallMolecule, MolecularMixture). Note that downstream normalization of node identifiers may result in new/different categories ultimately being assigned in the final graph." ;
     skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
 biolink:node_properties a owl:ObjectProperty,
@@ -1169,12 +1172,6 @@ biolink:location a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "location" ;
     skos:definition "The URL of a web page or ftp site where the indicated file (or endpoint or table) was accessed." ;
-    skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
-
-biolink:node_category a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "node_category" ;
-    skos:definition "The high-level Biolink category of nodes as assumed or assigned by ingestors. e.g. \"biolink:Gene\". Note that downstream normalization of node identifiers may result in new/different categories ultimately being assigned in the final graph." ;
     skos:inScheme <https://w3id.org/biolink/resource-ingest-guide-schema> .
 
 biolink:property a owl:ObjectProperty,

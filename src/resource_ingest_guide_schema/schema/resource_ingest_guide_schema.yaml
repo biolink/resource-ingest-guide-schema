@@ -511,12 +511,15 @@ classes:
       description: >-
         A structured object describing each type of node created in the target knowledge graph by this ingest.
       attributes:
-        node_category:
-          description: >- 
-            The high-level Biolink category of nodes as assumed or assigned by ingestors. e.g. "biolink:Gene".
+        node_categories:
+          description: >-
+            The high-level Biolink category (or categories) of nodes as assumed or assigned by ingestors,
+            e.g. "biolink:Gene". More than one may be listed when the source considers a node type to span
+            several categories (e.g. ChemicalEntity, SmallMolecule, MolecularMixture).
             Note that downstream normalization of node identifiers may result in new/different categories
             ultimately being assigned in the final graph.
           range: uriorcurie
+          multivalued: true
           required: true
         source_identifier_types:
           description: >- 
